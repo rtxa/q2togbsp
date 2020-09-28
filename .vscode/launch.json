@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "C++ Debug (Windows)",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/q2togbsp.exe",
+            "preLaunchTask": "Build C++ project",
+            "args": ["C:/Users/rtxa/Documents/q2togbsp/bin/g3dtest1_quake1.map",
+                    "C:/Users/rtxa/Documents/q2togbsp/bin/g3dtest1_q2togbsp.map"
+                ],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true,
+        }
+    ]
+}
