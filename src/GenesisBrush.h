@@ -30,7 +30,7 @@ public:
 	void insertFace(GenesisFace face);
 	std::vector<GenesisFace>::const_iterator begin() const;
 	std::vector<GenesisFace>::const_iterator end() const;
-	void printBrush();
+	void printBrush() const;
 private:
 	int m_flags;
 	std::vector<GenesisFace> m_faces;

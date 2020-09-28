@@ -12,12 +12,6 @@ bool GBSPWriter::writeGBSPFile(const std::string filename, const GenesisMap& gMa
 
 	writeFileHeader(gMap);
 
-	for (auto itr = gMap.begin(); itr != gMap.end(); itr++) {
-		writeBrush(*itr);
-	}
-
-	writeMapAtribbutes(gMap);
-
 	for (auto itr = gMap.beginEnt(); itr != gMap.endEnt(); itr++) {
 		writeEntity(*itr);
 	}
@@ -34,10 +28,8 @@ GBSPWriter::Result GBSPWriter::writeFileHeader(const GenesisMap& gMap) {
 	fileH.version = 1;
 	tag.copy(fileH.tag, 4);
 
-	fileH.numEntities = 1 + gMap.getNumEntities() + 2; // worldspawn + m_entities.size() + entity typedefs;
-	fileH.numBrushes = gMap.getNumBrushes();
+	fileH.numEntities = gMap.getNumEntities() + 2; // worldspawn + normal entities + entity typedefs;
 
-	std::cout << "Num brushes: " << gMap.getNumBrushes() << '\n';
 	m_genesisMap.write(reinterpret_cast<const char*>(&fileH), sizeof(FileHeader));
 
 	return Result::RESULT_SUCCED;
@@ -88,6 +80,12 @@ GBSPWriter::Result GBSPWriter::writeKeyValue(std::string key, std::string value)
 
 GBSPWriter::Result GBSPWriter::writeEntity(GenesisEntity gEnt) {
 	writeInt(gEnt.getNumBrushes());
+	if (gEnt.getNumBrushes() > 0) {
+		for (auto itr = gEnt.begin(); itr != gEnt.end(); itr++) {
+			writeBrush(*itr);
+		}
+	}
+
 	writeInt(gEnt.getFlags());
 	writeInt(gEnt.getNumKeys());
 
@@ -110,18 +108,6 @@ GBSPWriter::Result GBSPWriter::writeBrush(GenesisBrush brush) {
 	}
 
 	return Result::RESULT_SUCCED;
-}
-
-void GBSPWriter::writeMapAtribbutes(const GenesisMap& gMap) {
-	// Si numero de entidades es mayor a 1, entonces leera los brushes y luego al final de todo leera el texture lib, si es un model, etc
-	int entFlags = 0; // no motion for this model (los models tienen flags pero en este caso no
-	int numFields = 1; // numfields = #sky faces + TextureLibrary + SkyAxis + SkyRotation + SkyScaling
-	
-	writeInt(entFlags);
-	writeInt(numFields);
-
-	// write texture lib (gedit.txl)
-	writeKeyValue("TextureLib", "C:\\Genesis3D\\v120\\Levels\\gedit.txl");
 }
 
 void GBSPWriter::writeTypeDefs() {

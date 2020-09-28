@@ -17,7 +17,6 @@ class GBSPWriter {
 		std::int32_t	version;
 		char			tag[4];
 		std::int32_t	numEntities;
-		std::int32_t	numBrushes;
 	};
 
 	struct BrushHeader {
@@ -53,8 +52,6 @@ private:
 	std::fstream m_genesisMap;
 
 	Result writeFileHeader(const GenesisMap& gMap);
-	//void writeWorldSpawn(const GenesisEntity& gEnt)
-	void writeMapAtribbutes(const GenesisMap& gMap);
 	Result writeBrush(GenesisBrush brush); // perhaps inside goes WriteFaces();
 	Result writeFace(GenesisFace face);
 	Result writeKeyValue(std::string key, std::string value);

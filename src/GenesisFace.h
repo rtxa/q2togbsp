@@ -19,7 +19,7 @@ class GenesisFace {
 
 public:
 	GenesisFace();
-	void printFace();
+	void printFace() const;
 	void setFlags(int value);
 	void setMipMapBias(float value); // not implemented
 	void setAlpha(float value); // value is between 0-255

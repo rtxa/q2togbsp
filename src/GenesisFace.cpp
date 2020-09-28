@@ -133,7 +133,7 @@ float GenesisFace::getDistance() {
 	return m_distance;
 }
 
-void GenesisFace::printFace() {
+void GenesisFace::printFace() const {
 	std::cout << "Face: ";
 	std::cout << "Normal " << "[ " << m_normal.x << '\t' << m_normal.y << '\t' << m_normal.z << '\t' << m_distance << " ] ";
 	std::cout << "TexName: " << m_textureName << " Scale X/Y " << m_xScale << ' ' << m_yScale;

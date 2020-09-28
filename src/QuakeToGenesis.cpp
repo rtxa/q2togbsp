@@ -14,15 +14,6 @@ bool QuakeToGenesis::convertTo(const QuakeMap qMap, GenesisMap& gMap) {
 			gMap.insertEntity(gEnt);
 		}
 		gEnt = GenesisEntity();
-		for (auto itrBrush = itrEnt->begin(); itrBrush != itrEnt->end(); itrBrush++) {
-			for (auto itrFace = itrBrush->begin(); itrFace != itrBrush->end(); itrFace++) {
-				faceToGenesis((*itrFace), gFace);
-				gBrush.insertFace(gFace);
-				gFace = GenesisFace(); // clear for next iteration
-			}
-			gMap.insertBrush(gBrush);
-			gBrush = GenesisBrush(); // clear for next iteration			
-		}
 	}
 
 	// TODO is better with this syntax, less bloated
@@ -152,9 +143,21 @@ void QuakeToGenesis::worldTextureVecsToUV(const Vector3f normal, const float rot
 }
 
 bool QuakeToGenesis::entToGenesis(const QuakeEntity qEnt, GenesisEntity& gEnt) {
+	// insert brushes to genesis entity
+	for (auto itrBrush = qEnt.begin(); itrBrush != qEnt.end(); itrBrush++) {
+		GenesisBrush gBrush;
+		for (auto itrFace = itrBrush->begin(); itrFace != itrBrush->end(); itrFace++) {
+			GenesisFace gFace;
+			faceToGenesis((*itrFace), gFace);
+			gBrush.insertFace(gFace);
+		}
+		gEnt.insertBrush(gBrush);
+	}
+
+	// insert keyvalues to genesis entity
 	// we should return directly the map (a copy or a reference then)
 	for (auto itr = qEnt.beginKeyValues(); itr != qEnt.endKeyValues(); itr++) {
-		if (itr->first == "classname" && itr->first != "worldspawn") {
+		if (itr->first == "classname" && itr->second != "worldspawn") {
 			// Every entity has a name assignaed (light1, light2, etc...)
 			// Generate those names automatically
 			if (m_numEntsByClass.count(itr->second)) {
