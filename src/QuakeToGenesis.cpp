@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "QuakeToGenesis.h"
 #include "GenesisBrush.h"
 #include "StringTokenizer.h"
@@ -155,37 +157,51 @@ bool QuakeToGenesis::entToGenesis(const QuakeEntity qEnt, GenesisEntity& gEnt) {
 	}
 
 	// insert keyvalues to genesis entity
-	// we should return directly the map (a copy or a reference then)
+	// TODO compare insensitive case using c.str() and stricmp
 	for (auto itr = qEnt.beginKeyValues(); itr != qEnt.endKeyValues(); itr++) {
+		// Every entity has a name assigned (light1, light2, etc...)
+		// Generate those names automatically
 		if (itr->first == "classname" && itr->second != "worldspawn") {
-			// Every entity has a name assignaed (light1, light2, etc...)
-			// Generate those names automatically
-			if (m_numEntsByClass.count(itr->second)) {
-				int num = m_numEntsByClass.at(itr->second);
-				num++;
-				gEnt.insertKeyValue("%name%", itr->second + std::to_string(num));
-				m_numEntsByClass.erase(itr->second);
-				m_numEntsByClass.insert(std::pair<std::string, int>(itr->second, num));
+			gEnt.insertKeyValue("%name%", getNameForEntity(itr->second));
+		} else if (itr->first == "origin") { 
+			float x = 0.0f, y = 0.0f, z = 0.0f;
+			if (convertOriginToGenesis(itr->second, x, y, z)) {
+				gEnt.insertKeyValue(itr->first, std::to_string(x) + ' ' + std::to_string(y) + ' ' + std::to_string(z));
+				continue;
 			} else {
-				gEnt.insertKeyValue("%name%", itr->second + std::to_string(1));
-				m_numEntsByClass.insert(std::pair<std::string, int>(itr->second, 1));
+				std::cout << "Error converting origin to Genesis\n";
 			}
-		} else if (itr->first == "origin") { // TODO compare insensitive case using c.str() and stricmp
-			// Convert Quake coordinates to Genesis
-			// TODO missing sanity check
-			float x, y, z;
-			x = y = z = 0.0f;
-			StringTokenizer st = StringTokenizer(itr->second);
-			x = st.nextTokenFloat();
-			z = st.nextTokenFloat();
-			y = st.nextTokenFloat();
-			z = -z;
-
-			gEnt.insertKeyValue(itr->first, std::to_string(x) + ' ' + std::to_string(y) + ' ' + std::to_string(z));
-			continue;
 		}
 		gEnt.insertKeyValue(itr->first, itr->second);
 	}
 
 	return false;
+}
+
+const std::string QuakeToGenesis::getNameForEntity(const std::string classname) {
+			// Every entity has a name assignaed (light1, light2, etc...)
+			// Generate those names automatically
+			int num = 0;
+			int exists = m_numEntsByClass.count(classname);
+			if (!exists) {
+				m_numEntsByClass.insert(std::pair<std::string, int>(classname, 0));
+			}
+			num = m_numEntsByClass.at(classname);
+			m_numEntsByClass.at(classname) = ++num;
+			return classname + std::to_string(num);
+}
+
+bool QuakeToGenesis::convertOriginToGenesis(std::string origin, float& x, float& y, float& z) {
+	StringTokenizer st = StringTokenizer(origin);
+
+	if (st.countTokens() < 3) {
+		return false;
+	}
+
+	x = st.nextTokenFloat();
+	z = st.nextTokenFloat();
+	y = st.nextTokenFloat();
+	z = -z;
+
+	return true;
 }

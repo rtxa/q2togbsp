@@ -29,6 +29,17 @@ private:
 	void worldTextureVecsToUV(const Vector3f normal, const float rotation, Vector3f& uVec, Vector3f& vVec);
 
 	bool entToGenesis(const QuakeEntity qEnt, GenesisEntity& gEnt);
+	/*
+	 * Generates an unique name for the entity classname:
+	 * Example: if classname is "light" and there are already 3 lights
+	 * the next light will be called "light4"
+	 */
+	const std::string QuakeToGenesis::getNameForEntity(const std::string classname);
+
+	/*
+	 * Convert Quake coordinates to Genesis
+	 */
+	bool convertOriginToGenesis(std::string origin,  float& x, float& y, float &z);
 
 	std::map<std::string, int> m_numEntsByClass; // used for %name% to count number of entities by class to assign a name
 };
