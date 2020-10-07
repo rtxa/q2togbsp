@@ -14,6 +14,9 @@ public:
 	void setScaleY(const float value);
 	void setPlane(const Vector3f point1, const Vector3f point2, const Vector3f point3);
 	void setTextureName(const std::string name);
+	void setContentFlags(int flags);
+	void setSurfaceFlags(int flags);
+	void setLightIntensity(int value);
 
 	float getOffsetX() const;
 	float getOffsetY() const;
@@ -22,6 +25,10 @@ public:
 	float getScaleY() const;
 	Vector3f getPlane(int index) const;
 	std::string getTextureName() const;
+	int getContentFlags() const;
+	int getSurfaceFlags() const;
+	int getLightIntensity() const;
+
 	void printFace() const;
 private:
 	// plane
@@ -33,5 +40,8 @@ private:
 	float m_rotation;
 	float m_xScale;
 	float m_yScale;
+	int m_surfaceFlags;
+	int m_contentFlags;
+	int m_lightIntensity;
 	std::string m_textureName; // TODO maybe i should use char[32] or an std::array
 };

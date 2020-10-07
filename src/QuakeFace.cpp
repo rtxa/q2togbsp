@@ -9,6 +9,9 @@ QuakeFace::QuakeFace() {
 	m_xScale = m_yScale = 0.0f;
 	m_rotation = 0.0f;
 	m_textureName = "";
+	m_contentFlags = 0;
+	m_surfaceFlags = 0;
+	m_lightIntensity = 0;
 }
 
 void QuakeFace::setOffsetX(float value) {
@@ -38,6 +41,18 @@ void QuakeFace::setPlane(const Vector3f point1, const Vector3f point2, const Vec
 
 void QuakeFace::setTextureName(const std::string name) {
 	m_textureName = name;
+}
+
+void QuakeFace::setContentFlags(int flags){
+	m_contentFlags = flags;
+}
+
+void QuakeFace::setSurfaceFlags(int flags) {
+	m_surfaceFlags = flags;
+}
+
+void QuakeFace::setLightIntensity(int value) {
+	m_lightIntensity = value;
 }
 
 float QuakeFace::getOffsetX() const {
@@ -71,6 +86,18 @@ Vector3f QuakeFace::getPlane(const int index) const {
 
 std::string QuakeFace::getTextureName() const {
 	return m_textureName;
+}
+
+int QuakeFace::getContentFlags() const {
+	return m_contentFlags;
+}
+
+int QuakeFace::getSurfaceFlags() const {
+	return m_surfaceFlags;
+}
+
+int QuakeFace::getLightIntensity() const {
+	return m_lightIntensity;
 }
 
 void QuakeFace::printFace() const {

@@ -62,7 +62,10 @@ bool QuakeToGenesis::faceToGenesis(const QuakeFace qFace, GenesisFace& gFace) {
 	gFace.setOffsetX(qFace.getOffsetX());
 	gFace.setOffsetY(-qFace.getOffsetY());
 
+	gFace.setFlags(qFace.getSurfaceFlags());
 
+
+	gFace.setLightIntensity(qFace.getLightIntensity());
 	// TODO add light map scale in GenesisFace.h
 	// also this conversion of light map scale is bugged...
 
@@ -147,12 +150,21 @@ void QuakeToGenesis::worldTextureVecsToUV(const Vector3f normal, const float rot
 bool QuakeToGenesis::entToGenesis(const QuakeEntity qEnt, GenesisEntity& gEnt) {
 	// insert brushes to genesis entity
 	for (auto itrBrush = qEnt.begin(); itrBrush != qEnt.end(); itrBrush++) {
+		// TODO create function brushToGenesis
 		GenesisBrush gBrush;
+		int contentFlags = 0;
 		for (auto itrFace = itrBrush->begin(); itrFace != itrBrush->end(); itrFace++) {
 			GenesisFace gFace;
 			faceToGenesis((*itrFace), gFace);
 			gBrush.insertFace(gFace);
+			//  only use the one from the first face
+			contentFlags = itrFace->getContentFlags();
 		}
+		if (contentFlags == 0) {
+			contentFlags = GenesisBrush::BrushContentFlags::Solid;
+		}
+		gBrush.setFlags(contentFlags);
+		
 		gEnt.insertBrush(gBrush);
 	}
 

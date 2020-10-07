@@ -210,6 +210,33 @@ QuakeParser::Result QuakeParser::parseFace(const std::string line) {
 		std::cout << "Error in parsing token to float" << '\n';
 	}
 
+
+	// read Quake 2 parameters if they exist
+	if (st.countTokens() < 3) {
+		return Result::RESULT_SUCCED;
+	}
+
+	try {
+		m_face.setContentFlags(st.nextTokenFloat());
+	}
+	catch (...) {
+		std::cout << "Error in parsing token to float" << '\n';
+	}
+
+	try {
+		m_face.setSurfaceFlags(st.nextTokenFloat());
+	}
+	catch (...) {
+		std::cout << "Error in parsing token to float" << '\n';
+	}
+
+	try {
+		m_face.setLightIntensity(static_cast<int>(st.nextTokenFloat()));
+	}
+	catch (...) {
+		std::cout << "Error in parsing token to float" << '\n';
+	}
+
 	//m_face.printFace();
 
 	return Result::RESULT_SUCCED;

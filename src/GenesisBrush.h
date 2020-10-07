@@ -6,6 +6,7 @@
 
 
 class GenesisBrush {
+public:
 	enum BrushContentFlags : int {
 		Solid = (1 << 0),		// Solid (Visible)
 		Window = (1 << 1),		// Window (Visible)
@@ -22,7 +23,6 @@ class GenesisBrush {
 		// flags 16 through 31 are user flags.
 	};
 
-public:
 	GenesisBrush();
 	int getFlags();
 	int getNumFaces();
