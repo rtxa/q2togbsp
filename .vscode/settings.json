@@ -53,5 +53,6 @@
         "xstddef": "cpp",
         "xtr1common": "cpp"
     },
-    "terminal.integrated.shell.windows": "cmd.exe"
+    "terminal.integrated.shell.windows": "cmd.exe",
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools"
 }
