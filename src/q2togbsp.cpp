@@ -14,10 +14,10 @@
 int main(int argc, char* argv[]) {
 	if (argc < 2) {
 		std::cout << "No file input specified for converting!\n";
-		return 0;
+		return 1;
 	} else if (argc < 3) {
 		std::cout << "No file output specified for converting!\n";
-		return 0;
+		return 1;
 	}
 
 	QuakeMap qMap = QuakeMap();
