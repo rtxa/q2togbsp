@@ -40,7 +40,7 @@ GBSPWriter::Result GBSPWriter::writeFace(GenesisFace face) {
 
 	faceH.flags = face.getFlags();
 	faceH.mipMapBias = face.getMipMapBias();
-	faceH.lightIntensity = face.getLightIntensity();
+	faceH.lightIntensity = static_cast<float>(face.getLightIntensity());
 	faceH.alpha = face.getAlpha();
 	faceH.reflectivityScale = face.getReflectivityScale();
 
