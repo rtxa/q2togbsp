@@ -11,8 +11,8 @@ public:
 	void printAll();
 
 	// Iterators
-	inline std::vector<GenesisEntity>::const_iterator GenesisMap::beginEnt() const { return m_entities.begin(); };
-	inline std::vector<GenesisEntity>::const_iterator GenesisMap::endEnt() const { return m_entities.end(); };
+	inline std::vector<GenesisEntity>::const_iterator beginEnt() const { return m_entities.begin(); };
+	inline std::vector<GenesisEntity>::const_iterator endEnt() const { return m_entities.end(); };
 
 private:
 	std::vector<GenesisEntity> m_entities;
