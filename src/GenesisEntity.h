@@ -18,11 +18,11 @@ public:
 	void setFlags(int flags);
 
 	// Iterators
-	inline std::vector<GenesisBrush>::const_iterator GenesisEntity::begin() const { return m_brushes.begin(); };
-	inline std::vector<GenesisBrush>::const_iterator GenesisEntity::end() const { return m_brushes.end(); };
+	inline std::vector<GenesisBrush>::const_iterator begin() const { return m_brushes.begin(); };
+	inline std::vector<GenesisBrush>::const_iterator end() const { return m_brushes.end(); };
 	
-	inline std::map<std::string, std::string>::const_iterator GenesisEntity::beginKeyValues() const { return m_keyvalues.begin(); };
-	inline std::map<std::string, std::string>::const_iterator GenesisEntity::endKeyValues() const { return m_keyvalues.end(); };
+	inline std::map<std::string, std::string>::const_iterator beginKeyValues() const { return m_keyvalues.begin(); };
+	inline std::map<std::string, std::string>::const_iterator endKeyValues() const { return m_keyvalues.end(); };
 
 private:
 	//bool hasMotion();

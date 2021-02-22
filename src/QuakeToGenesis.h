@@ -34,7 +34,7 @@ private:
 	 * Example: if classname is "light" and there are already 3 lights
 	 * the next light will be called "light4"
 	 */
-	const std::string QuakeToGenesis::getNameForEntity(const std::string classname);
+	const std::string getNameForEntity(const std::string classname);
 
 	/*
 	 * Convert Quake coordinates to Genesis
