@@ -6,7 +6,7 @@ GenesisFace::GenesisFace() {
 	m_flags = 0;
 	m_mipMapBias = 1.0f;
 	m_alpha = 255.0f;
-	m_lightIntensity = 300.0f;
+	m_lightIntensity = 300;
 	m_reflectivityScale = 1.0f;
 
 	m_uVec = Vector3f(0.0f, 0.0f, 0.0f);

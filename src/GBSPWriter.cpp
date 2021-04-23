@@ -40,11 +40,11 @@ GBSPWriter::Result GBSPWriter::writeFace(GenesisFace face) {
 
 	faceH.flags = face.getFlags();
 	faceH.mipMapBias = face.getMipMapBias();
-	faceH.lightIntensity = face.getLightIntensity();
+	faceH.lightIntensity = static_cast<float>(face.getLightIntensity());
 	faceH.alpha = face.getAlpha();
 	faceH.reflectivityScale = face.getReflectivityScale();
 
-	strncpy(faceH.textureName, face.getTextureName().c_str(), 32);
+	face.getTextureName().copy(faceH.textureName, sizeof(faceH.textureName));
 	
 	faceH.uVecX = face.getVecU().x;
 	faceH.uVecY = face.getVecU().y;

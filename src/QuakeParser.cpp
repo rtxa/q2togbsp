@@ -217,14 +217,14 @@ QuakeParser::Result QuakeParser::parseFace(const std::string line) {
 	}
 
 	try {
-		m_face.setContentFlags(st.nextTokenFloat());
+		m_face.setContentFlags(static_cast<int>(st.nextTokenFloat()));
 	}
 	catch (...) {
 		std::cout << "Error in parsing token to float" << '\n';
 	}
 
 	try {
-		m_face.setSurfaceFlags(st.nextTokenFloat());
+		m_face.setSurfaceFlags(static_cast<int>(st.nextTokenFloat()));
 	}
 	catch (...) {
 		std::cout << "Error in parsing token to float" << '\n';
