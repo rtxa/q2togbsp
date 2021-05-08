@@ -155,7 +155,8 @@ QuakeParser::Result QuakeParser::parseFace(const std::string line) {
 
 	m_face.setTextureName(identifier);
 
-	if (!st.hasMoreTokens()) {
+	if (st.countTokens() < 5) {
+		std::cout << "This line doesn't contain enough tokens to parse. Fix your Quake map input.";
 		return Result::RESULT_FAIL;
 	}
 
@@ -166,19 +167,11 @@ QuakeParser::Result QuakeParser::parseFace(const std::string line) {
 		std::cout << "Error in parsing token to float" << '\n';
 	}
 
-	if (!st.hasMoreTokens()) {
-		return Result::RESULT_FAIL;
-	}
-
 	try {
 		m_face.setOffsetY(st.nextTokenFloat());
 	}
 	catch (...) {
 		std::cout << "Error in parsing token to float" << '\n';
-	}
-
-	if (!st.hasMoreTokens()) {
-		return Result::RESULT_FAIL;
 	}
 
 	try {
@@ -188,10 +181,6 @@ QuakeParser::Result QuakeParser::parseFace(const std::string line) {
 		std::cout << "Error in parsing token to float" << '\n';
 	}
 
-	if (!st.hasMoreTokens()) {
-		return Result::RESULT_FAIL;
-	}
-
 	try {
 		m_face.setScaleX(st.nextTokenFloat());
 	}
@@ -199,9 +188,6 @@ QuakeParser::Result QuakeParser::parseFace(const std::string line) {
 		std::cout << "Error in parsing token to float" << '\n';
 	}
 
-	if (!st.hasMoreTokens()) {
-		return Result::RESULT_FAIL;
-	}
 
 	try {
 		m_face.setScaleY(st.nextTokenFloat());
@@ -209,7 +195,6 @@ QuakeParser::Result QuakeParser::parseFace(const std::string line) {
 	catch (...) {
 		std::cout << "Error in parsing token to float" << '\n';
 	}
-
 
 	// read Quake 2 parameters if they exist
 	if (st.countTokens() < 3) {
