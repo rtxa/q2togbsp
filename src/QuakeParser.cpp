@@ -127,44 +127,30 @@ QuakeParser::Result QuakeParser::parseKeyValue(const std::string line) {
 
 QuakeParser::Result QuakeParser::parseFace(const std::string line) {
 	StringTokenizer st(line);
-
-	std::string identifier;
-	std::vector<Vector3f> points;
-
+	
 	// read 3 points of the plane
-	while (true) {
-		if (!st.hasMoreTokens()) {
-			return Result::RESULT_FAIL;
-		}
-		identifier = st.nextToken();
-		if (identifier == "(") {
-			parseVector(&st);
-			points.push_back(m_point);
-		} else if (identifier == ")") {
-			continue;
-		} else { // no more planes to read
-			break;
-		}
-	}
+	std::vector<Vector3f> points = parsePlane(st);
 
 	if (points.size() == 3) {
 		m_face.setPlane(points[0], points[1], points[2]);
+	} else {
+		std::cout << "Can't read plane from face. Fix your Quake map input.";
 	}
 
-	// Now read additional texture information (tex name, offset, rotation and scale)
-
-	m_face.setTextureName(identifier);
-
-	if (st.countTokens() < 5) {
+	// Now read additional texture information (tex name, offset, rotation X/Y and scale X/Y)
+	if (st.countTokens() < 6) {
 		std::cout << "This line doesn't contain enough tokens to parse. Fix your Quake map input.";
 		return Result::RESULT_FAIL;
 	}
+
+	m_face.setTextureName(st.nextToken());
 
 	try {
 		m_face.setOffsetX(st.nextTokenFloat());
 	}
 	catch (...) {
 		std::cout << "Error in parsing token to float" << '\n';
+		return Result::RESULT_FAIL;
 	}
 
 	try {
@@ -227,12 +213,38 @@ QuakeParser::Result QuakeParser::parseFace(const std::string line) {
 	return Result::RESULT_SUCCED;
 }
 
-QuakeParser::Result QuakeParser::parseVector(StringTokenizer *st) {
+std::vector<Vector3f> QuakeParser::parsePlane(StringTokenizer& st) {
+	std::string token;
+	std::vector<Vector3f> points;
+
+	// read 3 points of the plane
+	int count = 0;
+
+	while (true) {
+		if (!st.hasMoreTokens()) {
+			return std::vector<Vector3f>();
+		}
+		token = st.nextToken();
+		if (token == "(") {
+			count++;
+			parseVector(st);
+			points.push_back(m_point);
+		} else if (token == ")") {
+			if (count == 3)
+				break;
+			else
+				continue;
+		}
+	}
+	return points;
+}
+
+QuakeParser::Result QuakeParser::parseVector(StringTokenizer& st) {
 	float point[3];
 	std::string identifier;
 	for (int i = 0; i < 3; i++) {
-		if (st->hasMoreTokens()) {
-			identifier = st->nextToken();
+		if (st.hasMoreTokens()) {
+			identifier = st.nextToken();
 			try {
 				point[i] = std::stof(identifier);
 			} catch (...) {

@@ -24,7 +24,8 @@ public:
 private:
 	Result parseKeyValue(const std::string line);
 	Result parseFace(const std::string line);
-	Result parseVector(StringTokenizer * st);
+	Result parseVector(StringTokenizer& st);
+	std::vector<Vector3f> parsePlane(StringTokenizer& st);
 private:
 	QuakeEntity m_entity; /**< Detailed description after the member */
 	QuakeBrush m_brush;
