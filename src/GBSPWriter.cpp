@@ -21,7 +21,7 @@ bool GBSPWriter::writeGBSPFile(const std::string filename, const GenesisMap& gMa
 	return true;
 }
 
-GBSPWriter::Result GBSPWriter::writeFileHeader(const GenesisMap& gMap) {
+bool GBSPWriter::writeFileHeader(const GenesisMap& gMap) {
 	FileHeader fileH;
 	std::string tag = "NCBF";
 
@@ -32,10 +32,10 @@ GBSPWriter::Result GBSPWriter::writeFileHeader(const GenesisMap& gMap) {
 
 	m_genesisMap.write(reinterpret_cast<const char*>(&fileH), sizeof(FileHeader));
 
-	return Result::RESULT_SUCCED;
+	return true;
 }
 
-GBSPWriter::Result GBSPWriter::writeFace(GenesisFace face) {
+bool GBSPWriter::writeFace(GenesisFace face) {
 	FaceHeader faceH;
 
 	faceH.flags = face.getFlags();
@@ -68,17 +68,17 @@ GBSPWriter::Result GBSPWriter::writeFace(GenesisFace face) {
 
 	m_genesisMap.write(reinterpret_cast<const char*>(&faceH), sizeof(FaceHeader));
 
-	return Result::RESULT_SUCCED;
+	return true;
 }
 
-GBSPWriter::Result GBSPWriter::writeKeyValue(std::string key, std::string value) {
+bool GBSPWriter::writeKeyValue(std::string key, std::string value) {
 	writeString(key);
 	writeString(value);
 	
-	return Result::RESULT_SUCCED;
+	return true;
 }
 
-GBSPWriter::Result GBSPWriter::writeEntity(GenesisEntity gEnt) {
+bool GBSPWriter::writeEntity(GenesisEntity gEnt) {
 	writeInt(gEnt.getNumBrushes());
 	if (gEnt.getNumBrushes() > 0) {
 		for (auto itr = gEnt.begin(); itr != gEnt.end(); itr++) {
@@ -93,10 +93,10 @@ GBSPWriter::Result GBSPWriter::writeEntity(GenesisEntity gEnt) {
 		writeKeyValue(itr->first, itr->second);
 	}
 
-	return Result::RESULT_SUCCED;
+	return true;
 }
 
-GBSPWriter::Result GBSPWriter::writeBrush(GenesisBrush brush) {
+bool GBSPWriter::writeBrush(GenesisBrush brush) {
 	BrushHeader brushH;
 	brushH.flags = brush.getFlags();
 	brushH.numFaces = brush.getNumFaces();
@@ -107,7 +107,7 @@ GBSPWriter::Result GBSPWriter::writeBrush(GenesisBrush brush) {
 		writeFace(*itr);
 	}
 
-	return Result::RESULT_SUCCED;
+	return true;
 }
 
 void GBSPWriter::writeTypeDefs() {

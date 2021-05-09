@@ -40,22 +40,16 @@ class GBSPWriter {
 	};
 #pragma pack()
 
-	enum class Result {
-		RESULT_SUCCED,
-		RESULT_FAIL,
-		RESULT_EOF
-	};
-
 public:
 	bool writeGBSPFile(const std::string filename, const GenesisMap& gMap);
 private:
 	std::fstream m_genesisMap;
 
-	Result writeFileHeader(const GenesisMap& gMap);
-	Result writeBrush(GenesisBrush brush); // perhaps inside goes WriteFaces();
-	Result writeFace(GenesisFace face);
-	Result writeKeyValue(std::string key, std::string value);
-	Result writeEntity(GenesisEntity gEnt);
+	bool writeFileHeader(const GenesisMap& gMap);
+	bool writeBrush(GenesisBrush brush); // perhaps inside goes WriteFaces();
+	bool writeFace(GenesisFace face);
+	bool writeKeyValue(std::string key, std::string value);
+	bool writeEntity(GenesisEntity gEnt);
 
 	// hardcoded
 	void writeTypeDefs();
