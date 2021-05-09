@@ -147,39 +147,38 @@ bool QuakeParser::parseFace(const std::string line) {
 
 	try {
 		m_face.setOffsetX(st.nextTokenFloat());
-	}
-	catch (...) {
-		std::cout << "Error in parsing token to float" << '\n';
+	} catch (...) {
+		std::cout << "Failed parsing of offset X to float" << '\n';
 		return false;
 	}
 
 	try {
 		m_face.setOffsetY(st.nextTokenFloat());
-	}
-	catch (...) {
-		std::cout << "Error in parsing token to float" << '\n';
+	} catch (...) {
+		std::cout << "Failed parsing of offset Y to float" << '\n';
+		return false;
 	}
 
 	try {
 		m_face.setRotation(st.nextTokenFloat());
-	}
-	catch (...) {
-		std::cout << "Error in parsing token to float" << '\n';
+	} catch (...) {
+		std::cout << "Failed parsing of rotation to float" << '\n';
+		return false;
 	}
 
 	try {
 		m_face.setScaleX(st.nextTokenFloat());
-	}
-	catch (...) {
-		std::cout << "Error in parsing token to float" << '\n';
+	} catch (...) {
+		std::cout << "Failed parsing of scale X to float" << '\n';
+		return false;
 	}
 
 
 	try {
 		m_face.setScaleY(st.nextTokenFloat());
-	}
-	catch (...) {
-		std::cout << "Error in parsing token to float" << '\n';
+	} catch (...) {
+		std::cout << "Failed parsing of scale Y to float" << '\n';
+		return false;
 	}
 
 	// read Quake 2 parameters if they exist
@@ -189,23 +188,23 @@ bool QuakeParser::parseFace(const std::string line) {
 
 	try {
 		m_face.setContentFlags(static_cast<int>(st.nextTokenFloat()));
-	}
-	catch (...) {
-		std::cout << "Error in parsing token to float" << '\n';
+	} catch (...) {
+		std::cout << "Failed parsing of content flags to float" << '\n';
+		return false;
 	}
 
 	try {
 		m_face.setSurfaceFlags(static_cast<int>(st.nextTokenFloat()));
-	}
-	catch (...) {
-		std::cout << "Error in parsing token to float" << '\n';
+	} catch (...) {
+		std::cout << "Failed parsing of surface flags to float" << '\n';
+		return false;
 	}
 
 	try {
 		m_face.setLightIntensity(static_cast<int>(st.nextTokenFloat()));
-	}
-	catch (...) {
-		std::cout << "Error in parsing token to float" << '\n';
+	} catch (...) {
+		std::cout << "Failed parsing of light intensity to float" << '\n';
+		return false;
 	}
 
 	//m_face.printFace();
