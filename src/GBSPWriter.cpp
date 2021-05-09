@@ -44,7 +44,7 @@ GBSPWriter::Result GBSPWriter::writeFace(GenesisFace face) {
 	faceH.alpha = face.getAlpha();
 	faceH.reflectivityScale = face.getReflectivityScale();
 
-	face.getTextureName().copy(faceH.textureName, sizeof(faceH.textureName));
+	memcpy(faceH.textureName, face.getTextureName().c_str(), sizeof(faceH.textureName));
 	
 	faceH.uVecX = face.getVecU().x;
 	faceH.uVecY = face.getVecU().y;
