@@ -11,23 +11,18 @@
 
 class QuakeParser {
 public:
-	enum class Result {
-		RESULT_SUCCED,
-		RESULT_FAIL
-	};
-
 	/*
 	 * Parses the .map quake file and stores it in a QuakeMap class (a data structure)
 	 */
 	bool processMap(const std::string filename, QuakeMap& qMap);
 
 private:
-	Result parseKeyValue(const std::string line);
-	Result parseFace(const std::string line);
-	Result parseVector(StringTokenizer& st);
+	bool parseKeyValue(const std::string line);
+	bool parseFace(const std::string line);
+	bool parseVector(StringTokenizer& st);
 	std::vector<Vector3f> parsePlane(StringTokenizer& st);
-private:
-	QuakeEntity m_entity; /**< Detailed description after the member */
+
+	QuakeEntity m_entity; /** Contains a QuakeEntity */
 	QuakeBrush m_brush;
 	QuakeFace m_face;
 	std::string m_key;

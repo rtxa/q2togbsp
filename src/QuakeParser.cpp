@@ -27,7 +27,7 @@ bool QuakeParser::processMap(const std::string filename, QuakeMap& qMap) {
 
 	std::string line;
 	std::string identifier;
-	Result result;
+	bool result;
 
 	while (getline(m_quakeMap, line)) {
 		//std::cout << "Reading line: " << line << '\n';
@@ -78,14 +78,14 @@ bool QuakeParser::processMap(const std::string filename, QuakeMap& qMap) {
 				return false;
 			}
 			result = parseKeyValue(line);
-			if (result != Result::RESULT_SUCCED) {
+			if (!result) {
 				std::cout << "Unexpected end of key value data" << '\n';
 				return false;
 			}
 			m_entity.insertKeyValue(m_key, m_value);
 		} else if (line.find("(") == 0) { // reading face
 			result = parseFace(line);
-			if (result != Result::RESULT_SUCCED) {
+			if (!result) {
 				std::cout << "Unexpected end of face data" << '\n';
 				return false;
 			}
@@ -110,22 +110,22 @@ bool QuakeParser::processMap(const std::string filename, QuakeMap& qMap) {
 }
 
 // parse the value and store it in m_entity
-QuakeParser::Result QuakeParser::parseKeyValue(const std::string line) {
+bool QuakeParser::parseKeyValue(const std::string line) {
 	StringTokenizer st(line);
 
 	if (st.countTokens() < 2) {
 		std::cout << "not enough keys to parse" << '\n';
-		return Result::RESULT_FAIL;
+		return false;
 	}
 
 	std::string key, value;
 	m_key = st.nextToken();
 	m_value = st.nextToken();
 
-	return Result::RESULT_SUCCED;
+	return true;
 }
 
-QuakeParser::Result QuakeParser::parseFace(const std::string line) {
+bool QuakeParser::parseFace(const std::string line) {
 	StringTokenizer st(line);
 	
 	// read 3 points of the plane
@@ -140,7 +140,7 @@ QuakeParser::Result QuakeParser::parseFace(const std::string line) {
 	// Now read additional texture information (tex name, offset, rotation X/Y and scale X/Y)
 	if (st.countTokens() < 6) {
 		std::cout << "This line doesn't contain enough tokens to parse. Fix your Quake map input.";
-		return Result::RESULT_FAIL;
+		return false;
 	}
 
 	m_face.setTextureName(st.nextToken());
@@ -150,7 +150,7 @@ QuakeParser::Result QuakeParser::parseFace(const std::string line) {
 	}
 	catch (...) {
 		std::cout << "Error in parsing token to float" << '\n';
-		return Result::RESULT_FAIL;
+		return false;
 	}
 
 	try {
@@ -184,7 +184,7 @@ QuakeParser::Result QuakeParser::parseFace(const std::string line) {
 
 	// read Quake 2 parameters if they exist
 	if (st.countTokens() < 3) {
-		return Result::RESULT_SUCCED;
+		return true;
 	}
 
 	try {
@@ -210,7 +210,7 @@ QuakeParser::Result QuakeParser::parseFace(const std::string line) {
 
 	//m_face.printFace();
 
-	return Result::RESULT_SUCCED;
+	return true;
 }
 
 std::vector<Vector3f> QuakeParser::parsePlane(StringTokenizer& st) {
@@ -239,7 +239,7 @@ std::vector<Vector3f> QuakeParser::parsePlane(StringTokenizer& st) {
 	return points;
 }
 
-QuakeParser::Result QuakeParser::parseVector(StringTokenizer& st) {
+bool QuakeParser::parseVector(StringTokenizer& st) {
 	float point[3];
 	std::string identifier;
 	for (int i = 0; i < 3; i++) {
@@ -248,12 +248,12 @@ QuakeParser::Result QuakeParser::parseVector(StringTokenizer& st) {
 			try {
 				point[i] = std::stof(identifier);
 			} catch (...) {
-				return Result::RESULT_FAIL;
+				return false;
 			}
 		} else {
-			return Result::RESULT_FAIL;
+			return false;
 		}
 	}
 	m_point.set(point[0], point[1], point[2]);
-	return Result::RESULT_SUCCED;
+	return true;
 }
