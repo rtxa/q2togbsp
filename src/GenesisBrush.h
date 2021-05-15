@@ -24,8 +24,8 @@ public:
 	};
 
 	GenesisBrush();
-	int getFlags();
-	int getNumFaces();
+	int getFlags() const;
+	int getNumFaces() const;
 	void setFlags(int flags);
 	void insertFace(GenesisFace face);
 	std::vector<GenesisFace>::const_iterator begin() const;

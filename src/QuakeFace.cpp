@@ -33,13 +33,13 @@ void QuakeFace::setScaleX(float value) {
 void QuakeFace::setScaleY(float value) {
 	m_yScale = value;
 }
-void QuakeFace::setPlane(const Vector3f point1, const Vector3f point2, const Vector3f point3) {
+void QuakeFace::setPlane(Vector3f point1, Vector3f point2, Vector3f point3) {
 	m_point1 = point1;
 	m_point2 = point2;
 	m_point3 = point3;
 }
 
-void QuakeFace::setTextureName(const std::string name) {
+void QuakeFace::setTextureName(std::string name) {
 	m_textureName = name;
 }
 

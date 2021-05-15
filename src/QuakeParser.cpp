@@ -3,11 +3,10 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include <iomanip>
 
 // podria definir en la clase quakrparser un convertto() como virtual, y redefinirlo en la clase quaketogenesis
 
-bool QuakeParser::processMap(const std::string filename, QuakeMap& qMap) {
+bool QuakeParser::processMap(std::string filename, QuakeMap& qMap) {
 	m_quakeMap.open(filename, std::ios::in);
 
 	if (!m_quakeMap.is_open()) {
@@ -72,7 +71,7 @@ bool QuakeParser::processMap(const std::string filename, QuakeMap& qMap) {
 			}
 		}
 
-		if (line.find("\"") == 0) { // reading key value
+		if (line.find('\"') == 0) { // reading key value
 			if (readingBrush) {
 				std::cout << "Unexpected keyvalue when reading brush.\n";
 				return false;
@@ -83,7 +82,7 @@ bool QuakeParser::processMap(const std::string filename, QuakeMap& qMap) {
 				return false;
 			}
 			m_entity.insertKeyValue(m_key, m_value);
-		} else if (line.find("(") == 0) { // reading face
+		} else if (line.find('(') == 0) { // reading face
 			result = parseFace(line);
 			if (!result) {
 				std::cout << "Unexpected end of face data" << '\n';
@@ -110,7 +109,7 @@ bool QuakeParser::processMap(const std::string filename, QuakeMap& qMap) {
 }
 
 // parse the value and store it in m_entity
-bool QuakeParser::parseKeyValue(const std::string line) {
+bool QuakeParser::parseKeyValue(std::string line) {
 	StringTokenizer st(line);
 
 	if (st.countTokens() < 2) {
@@ -125,7 +124,7 @@ bool QuakeParser::parseKeyValue(const std::string line) {
 	return true;
 }
 
-bool QuakeParser::parseFace(const std::string line) {
+bool QuakeParser::parseFace(std::string line) {
 	StringTokenizer st(line);
 	
 	// read 3 points of the plane

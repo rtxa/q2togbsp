@@ -41,7 +41,7 @@ class GBSPWriter {
 #pragma pack()
 
 public:
-	bool writeGBSPFile(const std::string filename, const GenesisMap& gMap);
+	bool writeGBSPFile(std::string filename, const GenesisMap& gMap);
 private:
 	std::fstream m_genesisMap;
 

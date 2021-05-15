@@ -1,8 +1,7 @@
 #include "GBSPWriter.h"
-#include "Vector3f.h"
 #include <iostream>
 
-bool GBSPWriter::writeGBSPFile(const std::string filename, const GenesisMap& gMap) {
+bool GBSPWriter::writeGBSPFile(std::string filename, const GenesisMap& gMap) {
 	m_genesisMap.open(filename, std::ios::out | std::ios::binary);
 
 	if (!m_genesisMap.is_open()) {

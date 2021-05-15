@@ -14,11 +14,11 @@ public:
 	/*
 	 * Parses the .map quake file and stores it in a QuakeMap class (a data structure)
 	 */
-	bool processMap(const std::string filename, QuakeMap& qMap);
+	bool processMap(std::string filename, QuakeMap& qMap);
 
 private:
-	bool parseKeyValue(const std::string line);
-	bool parseFace(const std::string line);
+	bool parseKeyValue(std::string line);
+	bool parseFace(std::string line);
 	bool parseVector(StringTokenizer& st);
 	std::vector<Vector3f> parsePlane(StringTokenizer& st);
 

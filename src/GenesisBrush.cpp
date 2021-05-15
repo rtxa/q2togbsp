@@ -4,11 +4,11 @@ GenesisBrush::GenesisBrush() {
 	m_flags = BrushContentFlags::Solid;
 }
 
-int GenesisBrush::getFlags() {
+int GenesisBrush::getFlags() const {
 	return m_flags;
 }
 
-int GenesisBrush::getNumFaces() {
+int GenesisBrush::getNumFaces() const {
 	return m_faces.size();
 }
 

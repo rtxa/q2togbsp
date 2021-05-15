@@ -7,13 +7,13 @@ class QuakeFace {
 public:
 	QuakeFace();
 
-	void setOffsetX(const float value);
-	void setOffsetY(const float value);
-	void setRotation(const float value);
-	void setScaleX(const float value);
-	void setScaleY(const float value);
-	void setPlane(const Vector3f point1, const Vector3f point2, const Vector3f point3);
-	void setTextureName(const std::string name);
+	void setOffsetX(float value);
+	void setOffsetY(float value);
+	void setRotation(float value);
+	void setScaleX(float value);
+	void setScaleY(float value);
+	void setPlane(Vector3f point1, Vector3f point2, Vector3f point3);
+	void setTextureName(std::string name);
 	void setContentFlags(int flags);
 	void setSurfaceFlags(int flags);
 	void setLightIntensity(int value);

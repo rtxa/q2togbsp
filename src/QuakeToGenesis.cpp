@@ -1,10 +1,9 @@
 #include <iostream>
 
 #include "QuakeToGenesis.h"
-#include "GenesisBrush.h"
 #include "StringTokenizer.h"
 
-bool QuakeToGenesis::convertTo(const QuakeMap qMap, GenesisMap& gMap) {
+bool QuakeToGenesis::convertTo(QuakeMap qMap, GenesisMap& gMap) {
 	GenesisEntity gEnt;
 	GenesisBrush gBrush;
 	GenesisFace gFace;
@@ -30,7 +29,7 @@ bool QuakeToGenesis::convertTo(const QuakeMap qMap, GenesisMap& gMap) {
 	return true;
 }
 
-bool QuakeToGenesis::faceToGenesis(const QuakeFace qFace, GenesisFace& gFace) {
+bool QuakeToGenesis::faceToGenesis(QuakeFace qFace, GenesisFace& gFace) {
 	Vector3f points[3];
 	
 	for (int i = 0; i < 3; i++) {
@@ -109,7 +108,7 @@ bool QuakeToGenesis::planeToNormalForm(const Vector3f points[3], Vector3f& norma
 	return true;
 }
 
-void QuakeToGenesis::worldTextureVecsToUV(const Vector3f normal, const float rotation, Vector3f& uVec, Vector3f& vVec) {
+void QuakeToGenesis::worldTextureVecsToUV(Vector3f normal, float rotation, Vector3f& uVec, Vector3f& vVec) {
 	const float Pi = 3.141592741f;
 	
 	float ang, sinv, cosv;
@@ -147,7 +146,7 @@ void QuakeToGenesis::worldTextureVecsToUV(const Vector3f normal, const float rot
 	}
 }
 
-bool QuakeToGenesis::entToGenesis(const QuakeEntity qEnt, GenesisEntity& gEnt) {
+bool QuakeToGenesis::entToGenesis(QuakeEntity qEnt, GenesisEntity& gEnt) {
 	// insert brushes to genesis entity
 	for (auto itrBrush = qEnt.begin(); itrBrush != qEnt.end(); itrBrush++) {
 		// TODO create function brushToGenesis
@@ -190,7 +189,7 @@ bool QuakeToGenesis::entToGenesis(const QuakeEntity qEnt, GenesisEntity& gEnt) {
 	return false;
 }
 
-const std::string QuakeToGenesis::getNameForEntity(const std::string classname) {
+std::string QuakeToGenesis::getNameForEntity(std::string classname) {
 			// Every entity has a name assignaed (light1, light2, etc...)
 			// Generate those names automatically
 			int num = 0;
