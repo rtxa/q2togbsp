@@ -26,20 +26,20 @@ public:
 	void setLightIntensity(int value);
 	void setTextureName(std::string name);
 
-	int getFlags();
-	float getMipMapBias();
-	float getAlpha();
-	int getLightIntensity(); // gbsp expects a float
+	int getFlags() const;
+	float getMipMapBias() const;
+	float getAlpha() const;
+	int getLightIntensity() const; // gbsp expects a float
 	std::string getTextureName();
-	float getReflectivityScale();
-	float getScaleX();
-	float getScaleY();
-	float getOffsetX();
-	float getOffsetY();
+	float getReflectivityScale() const;
+	float getScaleX() const;
+	float getScaleY() const;
+	float getOffsetX() const;
+	float getOffsetY() const;
 	Vector3f getVecU();
 	Vector3f getVecV();
 	Vector3f getNormal();
-	float getDistance();
+	float getDistance() const;
 
 	void setReflectivityScale(float value);
 	void setScaleX(float value);

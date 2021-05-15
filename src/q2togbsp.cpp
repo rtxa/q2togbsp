@@ -3,12 +3,9 @@
 // Version 0.1 - 27/09/2020
 
 #include <iostream>
-#include <fstream>
 
 #include "QuakeParser.h"
-#include "QuakeMap.h"
 #include "QuakeToGenesis.h"
-#include "GenesisMap.h"
 #include "GBSPWriter.h"
 
 int main(int argc, char* argv[]) {

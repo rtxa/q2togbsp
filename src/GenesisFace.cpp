@@ -78,19 +78,19 @@ void GenesisFace::setDistance(float distance) {
 	m_distance = distance;
 }
 
-int GenesisFace::getFlags() {
+int GenesisFace::getFlags() const {
 	return m_flags;
 }
 
-float GenesisFace::getMipMapBias() {
+float GenesisFace::getMipMapBias() const {
 	return m_mipMapBias;
 }
 
-float GenesisFace::getAlpha() {
+float GenesisFace::getAlpha() const {
 	return m_alpha;
 }
 
-int GenesisFace::getLightIntensity() {
+int GenesisFace::getLightIntensity() const {
 	return m_lightIntensity;
 }
 
@@ -98,22 +98,22 @@ std::string GenesisFace::getTextureName() {
 	return m_textureName;
 }
 
-float GenesisFace::getReflectivityScale() {
+float GenesisFace::getReflectivityScale() const {
 	return m_reflectivityScale;
 }
 
-float GenesisFace::getScaleX() {
+float GenesisFace::getScaleX() const {
 	return m_xScale;
 }
 
-float GenesisFace::getScaleY() {
+float GenesisFace::getScaleY() const {
 	return m_yScale;
 }
 
-float GenesisFace::getOffsetX() {
+float GenesisFace::getOffsetX() const {
 	return m_xOffset;
 }
-float GenesisFace::getOffsetY() {
+float GenesisFace::getOffsetY() const {
 	return m_yOffset;
 }
 
@@ -129,7 +129,7 @@ Vector3f GenesisFace::getNormal() {
 	return m_normal;
 }
 
-float GenesisFace::getDistance() {
+float GenesisFace::getDistance() const {
 	return m_distance;
 }
 

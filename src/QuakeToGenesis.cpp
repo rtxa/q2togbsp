@@ -8,24 +8,15 @@ bool QuakeToGenesis::convertTo(QuakeMap qMap, GenesisMap& gMap) {
 	GenesisBrush gBrush;
 	GenesisFace gFace;
 	QuakeBrush qBrush;
-	
-	for (auto itrEnt = qMap.begin(); itrEnt != qMap.end(); itrEnt++) {
-		entToGenesis(*itrEnt, gEnt);
+
+	for (const auto& ent : qMap) {
+		entToGenesis(ent, gEnt);
 		if (gEnt.getNumKeys() != 0) {
 			gMap.insertEntity(gEnt);
 		}
 		gEnt = GenesisEntity();
 	}
 
-	// TODO is better with this syntax, less bloated
-	// TODO maybe i should send the list intead of reivnenting the wheel by making a begin end in every class..
-	/*for (auto ent : entities) {
-		for (auto brush : brushes) {
-			for (auto face : faces) {
-				faceToGenesis();
-			}
-		}
-	}*/
 	return true;
 }
 
@@ -148,16 +139,16 @@ void QuakeToGenesis::worldTextureVecsToUV(Vector3f normal, float rotation, Vecto
 
 bool QuakeToGenesis::entToGenesis(QuakeEntity qEnt, GenesisEntity& gEnt) {
 	// insert brushes to genesis entity
-	for (auto itrBrush = qEnt.begin(); itrBrush != qEnt.end(); itrBrush++) {
+	for (const auto &brush : qEnt) {
 		// TODO create function brushToGenesis
 		GenesisBrush gBrush;
 		int contentFlags = 0;
-		for (auto itrFace = itrBrush->begin(); itrFace != itrBrush->end(); itrFace++) {
+		for (const auto &face : brush) {
 			GenesisFace gFace;
-			faceToGenesis((*itrFace), gFace);
+			faceToGenesis(face, gFace);
 			gBrush.insertFace(gFace);
 			//  only use the one from the first face
-			contentFlags = itrFace->getContentFlags();
+			contentFlags = face.getContentFlags();
 		}
 		if (contentFlags == 0) {
 			contentFlags = GenesisBrush::BrushContentFlags::Solid;

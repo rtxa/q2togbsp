@@ -7,7 +7,7 @@
 class StringTokenizer {
 public:
 	StringTokenizer() {};
-	StringTokenizer(const std::string line);
+	StringTokenizer(std::string line);
 	std::string nextToken();
 	float nextTokenFloat();
 	bool hasMoreTokens();

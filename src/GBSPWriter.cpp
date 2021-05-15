@@ -11,8 +11,8 @@ bool GBSPWriter::writeGBSPFile(std::string filename, const GenesisMap& gMap) {
 
 	writeFileHeader(gMap);
 
-	for (auto itr = gMap.beginEnt(); itr != gMap.endEnt(); itr++) {
-		writeEntity(*itr);
+	for (const auto& ent : gMap) {
+		writeEntity(ent);
 	}
 
 	writeTypeDefs();
@@ -80,8 +80,8 @@ bool GBSPWriter::writeKeyValue(std::string key, std::string value) {
 bool GBSPWriter::writeEntity(GenesisEntity gEnt) {
 	writeInt(gEnt.getNumBrushes());
 	if (gEnt.getNumBrushes() > 0) {
-		for (auto itr = gEnt.begin(); itr != gEnt.end(); itr++) {
-			writeBrush(*itr);
+		for (const auto& brush : gEnt) {
+			writeBrush(brush);
 		}
 	}
 
