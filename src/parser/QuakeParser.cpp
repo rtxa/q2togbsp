@@ -145,69 +145,50 @@ bool QuakeParser::parseFace(std::string line) {
 
 	m_face.setTextureName(st.nextToken());
 
-	try {
-		m_face.setOffsetX(st.nextTokenFloat());
-	} catch (...) {
-		std::cout << "Failed parsing of offset X to float" << '\n';
-		return false;
-	}
+    {
+        std::vector<std::string> tokens = st.getTokensList();
+        const std::string args[] = { "offset x", "offset y", "rotation", "scale x", "scale y" };
 
-	try {
-		m_face.setOffsetY(st.nextTokenFloat());
-	} catch (...) {
-		std::cout << "Failed parsing of offset Y to float" << '\n';
-		return false;
-	}
+        // validate the data type is float
+        for (int i = 0; i < 5; i++) {
+            try {
+                std::stof(tokens.at(i));
+            } catch (...) {
+                std::cout << "Error: expected a float in argument " << args[i] << '\n';
+                return false;
+            }
+        }
+    }
 
-	try {
-		m_face.setRotation(st.nextTokenFloat());
-	} catch (...) {
-		std::cout << "Failed parsing of rotation to float" << '\n';
-		return false;
-	}
-
-	try {
-		m_face.setScaleX(st.nextTokenFloat());
-	} catch (...) {
-		std::cout << "Failed parsing of scale X to float" << '\n';
-		return false;
-	}
-
-
-	try {
-		m_face.setScaleY(st.nextTokenFloat());
-	} catch (...) {
-		std::cout << "Failed parsing of scale Y to float" << '\n';
-		return false;
-	}
+    m_face.setOffsetX(st.nextTokenFloat());
+    m_face.setOffsetY(st.nextTokenFloat());
+    m_face.setRotation(st.nextTokenFloat());
+    m_face.setScaleX(st.nextTokenFloat());
+    m_face.setScaleY(st.nextTokenFloat());
 
 	// read Quake 2 parameters if they exist
 	if (st.countTokens() < 3) {
 		return true;
 	}
 
-	try {
-		m_face.setContentFlags(st.nextTokenInt());
-	} catch (...) {
-		std::cout << "Failed parsing of content flags to float" << '\n';
-		return false;
-	}
+    {
+        std::vector<std::string> tokens = st.getTokensList();
+        const std::string args[] = { "content flags", "surface flags", "light intensity" };
 
-	try {
-		m_face.setSurfaceFlags(st.nextTokenInt());
-	} catch (...) {
-		std::cout << "Failed parsing of surface flags to float" << '\n';
-		return false;
-	}
+        // validate the data type is an int
+        for (int i = 0; i < 3; i++) {
+            try {
+                std::stoi(tokens.at(i));
+            } catch (...) {
+                std::cout << "Error: expected an int in argument " + args[i] << '\n';
+                return false;
+            }
+        }
+    }
 
-	try {
-		m_face.setLightIntensity(st.nextTokenInt());
-	} catch (...) {
-		std::cout << "Failed parsing of light intensity to float" << '\n';
-		return false;
-	}
-
-	//m_face.printFace();
+	m_face.setContentFlags(st.nextTokenInt());
+	m_face.setSurfaceFlags(st.nextTokenInt());
+	m_face.setLightIntensity(st.nextTokenInt());
 
 	return true;
 }
