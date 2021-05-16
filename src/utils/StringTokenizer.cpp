@@ -28,6 +28,10 @@ float StringTokenizer::nextTokenFloat() {
 	return std::stof(nextToken());
 }
 
+int StringTokenizer::nextTokenInt() {
+	return std::stoi(nextToken());
+}
+
 bool StringTokenizer::hasMoreTokens() {
 	return !m_tokens.empty();
 }

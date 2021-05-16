@@ -134,6 +134,7 @@ bool QuakeParser::parseFace(std::string line) {
 		m_face.setPlane(points[0], points[1], points[2]);
 	} else {
 		std::cout << "Can't read plane from face. Fix your Quake map input.";
+		return false;
 	}
 
 	// Now read additional texture information (tex name, offset, rotation X/Y and scale X/Y)
@@ -186,21 +187,21 @@ bool QuakeParser::parseFace(std::string line) {
 	}
 
 	try {
-		m_face.setContentFlags(static_cast<int>(st.nextTokenFloat()));
+		m_face.setContentFlags(st.nextTokenInt());
 	} catch (...) {
 		std::cout << "Failed parsing of content flags to float" << '\n';
 		return false;
 	}
 
 	try {
-		m_face.setSurfaceFlags(static_cast<int>(st.nextTokenFloat()));
+		m_face.setSurfaceFlags(st.nextTokenInt());
 	} catch (...) {
 		std::cout << "Failed parsing of surface flags to float" << '\n';
 		return false;
 	}
 
 	try {
-		m_face.setLightIntensity(static_cast<int>(st.nextTokenFloat()));
+		m_face.setLightIntensity(st.nextTokenInt());
 	} catch (...) {
 		std::cout << "Failed parsing of light intensity to float" << '\n';
 		return false;

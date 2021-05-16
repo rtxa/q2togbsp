@@ -29,5 +29,4 @@ private:
 	std::string m_value;
 	Vector3f m_point;
 	std::fstream m_quakeMap;
-	std::vector<QuakeEntity> m_entities;
 };
