@@ -181,14 +181,12 @@ bool QuakeToGenesis::entToGenesis(QuakeEntity qEnt, GenesisEntity& gEnt) {
 }
 
 std::string QuakeToGenesis::getNameForEntity(std::string classname) {
-			// Every entity has a name assignaed (light1, light2, etc...)
+			// Every entity has a name assigned (light1, light2, etc...)
 			// Generate those names automatically
-			int num = 0;
-			int exists = m_numEntsByClass.count(classname);
-			if (!exists) {
-				m_numEntsByClass.insert(std::pair<std::string, int>(classname, 0));
+			if (m_numEntsByClass.count(classname) == 0) {
+				m_numEntsByClass.insert({classname, 0});
 			}
-			num = m_numEntsByClass.at(classname);
+			int num = m_numEntsByClass.at(classname);
 			m_numEntsByClass.at(classname) = ++num;
 			return classname + std::to_string(num);
 }
