@@ -8,6 +8,7 @@ class StringTokenizer {
 public:
 	StringTokenizer() {};
 	StringTokenizer(std::string line);
+	std::vector<std::string> getTokensList();
 	std::string nextToken();
 	float nextTokenFloat();
 	bool hasMoreTokens();

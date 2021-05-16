@@ -13,10 +13,6 @@ StringTokenizer::StringTokenizer(std::string line) {
 	}
 }
 
-//std::string StringTokenizer::getToken() {	
-//	return m_token;
-//}
-
 std::string StringTokenizer::nextToken() {
 	if (m_tokens.empty()) {
 		return "";
@@ -29,18 +25,20 @@ std::string StringTokenizer::nextToken() {
 }
 
 float StringTokenizer::nextTokenFloat() {
-	std::string token = nextToken();
-	float num = 0.0f;
-
-	num = std::stof(token);
-
-	return num;
+	return std::stof(nextToken());
 }
 
 bool StringTokenizer::hasMoreTokens() {
-	return m_tokens.empty() ? false : true;
+	return !m_tokens.empty();
 }
 
 int StringTokenizer::countTokens() {
 	return m_tokens.size();
+}
+
+/*
+ * Get a copy of the list of tokens from this tokenizer
+ */
+std::vector<std::string> StringTokenizer::getTokensList() {
+	return m_tokens;
 }
