@@ -1,7 +1,7 @@
 #pragma once
 
 #include <string>
-#include "Vector3f.h"
+#include "../math/Vector3f.h"
 
 class GenesisFace {
 	// TODO anyway this doesn't matter too much, this is Engine dependant and the code for converting doesn't care about this, editor must implement a different flag according to the engine

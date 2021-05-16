@@ -4,9 +4,9 @@
 
 #include <iostream>
 
-#include "QuakeParser.h"
-#include "QuakeToGenesis.h"
-#include "GBSPWriter.h"
+#include "parser/QuakeParser.h"
+#include "converter/QuakeToGenesis.h"
+#include "writer/GBSPWriter.h"
 
 int main(int argc, char* argv[]) {
 	if (argc < 2) {

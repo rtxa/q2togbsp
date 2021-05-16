@@ -9,6 +9,12 @@ file(
     GLOB_RECURSE
     MY_SOURCE_FILES
     src/*.cpp
+    src/converter/*.cpp
+    src/math/*.cpp
+    src/parser/*.cpp
+    src/structures/*.cpp
+    src/utils/*.cpp
+    src/writer/*.cpp
 )
 
 add_executable (${PROJECT_NAME} ${MY_SOURCE_FILES})
