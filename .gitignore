@@ -1,2 +1,7 @@
+# In any case we can add to readme.md how to build using VS Code, the launch.json
+# Install extension Cpp tools, CMake tools, then create a launch.json and run Debug
 /bin
 /build
+/cmake-build-debug
+/.vscode
+/.idea
