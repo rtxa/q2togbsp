@@ -17,19 +17,18 @@ int main(int argc, char* argv[]) {
 		return 1;
 	}
 
-	QuakeMap qMap = QuakeMap();
-	GenesisMap gMap = GenesisMap();
-
-	QuakeParser parser = QuakeParser();
+	QuakeMap qMap;
 	
-	if (!parser.processMap(argv[1], qMap)) {
+	if (!QuakeParser().processMap(argv[1], qMap)) {
 		std::cout << "Failed proccesing Quake map!\n";
 		return 1;
 	}
 
-	QuakeToGenesis converter = QuakeToGenesis();
+	GenesisMap gMap;
 
-	if (!converter.convertTo(qMap, gMap)) {
+	try {
+		gMap = QuakeToGenesis().convert(qMap);
+	} catch (...) { // No exception thrown implemented yet
 		std::cout << "Failed converting Quake map to Genesis!\n";
 		return 1;        
 	}
@@ -39,8 +38,7 @@ int main(int argc, char* argv[]) {
 	// TODO i should load entity definitions
 	// by reading the .fgd file and generating typedefs automatically
 
-	GBSPWriter gbsp;
-	if (!gbsp.writeGBSPFile(argv[2], gMap)) {
+	if (!GBSPWriter().writeGBSPFile(argv[2], gMap)) {
 		std::cout << "Failed writing Genesis map to GBSP binary format!\n";
 		return 1;
 	}

@@ -8,7 +8,7 @@ public:
 	/*
 	 * Converts a QuakeMap to GenesisMap.
 	 */
-	bool convertTo(QuakeMap qMap, GenesisMap& gMap);
+	GenesisMap convert(QuakeMap qMap);
 
 private:
 	/*

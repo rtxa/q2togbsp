@@ -3,11 +3,13 @@
 #include "QuakeToGenesis.h"
 #include "../utils/StringTokenizer.h"
 
-bool QuakeToGenesis::convertTo(QuakeMap qMap, GenesisMap& gMap) {
+GenesisMap QuakeToGenesis::convert(QuakeMap qMap) {
 	GenesisEntity gEnt;
 	GenesisBrush gBrush;
 	GenesisFace gFace;
 	QuakeBrush qBrush;
+	
+	GenesisMap gMap;
 
 	for (const auto& ent : qMap) {
 		entToGenesis(ent, gEnt);
@@ -17,7 +19,7 @@ bool QuakeToGenesis::convertTo(QuakeMap qMap, GenesisMap& gMap) {
 		gEnt = GenesisEntity();
 	}
 
-	return true;
+	return gMap;
 }
 
 bool QuakeToGenesis::faceToGenesis(QuakeFace qFace, GenesisFace& gFace) {
