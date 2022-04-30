@@ -4,22 +4,29 @@
 
 #include <iostream>
 
-#include "parser/QuakeParser.h"
 #include "converter/QuakeToGenesis.h"
+#include "parser/QuakeParser.h"
+#include "utils/InputParser.h"
 #include "writer/GBSPWriter.h"
 
 int main(int argc, char* argv[]) {
-	if (argc < 2) {
+	InputParser options{argc, argv};
+
+	if (!options.cmdOptionExists("-input")) {
 		std::cout << "No file input specified for converting!\n";
 		return 1;
-	} else if (argc < 3) {
+	}
+	std::string input = options.getCmdOption("-input");
+	
+	if (!options.cmdOptionExists("-output")) {
 		std::cout << "No file output specified for converting!\n";
 		return 1;
 	}
+	std::string output = options.getCmdOption("-output");
 
 	QuakeMap qMap;
 	
-	if (!QuakeParser().processMap(argv[1], qMap)) {
+	if (!QuakeParser().processMap(input, qMap)) {
 		std::cout << "Failed proccesing Quake map!\n";
 		return 1;
 	}
@@ -33,12 +40,7 @@ int main(int argc, char* argv[]) {
 		return 1;        
 	}
 
-	//gMap.printAll();
-
-	// TODO i should load entity definitions
-	// by reading the .fgd file and generating typedefs automatically
-
-	if (!GBSPWriter().writeGBSPFile(argv[2], gMap)) {
+	if (!GBSPWriter().writeGBSPFile(output, gMap)) {
 		std::cout << "Failed writing Genesis map to GBSP binary format!\n";
 		return 1;
 	}
