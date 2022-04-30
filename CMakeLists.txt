@@ -17,7 +17,9 @@ file(
     src/utils/*.cpp
     src/writer/*.cpp
 )
+add_subdirectory("lib/fmt")
 
 add_executable(${PROJECT_NAME} ${MY_SOURCE_FILES})
 
 target_include_directories(${PROJECT_NAME} PUBLIC "src")
+target_link_libraries(${PROJECT_NAME} fmt::fmt)
