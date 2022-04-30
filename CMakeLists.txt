@@ -17,4 +17,6 @@ file(
     src/writer/*.cpp
 )
 
-add_executable (${PROJECT_NAME} ${MY_SOURCE_FILES})
+add_executable(${PROJECT_NAME} ${MY_SOURCE_FILES})
+
+target_include_directories(${PROJECT_NAME} PUBLIC "src")
