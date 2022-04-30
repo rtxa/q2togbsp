@@ -1,7 +1,8 @@
 #pragma once
 
-#include "../math/Vector3f.h"
 #include <string>
+
+#include "math/Vector3f.h"
 
 class QuakeFace {
 public:

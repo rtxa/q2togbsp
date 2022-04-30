@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../structures/QuakeMap.h"
-#include "../structures/GenesisMap.h"
+#include "structures/QuakeMap.h"
+#include "structures/GenesisMap.h"
 
 class QuakeToGenesis {
 public:

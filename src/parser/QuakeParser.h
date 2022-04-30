@@ -4,10 +4,11 @@
 
 #include <string>
 #include <fstream>
-#include "../structures/QuakeEntity.h"
-#include "../structures/QuakeBrush.h"
-#include "../utils/StringTokenizer.h"
-#include "../structures/QuakeMap.h"
+
+#include "structures/QuakeEntity.h"
+#include "structures/QuakeBrush.h"
+#include "utils/StringTokenizer.h"
+#include "structures/QuakeMap.h"
 
 class QuakeParser {
 public:

@@ -5,7 +5,7 @@
 #include <vector>
 #include <fstream>
 
-#include "../structures/GenesisMap.h"
+#include "structures/GenesisMap.h"
 //#include "GenesisEntity.h"
 //#include "GenesisBrush.h"
 
