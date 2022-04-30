@@ -8,6 +8,7 @@ set(CMAKE_CXX_STANDARD 20)
 file(
     GLOB_RECURSE
     MY_SOURCE_FILES
+    CONFIGURE_DEPENDS
     src/*.cpp
     src/converter/*.cpp
     src/math/*.cpp
