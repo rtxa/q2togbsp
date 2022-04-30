@@ -3,7 +3,7 @@ project(q2togbsp)
 
 set(EXECUTABLE_OUTPUT_PATH ./${CMAKE_BUILD_TYPE})
 
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 17)
 
 file(
     GLOB_RECURSE
