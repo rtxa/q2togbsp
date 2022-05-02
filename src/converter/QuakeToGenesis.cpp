@@ -173,9 +173,8 @@ bool QuakeToGenesis::entToGenesis(QuakeEntity qEnt, GenesisEntity& gEnt) {
 			if (convertOriginToGenesis(itr->second, x, y, z)) {
 				gEnt.insertKeyValue(itr->first, std::to_string(x) + ' ' + std::to_string(y) + ' ' + std::to_string(z));
 				continue;
-			} else {
-				std::cout << "Error converting origin to Genesis\n";
 			}
+			std::cout << "Error converting origin to Genesis\n";
 		}
 		gEnt.insertKeyValue(itr->first, itr->second);
 	}

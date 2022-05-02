@@ -1,14 +1,10 @@
 #pragma once
 
-#include <iostream>
-
-#include <vector>
-#include <fstream>
-
 #include "structures/GenesisMap.h"
-//#include "GenesisEntity.h"
-//#include "GenesisBrush.h"
 
+#include <fstream>
+#include <iostream>
+#include <vector>
 
 class GBSPWriter {
 

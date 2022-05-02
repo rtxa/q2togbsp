@@ -1,6 +1,5 @@
 #pragma once
 
-#include "GenesisBrush.h"
 #include "GenesisEntity.h"
 
 #include <vector>
