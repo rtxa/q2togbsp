@@ -81,14 +81,15 @@ bool QuakeToGenesis::planeToNormalForm(const Vector3f points[3], Vector3f& norma
 	
 	Vector3f v1, v2;
 	
-	int i;
-	for (i = 0; i < NumPoints; i++) {
+	int i = 0;
+	while (i < NumPoints) {
 		v1 = points[i] - points[(i + 1) % NumPoints];
 		v2 = points[(i + 2) % NumPoints] - points[(i + 1) % NumPoints];
 		normal = v1.crossProduct(v2);
 		if (!normal.epsilonEquals(Vector3f(0.0f, 0.0f, 0.0f), Vector3f::CompareEpsilon)) {
 			break;
 		}
+		i++;
 	}
 
 	// Error: Face with no normal!
@@ -105,13 +106,9 @@ bool QuakeToGenesis::planeToNormalForm(const Vector3f points[3], Vector3f& norma
 void QuakeToGenesis::worldTextureVecsToUV(Vector3f normal, float rotation, Vector3f& uVec, Vector3f& vVec) {
 	const float Pi = 3.141592741f;
 	
-	float ang, sinv, cosv;
-
-	// degrees to radians
-	ang = (rotation * Pi) / 180.0f;
-
-	sinv = static_cast<float>(sin(ang));
-	cosv = static_cast<float>(cos(ang));
+	float ang = (rotation * Pi) / 180.0f; // degrees to radians
+	float sinv = sin(ang);
+	float cosv = cos(ang);
 
 	int whichAxis = 0;
 	if (fabs(normal.y) > fabs(normal.x)) {
@@ -124,19 +121,15 @@ void QuakeToGenesis::worldTextureVecsToUV(Vector3f normal, float rotation, Vecto
 		whichAxis = 2;
 	}
 
-	switch (whichAxis) {
-		case 0:
-			uVec = Vector3f(0.0f, sinv, cosv);
-			vVec = Vector3f(0.0f, -cosv, sinv);
-			break;
-		case 1:
-			uVec = Vector3f(cosv, 0.0f, sinv);
-			vVec = Vector3f(-sinv, 0.0f, cosv);
-			break;
-		case 2:
-			uVec = Vector3f(cosv, sinv, 0.0f);
-			vVec = Vector3f(sinv, -cosv, 0.0f);
-			break;
+	if (whichAxis == 0) {
+		uVec = Vector3f(0.0f, sinv, cosv);
+		vVec = Vector3f(0.0f, -cosv, sinv);
+	} else if (whichAxis == 1) {
+		uVec = Vector3f(cosv, 0.0f, sinv);
+		vVec = Vector3f(-sinv, 0.0f, cosv);
+	} else if (whichAxis == 2) {
+		uVec = Vector3f(cosv, sinv, 0.0f);
+		vVec = Vector3f(sinv, -cosv, 0.0f);
 	}
 }
 
