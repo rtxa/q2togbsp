@@ -1,5 +1,7 @@
 #include "GenesisFace.h"
 
+#include <fmt/format.h>
+
 #include <iostream>
 #include <algorithm>
 
@@ -135,10 +137,6 @@ float GenesisFace::getDistance() const {
 }
 
 void GenesisFace::printFace() const {
-	std::cout << "Face: ";
-	std::cout << "Normal " << "[ " << m_normal.x << '\t' << m_normal.y << '\t' << m_normal.z << '\t' << m_distance << " ] ";
-	std::cout << "TexName: " << m_textureName << " Scale X/Y " << m_xScale << ' ' << m_yScale;
-	//std::cout << " Offset X/Y " << m_xOffset << ' ' << m_yOffset << " Rotation " << m_rotation;
-	std::cout << '\n';
-
+	std::cout << fmt::format("Face: Normal: [{:<9} {:<9} {:<9} {:<9}] TexName: '{}' Scale X/Y: [{}, {}] Offset X/Y: [{}, {}]", 
+	m_normal.x, m_normal.y, m_normal.z, m_distance, m_textureName, m_xScale, m_yScale, m_xOffset, m_yOffset) << '\n';
 }
