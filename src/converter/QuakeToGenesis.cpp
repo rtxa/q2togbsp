@@ -4,7 +4,7 @@
 
 #include <iostream>
 
-GenesisMap QuakeToGenesis::convert(QuakeMap qMap) {
+GenesisMap QuakeToGenesis::convert(const QuakeMap& qMap) {
 	GenesisEntity gEnt;
 	GenesisBrush gBrush;
 	GenesisFace gFace;
@@ -23,7 +23,7 @@ GenesisMap QuakeToGenesis::convert(QuakeMap qMap) {
 	return gMap;
 }
 
-bool QuakeToGenesis::faceToGenesis(QuakeFace qFace, GenesisFace& gFace) {
+bool QuakeToGenesis::faceToGenesis(const QuakeFace& qFace, GenesisFace& gFace) {
 	Vector3f points[3];
 	
 	for (int i = 0; i < 3; i++) {
@@ -140,7 +140,7 @@ void QuakeToGenesis::worldTextureVecsToUV(Vector3f normal, float rotation, Vecto
 	}
 }
 
-bool QuakeToGenesis::entToGenesis(QuakeEntity qEnt, GenesisEntity& gEnt) {
+bool QuakeToGenesis::entToGenesis(const QuakeEntity& qEnt, GenesisEntity& gEnt) {
 	// insert brushes to genesis entity
 	for (const auto &brush : qEnt) {
 		// TODO create function brushToGenesis
@@ -182,7 +182,7 @@ bool QuakeToGenesis::entToGenesis(QuakeEntity qEnt, GenesisEntity& gEnt) {
 	return false;
 }
 
-std::string QuakeToGenesis::getNameForEntity(std::string classname) {
+std::string QuakeToGenesis::getNameForEntity(const std::string& classname) {
 			// Every entity has a name assigned (light1, light2, etc...)
 			// Generate those names automatically
 			if (m_numEntsByClass.count(classname) == 0) {
@@ -193,7 +193,7 @@ std::string QuakeToGenesis::getNameForEntity(std::string classname) {
 			return classname + std::to_string(num);
 }
 
-bool QuakeToGenesis::convertOriginToGenesis(std::string origin, float& x, float& y, float& z) {
+bool QuakeToGenesis::convertOriginToGenesis(const std::string& origin, float& x, float& y, float& z) {
 	StringTokenizer st = StringTokenizer(origin);
 
 	if (st.countTokens() < 3) {
