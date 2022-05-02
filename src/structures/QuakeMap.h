@@ -1,7 +1,8 @@
 #pragma once
 
-#include <vector>
 #include "QuakeEntity.h"
+
+#include <vector>
 
 class QuakeMap {
 public:

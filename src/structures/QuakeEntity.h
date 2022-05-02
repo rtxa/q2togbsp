@@ -1,10 +1,10 @@
 #pragma once
 
+#include "QuakeBrush.h"
+
+#include <map>
 #include <string>
 #include <vector>
-#include <map>
-
-#include "QuakeBrush.h"
 
 class QuakeEntity {
 public:

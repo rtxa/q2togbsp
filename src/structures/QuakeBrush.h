@@ -1,8 +1,8 @@
 #pragma once
 
-#include <vector>
 #include "QuakeFace.h"
 
+#include <vector>
 
 class QuakeBrush {
 public:

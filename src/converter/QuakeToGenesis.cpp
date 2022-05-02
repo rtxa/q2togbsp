@@ -1,7 +1,8 @@
-#include <iostream>
-
 #include "QuakeToGenesis.h"
+
 #include "utils/StringTokenizer.h"
+
+#include <iostream>
 
 GenesisMap QuakeToGenesis::convert(QuakeMap qMap) {
 	GenesisEntity gEnt;

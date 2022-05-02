@@ -1,8 +1,9 @@
 #pragma once
 
-#include <vector>
 #include "GenesisBrush.h"
 #include "GenesisEntity.h"
+
+#include <vector>
 
 class GenesisMap {
 public:

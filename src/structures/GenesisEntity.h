@@ -1,10 +1,10 @@
 #pragma once
 
+#include "GenesisBrush.h"
+
+#include <map>
 #include <string>
 #include <vector>
-#include <map>
-
-#include "GenesisBrush.h"
 
 class GenesisEntity {
 public:
