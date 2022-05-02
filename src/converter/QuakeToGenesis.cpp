@@ -35,7 +35,7 @@ bool QuakeToGenesis::faceToGenesis(QuakeFace qFace, GenesisFace& gFace) {
 	}
 
 	Vector3f normal;
-	float distance;
+	float distance = 0.0;
 	
 	// TODO check if process was done successfully in planeToNormalForm and worldTextureVecsToUV
 	planeToNormalForm(points, normal, distance);
