@@ -1,7 +1,7 @@
 #include "GBSPWriter.h"
 #include <iostream>
 
-bool GBSPWriter::writeGBSPFile(std::string filename, const GenesisMap& gMap) {
+bool GBSPWriter::writeGBSPFile(const std::string& filename, const GenesisMap& gMap) {
 	m_genesisMap.open(filename, std::ios::out | std::ios::binary);
 
 	if (!m_genesisMap.is_open()) {
@@ -34,7 +34,7 @@ bool GBSPWriter::writeFileHeader(const GenesisMap& gMap) {
 	return true;
 }
 
-bool GBSPWriter::writeFace(GenesisFace face) {
+bool GBSPWriter::writeFace(const GenesisFace& face) {
 	FaceHeader faceH;
 
 	faceH.flags = face.getFlags();
@@ -70,14 +70,13 @@ bool GBSPWriter::writeFace(GenesisFace face) {
 	return true;
 }
 
-bool GBSPWriter::writeKeyValue(std::string key, std::string value) {
+bool GBSPWriter::writeKeyValue(const std::string& key, const std::string& value) {
 	writeString(key);
 	writeString(value);
-	
 	return true;
 }
 
-bool GBSPWriter::writeEntity(GenesisEntity gEnt) {
+bool GBSPWriter::writeEntity(const GenesisEntity& gEnt) {
 	writeInt(gEnt.getNumBrushes());
 	if (gEnt.getNumBrushes() > 0) {
 		for (const auto& brush : gEnt) {
@@ -95,7 +94,7 @@ bool GBSPWriter::writeEntity(GenesisEntity gEnt) {
 	return true;
 }
 
-bool GBSPWriter::writeBrush(GenesisBrush brush) {
+bool GBSPWriter::writeBrush(const GenesisBrush& brush) {
 	BrushHeader brushH;
 	brushH.flags = brush.getFlags();
 	brushH.numFaces = brush.getNumFaces();
@@ -151,7 +150,7 @@ void GBSPWriter::writeInt(int value) {
 	m_genesisMap.write(reinterpret_cast<const char*>(&value), sizeof(std::int32_t));
 }
 
-void GBSPWriter::writeString(std::string str) {
+void GBSPWriter::writeString(const std::string& str) {
 	int length = str.length();
 	m_genesisMap.write(reinterpret_cast<const char*>(&length), sizeof(std::int32_t));
 	m_genesisMap.write(reinterpret_cast<const char*>(str.c_str()), str.length());

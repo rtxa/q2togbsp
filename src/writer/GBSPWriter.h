@@ -37,22 +37,22 @@ class GBSPWriter {
 #pragma pack()
 
 public:
-	bool writeGBSPFile(std::string filename, const GenesisMap& gMap);
+	bool writeGBSPFile(const std::string& filename, const GenesisMap& gMap);
 private:
 	std::fstream m_genesisMap;
 
 	bool writeFileHeader(const GenesisMap& gMap);
-	bool writeBrush(GenesisBrush brush); // perhaps inside goes WriteFaces();
-	bool writeFace(GenesisFace face);
-	bool writeKeyValue(std::string key, std::string value);
-	bool writeEntity(GenesisEntity gEnt);
+	bool writeBrush(const GenesisBrush& brush); // perhaps inside goes WriteFaces();
+	bool writeFace(const GenesisFace& face);
+	bool writeKeyValue(const std::string& key, const std::string& value);
+	bool writeEntity(const GenesisEntity& gEnt);
 
 	// hardcoded
 	void writeTypeDefs();
 
 	// Methods to write basic types in binary
 	void writeInt(int value);
-	void writeString(std::string str);
+	void writeString(const std::string& str);
 	//void writeBlock();
 	
 };

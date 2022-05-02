@@ -31,15 +31,15 @@ public:
 	float getMipMapBias() const;
 	float getAlpha() const;
 	int getLightIntensity() const; // gbsp expects a float
-	std::string getTextureName();
+	std::string getTextureName() const;
 	float getReflectivityScale() const;
 	float getScaleX() const;
 	float getScaleY() const;
 	float getOffsetX() const;
 	float getOffsetY() const;
-	Vector3f getVecU();
-	Vector3f getVecV();
-	Vector3f getNormal();
+	Vector3f getVecU() const;
+	Vector3f getVecV() const;
+	Vector3f getNormal() const;
 	float getDistance() const;
 
 	void setReflectivityScale(float value);

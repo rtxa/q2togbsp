@@ -1,4 +1,5 @@
 #include "GenesisFace.h"
+
 #include <iostream>
 #include <algorithm>
 
@@ -94,7 +95,7 @@ int GenesisFace::getLightIntensity() const {
 	return m_lightIntensity;
 }
 
-std::string GenesisFace::getTextureName() {
+std::string GenesisFace::getTextureName() const {
 	return m_textureName;
 }
 
@@ -117,15 +118,15 @@ float GenesisFace::getOffsetY() const {
 	return m_yOffset;
 }
 
-Vector3f GenesisFace::getVecU() {
+Vector3f GenesisFace::getVecU() const {
 	return m_uVec;
 }
 
-Vector3f GenesisFace::getVecV() {
+Vector3f GenesisFace::getVecV() const {
 	return m_vVec;
 }
 
-Vector3f GenesisFace::getNormal() {
+Vector3f GenesisFace::getNormal() const {
 	return m_normal;
 }
 
