@@ -40,7 +40,7 @@ private:
 	/*
 	 * Convert Quake coordinates to Genesis
 	 */
-	static bool convertCoords(const std::string& origin,  float& x, float& y, float &z);
+	static bool convertCoords(const std::string& origin, Vector3f& vector);
 
 	std::map<std::string, int> m_numEntsByClass; // used for %name% to count number of entities by class to assign a name
 };

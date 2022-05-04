@@ -162,9 +162,9 @@ bool QuakeToGenesis::convertEnt(const QuakeEntity& qEnt, GenesisEntity& gEnt) {
 		if (property.first == "classname" && property.second != "worldspawn") {
 			gEnt.insertKeyValue("%name%", getNameForEntity(property.second));
 		} else if (property.first == "origin") { 
-			float x = 0.0f, y = 0.0f, z = 0.0f;
-			if (convertCoords(property.second, x, y, z)) {
-				gEnt.insertKeyValue(property.first, std::to_string(x) + ' ' + std::to_string(y) + ' ' + std::to_string(z));
+			Vector3f origin;
+			if (convertCoords(property.second, origin)) {
+				gEnt.insertKeyValue(property.first, std::to_string(origin.x) + ' ' + std::to_string(origin.y) + ' ' + std::to_string(origin.z));
 				continue;
 			}
 			std::cout << "Error converting origin to Genesis\n";
@@ -186,17 +186,17 @@ std::string QuakeToGenesis::getNameForEntity(const std::string& classname) {
 			return classname + std::to_string(num);
 }
 
-bool QuakeToGenesis::convertCoords(const std::string& origin, float& x, float& y, float& z) {
+bool QuakeToGenesis::convertCoords(const std::string& origin, Vector3f& vector) {
 	StringTokenizer st = StringTokenizer(origin);
 
 	if (st.countTokens() < 3) {
 		return false;
 	}
 
-	x = st.nextTokenFloat();
-	z = st.nextTokenFloat();
-	y = st.nextTokenFloat();
-	z = -z;
+	vector.x = st.nextTokenFloat();
+	vector.z = st.nextTokenFloat();
+	vector.y = st.nextTokenFloat();
+	vector.z = -vector.z;
 
 	return true;
 }
