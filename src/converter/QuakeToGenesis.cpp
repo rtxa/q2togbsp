@@ -13,7 +13,7 @@ GenesisMap QuakeToGenesis::convert(const QuakeMap& qMap) {
 	GenesisMap gMap;
 
 	for (const auto& ent : qMap) {
-		entToGenesis(ent, gEnt);
+		convertEnt(ent, gEnt);
 		if (gEnt.getNumKeys() != 0) {
 			gMap.insertEntity(gEnt);
 		}
@@ -23,7 +23,7 @@ GenesisMap QuakeToGenesis::convert(const QuakeMap& qMap) {
 	return gMap;
 }
 
-bool QuakeToGenesis::faceToGenesis(const QuakeFace& qFace, GenesisFace& gFace) {
+bool QuakeToGenesis::convertFace(const QuakeFace& qFace, GenesisFace& gFace) {
 	Vector3f points[3];
 	
 	for (int i = 0; i < 3; i++) {
@@ -133,7 +133,7 @@ void QuakeToGenesis::worldTextureVecsToUV(Vector3f normal, float rotation, Vecto
 	}
 }
 
-bool QuakeToGenesis::entToGenesis(const QuakeEntity& qEnt, GenesisEntity& gEnt) {
+bool QuakeToGenesis::convertEnt(const QuakeEntity& qEnt, GenesisEntity& gEnt) {
 	// insert brushes to genesis entity
 	for (const auto &brush : qEnt.brushes()) {
 		// TODO create function brushToGenesis
@@ -141,7 +141,7 @@ bool QuakeToGenesis::entToGenesis(const QuakeEntity& qEnt, GenesisEntity& gEnt) 
 		int contentFlags = 0;
 		for (const auto &face : brush.faces()) {
 			GenesisFace gFace;
-			faceToGenesis(face, gFace);
+			convertFace(face, gFace);
 			gBrush.insertFace(gFace);
 			//  only use the one from the first face
 			contentFlags = face.getContentFlags();
@@ -163,7 +163,7 @@ bool QuakeToGenesis::entToGenesis(const QuakeEntity& qEnt, GenesisEntity& gEnt) 
 			gEnt.insertKeyValue("%name%", getNameForEntity(property.second));
 		} else if (property.first == "origin") { 
 			float x = 0.0f, y = 0.0f, z = 0.0f;
-			if (convertOriginToGenesis(property.second, x, y, z)) {
+			if (convertCoords(property.second, x, y, z)) {
 				gEnt.insertKeyValue(property.first, std::to_string(x) + ' ' + std::to_string(y) + ' ' + std::to_string(z));
 				continue;
 			}
@@ -186,7 +186,7 @@ std::string QuakeToGenesis::getNameForEntity(const std::string& classname) {
 			return classname + std::to_string(num);
 }
 
-bool QuakeToGenesis::convertOriginToGenesis(const std::string& origin, float& x, float& y, float& z) {
+bool QuakeToGenesis::convertCoords(const std::string& origin, float& x, float& y, float& z) {
 	StringTokenizer st = StringTokenizer(origin);
 
 	if (st.countTokens() < 3) {

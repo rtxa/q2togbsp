@@ -14,7 +14,7 @@ private:
 	/*
 	 * Converts QuakeFace to GenesisFace.
 	 */
-	static bool faceToGenesis(const QuakeFace& qFace, GenesisFace& gFace);
+	static bool convertFace(const QuakeFace& qFace, GenesisFace& gFace);
 
 	/*
 	 * Converts a plane (p0, p1 and p2) to its normal form (normal and distance).
@@ -28,7 +28,7 @@ private:
 	 */
 	static void worldTextureVecsToUV(Vector3f normal, float rotation, Vector3f& uVec, Vector3f& vVec);
 
-	bool entToGenesis(const QuakeEntity& qEnt, GenesisEntity& gEnt);
+	bool convertEnt(const QuakeEntity& qEnt, GenesisEntity& gEnt);
 
 	/*
 	 * Generates an unique name for the entity classname:
@@ -40,7 +40,7 @@ private:
 	/*
 	 * Convert Quake coordinates to Genesis
 	 */
-	static bool convertOriginToGenesis(const std::string& origin,  float& x, float& y, float &z);
+	static bool convertCoords(const std::string& origin,  float& x, float& y, float &z);
 
 	std::map<std::string, int> m_numEntsByClass; // used for %name% to count number of entities by class to assign a name
 };
