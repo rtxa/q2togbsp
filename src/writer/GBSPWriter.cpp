@@ -79,7 +79,7 @@ bool GBSPWriter::writeKeyValue(const std::string& key, const std::string& value)
 bool GBSPWriter::writeEntity(const GenesisEntity& gEnt) {
 	writeInt(gEnt.getNumBrushes());
 	if (gEnt.getNumBrushes() > 0) {
-		for (const auto& brush : gEnt) {
+		for (const auto& brush : gEnt.brushes()) {
 			writeBrush(brush);
 		}
 	}
@@ -87,8 +87,8 @@ bool GBSPWriter::writeEntity(const GenesisEntity& gEnt) {
 	writeInt(gEnt.getFlags());
 	writeInt(gEnt.getNumKeys());
 
-	for (auto itr = gEnt.beginKeyValues(); itr != gEnt.endKeyValues(); itr++) {
-		writeKeyValue(itr->first, itr->second);
+	for (const auto& property : gEnt.properties()) {
+		writeKeyValue(property.first, property.second);
 	}
 
 	return true;
@@ -101,8 +101,8 @@ bool GBSPWriter::writeBrush(const GenesisBrush& brush) {
 
 	m_genesisMap.write(reinterpret_cast<const char*>(&brushH), sizeof(BrushHeader));
 
-	for (auto itr = brush.begin(); itr < brush.end(); itr++) {
-		writeFace(*itr);
+	for (const auto& face : brush.faces()) {
+		writeFace(face);
 	}
 
 	return true;

@@ -28,8 +28,10 @@ public:
 	int getNumFaces() const;
 	void setFlags(int flags);
 	void insertFace(GenesisFace face);
-	std::vector<GenesisFace>::const_iterator begin() const;
-	std::vector<GenesisFace>::const_iterator end() const;
+
+	std::vector<GenesisFace>& faces();
+	const std::vector<GenesisFace>& faces() const;
+
 	void printBrush() const;
 private:
 	int m_flags;

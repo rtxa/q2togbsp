@@ -17,13 +17,12 @@ public:
 
 	void setFlags(int flags);
 
-	// Iterators
-	inline std::vector<GenesisBrush>::const_iterator begin() const { return m_brushes.begin(); };
-	inline std::vector<GenesisBrush>::const_iterator end() const { return m_brushes.end(); };
+	std::vector<GenesisBrush>& brushes();
+	const std::vector<GenesisBrush>& brushes() const;
 	
-	inline std::map<std::string, std::string>::const_iterator beginKeyValues() const { return m_keyvalues.begin(); };
-	inline std::map<std::string, std::string>::const_iterator endKeyValues() const { return m_keyvalues.end(); };
-
+	std::map<std::string, std::string>& properties();
+	const std::map<std::string, std::string>& properties() const;
+	
 private:
 	//bool hasMotion();
 	std::vector<GenesisBrush> m_brushes;

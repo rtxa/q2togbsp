@@ -10,11 +10,11 @@ int GenesisMap::getNumEntities() const {
 }
 
 void GenesisMap::printAll() {
-	for (auto itrEnt = m_entities.begin(); itrEnt != m_entities.end(); itrEnt++) {
+	for (const auto& ent : m_entities) {
 		int index = 0;
-		for (auto itrBrush = itrEnt->begin(); itrBrush != itrEnt->end(); itrBrush++) {
+		for (const auto& brush : ent.brushes()) {
 			std::cout << "Printing Genesis Brush: " << ++index << '\n';
-			itrBrush->printBrush();
+			brush.printBrush();
 		}
 	}
 }

@@ -20,12 +20,12 @@ void GenesisBrush::insertFace(GenesisFace face) {
 	m_faces.push_back(face);
 }
 
-std::vector<GenesisFace>::const_iterator GenesisBrush::begin() const {
-	return m_faces.begin();
+std::vector<GenesisFace>& GenesisBrush::faces() {
+	return m_faces;
 }
 
-std::vector<GenesisFace>::const_iterator GenesisBrush::end() const {
-	return m_faces.end();
+const std::vector<GenesisFace>& GenesisBrush::faces() const {
+	return m_faces;
 }
 
 void GenesisBrush::printBrush() const {
