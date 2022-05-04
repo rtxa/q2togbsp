@@ -5,6 +5,14 @@ void QuakeBrush::insertFace(QuakeFace face) {
 	m_faces.push_back(face);
 }
 
+std::vector<QuakeFace>& QuakeBrush::faces() {
+	return m_faces;
+}
+
+const std::vector<QuakeFace>& QuakeBrush::faces() const {
+	return m_faces;
+}
+
 void QuakeBrush::printFaces() {
 	for (auto ptr = m_faces.begin(); ptr < m_faces.end(); ptr++) {
 		ptr->printFace();

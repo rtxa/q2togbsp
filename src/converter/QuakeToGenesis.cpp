@@ -135,11 +135,11 @@ void QuakeToGenesis::worldTextureVecsToUV(Vector3f normal, float rotation, Vecto
 
 bool QuakeToGenesis::entToGenesis(const QuakeEntity& qEnt, GenesisEntity& gEnt) {
 	// insert brushes to genesis entity
-	for (const auto &brush : qEnt) {
+	for (const auto &brush : qEnt.brushes()) {
 		// TODO create function brushToGenesis
 		GenesisBrush gBrush;
 		int contentFlags = 0;
-		for (const auto &face : brush) {
+		for (const auto &face : brush.faces()) {
 			GenesisFace gFace;
 			faceToGenesis(face, gFace);
 			gBrush.insertFace(gFace);
@@ -156,20 +156,20 @@ bool QuakeToGenesis::entToGenesis(const QuakeEntity& qEnt, GenesisEntity& gEnt) 
 
 	// insert keyvalues to genesis entity
 	// TODO compare insensitive case using c.str() and stricmp
-	for (auto itr = qEnt.beginKeyValues(); itr != qEnt.endKeyValues(); itr++) {
+	for (const auto& property : qEnt.properties()) {
 		// Every entity has a name assigned (light1, light2, etc...)
 		// Generate those names automatically
-		if (itr->first == "classname" && itr->second != "worldspawn") {
-			gEnt.insertKeyValue("%name%", getNameForEntity(itr->second));
-		} else if (itr->first == "origin") { 
+		if (property.first == "classname" && property.second != "worldspawn") {
+			gEnt.insertKeyValue("%name%", getNameForEntity(property.second));
+		} else if (property.first == "origin") { 
 			float x = 0.0f, y = 0.0f, z = 0.0f;
-			if (convertOriginToGenesis(itr->second, x, y, z)) {
-				gEnt.insertKeyValue(itr->first, std::to_string(x) + ' ' + std::to_string(y) + ' ' + std::to_string(z));
+			if (convertOriginToGenesis(property.second, x, y, z)) {
+				gEnt.insertKeyValue(property.first, std::to_string(x) + ' ' + std::to_string(y) + ' ' + std::to_string(z));
 				continue;
 			}
 			std::cout << "Error converting origin to Genesis\n";
 		}
-		gEnt.insertKeyValue(itr->first, itr->second);
+		gEnt.insertKeyValue(property.first, property.second);
 	}
 
 	return false;

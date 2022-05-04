@@ -8,11 +8,8 @@ class QuakeBrush {
 public:
 	void insertFace(QuakeFace face);
 	void printFaces();
-	//void getFaces();
-
-	// Iterators
-	inline std::vector<QuakeFace>::const_iterator begin() const { return m_faces.begin(); };
-	inline std::vector<QuakeFace>::const_iterator end() const { return m_faces.end(); };
+	std::vector<QuakeFace>& faces();
+	const std::vector<QuakeFace>& faces() const;
 
 private:
 	std::vector<QuakeFace> m_faces;

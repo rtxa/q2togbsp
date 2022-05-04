@@ -13,12 +13,13 @@ public:
 	void printKeyValues();
 	void printBrushes();
 	void printAll();
-	// Iterators
-	inline std::vector<QuakeBrush>::const_iterator begin() const { return m_brushes.begin(); };
-	inline std::vector<QuakeBrush>::const_iterator end() const { return m_brushes.end(); };
+
+	std::vector<QuakeBrush>& brushes();
+	const std::vector<QuakeBrush>& brushes() const;
 	
-	inline std::map<std::string, std::string>::const_iterator beginKeyValues() const { return m_keyvalues.begin(); };
-	inline std::map<std::string, std::string>::const_iterator endKeyValues() const { return m_keyvalues.end(); };
+	std::map<std::string, std::string>& properties();
+	const std::map<std::string, std::string>& properties() const;
+
 private:
 	std::vector<QuakeBrush> m_brushes;
 	std::map<std::string, std::string> m_keyvalues;
