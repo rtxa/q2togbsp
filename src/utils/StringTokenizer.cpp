@@ -1,9 +1,10 @@
 #include "StringTokenizer.h"
+
+#include <iomanip>
 #include <iostream>
 #include <sstream>
-#include <iomanip>
 
-StringTokenizer::StringTokenizer(std::string line) {
+StringTokenizer::StringTokenizer(const std::string& line) {
 	std::stringstream linestream(line);
 	std::string token;
 
@@ -36,7 +37,7 @@ bool StringTokenizer::hasMoreTokens() {
 	return !m_tokens.empty();
 }
 
-int StringTokenizer::countTokens() {
+size_t StringTokenizer::countTokens() {
 	return m_tokens.size();
 }
 
