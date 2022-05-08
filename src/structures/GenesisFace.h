@@ -19,13 +19,7 @@ class GenesisFace {
 	};
 
 public:
-	GenesisFace();
 	void printFace() const;
-	void setFlags(int value);
-	void setMipMapBias(float value); // not implemented
-	void setAlpha(float value); // value is between 0-255
-	void setLightIntensity(int value);
-	void setTextureName(const std::string& name);
 
 	int getFlags() const;
 	float getMipMapBias() const;
@@ -42,6 +36,11 @@ public:
 	Vector3f getNormal() const;
 	float getDistance() const;
 
+	void setFlags(int value);
+	void setMipMapBias(float value); // not implemented
+	void setAlpha(float value); // value is between 0-255
+	void setLightIntensity(int value);
+	void setTextureName(const std::string& name);
 	void setReflectivityScale(float value);
 	void setScaleX(float value);
 	void setScaleY(float value);
@@ -52,20 +51,21 @@ public:
 	void setNormal(Vector3f normal);
 	void setDistance(float distance);
 
-
 private:
-	int m_flags;
-	float m_mipMapBias;
-	float m_alpha;
-	int m_lightIntensity;
-	float m_reflectivityScale;
+	int m_flags{0};
+	float m_mipMapBias{1.0f};
+	float m_alpha{255.0f};
+	int m_lightIntensity{300};
+	float m_reflectivityScale{1.0f};
 	std::string m_textureName; 	// texture name max char is 32
 	Vector3f m_uVec;
 	Vector3f m_vVec;
-	float m_xScale, m_yScale;
-	float m_xOffset, m_yOffset;
+	float m_xScale{1.0f};
+	float m_yScale{1.0f};
+	float m_xOffset{0.0f};
+	float m_yOffset{0.0f};
 	// Plane (Normal and distance)
 	Vector3f m_normal;
-	float m_distance;
+	float m_distance{0.0f};
 };
 

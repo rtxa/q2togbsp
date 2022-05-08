@@ -1,9 +1,5 @@
 #include "GenesisEntity.h"
 
-GenesisEntity::GenesisEntity() {
-	m_flags = 0;
-}
-
 void GenesisEntity::insertBrush(const GenesisBrush& brush) {
 	m_brushes.push_back(brush);
 }

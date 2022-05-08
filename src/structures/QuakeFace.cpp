@@ -1,19 +1,6 @@
 #include "QuakeFace.h"
 #include <iostream>
 
-QuakeFace::QuakeFace() {
-	m_point1 = Vector3f(0.0f, 0.0f, 0.0f);
-	m_point2 = Vector3f(0.0f, 0.0f, 0.0f);
-	m_point3 = Vector3f(0.0f, 0.0f, 0.0f);
-	m_xOffset = m_yOffset = 0.0f;
-	m_xScale = m_yScale = 0.0f;
-	m_rotation = 0.0f;
-	m_textureName = "";
-	m_contentFlags = 0;
-	m_surfaceFlags = 0;
-	m_lightIntensity = 0;
-}
-
 void QuakeFace::setOffsetX(float value) {
 	m_xOffset = value;
 }

@@ -4,7 +4,6 @@
 
 #include <vector>
 
-
 class GenesisBrush {
 public:
 	enum BrushContentFlags : int {
@@ -23,7 +22,8 @@ public:
 		// flags 16 through 31 are user flags.
 	};
 
-	GenesisBrush();
+	GenesisBrush() : m_flags{BrushContentFlags::Solid} {};
+
 	int getFlags() const;
 	int getNumFaces() const;
 	void setFlags(int flags);
@@ -33,8 +33,9 @@ public:
 	const std::vector<GenesisFace>& faces() const;
 
 	void printBrush() const;
+	
 private:
-	int m_flags;
+	int m_flags{0};
 	std::vector<GenesisFace> m_faces;
 };
 

@@ -1,9 +1,5 @@
 #include "GenesisBrush.h"
 
-GenesisBrush::GenesisBrush() {
-	m_flags = BrushContentFlags::Solid;
-}
-
 int GenesisBrush::getFlags() const {
 	return m_flags;
 }

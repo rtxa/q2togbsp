@@ -5,26 +5,6 @@
 #include <iostream>
 #include <algorithm>
 
-GenesisFace::GenesisFace() {
-	m_flags = 0;
-	m_mipMapBias = 1.0f;
-	m_alpha = 255.0f;
-	m_lightIntensity = 300;
-	m_reflectivityScale = 1.0f;
-
-	m_uVec = Vector3f(0.0f, 0.0f, 0.0f);
-	m_vVec = Vector3f(0.0f, 0.0f, 0.0f);
-
-	m_xScale = 1.0f;
-	m_yScale = 1.0f;
-
-	m_xOffset = 0.0f;
-	m_yOffset = 0.0f;
-
-	m_normal = Vector3f(0.0f, 0.0f, 0.0f);
-	m_distance = 0.0f;
-}
-
 void GenesisFace::setFlags(int value) {
 	m_flags = value;
 }

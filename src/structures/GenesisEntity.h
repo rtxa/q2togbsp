@@ -8,7 +8,6 @@
 
 class GenesisEntity {
 public:
-	GenesisEntity();
 	void insertBrush(const GenesisBrush& brush);
 	void insertKeyValue(const std::string& key, const std::string& value);
 	int getNumKeys() const;
@@ -28,6 +27,6 @@ private:
 	std::vector<GenesisBrush> m_brushes;
 	std::map<std::string, std::string> m_keyvalues;
 
-	int m_flags;
+	int m_flags{0};
 	static constexpr int EntityModelMotion = (1<<0); // entity flag
 };
