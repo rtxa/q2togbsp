@@ -1,7 +1,7 @@
 #include "GenesisMap.h"
 #include <iostream>
 
-void GenesisMap::insertEntity(GenesisEntity entity) {
+void GenesisMap::insertEntity(const GenesisEntity& entity) {
 	m_entities.push_back(entity);
 }
 

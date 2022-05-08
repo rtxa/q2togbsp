@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-void QuakeEntity::insertKeyValue(std::string key, std::string value) {
+void QuakeEntity::insertKeyValue(const std::string& key, const std::string& value) {
 	m_keyvalues.insert(std::pair<std::string, std::string>(key, value));
 }
 
@@ -26,7 +26,7 @@ void QuakeEntity::printAll() {
 	printBrushes();
 }
 
-void QuakeEntity::insertBrush(QuakeBrush brush) {
+void QuakeEntity::insertBrush(const QuakeBrush& brush) {
 	m_brushes.push_back(brush);
 }
 

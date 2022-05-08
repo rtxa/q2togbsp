@@ -6,7 +6,7 @@
 
 class GenesisMap {
 public:
-	void insertEntity(GenesisEntity entity);
+	void insertEntity(const GenesisEntity& entity);
 	int getNumEntities() const;
 	void printAll();
 

@@ -27,7 +27,7 @@ public:
 	int getFlags() const;
 	int getNumFaces() const;
 	void setFlags(int flags);
-	void insertFace(GenesisFace face);
+	void insertFace(const GenesisFace& face);
 
 	std::vector<GenesisFace>& faces();
 	const std::vector<GenesisFace>& faces() const;

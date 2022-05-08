@@ -39,7 +39,7 @@ void QuakeFace::setPlane(Vector3f point1, Vector3f point2, Vector3f point3) {
 	m_point3 = point3;
 }
 
-void QuakeFace::setTextureName(std::string name) {
+void QuakeFace::setTextureName(const std::string& name) {
 	m_textureName = name;
 }
 

@@ -41,7 +41,7 @@ void GenesisFace::setLightIntensity(int value) {
 	m_lightIntensity = value;
 }
 
-void GenesisFace::setTextureName(std::string name) {
+void GenesisFace::setTextureName(const std::string& name) {
 	m_textureName = name;
 }
 

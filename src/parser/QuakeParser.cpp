@@ -6,7 +6,7 @@
 
 // podria definir en la clase quakrparser un convertto() como virtual, y redefinirlo en la clase quaketogenesis
 
-bool QuakeParser::processMap(std::string filename, QuakeMap& qMap) {
+bool QuakeParser::processMap(const std::string& filename, QuakeMap& qMap) {
 	m_quakeMap.open(filename, std::ios::in);
 
 	if (!m_quakeMap.is_open()) {
@@ -109,7 +109,7 @@ bool QuakeParser::processMap(std::string filename, QuakeMap& qMap) {
 }
 
 // parse the value and store it in m_entity
-bool QuakeParser::parseKeyValue(std::string line) {
+bool QuakeParser::parseKeyValue(const std::string& line) {
 	StringTokenizer st(line);
 
 	if (st.countTokens() < 2) {
@@ -124,7 +124,7 @@ bool QuakeParser::parseKeyValue(std::string line) {
 	return true;
 }
 
-bool QuakeParser::parseFace(std::string line) {
+bool QuakeParser::parseFace(const std::string& line) {
 	StringTokenizer st(line);
 	
 	// read 3 points of the plane

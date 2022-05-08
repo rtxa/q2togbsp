@@ -14,7 +14,7 @@ public:
 	void setScaleX(float value);
 	void setScaleY(float value);
 	void setPlane(Vector3f point1, Vector3f point2, Vector3f point3);
-	void setTextureName(std::string name);
+	void setTextureName(const std::string& name);
 	void setContentFlags(int flags);
 	void setSurfaceFlags(int flags);
 	void setLightIntensity(int value);

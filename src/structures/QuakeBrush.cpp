@@ -1,6 +1,6 @@
 #include "QuakeBrush.h"
 
-void QuakeBrush::insertFace(QuakeFace face) {
+void QuakeBrush::insertFace(const QuakeFace& face) {
 	// probably i should check the face is initialized correctly
 	m_faces.push_back(face);
 }

@@ -6,7 +6,7 @@
 
 class QuakeMap {
 public:
-	void insertEntity(QuakeEntity entity);
+	void insertEntity(const QuakeEntity& entity);
 	void printAll();
 	std::vector<QuakeEntity>::const_iterator begin() const;
 	std::vector<QuakeEntity>::const_iterator end() const;

@@ -16,7 +16,7 @@ void GenesisBrush::setFlags(int flags) {
 	m_flags = flags;
 }
 
-void GenesisBrush::insertFace(GenesisFace face) {
+void GenesisBrush::insertFace(const GenesisFace& face) {
 	m_faces.push_back(face);
 }
 

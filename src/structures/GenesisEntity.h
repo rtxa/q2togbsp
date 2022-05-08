@@ -9,8 +9,8 @@
 class GenesisEntity {
 public:
 	GenesisEntity();
-	void insertBrush(GenesisBrush brush);
-	void insertKeyValue(std::string key, std::string value);
+	void insertBrush(const GenesisBrush& brush);
+	void insertKeyValue(const std::string& key, const std::string& value);
 	int getNumKeys() const;
 	int getNumBrushes() const;
 	int getFlags() const;

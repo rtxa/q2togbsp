@@ -25,7 +25,7 @@ public:
 	void setMipMapBias(float value); // not implemented
 	void setAlpha(float value); // value is between 0-255
 	void setLightIntensity(int value);
-	void setTextureName(std::string name);
+	void setTextureName(const std::string& name);
 
 	int getFlags() const;
 	float getMipMapBias() const;

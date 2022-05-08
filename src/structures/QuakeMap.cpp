@@ -1,7 +1,7 @@
 #include "QuakeMap.h"
 #include <iostream>
 
-void QuakeMap::insertEntity(QuakeEntity entity) {
+void QuakeMap::insertEntity(const QuakeEntity& entity) {
 	m_entities.push_back(entity);
 }
 

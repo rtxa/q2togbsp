@@ -4,11 +4,11 @@ GenesisEntity::GenesisEntity() {
 	m_flags = 0;
 }
 
-void GenesisEntity::insertBrush(GenesisBrush brush) {
+void GenesisEntity::insertBrush(const GenesisBrush& brush) {
 	m_brushes.push_back(brush);
 }
 
-void GenesisEntity::insertKeyValue(std::string key, std::string value) {
+void GenesisEntity::insertKeyValue(const std::string& key, const std::string& value) {
 	m_keyvalues.insert(std::pair<std::string, std::string>(key, value));
 }
 
