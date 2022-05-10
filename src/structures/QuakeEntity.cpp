@@ -6,22 +6,21 @@ void QuakeEntity::insertKeyValue(const std::string& key, const std::string& valu
 	m_keyvalues.insert(std::pair<std::string, std::string>(key, value));
 }
 
-void QuakeEntity::printKeyValues() {
-	for (auto itr = m_keyvalues.begin(); itr != m_keyvalues.end(); itr++) {
-		std::cout << '\t' << itr->first
-			<< '\t' << itr->second << '\n';
+void QuakeEntity::printKeyValues() const {
+	for (const auto& property : m_keyvalues) {
+		std::cout << '\t' << property.first << '\t' << property.second << '\n';
 	}
 }
 
-void QuakeEntity::printBrushes() {
+void QuakeEntity::printBrushes() const {
 	int index = 0;
-	for (auto itr = m_brushes.begin(); itr != m_brushes.end(); itr++) {
-		std::cout << "Brush number " << ++index << '\n'; // overflow issues
-		itr->printFaces();
+	for (const auto& brush : m_brushes) {
+		std::cout << "Brush number " << ++index << '\n';
+		brush.printFaces();
 	}
 }
 
-void QuakeEntity::printAll() {
+void QuakeEntity::printAll() const {
 	printKeyValues();
 	printBrushes();
 }

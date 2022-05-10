@@ -9,10 +9,9 @@ public:
 	void insertEntity(const GenesisEntity& entity);
 	int getNumEntities() const;
 	void printAll();
-
-	// Iterators
-	inline std::vector<GenesisEntity>::const_iterator begin() const { return m_entities.begin(); };
-	inline std::vector<GenesisEntity>::const_iterator end() const { return m_entities.end(); };
+	
+	std::vector<GenesisEntity>& entities();
+	const std::vector<GenesisEntity>& entities() const;
 
 private:
 	std::vector<GenesisEntity> m_entities;

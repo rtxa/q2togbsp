@@ -18,3 +18,11 @@ void GenesisMap::printAll() {
 		}
 	}
 }
+
+std::vector<GenesisEntity>& GenesisMap::entities() {
+	return m_entities;
+}
+
+const std::vector<GenesisEntity>& GenesisMap::entities() const {
+	return m_entities;
+}

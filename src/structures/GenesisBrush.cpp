@@ -25,7 +25,7 @@ const std::vector<GenesisFace>& GenesisBrush::faces() const {
 }
 
 void GenesisBrush::printBrush() const {
-	for (auto ptr = m_faces.begin(); ptr < m_faces.end(); ptr++) {
-		ptr->printFace();
+	for (const auto& face : m_faces) {
+		face.printFace();
 	}
 }

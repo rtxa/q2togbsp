@@ -12,7 +12,7 @@ GenesisMap QuakeToGenesis::convert(const QuakeMap& qMap) {
 	
 	GenesisMap gMap;
 
-	for (const auto& ent : qMap) {
+	for (const auto& ent : qMap.entities()) {
 		convertEnt(ent, gEnt);
 		if (gEnt.getNumKeys() != 0) {
 			gMap.insertEntity(gEnt);

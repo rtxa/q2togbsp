@@ -7,16 +7,16 @@ void QuakeMap::insertEntity(const QuakeEntity& entity) {
 
 void QuakeMap::printAll() {
 	int index = 0;
-	for (auto itr = m_entities.begin(); itr != m_entities.end(); ++itr) {
+	for (const auto& ent : m_entities) {
 		std::cout << "Printing Quake Entity: " << ++index << '\n';
-		itr->printAll();
+		ent.printAll();
 	}
 }
 
-std::vector<QuakeEntity>::const_iterator QuakeMap::begin() const {
-	return m_entities.begin();
+std::vector<QuakeEntity>& QuakeMap::entities() {
+	return m_entities;
 }
 
-std::vector<QuakeEntity>::const_iterator QuakeMap::end() const {
-	return m_entities.end();
+const std::vector<QuakeEntity>& QuakeMap::entities() const {
+	return m_entities;
 }

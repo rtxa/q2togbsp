@@ -11,7 +11,7 @@ bool GBSPWriter::writeGBSPFile(const std::string& filename, const GenesisMap& gM
 
 	writeFileHeader(gMap);
 
-	for (const auto& ent : gMap) {
+	for (const auto& ent : gMap.entities()) {
 		writeEntity(ent);
 	}
 
