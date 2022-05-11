@@ -21,6 +21,16 @@ int main(int argc, char* argv[]) {
 	.required()
 	.help("specify the output file.");
 
+	program.add_argument("-dq", "--debug-quake")
+	.help("display debug information from Quake.")
+	.default_value(false)
+	.implicit_value(true);
+
+	program.add_argument("-dg", "--debug-genesis")
+	.help("display debug information from Genesis.")
+	.default_value(false)
+	.implicit_value(true);
+
 	try {
 		program.parse_args(argc, argv);
 	} catch (const std::runtime_error& err) {
@@ -39,6 +49,10 @@ int main(int argc, char* argv[]) {
 		return 1;
 	}
 
+	if (program.get<bool>("--debug-quake")) {
+		qMap.printAll();
+	}
+
 	GenesisMap gMap;
 
 	try {
@@ -46,6 +60,10 @@ int main(int argc, char* argv[]) {
 	} catch (...) { // No exception thrown implemented yet
 		std::cout << "Failed converting Quake map to Genesis!\n";
 		return 1;        
+	}
+
+	if (program.get<bool>("--debug-genesis")) {
+		gMap.printAll();
 	}
 
 	if (!GBSPWriter().writeGBSPFile(output, gMap)) {
