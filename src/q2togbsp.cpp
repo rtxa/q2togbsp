@@ -2,27 +2,35 @@
 // Author: rtxa
 // Version 0.1 - 27/09/2020
 
-#include <iostream>
-
 #include "converter/QuakeToGenesis.h"
 #include "parser/QuakeParser.h"
-#include "utils/InputParser.h"
 #include "writer/GBSPWriter.h"
 
-int main(int argc, char* argv[]) {
-	InputParser options{argc, argv};
+#include <argparse/argparse.hpp>
 
-	if (!options.cmdOptionExists("-input")) {
-		std::cout << "No file input specified for converting!\n";
-		return 1;
-	}
-	std::string input = options.getCmdOption("-input");
+#include <iostream>
+
+int main(int argc, char* argv[]) {
+	argparse::ArgumentParser program{"q2togbsp", "0.1"};
 	
-	if (!options.cmdOptionExists("-output")) {
-		std::cout << "No file output specified for converting!\n";
+	program.add_argument("-i", "--input")
+	.required()
+    .help("specify the input file.");
+
+	program.add_argument("-o", "--output")
+	.required()
+	.help("specify the output file.");
+
+	try {
+		program.parse_args(argc, argv);
+	} catch (const std::runtime_error& err) {
+		std::cerr << err.what() << std::endl;
+		std::cerr << program;
 		return 1;
 	}
-	std::string output = options.getCmdOption("-output");
+
+	auto input = program.get<std::string>("--input");
+	auto output = program.get<std::string>("--output");
 
 	QuakeMap qMap;
 	

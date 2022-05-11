@@ -18,7 +18,6 @@ set(MY_SOURCE_FILES
     src/structures/QuakeEntity.cpp
     src/structures/QuakeFace.cpp
     src/structures/QuakeMap.cpp
-    src/utils/InputParser.cpp
     src/utils/StringTokenizer.cpp
     src/writer/GBSPWriter.cpp
  )
