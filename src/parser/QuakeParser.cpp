@@ -220,20 +220,25 @@ std::vector<Vector3f> QuakeParser::parsePlane(StringTokenizer& st) {
 }
 
 bool QuakeParser::parseVector(StringTokenizer& st) {
-	float point[3];
-	std::string identifier;
-	for (int i = 0; i < 3; i++) {
-		if (st.hasMoreTokens()) {
-			identifier = st.nextToken();
-			try {
-				point[i] = std::stof(identifier);
-			} catch (...) {
-				return false;
-			}
-		} else {
-			return false;
-		}
+	if (st.countTokens() < 3) {
+		return false;
 	}
-	m_point.set(point[0], point[1], point[2]);
+
+	Vector3f v;
+
+	try {
+		v.x = std::stof(st.nextToken());
+		v.y = std::stof(st.nextToken());
+		v.z = std::stof(st.nextToken());
+	} catch (const std::invalid_argument& ex) {
+		std::cout << "Invalid argument for: " << ex.what() << '\n';
+		return false;
+	} catch (const std::out_of_range& ex) {
+		std::cout << "Number out of range for: " << ex.what() << '\n';
+		return false;
+	}
+
+	m_point = v;
+
 	return true;
 }
