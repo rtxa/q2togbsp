@@ -19,8 +19,8 @@ int main(int argc, char* argv[]) {
 
 	try {
 		program.parse_args(argc, argv);
-	} catch (const std::runtime_error& err) {
-		std::cerr << err.what() << std::endl;
+	} catch (const std::runtime_error& ex) {
+		std::cerr << ex.what() << std::endl;
 		std::cerr << program;
 		return 1;
 	}
@@ -29,7 +29,9 @@ int main(int argc, char* argv[]) {
 	auto output = program.get<std::string>("--output");
 
 	QuakeMap qMap;
+	GenesisMap gMap;
 	
+    // Step 1: Parse Quake .MAP file
 	try {
 		QuakeParser().processMap(input, qMap);
 	} catch (const std::runtime_error& ex) {
@@ -37,12 +39,11 @@ int main(int argc, char* argv[]) {
 		return 1;
 	}
 
-	if (program.get<bool>("--debug-quake")) {
+	if (program["--debug-quake"] == true) {
 		qMap.printAll();
 	}
 
-	GenesisMap gMap;
-
+	// Step 2: Convert Quake map data to Genesis map data
 	try {
 		gMap = QuakeToGenesis().convert(qMap);
 	} catch (...) { // No exception thrown implemented yet
@@ -50,10 +51,11 @@ int main(int argc, char* argv[]) {
 		return 1;        
 	}
 
-	if (program.get<bool>("--debug-genesis")) {
+	if (program["--debug-genesis"] == true) {
 		gMap.printAll();
 	}
 
+    // Step 3: Finally write the serialized Genesis map file
 	try {
 		GBSPWriter().writeGBSPFile(output, gMap);
 	} catch (const std::runtime_error& ex) {
