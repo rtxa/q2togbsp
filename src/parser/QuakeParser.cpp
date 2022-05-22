@@ -29,13 +29,11 @@ bool QuakeParser::processMap(const std::string& filename, QuakeMap& qMap) {
 	bool result;
 
 	while (getline(m_quakeMap, line)) {
-		//std::cout << "Reading line: " << line << '\n';
 		StringTokenizer st(line);
 		
 		if (st.hasMoreTokens()) {
 			identifier = st.nextToken();
 		} else {
-			//std::cout << "no more lines\n";
 			return false;
 		}
 		
@@ -50,7 +48,6 @@ bool QuakeParser::processMap(const std::string& filename, QuakeMap& qMap) {
 					std::cout << "Unexpected opening bracket when reading brush.\n";
 					return false;
 				} else {
-					//std::cout << "New brush\n";
 					m_brush = QuakeBrush();
 					readingBrush = true;
 				}
@@ -62,7 +59,6 @@ bool QuakeParser::processMap(const std::string& filename, QuakeMap& qMap) {
 			}
 		} else if (identifier == "}") {
 			if (readingBrush) { // finished reading brush
-				//std::cout << "Insert brush\n";
 				m_entity.insertBrush(m_brush);
 				readingBrush = false;
 			} else if (readingEnt) { // finished reading ent
@@ -88,7 +84,6 @@ bool QuakeParser::processMap(const std::string& filename, QuakeMap& qMap) {
 				std::cout << "Unexpected end of face data" << '\n';
 				return false;
 			}
-			//std::cout << "Insertando nueva cara a brush" << '\n';
 
 			m_brush.insertFace(m_face);
 		}
