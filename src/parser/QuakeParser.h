@@ -15,7 +15,7 @@ public:
 	/*
 	 * Parses the .map quake file and stores it in a QuakeMap class (a data structure)
 	 */
-	bool processMap(const std::string& filename, QuakeMap& qMap);
+	void processMap(const std::string& filename, QuakeMap& qMap);
 
 private:
 	bool parseKeyValue(const std::string& line);

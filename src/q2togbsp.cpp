@@ -30,8 +30,10 @@ int main(int argc, char* argv[]) {
 
 	QuakeMap qMap;
 	
-	if (!QuakeParser().processMap(input, qMap)) {
-		std::cout << "Failed proccesing Quake map!\n";
+	try {
+		QuakeParser().processMap(input, qMap);
+	} catch (const std::runtime_error& ex) {
+		std::cerr << "Failed parsing of Quake map file: " << ex.what() << '\n';
 		return 1;
 	}
 

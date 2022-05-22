@@ -6,18 +6,15 @@
 
 // podria definir en la clase quakrparser un convertto() como virtual, y redefinirlo en la clase quaketogenesis
 
-bool QuakeParser::processMap(const std::string& filename, QuakeMap& qMap) {
+void QuakeParser::processMap(const std::string& filename, QuakeMap& qMap) {
 	m_quakeMap.open(filename, std::ios::in);
 
 	if (!m_quakeMap.is_open()) {
-		std::cout << "runtime error: not able to open quake map file" << '\n';
-		return false;
+		throw std::runtime_error("Can't open the file");
 	}
 
 	if (m_quakeMap.eof()) {
-		std::cout << "runtime error: file is empty" << '\n';
-
-		return false;
+		throw std::runtime_error("File is empty");
 	}
 
 	// not initialized
@@ -46,8 +43,7 @@ bool QuakeParser::processMap(const std::string& filename, QuakeMap& qMap) {
 		if (identifier == "{") {
 			if (readingEnt) {
 				if (readingBrush) {
-					std::cout << "Unexpected opening bracket when reading brush.\n";
-					return false;
+					throw std::runtime_error("Unexpected opening bracket when reading brush");
 				} else {
 					m_brush = QuakeBrush();
 					readingBrush = true;
@@ -70,20 +66,17 @@ bool QuakeParser::processMap(const std::string& filename, QuakeMap& qMap) {
 
 		if (line.find('\"') == 0) { // reading key value
 			if (readingBrush) {
-				std::cout << "Unexpected keyvalue when reading brush.\n";
-				return false;
+				throw std::runtime_error("Unexpected keyvalue when reading brush");
 			}
 			result = parseKeyValue(line);
 			if (!result) {
-				std::cout << "Unexpected end of key value data" << '\n';
-				return false;
+				throw std::runtime_error("Unexpected end of key value data");
 			}
 			m_entity.insertKeyValue(m_key, m_value);
 		} else if (line.find('(') == 0) { // reading face
 			result = parseFace(line);
 			if (!result) {
-				std::cout << "Unexpected end of face data" << '\n';
-				return false;
+				throw std::runtime_error("Unexpected end of face data");
 			}
 
 			m_brush.insertFace(m_face);
@@ -92,16 +85,10 @@ bool QuakeParser::processMap(const std::string& filename, QuakeMap& qMap) {
 	}
 
 	if (readingBrush) {
-		std::cout << "Unexpected end of brush data" << '\n';
-		return false;
+		throw std::runtime_error("Unexpected end of brush data");
 	} else if (readingEnt) {
-		std::cout << "Unexpected end of entity data" << '\n';
-		return false;
-	}
-
-	std::cout << "File proccesed succesfully" << '\n';
-	
-	return true;
+		throw std::runtime_error("Unexpected end of entity data");
+	}	
 }
 
 // parse the value and store it in m_entity
