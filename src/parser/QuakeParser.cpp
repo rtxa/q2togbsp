@@ -31,11 +31,12 @@ bool QuakeParser::processMap(const std::string& filename, QuakeMap& qMap) {
 	while (getline(m_quakeMap, line)) {
 		StringTokenizer st(line);
 		
-		if (st.hasMoreTokens()) {
-			identifier = st.nextToken();
-		} else {
-			return false;
+		// this will skip empty lines
+		if (!st.hasMoreTokens()) {
+			continue;
 		}
+
+		identifier = st.nextToken();
 		
 		// ignore comments
 		if (identifier.find("//") == 0) {
