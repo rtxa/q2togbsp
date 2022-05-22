@@ -10,26 +10,12 @@
 
 #include <iostream>
 
+void InitCommandLineArgs(argparse::ArgumentParser& program);
+
 int main(int argc, char* argv[]) {
 	argparse::ArgumentParser program{"q2togbsp", "0.1"};
 	
-	program.add_argument("-i", "--input")
-	.required()
-    .help("specify the input file.");
-
-	program.add_argument("-o", "--output")
-	.required()
-	.help("specify the output file.");
-
-	program.add_argument("-dq", "--debug-quake")
-	.help("display debug information from Quake.")
-	.default_value(false)
-	.implicit_value(true);
-
-	program.add_argument("-dg", "--debug-genesis")
-	.help("display debug information from Genesis.")
-	.default_value(false)
-	.implicit_value(true);
+	InitCommandLineArgs(program);
 
 	try {
 		program.parse_args(argc, argv);
@@ -74,4 +60,24 @@ int main(int argc, char* argv[]) {
 	std::cout << "Quake map has been converted successfully to GBSP binary map format\n";
 
 	return 0;
+}
+
+void InitCommandLineArgs(argparse::ArgumentParser& program) {
+	program.add_argument("-i", "--input")
+	.required()
+    .help("specify the input file.");
+
+	program.add_argument("-o", "--output")
+	.required()
+	.help("specify the output file.");
+
+	program.add_argument("-dq", "--debug-quake")
+	.help("display debug information from Quake.")
+	.default_value(false)
+	.implicit_value(true);
+
+	program.add_argument("-dg", "--debug-genesis")
+	.help("display debug information from Genesis.")
+	.default_value(false)
+	.implicit_value(true);
 }
