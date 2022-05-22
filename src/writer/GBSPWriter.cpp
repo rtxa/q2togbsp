@@ -1,12 +1,11 @@
 #include "GBSPWriter.h"
 #include <iostream>
 
-bool GBSPWriter::writeGBSPFile(const std::string& filename, const GenesisMap& gMap) {
+void GBSPWriter::writeGBSPFile(const std::string& filename, const GenesisMap& gMap) {
 	m_genesisMap.open(filename, std::ios::out | std::ios::binary);
 
 	if (!m_genesisMap.is_open()) {
-		std::cout << "Failed to write file" << '\n';
-		return false;
+		throw std::runtime_error("Can't open file");
 	}
 
 	writeFileHeader(gMap);
@@ -16,8 +15,6 @@ bool GBSPWriter::writeGBSPFile(const std::string& filename, const GenesisMap& gM
 	}
 
 	writeTypeDefs();
-
-	return true;
 }
 
 bool GBSPWriter::writeFileHeader(const GenesisMap& gMap) {

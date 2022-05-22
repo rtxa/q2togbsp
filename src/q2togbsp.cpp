@@ -54,8 +54,11 @@ int main(int argc, char* argv[]) {
 		gMap.printAll();
 	}
 
-	if (!GBSPWriter().writeGBSPFile(output, gMap)) {
-		std::cout << "Failed writing Genesis map to GBSP binary format!\n";
+	try {
+		GBSPWriter().writeGBSPFile(output, gMap);
+	} catch (const std::runtime_error& ex) {
+		std::cerr << "Failed writing Genesis map to GBSP binary format: ";
+		std::cerr << ex.what() << '\n';
 		return 1;
 	}
 
