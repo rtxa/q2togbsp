@@ -10,9 +10,6 @@ class QuakeEntity {
 public:
 	void insertBrush(const QuakeBrush& brush);
 	void insertKeyValue(const std::string& key, const std::string& value);
-	void printKeyValues() const;
-	void printBrushes() const;
-	void printAll() const ;
 
 	std::vector<QuakeBrush>& brushes();
 	const std::vector<QuakeBrush>& brushes() const;

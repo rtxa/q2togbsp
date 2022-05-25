@@ -28,7 +28,6 @@ public:
 	int getSurfaceFlags() const;
 	int getLightIntensity() const;
 
-	void printFace() const;
 private:
 	// plane
 	Vector3f m_point1;

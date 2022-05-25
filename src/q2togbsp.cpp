@@ -40,7 +40,8 @@ int main(int argc, char* argv[]) {
 	}
 
 	if (program["--debug-quake"] == true) {
-		qMap.printAll();
+		std::cout << "Printing Quake Map" << '\n';
+		std::cout << qMap.dump() << '\n';
 	}
 
 	// Step 2: Convert Quake map data to Genesis map data

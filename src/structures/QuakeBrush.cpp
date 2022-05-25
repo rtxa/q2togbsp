@@ -12,9 +12,3 @@ std::vector<QuakeFace>& QuakeBrush::faces() {
 const std::vector<QuakeFace>& QuakeBrush::faces() const {
 	return m_faces;
 }
-
-void QuakeBrush::printFaces() const {
-	for (const auto& face : m_faces) {
-		face.printFace();
-	}
-}

@@ -6,25 +6,6 @@ void QuakeEntity::insertKeyValue(const std::string& key, const std::string& valu
 	m_keyvalues.insert(std::pair<std::string, std::string>(key, value));
 }
 
-void QuakeEntity::printKeyValues() const {
-	for (const auto& property : m_keyvalues) {
-		std::cout << '\t' << property.first << '\t' << property.second << '\n';
-	}
-}
-
-void QuakeEntity::printBrushes() const {
-	int index = 0;
-	for (const auto& brush : m_brushes) {
-		std::cout << "Brush number " << ++index << '\n';
-		brush.printFaces();
-	}
-}
-
-void QuakeEntity::printAll() const {
-	printKeyValues();
-	printBrushes();
-}
-
 void QuakeEntity::insertBrush(const QuakeBrush& brush) {
 	m_brushes.push_back(brush);
 }

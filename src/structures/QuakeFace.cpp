@@ -86,15 +86,3 @@ int QuakeFace::getSurfaceFlags() const {
 int QuakeFace::getLightIntensity() const {
 	return m_lightIntensity;
 }
-
-void QuakeFace::printFace() const {
-	Vector3f point;
-	std::cout << "Face: ";
-	for (int i = 0; i < 3; i++) {
-		point = getPlane(i);
-		std::cout << "( " << point.x << ' ' << point.y << ' ' << point.z << " ) ";
-	}
-	std::cout << "TexName: " << m_textureName << " Scale X/Y " << m_xScale << ' ' << m_yScale;
-	std::cout << " Offset X/Y " << m_xOffset << ' ' << m_yOffset << " Rotation " << m_rotation;
-	std::cout << '\n';
-}
