@@ -1,5 +1,7 @@
 #include "Vector3f.h"
 
+#include <fmt/format.h>
+
 #include <cmath>
 
 void Vector3f::set(float x, float y, float z) {
@@ -66,4 +68,8 @@ bool Vector3f::epsilonEquals(const Vector3f& vector, float epsilon) const {
 		return false;
 	}
 	return true;
+}
+
+std::string Vector3f::toString() const {
+	return fmt::format("{} {} {}", x, y, z);
 }

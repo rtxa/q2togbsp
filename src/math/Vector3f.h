@@ -1,6 +1,8 @@
+// Thanks to https://efxa.org/2018/07/14/a-simple-3d-vector-prototype-library/
+
 #pragma once
 
-// Thanks to https://efxa.org/2018/07/14/a-simple-3d-vector-prototype-library/
+#include <string>
 
 class Vector3f {
 public:
@@ -32,4 +34,6 @@ public:
 	void normalize();
 
 	bool epsilonEquals(const Vector3f& vector, float epsilon) const;
+
+	std::string toString() const;
 };
