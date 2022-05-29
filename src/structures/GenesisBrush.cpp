@@ -23,9 +23,3 @@ std::vector<GenesisFace>& GenesisBrush::faces() {
 const std::vector<GenesisFace>& GenesisBrush::faces() const {
 	return m_faces;
 }
-
-void GenesisBrush::printBrush() const {
-	for (const auto& face : m_faces) {
-		face.printFace();
-	}
-}

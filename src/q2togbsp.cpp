@@ -53,7 +53,8 @@ int main(int argc, char* argv[]) {
 	}
 
 	if (program["--debug-genesis"] == true) {
-		gMap.printAll();
+		std::cout << "Printing Genesis Map" << '\n';
+		std::cout << gMap.dump() << '\n';
 	}
 
     // Step 3: Finally write the serialized Genesis map file

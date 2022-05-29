@@ -19,7 +19,7 @@ class GenesisFace {
 	};
 
 public:
-	void printFace() const;
+	std::string toString() const;
 
 	int getFlags() const;
 	float getMipMapBias() const;

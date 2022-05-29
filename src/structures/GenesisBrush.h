@@ -31,8 +31,6 @@ public:
 
 	std::vector<GenesisFace>& faces();
 	const std::vector<GenesisFace>& faces() const;
-
-	void printBrush() const;
 	
 private:
 	int m_flags{0};
