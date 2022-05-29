@@ -1,4 +1,7 @@
 #include "QuakeFace.h"
+
+#include <fmt/format.h>
+
 #include <iostream>
 
 void QuakeFace::setOffsetX(float value) {
@@ -85,4 +88,10 @@ int QuakeFace::getSurfaceFlags() const {
 
 int QuakeFace::getLightIntensity() const {
 	return m_lightIntensity;
+}
+
+std::string QuakeFace::toString() const {
+	return fmt::format("Plane: ( {} ) ( {} ) ( {} ) TexName: {} Scale X/Y: {} {} Offset X/Y: {} {} Rotation: {}", 
+					    m_point1.toString(), m_point2.toString(), m_point3.toString(),
+					    getTextureName(), getScaleX(), getScaleY(), getOffsetX(), getOffsetY(), getRotation());													
 }

@@ -1,8 +1,7 @@
 #include "QuakeMap.h"
 
-#include <fmt/format.h>
-
 #include <iostream>
+#include <iomanip>
 #include <sstream>
 
 void QuakeMap::insertEntity(const QuakeEntity& entity) {
@@ -25,21 +24,14 @@ std::string QuakeMap::dump() const {
 		stream << "Entity number: " << ++entCount << '\n';
 		
 		for (const auto& property : ent.properties()) {
-			stream << fmt::format("\"{}\" \"{}\"\n", property.first, property.second);
+			stream << "  " << std::quoted(property.first) << ' ' << std::quoted(property.second) << '\n';
 		}
 
 		int brushCount = 0;
       	for (const auto& brush : ent.brushes()) {
 			stream << "Brush number: " << ++brushCount << '\n';
 			for (const auto& face : brush.faces()) {
-				stream << fmt::format("Face: ( {} ) ( {} ) ( {} ) ", 
-									  face.getPlane(0).toString(), 
-									  face.getPlane(1).toString(), 
-									  face.getPlane(2).toString());
-																	
-				stream << fmt::format("TexName: {} Scale X/Y: {} {} Offset X/Y: {} {} Rotation: {}\n",
-						              face.getTextureName(), face.getScaleX(), face.getScaleY(), 
-									  face.getOffsetX(), face.getOffsetY(), face.getRotation());
+				stream << "  " << face.toString() << '\n';
 			}
 		}
     }

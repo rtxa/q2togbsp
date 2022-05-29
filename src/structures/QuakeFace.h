@@ -28,6 +28,8 @@ public:
 	int getSurfaceFlags() const;
 	int getLightIntensity() const;
 
+	std::string toString() const;
+
 private:
 	// plane
 	Vector3f m_point1;
