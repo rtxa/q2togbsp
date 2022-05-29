@@ -41,7 +41,7 @@ int main(int argc, char* argv[]) {
 
 	if (program["--debug-quake"] == true) {
 		std::cout << "Printing Quake Map" << '\n';
-		std::cout << qMap.dump() << '\n';
+		std::cout << qMap.dump();
 	}
 
 	// Step 2: Convert Quake map data to Genesis map data
@@ -54,7 +54,7 @@ int main(int argc, char* argv[]) {
 
 	if (program["--debug-genesis"] == true) {
 		std::cout << "Printing Genesis Map" << '\n';
-		std::cout << gMap.dump() << '\n';
+		std::cout << gMap.dump();
 	}
 
     // Step 3: Finally write the serialized Genesis map file
