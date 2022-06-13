@@ -33,7 +33,7 @@ public:
 	Vector3f normalized() const;
 	void normalize();
 
-	bool epsilonEquals(const Vector3f& vector, float epsilon) const;
+	bool almostEqual(const Vector3f& vector, float tolerance) const;
 
 	std::string toString() const;
 };

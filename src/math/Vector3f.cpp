@@ -59,15 +59,10 @@ void Vector3f::normalize() {
 	set(x / distance, y / distance, z / distance);
 }
 
-bool Vector3f::epsilonEquals(const Vector3f& vector, float epsilon) const {
-	if (fabs(vector.x - x) > epsilon) {
-		return false;
-	} if (fabs(vector.y - y) > epsilon) {
-		return false;
-	} if (fabs(vector.z - z) > epsilon) {
-		return false;
-	}
-	return true;
+bool Vector3f::almostEqual(const Vector3f& vector, float tolerance) const {
+    return std::fabs(x - vector.x) < tolerance &&
+    	   std::fabs(y - vector.y) < tolerance &&
+           std::fabs(z - vector.z) < tolerance;
 }
 
 std::string Vector3f::toString() const {

@@ -86,7 +86,7 @@ bool QuakeToGenesis::planeToNormalForm(const Vector3f points[3], Vector3f& norma
 		v1 = points[i] - points[(i + 1) % NumPoints];
 		v2 = points[(i + 2) % NumPoints] - points[(i + 1) % NumPoints];
 		normal = v1.crossProduct(v2);
-		if (!normal.epsilonEquals(Vector3f(0.0f, 0.0f, 0.0f), Vector3f::CompareEpsilon)) {
+		if (!normal.almostEqual(Vector3f(0.0f, 0.0f, 0.0f), Vector3f::CompareEpsilon)) {
 			break;
 		}
 		i++;
