@@ -18,15 +18,16 @@ void GBSPWriter::writeGBSPFile(const std::string& filename, const GenesisMap& gM
 }
 
 bool GBSPWriter::writeFileHeader(const GenesisMap& gMap) {
-	FileHeader fileH;
-	std::string tag = "NCBF";
+	// Sum of worldspawn entity + point entities + entities definitions;
+	int num = gMap.getNumEntities() + 2;
 
-	fileH.version = 1;
-	tag.copy(fileH.tag, 4);
+	FileHeader f = {
+		1, // version
+		{'N','C','B','F'}, // tag
+		num // num of entities
+	};
 
-	fileH.numEntities = gMap.getNumEntities() + 2; // worldspawn + normal entities + entity typedefs;
-
-	m_genesisMap.write(reinterpret_cast<const char*>(&fileH), sizeof(FileHeader));
+	m_genesisMap.write(reinterpret_cast<const char*>(&f), sizeof(FileHeader));
 
 	return true;
 }
