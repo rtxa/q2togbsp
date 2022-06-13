@@ -10,12 +10,12 @@ void Vector3f::set(float x, float y, float z) {
 	this->z = z;
 }
 
-Vector3f Vector3f::operator + (const Vector3f& vector) const {
-	return {x + vector.x, y + vector.y, z + vector.z};
+Vector3f Vector3f::operator + (const Vector3f& other) const {
+	return {x + other.x, y + other.y, z + other.z};
 }
 
-Vector3f Vector3f::operator - (const Vector3f& vector) const {
-	return {x - vector.x, y - vector.y, z - vector.z};
+Vector3f Vector3f::operator - (const Vector3f& other) const {
+	return {x - other.x, y - other.y, z - other.z};
 }
 
 Vector3f Vector3f::operator * (float scale) const {
@@ -26,14 +26,14 @@ Vector3f Vector3f::operator / (float scale) const {
 	return {x / scale, y / scale, z / scale};
 }
 
-Vector3f Vector3f::crossProduct(const Vector3f& vector) const {
-	return {y * vector.z - z * vector.y,
-			z * vector.x - x * vector.z,
-			x * vector.y - y * vector.x};
+Vector3f Vector3f::crossProduct(const Vector3f& other) const {
+	return {y * other.z - z * other.y,
+			z * other.x - x * other.z,
+			x * other.y - y * other.x};
 }
 
-float Vector3f::dotProduct(const Vector3f& vector) const {
-	return (this->x * vector.x + y * vector.y + z * vector.z);
+float Vector3f::dotProduct(const Vector3f& other) const {
+	return (x * other.x + y * other.y + z * other.z);
 }
 
 float Vector3f::length() const {
@@ -49,20 +49,19 @@ void Vector3f::opposite() {
 }
 
 Vector3f Vector3f::normalized() const {
-	const float distance = length();
-
+	float distance = length();
 	return {x / distance, y / distance, z / distance};
 }
 
 void Vector3f::normalize() {
-	const float distance = length();
+	float distance = length();
 	set(x / distance, y / distance, z / distance);
 }
 
-bool Vector3f::almostEqual(const Vector3f& vector, float tolerance) const {
-    return std::fabs(x - vector.x) < tolerance &&
-    	   std::fabs(y - vector.y) < tolerance &&
-           std::fabs(z - vector.z) < tolerance;
+bool Vector3f::almostEqual(const Vector3f& other, float tolerance) const {
+    return std::fabs(x - other.x) < tolerance &&
+    	   std::fabs(y - other.y) < tolerance &&
+           std::fabs(z - other.z) < tolerance;
 }
 
 std::string Vector3f::toString() const {

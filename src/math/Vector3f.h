@@ -17,13 +17,13 @@ public:
 
 	void set(float x, float y, float z);
 
-	Vector3f operator + (const Vector3f& vector) const;
-	Vector3f operator - (const Vector3f& vector) const;
+	Vector3f operator + (const Vector3f& other) const;
+	Vector3f operator - (const Vector3f& other) const;
 	Vector3f operator * (float scale) const;
 	Vector3f operator / (float scale) const;
 
-	Vector3f crossProduct(const Vector3f& vector) const;
-	float dotProduct(const Vector3f& vector) const;
+	Vector3f crossProduct(const Vector3f& other) const;
+	float dotProduct(const Vector3f& other) const;
 	
 	float length() const;
 
@@ -33,7 +33,7 @@ public:
 	Vector3f normalized() const;
 	void normalize();
 
-	bool almostEqual(const Vector3f& vector, float tolerance) const;
+	bool almostEqual(const Vector3f& other, float tolerance) const;
 
 	std::string toString() const;
 };
