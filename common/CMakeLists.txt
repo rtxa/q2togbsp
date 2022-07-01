@@ -19,3 +19,5 @@ add_library(common OBJECT ${COMMON_SOURCE_FILES})
 target_include_directories(common PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
 target_link_libraries(common PUBLIC fmt::fmt)
+
+add_subdirectory(test)
