@@ -6,7 +6,7 @@
 
 class QuakeBrush {
 public:
-	void insertFace(const QuakeFace& face);
+	void addFace(const QuakeFace& face);
 	
 	std::vector<QuakeFace>& faces();
 	const std::vector<QuakeFace>& faces() const;

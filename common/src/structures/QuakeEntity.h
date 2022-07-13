@@ -8,8 +8,8 @@
 
 class QuakeEntity {
 public:
-	void insertBrush(const QuakeBrush& brush);
-	void insertKeyValue(const std::string& key, const std::string& value);
+	void addBrush(const QuakeBrush& brush);
+	void addProperty(const std::pair<std::string, std::string>& pair);
 
 	std::vector<QuakeBrush>& brushes();
 	const std::vector<QuakeBrush>& brushes() const;

@@ -2,6 +2,7 @@ set(COMMON_SOURCE_FILES
     src/converter/QuakeToGenesis.cpp
     src/math/Vector3f.cpp
     src/parser/QuakeParser.cpp
+    src/parser/QuakeParserException.cpp
     src/structures/GenesisBrush.cpp
     src/structures/GenesisEntity.cpp
     src/structures/GenesisFace.cpp

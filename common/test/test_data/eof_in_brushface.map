@@ -1,0 +1,11 @@
+// Game: Genesis3D
+// Format: Standard
+// entity 0
+{
+"classname" "worldspawn"
+"TextureLib" "textures"
+// brush 0
+{
+( -496 -64 -224 ) ( -496 -63 -224 ) ( -496 -64 -223 ) Blossom 0 0 0 1 1
+( -256 -320 -224 ) ( -256 -320 -223 ) ( -255 -320 -224 ) Blossom 0 0 0 1 1
+( -256 -64 -224 ) ( -255 -64 -224 ) ( -256 -63 -224 ) Blossom 0 0 0 1 1

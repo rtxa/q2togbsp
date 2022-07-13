@@ -2,11 +2,11 @@
 
 #include <iostream>
 
-void QuakeEntity::insertKeyValue(const std::string& key, const std::string& value) {
-	m_keyvalues.insert(std::pair<std::string, std::string>(key, value));
+void QuakeEntity::addProperty(const std::pair<std::string, std::string>& pair) {
+	m_keyvalues.insert(pair);
 }
 
-void QuakeEntity::insertBrush(const QuakeBrush& brush) {
+void QuakeEntity::addBrush(const QuakeBrush& brush) {
 	m_brushes.push_back(brush);
 }
 

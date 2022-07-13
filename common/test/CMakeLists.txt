@@ -1,6 +1,7 @@
 set(TEST_SOURCES
     src/main.cpp
     src/test_maps.cpp
+    src/test_eof.cpp
 )
 
 add_executable(common_test ${TEST_SOURCES})
