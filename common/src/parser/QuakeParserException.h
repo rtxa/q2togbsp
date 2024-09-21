@@ -41,6 +41,10 @@ enum class QuakeParserError {
     OtherError,
 };
 
+/**
+ * @brief Contains a detailed description of the error with
+ *        the last line/column.
+ */
 class QuakeParserException : public std::exception {
 public:
     QuakeParserException(QuakeParserError error) : m_error(error), m_line(0), m_column(0) {};

@@ -18,17 +18,6 @@ QuakeMap QuakeParser::parse(const std::string& path) {
 		throw QuakeParserException(QuakeParserError::FileEmpty);
 	}
 
-	QuakeMap map = parseEntities(file);
-
-	// Post-checks
-	if (map.entities().empty()) {
-		// bla bla bla...
-	}
-
-	return map;
-}
-
-QuakeMap QuakeParser::parseEntities(std::fstream& file) {
 	QuakeMap map;
 
 	std::string line;
@@ -46,6 +35,11 @@ QuakeMap QuakeParser::parseEntities(std::fstream& file) {
 		}
 
 		throw QuakeParserException(QuakeParserError::ExpectedOpenBrace);
+	}
+
+	// Post-checks
+	if (map.entities().empty()) {
+		// bla bla bla...
 	}
 
 	return map;

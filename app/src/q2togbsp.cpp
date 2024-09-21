@@ -33,7 +33,7 @@ int main(int argc, char* argv[]) {
 	
     // Step 1: Parse Quake .MAP file
 	try {
-		qMap = QuakeParser::parse(input);
+		qMap = QuakeParser().parse(input);
 	} catch (const std::runtime_error& ex) {
 		std::cerr << "Failed parsing of Quake map file: " << ex.what() << '\n';
 		return 1;
