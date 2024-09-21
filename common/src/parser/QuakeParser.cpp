@@ -39,7 +39,7 @@ QuakeMap QuakeParser::parse(const std::string& path) {
 
 	// Post-checks
 	if (map.entities().empty()) {
-		// bla bla bla...
+        throw QuakeParserException(QuakeParserError::NoEntitiesFound);
 	}
 
 	return map;
@@ -94,9 +94,8 @@ std::pair<std::string, std::string> QuakeParser::parseEntityProperty(const std::
 		throw QuakeParserException(QuakeParserError::NotEnoughTokens);
 	}
 
-	std::string key, value;
-	key = st.nextToken();
-	value = st.nextToken();
+	std::string key = st.nextToken();
+	std::string value = st.nextToken();
 
 	return {key, value};
 }
@@ -147,7 +146,6 @@ QuakeFace QuakeParser::parseBrushFace(const std::string& line) {
 
 	// Now read additional texture information (tex name, offset, rotation X/Y and scale X/Y)
 	if (st.countTokens() < 6) {
-		// Expected 6 tokens
 		throw QuakeParserException(QuakeParserError::NotEnoughTokensBrushFace);
 	}
 
@@ -209,7 +207,7 @@ std::vector<Vector3f> QuakeParser::parsePlane(StringTokenizer& st) {
 
 Vector3f QuakeParser::parseVector(StringTokenizer& st) {
 	if (st.countTokens() < 3) {
-		// return false;
+		throw QuakeParserException(QuakeParserError::NotEnoughTokensVector);
 	}
 
 	Vector3f v;
@@ -219,9 +217,9 @@ Vector3f QuakeParser::parseVector(StringTokenizer& st) {
 		v.y = std::stof(st.nextToken());
 		v.z = std::stof(st.nextToken());
 	} catch (const std::invalid_argument& ex) {
-		std::cout << "Invalid argument for: " << ex.what() << '\n';
+        throw QuakeParserException(QuakeParserError::VectorValueInvalid);
 	} catch (const std::out_of_range& ex) {
-		std::cout << "Number out of range for: " << ex.what() << '\n';
+        throw QuakeParserException(QuakeParserError::VectorValueOutOfRange);
 	}
 
 	return v;

@@ -35,9 +35,13 @@ enum class QuakeParserError {
     NotEnoughTokens,
     NotEnoughTokensBrushFace,
     NotEnoughTokensPlane,
+    NotEnoughTokensVector,
+    VectorValueOutOfRange,
+    VectorValueInvalid,
     UnexpectedTokenBrushFace,
     UnexpectedOpenBrace,
     UnexpectedCloseBrace,
+    NoEntitiesFound,
     OtherError,
 };
 
