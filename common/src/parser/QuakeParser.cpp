@@ -104,14 +104,6 @@ std::pair<std::string, std::string> QuakeParser::parseEntityProperty(const std::
 QuakeBrush QuakeParser::parseBrush(std::fstream& file) {
 	QuakeBrush brush;
 
-	enum class Status {
-		None,
-		ReadingFace,
-		EndBrush
-	};
-
-	Status status = Status::None;
-
 	std::string line;
 	while (getline(file, line)) {
 		// Skip line comments
@@ -121,7 +113,6 @@ QuakeBrush QuakeParser::parseBrush(std::fstream& file) {
 
 		// Read brush face
 		if (line.find('(') == 0) {
-			status = Status::ReadingFace;
 			QuakeFace face = parseBrushFace(line);
 			brush.addFace(face);
 			continue;
@@ -129,7 +120,6 @@ QuakeBrush QuakeParser::parseBrush(std::fstream& file) {
 		
 		// End of brush reading section
 		if (line.find('}') == 0) {
-			if (status == Status::ReadingFace) { status = Status::EndBrush; }
 			break;
 		}
 
@@ -137,13 +127,7 @@ QuakeBrush QuakeParser::parseBrush(std::fstream& file) {
 		throw QuakeParserException(QuakeParserError::UnexpectedTokenBrushFace);
 	}
 
-	// Check if brush parsing didn't end abruptly
-	switch (status) {
-		case Status::None: throw QuakeParserException(QuakeParserError::EofWhileParsingBrush);
-		case Status::ReadingFace: throw QuakeParserException(QuakeParserError::EofWhileParsingBrushFace);
-	}
-
-	// Ensure brushes have at least 4 faces to avoid
+	// Ensure brushes have at least 4 faces
 	if (brush.faces().size() < 4) {
 		throw QuakeParserException(QuakeParserError::NotEnoughFaces);
 	}
