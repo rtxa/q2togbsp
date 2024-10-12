@@ -41,6 +41,26 @@ void QuakeFace::setSurfaceFlags(int flags) {
 	m_surfaceFlags = flags;
 }
 
+void QuakeFace::setTransparencyValue(int value) {
+    m_transparencyValue = value;
+}
+
+void QuakeFace::setReflectivityScale(float value) {
+    m_reflectivityScale = value;
+}
+
+void QuakeFace::setXLightMapScale(float value) {
+    m_xLightMapScale = value;
+}
+
+void QuakeFace::setYLightMapScale(float value) {
+    m_yLightMapScale = value;
+}
+
+void QuakeFace::setMipMapBias(float value) {
+    m_mipMapBias = value;
+}
+
 void QuakeFace::setLightIntensity(int value) {
 	m_lightIntensity = value;
 }
@@ -90,8 +110,28 @@ int QuakeFace::getLightIntensity() const {
 	return m_lightIntensity;
 }
 
+int QuakeFace::getTransparencyValue() const {
+    return m_transparencyValue;
+}
+
+float QuakeFace::getReflectivityScale() const {
+    return m_reflectivityScale;
+}
+
+float QuakeFace::getXLightMapScale() const {
+    return m_xLightMapScale;
+}
+
+float QuakeFace::getYLightMapScale() const {
+    return m_yLightMapScale;
+}
+
+float QuakeFace::getMipMapBias() const {
+    return m_mipMapBias;
+}
+
 std::string QuakeFace::toString() const {
-	return fmt::format("Plane: ( {} ) ( {} ) ( {} ) TexName: {} Scale X/Y: {} {} Offset X/Y: {} {} Rotation: {}", 
+	return fmt::format("Plane: ( {} ) ( {} ) ( {} ) TexName: {} Scale X/Y: {} {} Offset X/Y: {} {} Rotation: {} ContentFlags: {} SurfaceFlags: {} LightIntensity: {} TransparencyValue: {} ReflectivityScale: {} XLightMapScale: {} YLightMapScale: {} MipMapBias: {}", 
 					    m_point1.toString(), m_point2.toString(), m_point3.toString(),
-					    getTextureName(), getScaleX(), getScaleY(), getOffsetX(), getOffsetY(), getRotation());													
+					    getTextureName(), getScaleX(), getScaleY(), getOffsetX(), getOffsetY(), getRotation(), getContentFlags(), getSurfaceFlags(), getLightIntensity(), getTransparencyValue(), getReflectivityScale(), getXLightMapScale(), getYLightMapScale(), getMipMapBias());													
 }

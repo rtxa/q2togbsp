@@ -48,7 +48,12 @@ private:
 	/**
 	 * @brief Parses a brush face section from the Quake map file.
 	 * 
-	 * @param file File stream
+	 *        (x1 y1 z1) (x2 y2 z2) (x3 y3 z3) <materialName>
+	 *          <xOffset> <yOffset> <rotation> <xScale> <yScale>
+	 *          <surfaceContents> <surfaceFlags> <surfaceValue> 
+	 *          <transparencyValue> <reflectivityScale> <xLightMapScale> <yLightMapScale> <mipMapBias>
+	 *
+	 * @note  surfaceValue is interpreted as a light value in Genesis3D.
 	 * 
 	 * @return QuakeEntity 
 	 * @throw QuakeParserException on parse error 

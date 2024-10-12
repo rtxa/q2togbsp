@@ -16,6 +16,11 @@ public:
 	void setContentFlags(int flags);
 	void setSurfaceFlags(int flags);
 	void setLightIntensity(int value);
+	void setTransparencyValue(int value);
+	void setReflectivityScale(float value);
+	void setXLightMapScale(float value);
+	void setYLightMapScale(float value);
+	void setMipMapBias(float value);
 
 	float getOffsetX() const;
 	float getOffsetY() const;
@@ -27,6 +32,11 @@ public:
 	int getContentFlags() const;
 	int getSurfaceFlags() const;
 	int getLightIntensity() const;
+	int getTransparencyValue() const;
+	float getReflectivityScale() const;
+	float getXLightMapScale() const;
+	float getYLightMapScale() const;
+	float getMipMapBias() const;
 
 	std::string toString() const;
 
@@ -35,13 +45,18 @@ private:
 	Vector3f m_point1;
 	Vector3f m_point2;
 	Vector3f m_point3;
+	std::string m_textureName; // TODO maybe i should use char[32] or an std::array
 	float m_xOffset{0.0f};
 	float m_yOffset{0.0f};
 	float m_rotation{0.0f};
 	float m_xScale{0.0f};
 	float m_yScale{0.0f};
-	int m_surfaceFlags{0};
 	int m_contentFlags{0};
+	int m_surfaceFlags{0};
 	int m_lightIntensity{0};
-	std::string m_textureName; // TODO maybe i should use char[32] or an std::array
+	int m_transparencyValue{255};
+	float m_reflectivityScale{1.0f};
+	float m_xLightMapScale{1.0f};
+	float m_yLightMapScale{1.0f};
+	float m_mipMapBias{1.0f};
 };

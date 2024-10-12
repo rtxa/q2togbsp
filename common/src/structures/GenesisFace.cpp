@@ -117,6 +117,6 @@ float GenesisFace::getDistance() const {
 }
 
 std::string GenesisFace::toString() const {
-	return fmt::format("Plane: [{:<9} {:<9} {:<9} {:<9}] TexName: '{}' Scale X/Y: [{}, {}] Offset X/Y: [{}, {}]", 
-	m_normal.x, m_normal.y, m_normal.z, m_distance, m_textureName, m_xScale, m_yScale, m_xOffset, m_yOffset);
+	return fmt::format("Plane: [{:<9} {:<9} {:<9} {:<9}] TexName: '{}' Scale X/Y: [{}, {}] Offset X/Y: [{}, {}] Flags: {} LightIntensity: {} Transparency: {} ReflectivityScale: {}  MipMapBias: {}", 
+	m_normal.x, m_normal.y, m_normal.z, m_distance, m_textureName, m_xScale, m_yScale, m_xOffset, m_yOffset, m_flags, m_lightIntensity, m_alpha, m_reflectivityScale, m_mipMapBias);
 }

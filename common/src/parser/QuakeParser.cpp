@@ -164,7 +164,7 @@ QuakeFace QuakeParser::parseBrushFace(const std::string& line) {
 	}
 
 	// read Quake 2 parameters if they exist
-	if (st.countTokens() == 3) {
+	if (st.countTokens() >= 3) {
 		try {
 			face.setContentFlags(st.nextTokenInt());
 			face.setSurfaceFlags(st.nextTokenInt());
@@ -174,6 +174,27 @@ QuakeFace QuakeParser::parseBrushFace(const std::string& line) {
 		} catch (const std::out_of_range&) {
 			throw;
 		}
+	}
+
+	// read extra Genesis3D parameters (optional to keep Q2 compatibility)
+	if (st.hasMoreTokens()) {
+		face.setTransparencyValue(st.nextTokenInt());
+	}
+
+	if (st.hasMoreTokens()) {
+		face.setReflectivityScale(st.nextTokenFloat());
+	}
+
+	if (st.hasMoreTokens()) {
+		face.setXLightMapScale(st.nextTokenFloat());
+	}
+
+	if (st.hasMoreTokens()) {
+		face.setYLightMapScale(st.nextTokenFloat());
+	}
+
+	if (st.hasMoreTokens()) {
+		face.setMipMapBias(st.nextTokenFloat());
 	}
 
 	return face;

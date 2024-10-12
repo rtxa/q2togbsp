@@ -59,6 +59,10 @@ bool QuakeToGenesis::convertFace(const QuakeFace& qFace, GenesisFace& gFace) {
 
 
 	gFace.setLightIntensity(qFace.getLightIntensity());
+	gFace.setAlpha(static_cast<float>(qFace.getTransparencyValue()));
+	gFace.setReflectivityScale(qFace.getReflectivityScale());
+	gFace.setMipMapBias(qFace.getMipMapBias());
+
 	// TODO add light map scale in GenesisFace.h
 	// also this conversion of light map scale is bugged...
 
