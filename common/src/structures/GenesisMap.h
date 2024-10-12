@@ -5,15 +5,15 @@
 #include <vector>
 
 class GenesisMap {
-public:
-	void insertEntity(const GenesisEntity& entity);
-	int getNumEntities() const;
-	
-	std::vector<GenesisEntity>& entities();
-	const std::vector<GenesisEntity>& entities() const;
+   public:
+    void insertEntity(const GenesisEntity& entity);
+    int getNumEntities() const;
 
-	std::string dump() const;
+    std::vector<GenesisEntity>& entities();
+    const std::vector<GenesisEntity>& entities() const;
 
-private:
-	std::vector<GenesisEntity> m_entities;
+    std::string dump() const;
+
+   private:
+    std::vector<GenesisEntity> m_entities;
 };

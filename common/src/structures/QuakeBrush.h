@@ -5,13 +5,12 @@
 #include <vector>
 
 class QuakeBrush {
-public:
-	void addFace(const QuakeFace& face);
-	
-	std::vector<QuakeFace>& faces();
-	const std::vector<QuakeFace>& faces() const;
+   public:
+    void addFace(const QuakeFace& face);
 
-private:
-	std::vector<QuakeFace> m_faces;
+    std::vector<QuakeFace>& faces();
+    const std::vector<QuakeFace>& faces() const;
+
+   private:
+    std::vector<QuakeFace> m_faces;
 };
-

@@ -1,156 +1,163 @@
 #include "GBSPWriter.h"
 #include <iostream>
 
-void GBSPWriter::writeGBSPFile(const std::string& filename, const GenesisMap& gMap) {
-	m_genesisMap.open(filename, std::ios::out | std::ios::binary);
+void GBSPWriter::writeGBSPFile(const std::string& filename,
+                               const GenesisMap& gMap) {
+    m_genesisMap.open(filename, std::ios::out | std::ios::binary);
 
-	if (!m_genesisMap.is_open()) {
-		throw std::runtime_error("Can't open file");
-	}
+    if (!m_genesisMap.is_open()) {
+        throw std::runtime_error("Can't open file");
+    }
 
-	writeFileHeader(gMap);
+    writeFileHeader(gMap);
 
-	for (const auto& ent : gMap.entities()) {
-		writeEntity(ent);
-	}
+    for (const auto& ent : gMap.entities()) {
+        writeEntity(ent);
+    }
 
-	writeTypeDefs();
+    writeTypeDefs();
 }
 
 bool GBSPWriter::writeFileHeader(const GenesisMap& gMap) {
-	// Sum of worldspawn entity + point entities + entities definitions;
-	int num = gMap.getNumEntities() + 2;
+    // Sum of worldspawn entity + point entities + entities definitions;
+    int num = gMap.getNumEntities() + 2;
 
-	FileHeader f = {
-		1, // version
-		{'N','C','B','F'}, // tag
-		num // num of entities
-	};
+    FileHeader f = {
+        1,                     // version
+        {'N', 'C', 'B', 'F'},  // tag
+        num                    // num of entities
+    };
 
-	m_genesisMap.write(reinterpret_cast<const char*>(&f), sizeof(FileHeader));
+    m_genesisMap.write(reinterpret_cast<const char*>(&f), sizeof(FileHeader));
 
-	return true;
+    return true;
 }
 
 bool GBSPWriter::writeFace(const GenesisFace& face) {
-	FaceHeader faceH;
+    FaceHeader faceH;
 
-	faceH.flags = face.getFlags();
-	faceH.mipMapBias = face.getMipMapBias();
-	faceH.lightIntensity = static_cast<float>(face.getLightIntensity());
-	faceH.alpha = face.getAlpha();
-	faceH.reflectivityScale = face.getReflectivityScale();
+    faceH.flags = face.getFlags();
+    faceH.mipMapBias = face.getMipMapBias();
+    faceH.lightIntensity = static_cast<float>(face.getLightIntensity());
+    faceH.alpha = face.getAlpha();
+    faceH.reflectivityScale = face.getReflectivityScale();
 
-	memcpy(faceH.textureName, face.getTextureName().c_str(), sizeof(faceH.textureName));
-	
-	faceH.uVecX = face.getVecU().x;
-	faceH.uVecY = face.getVecU().y;
-	faceH.uVecZ = face.getVecU().z;
+    memcpy(faceH.textureName, face.getTextureName().c_str(),
+           sizeof(faceH.textureName));
 
-	faceH.xScale = face.getScaleX();
-	faceH.xOffset = face.getOffsetX();
+    faceH.uVecX = face.getVecU().x;
+    faceH.uVecY = face.getVecU().y;
+    faceH.uVecZ = face.getVecU().z;
 
-	faceH.vVecX = face.getVecV().x;
-	faceH.vVecY = face.getVecV().y;
-	faceH.vVecZ = face.getVecV().z;
+    faceH.xScale = face.getScaleX();
+    faceH.xOffset = face.getOffsetX();
 
-	faceH.yScale = face.getScaleY();
-	faceH.yOffset = face.getOffsetY();
+    faceH.vVecX = face.getVecV().x;
+    faceH.vVecY = face.getVecV().y;
+    faceH.vVecZ = face.getVecV().z;
 
-	faceH.normalX = face.getNormal().x;
-	faceH.normalY = face.getNormal().y;
-	faceH.normalZ = face.getNormal().z;
+    faceH.yScale = face.getScaleY();
+    faceH.yOffset = face.getOffsetY();
 
-	faceH.distance = face.getDistance();
+    faceH.normalX = face.getNormal().x;
+    faceH.normalY = face.getNormal().y;
+    faceH.normalZ = face.getNormal().z;
 
-	m_genesisMap.write(reinterpret_cast<const char*>(&faceH), sizeof(FaceHeader));
+    faceH.distance = face.getDistance();
 
-	return true;
+    m_genesisMap.write(reinterpret_cast<const char*>(&faceH),
+                       sizeof(FaceHeader));
+
+    return true;
 }
 
-bool GBSPWriter::writeKeyValue(const std::string& key, const std::string& value) {
-	writeString(key);
-	writeString(value);
-	return true;
+bool GBSPWriter::writeKeyValue(const std::string& key,
+                               const std::string& value) {
+    writeString(key);
+    writeString(value);
+    return true;
 }
 
 bool GBSPWriter::writeEntity(const GenesisEntity& gEnt) {
-	writeInt(gEnt.getNumBrushes());
-	if (gEnt.getNumBrushes() > 0) {
-		for (const auto& brush : gEnt.brushes()) {
-			writeBrush(brush);
-		}
-	}
+    writeInt(gEnt.getNumBrushes());
+    if (gEnt.getNumBrushes() > 0) {
+        for (const auto& brush : gEnt.brushes()) {
+            writeBrush(brush);
+        }
+    }
 
-	writeInt(gEnt.getFlags());
-	writeInt(gEnt.getNumKeys());
+    writeInt(gEnt.getFlags());
+    writeInt(gEnt.getNumKeys());
 
-	for (const auto& property : gEnt.properties()) {
-		writeKeyValue(property.first, property.second);
-	}
+    for (const auto& property : gEnt.properties()) {
+        writeKeyValue(property.first, property.second);
+    }
 
-	return true;
+    return true;
 }
 
 bool GBSPWriter::writeBrush(const GenesisBrush& brush) {
-	BrushHeader brushH;
-	brushH.flags = brush.getFlags();
-	brushH.numFaces = brush.getNumFaces();
+    BrushHeader brushH;
+    brushH.flags = brush.getFlags();
+    brushH.numFaces = brush.getNumFaces();
 
-	m_genesisMap.write(reinterpret_cast<const char*>(&brushH), sizeof(BrushHeader));
+    m_genesisMap.write(reinterpret_cast<const char*>(&brushH),
+                       sizeof(BrushHeader));
 
-	for (const auto& face : brush.faces()) {
-		writeFace(face);
-	}
+    for (const auto& face : brush.faces()) {
+        writeFace(face);
+    }
 
-	return true;
+    return true;
 }
 
 void GBSPWriter::writeTypeDefs() {
-	// No brushes attached to this entity
-	int numBrushes = 0;
-	int entFlags = 0; // no motion for this entity
-	int numFields = 4; // numfields = classname + name + origin
+    // No brushes attached to this entity
+    int numBrushes = 0;
+    int entFlags = 0;   // no motion for this entity
+    int numFields = 4;  // numfields = classname + name + origin
 
-	writeInt(numBrushes);
-	writeInt(entFlags);
-	writeInt(numFields);
+    writeInt(numBrushes);
+    writeInt(entFlags);
+    writeInt(numFields);
 
-	// Keyvalues
-	writeKeyValue("classname", "%typedef%");
-	writeKeyValue("%typename%", "DeathMatchStart");
-	writeKeyValue("Origin", "point");
-	writeKeyValue("%defaultvalue%", "");
+    // Keyvalues
+    writeKeyValue("classname", "%typedef%");
+    writeKeyValue("%typename%", "DeathMatchStart");
+    writeKeyValue("Origin", "point");
+    writeKeyValue("%defaultvalue%", "");
 
-	// No brushes attached to this entity
-	numBrushes = 0;
-	entFlags = 0; // no motion for this entity
-	numFields = 10; // numfields = classname + name + origin
+    // No brushes attached to this entity
+    numBrushes = 0;
+    entFlags = 0;    // no motion for this entity
+    numFields = 10;  // numfields = classname + name + origin
 
-	writeInt(numBrushes);
-	writeInt(entFlags);
-	writeInt(numFields);
+    writeInt(numBrushes);
+    writeInt(entFlags);
+    writeInt(numFields);
 
-	// Keyvalues
-	writeKeyValue("classname", "%typedef%");
-	writeKeyValue("%typename%", "light");
-	writeKeyValue("light", "int");
-	writeKeyValue("%defaultvalue%", "");
-	writeKeyValue("color", "color");
-	writeKeyValue("%defaultvalue%", "");
-	writeKeyValue("style", "int");
-	writeKeyValue("%defaultvalue%", "");
-	writeKeyValue("Origin", "point");
-	writeKeyValue("%defaultvalue%", "");	
+    // Keyvalues
+    writeKeyValue("classname", "%typedef%");
+    writeKeyValue("%typename%", "light");
+    writeKeyValue("light", "int");
+    writeKeyValue("%defaultvalue%", "");
+    writeKeyValue("color", "color");
+    writeKeyValue("%defaultvalue%", "");
+    writeKeyValue("style", "int");
+    writeKeyValue("%defaultvalue%", "");
+    writeKeyValue("Origin", "point");
+    writeKeyValue("%defaultvalue%", "");
 }
 
 void GBSPWriter::writeInt(int value) {
-	m_genesisMap.write(reinterpret_cast<const char*>(&value), sizeof(std::int32_t));
+    m_genesisMap.write(reinterpret_cast<const char*>(&value),
+                       sizeof(std::int32_t));
 }
 
 void GBSPWriter::writeString(const std::string& str) {
-	int length = str.length();
-	m_genesisMap.write(reinterpret_cast<const char*>(&length), sizeof(std::int32_t));
-	m_genesisMap.write(reinterpret_cast<const char*>(str.c_str()), str.length());
+    int length = str.length();
+    m_genesisMap.write(reinterpret_cast<const char*>(&length),
+                       sizeof(std::int32_t));
+    m_genesisMap.write(reinterpret_cast<const char*>(str.c_str()),
+                       str.length());
 }
-
