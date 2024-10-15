@@ -27,22 +27,19 @@ bool QuakeToGenesis::convertFace(const QuakeFace& qFace, GenesisFace& gFace) {
     Vector3f points[3];
 
     for (int i = 0; i < 3; i++) {
-        // switch coordinates Y and Z and make negative Z
+        // Switch from RHS Y-Up Quake to RHS Z-Up Genesis coordinates system
         points[i].x = qFace.getPlane(i).x;
         points[i].y = qFace.getPlane(i).z;
-        points[i].z = qFace.getPlane(i).y;
-        points[i].z = -points[i].z;
+        points[i].z = -qFace.getPlane(i).y;
     }
 
     Vector3f normal;
     float distance = 0.0;
 
-    // TODO check if process was done successfully in planeToNormalForm and
-    // worldTextureVecsToUV
-    planeToNormalForm(points, normal, distance);
+    findNormalFromPoints(points, normal, distance);
 
     Vector3f uVec, vVec;
-    worldTextureVecsToUV(normal, qFace.getRotation(), uVec, vVec);
+    alignTextureToWorld(normal, qFace.getRotation(), uVec, vVec);
 
     gFace.setTextureName(qFace.getTextureName());
     gFace.setNormal(normal);
@@ -79,12 +76,10 @@ bool QuakeToGenesis::convertFace(const QuakeFace& qFace, GenesisFace& gFace) {
     return true;
 }
 
-bool QuakeToGenesis::planeToNormalForm(const Vector3f points[3],
-                                       Vector3f& normal,
-                                       float& distance) {
-    const int NumPoints =
-        3;  // 3 points per plane (genesis uses 4 points in his .3dt format)
-
+bool QuakeToGenesis::findNormalFromPoints(const Vector3f points[3],
+                                          Vector3f& normal,
+                                          float& distance) {
+    const int NumPoints = 3;  // 3 points per plane
     Vector3f v1, v2;
 
     int i = 0;
@@ -110,10 +105,10 @@ bool QuakeToGenesis::planeToNormalForm(const Vector3f points[3],
     return true;
 }
 
-void QuakeToGenesis::worldTextureVecsToUV(Vector3f normal,
-                                          float rotation,
-                                          Vector3f& uVec,
-                                          Vector3f& vVec) {
+void QuakeToGenesis::alignTextureToWorld(Vector3f normal,
+                                         float rotation,
+                                         Vector3f& uVec,
+                                         Vector3f& vVec) {
     const float Pi = 3.141592741f;
 
     float ang = (rotation * Pi) / 180.0f;  // degrees to radians

@@ -22,14 +22,14 @@ class QuakeToGenesis {
      *
      * @return True if was converted successfully, otherwise false.
      */
-    static bool planeToNormalForm(const Vector3f points[3],
+    static bool findNormalFromPoints(const Vector3f points[3],
                                   Vector3f& normal,
                                   float& distance);
 
     /*
-     * Converts world texture vectors to UV texture coordinates.
+     * Align texture coordinates to the world coordinate system.
      */
-    static void worldTextureVecsToUV(Vector3f normal,
+    static void alignTextureToWorld(Vector3f normal,
                                      float rotation,
                                      Vector3f& uVec,
                                      Vector3f& vVec);
