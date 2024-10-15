@@ -50,11 +50,10 @@ bool QuakeToGenesis::convertFace(const QuakeFace& qFace, GenesisFace& gFace) {
     gFace.setVecU(uVec);
     gFace.setVecV(vVec);
 
-    // make axis Y of scale and offset negative
     gFace.setScaleX(qFace.getScaleX());
-    gFace.setScaleY(-qFace.getScaleY());
+    gFace.setScaleY(qFace.getScaleY());
     gFace.setOffsetX(qFace.getOffsetX());
-    gFace.setOffsetY(-qFace.getOffsetY());
+    gFace.setOffsetY(qFace.getOffsetY());
 
     gFace.setFlags(qFace.getSurfaceFlags());
 
@@ -133,7 +132,7 @@ void QuakeToGenesis::worldTextureVecsToUV(Vector3f normal,
     }
 
     if (whichAxis == 0) {
-        uVec = Vector3f(0.0f, sinv, cosv);
+        uVec = Vector3f(0.0f, sinv, -cosv);
         vVec = Vector3f(0.0f, -cosv, sinv);
     } else if (whichAxis == 1) {
         uVec = Vector3f(cosv, 0.0f, sinv);
