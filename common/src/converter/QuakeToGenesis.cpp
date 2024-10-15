@@ -39,7 +39,11 @@ bool QuakeToGenesis::convertFace(const QuakeFace& qFace, GenesisFace& gFace) {
     findNormalFromPoints(points, normal, distance);
 
     Vector3f uVec, vVec;
-    alignTextureToWorld(normal, qFace.getRotation(), uVec, vVec);
+    if (qFace.isValveFormat()) {
+        alignTextureToFace(qFace, uVec, vVec);
+    } else {
+        alignTextureToWorld(normal, qFace.getRotation(), uVec, vVec);
+    }
 
     gFace.setTextureName(qFace.getTextureName());
     gFace.setNormal(normal);
@@ -136,6 +140,20 @@ void QuakeToGenesis::alignTextureToWorld(Vector3f normal,
         uVec = Vector3f(cosv, sinv, 0.0f);
         vVec = Vector3f(sinv, -cosv, 0.0f);
     }
+}
+
+void QuakeToGenesis::alignTextureToFace(const QuakeFace& qFace,
+                                        Vector3f& uVec,
+                                        Vector3f& vVec) {
+    // no need to do any calculations, level editor does this for us
+    // we just need to convert the coordinate system
+    uVec.x = qFace.getVecU().x;
+    uVec.y = qFace.getVecU().z;
+    uVec.z = -qFace.getVecU().y;
+
+    vVec.x = qFace.getVecV().x;
+    vVec.y = qFace.getVecV().z;
+    vVec.z = -qFace.getVecV().y;
 }
 
 bool QuakeToGenesis::convertEnt(const QuakeEntity& qEnt, GenesisEntity& gEnt) {

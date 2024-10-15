@@ -7,7 +7,7 @@
 class StringTokenizer {
    public:
     StringTokenizer(const std::string& line);
-    std::vector<std::string> getTokensList();
+    const std::vector<std::string>& tokens();
     std::string nextToken();
     float nextTokenFloat();
     int nextTokenInt();

@@ -153,17 +153,28 @@ QuakeFace QuakeParser::parseBrushFace(const std::string& line) {
 
     face.setTextureName(st.nextToken());
 
-    try {
+    // Valve: [ Ux Uy Uz Uoffset ] [ Vx Vy Vz Voffset ] rotation
+    // Quake: xOffset yOffset rotation
+
+    // Valve texture format
+    if (st.tokens().at(0) == "[") {
+        face.setValveFormat(true);
+        st.nextToken();  // Discard [
+        face.setVecU(parseVector(st));
+        face.setOffsetX(st.nextTokenFloat());
+        st.nextToken(); // Discard ]
+        st.nextToken(); // Discard [
+        face.setVecV(parseVector(st));
+        face.setOffsetY(st.nextTokenFloat());
+        st.nextToken(); // Discard ]
+    } else { // Quake texture format
         face.setOffsetX(st.nextTokenFloat());
         face.setOffsetY(st.nextTokenFloat());
-        face.setRotation(st.nextTokenFloat());
-        face.setScaleX(st.nextTokenFloat());
-        face.setScaleY(st.nextTokenFloat());
-    } catch (const std::invalid_argument&) {
-        throw;
-    } catch (const std::out_of_range&) {
-        throw;
     }
+
+    face.setRotation(st.nextTokenFloat());
+    face.setScaleX(st.nextTokenFloat());
+    face.setScaleY(st.nextTokenFloat());
 
     // read Quake 2 parameters if they exist
     if (st.countTokens() >= 3) {

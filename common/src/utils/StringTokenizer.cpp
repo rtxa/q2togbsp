@@ -10,7 +10,7 @@ StringTokenizer::StringTokenizer(const std::string& line) {
 
     // separates by whitespaces and ignores quotes
     while (linestream >> std::quoted(token)) {
-        m_tokens.insert(m_tokens.begin(), token);
+        m_tokens.push_back(token);
     }
 }
 
@@ -19,8 +19,8 @@ std::string StringTokenizer::nextToken() {
         return "";
     }
 
-    std::string token = m_tokens.back();
-    m_tokens.pop_back();
+    std::string token = m_tokens[0];
+    m_tokens.erase(m_tokens.begin());
 
     return token;
 }
@@ -44,6 +44,6 @@ size_t StringTokenizer::countTokens() {
 /*
  * Get a copy of the list of tokens from this tokenizer
  */
-std::vector<std::string> StringTokenizer::getTokensList() {
+const std::vector<std::string>& StringTokenizer::tokens() {
     return m_tokens;
 }

@@ -133,15 +133,40 @@ float QuakeFace::getMipMapBias() const {
     return m_mipMapBias;
 }
 
+Vector3f QuakeFace::getVecU() const {
+    return m_uVec;
+}
+void QuakeFace::setVecU(const Vector3f& uVec) {
+    m_uVec = uVec;
+}
+
+Vector3f QuakeFace::getVecV() const {
+    return m_vVec;
+}
+void QuakeFace::setVecV(const Vector3f& vVec) {
+    m_vVec = vVec;
+}
+
+bool QuakeFace::isValveFormat() const {
+    return m_isValveFormat;
+}
+
+void QuakeFace::setValveFormat(bool isValveFormat) {
+    m_isValveFormat = isValveFormat;
+}
+
 std::string QuakeFace::toString() const {
     return fmt::format(
-        "Plane: ( {} ) ( {} ) ( {} ) TexName: {} Scale X/Y: {} {} Offset X/Y: "
-        "{} {} Rotation: {} ContentFlags: {} SurfaceFlags: {} LightIntensity: "
-        "{} TransparencyValue: {} ReflectivityScale: {} XLightMapScale: {} "
-        "YLightMapScale: {} MipMapBias: {}",
+        "Plane: ( {} ) ( {} ) ( {} ) TexName: '{}' Scale X/Y: [ {} {} ] "
+        "Offset X/Y: "
+        "[ {} {} ] Rotation: {} ContentFlags: {} SurfaceFlags: {} Light: {} "
+        "Transparency: {} Reflectivity: {} LightMap X/Y: [ {} {} ] MipMapBias: "
+        "{} "
+        "uVec: [ {} ] vVec: [ {} ]",
         m_point1.toString(), m_point2.toString(), m_point3.toString(),
         getTextureName(), getScaleX(), getScaleY(), getOffsetX(), getOffsetY(),
         getRotation(), getContentFlags(), getSurfaceFlags(),
         getLightIntensity(), getTransparencyValue(), getReflectivityScale(),
-        getXLightMapScale(), getYLightMapScale(), getMipMapBias());
+        getXLightMapScale(), getYLightMapScale(), getMipMapBias(),
+        getVecU().toString(), getVecV().toString());
 }

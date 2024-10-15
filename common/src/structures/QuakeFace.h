@@ -40,6 +40,15 @@ class QuakeFace {
 
     std::string toString() const;
 
+    Vector3f getVecU() const;
+    void setVecU(const Vector3f &uVec);
+
+    Vector3f getVecV() const;
+    void setVecV(const Vector3f &vVec);
+
+    bool isValveFormat() const;
+    void setValveFormat(bool isValveFormat);
+
    private:
     // plane
     Vector3f m_point1;
@@ -48,6 +57,8 @@ class QuakeFace {
     std::string m_textureName;  // TODO: use char[32] or std::array
     float m_xOffset{0.0f};
     float m_yOffset{0.0f};
+    Vector3f m_uVec; // Used by Valve format
+    Vector3f m_vVec; // Used by Valve format
     float m_rotation{0.0f};
     float m_xScale{0.0f};
     float m_yScale{0.0f};
@@ -59,4 +70,5 @@ class QuakeFace {
     float m_xLightMapScale{1.0f};
     float m_yLightMapScale{1.0f};
     float m_mipMapBias{1.0f};
+    bool m_isValveFormat{false};
 };

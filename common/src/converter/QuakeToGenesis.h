@@ -34,6 +34,10 @@ class QuakeToGenesis {
                                      Vector3f& uVec,
                                      Vector3f& vVec);
 
+    static void alignTextureToFace(const QuakeFace& qFace,
+                                   Vector3f& uVec,
+                                   Vector3f& vVec);
+
     bool convertEnt(const QuakeEntity& qEnt, GenesisEntity& gEnt);
 
     /*
