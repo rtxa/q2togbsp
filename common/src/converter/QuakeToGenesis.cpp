@@ -48,11 +48,17 @@ bool QuakeToGenesis::convertFace(const QuakeFace& qFace, GenesisFace& gFace) {
     gFace.setTextureName(qFace.getTextureName());
     gFace.setNormal(normal);
     gFace.setDistance(distance);
-    gFace.setVecU(uVec);
-    gFace.setVecV(vVec);
 
-    gFace.setScaleX(qFace.getScaleX());
-    gFace.setScaleY(qFace.getScaleY());
+    // Apply light map scale while keeping original texture scale
+    float scaleX = gFace.getScaleX() / qFace.getXLightMapScale();
+    float scaleY = gFace.getScaleY() / qFace.getYLightMapScale();
+
+    gFace.setVecU(uVec * scaleX);
+    gFace.setVecV(vVec * scaleY);
+
+    gFace.setScaleX(scaleX);
+    gFace.setScaleY(scaleY);
+
     gFace.setOffsetX(qFace.getOffsetX());
     gFace.setOffsetY(qFace.getOffsetY());
 
@@ -62,20 +68,6 @@ bool QuakeToGenesis::convertFace(const QuakeFace& qFace, GenesisFace& gFace) {
     gFace.setAlpha(static_cast<float>(qFace.getTransparencyValue()));
     gFace.setReflectivityScale(qFace.getReflectivityScale());
     gFace.setMipMapBias(qFace.getMipMapBias());
-
-    // TODO add light map scale in GenesisFace.h
-    // also this conversion of light map scale is bugged...
-
-    // const float scaleX = gFace.getScaleX() / 0.2f;
-    // const float scaleY = gFace.getScaleY() / 0.2f;
-
-    // uVec = uVec * scaleX; // divided by light map scale
-    // vVec = vVec * scaleY; // divided by light map scale
-
-    // gFace.setVecU(uVec);
-    // gFace.setVecV(vVec);
-    // gFace.setScaleX(scaleX);
-    // gFace.setScaleY(scaleY);
 
     return true;
 }
