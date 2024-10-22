@@ -2,14 +2,19 @@
 // Author: rtxa
 // Version 0.1 - 27/09/2020
 
+#include <filesystem>
 #include "converter/QuakeToGenesis.h"
 #include "parser/QuakeParser.h"
+#include "typeparser/EntDefParser.h"
 #include "writer/GBSPWriter.h"
 
 #include <argparse/argparse.hpp>
 
 #include <iostream>
 
+namespace fs = std::filesystem;
+
+void processHeader(const fs::path& folderPath, std::vector<EntDef>& entDefs);
 void InitCommandLineArgs(argparse::ArgumentParser& program);
 
 int main(int argc, char* argv[]) {
@@ -57,9 +62,30 @@ int main(int argc, char* argv[]) {
         std::cout << gMap.dump();
     }
 
+    auto headersArg = program.get<std::string>("--headers");
+    std::vector<std::string> headersPaths;
+
+    // Using a string stream to split the string
+    std::istringstream ss(headersArg);
+    std::string item;
+
+    // Split the string using the semicolon delimiter
+    while (std::getline(ss, item, ';')) {
+        headersPaths.emplace_back(item);  // Move item into the vector
+    }
+
+    // Specify the path to the folder
+    fs::path folderPath(headersArg);
+
+    // Process the headers and store them
+    auto entDefs = std::vector<EntDef>();
+    for (const auto& path : headersPaths) {
+        processHeader(path, entDefs);
+    }
+
     // Step 3: Finally write the serialized Genesis map file
     try {
-        GBSPWriter().writeGBSPFile(output, gMap);
+        GBSPWriter().writeGBSPFile(output, gMap, entDefs);
     } catch (const std::runtime_error& ex) {
         std::cerr << "Failed writing Genesis map to GBSP binary format: ";
         std::cerr << ex.what() << '\n';
@@ -70,6 +96,30 @@ int main(int argc, char* argv[]) {
               << "GBSP binary map format\n";
 
     return 0;
+}
+
+void processHeader(const fs::path& folderPath, std::vector<EntDef>& entDefs) {
+    try {
+        // Check if the path exists and is a directory
+        if (fs::exists(folderPath) && fs::is_directory(folderPath)) {
+            // Iterate through the files in the directory
+            for (const auto& entry : fs::directory_iterator(folderPath)) {
+                if (fs::is_regular_file(entry.status()) &&
+                    entry.path().extension() == ".h") {
+                    std::cout << "File: " << entry.path().filename()
+                              << std::endl;
+                    EntDefParser::parse(entry.path().string(), entDefs);
+                }
+            }
+        } else {
+            std::cerr << "Path does not exist or is not a directory."
+                      << std::endl;
+        }
+    } catch (const fs::filesystem_error& e) {
+        std::cerr << "Filesystem error: " << e.what() << std::endl;
+    } catch (const std::exception& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+    }
 }
 
 void InitCommandLineArgs(argparse::ArgumentParser& program) {
@@ -90,4 +140,9 @@ void InitCommandLineArgs(argparse::ArgumentParser& program) {
         .help("display debug information from Genesis.")
         .default_value(false)
         .implicit_value(true);
+
+    program.add_argument("-hd", "--headers")
+        .help("folders path to get headers, delimited with ;.")
+        .required()
+        .default_value(std::string(""));
 }

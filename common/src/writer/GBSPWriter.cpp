@@ -1,30 +1,40 @@
 #include "GBSPWriter.h"
+#include "typeparser/EntDef.h"
+
 #include <iostream>
 
 void GBSPWriter::writeGBSPFile(const std::string& filename,
-                               const GenesisMap& gMap) {
+                               const GenesisMap& gMap,
+                               const std::vector<EntDef>& entDefs) {
     m_genesisMap.open(filename, std::ios::out | std::ios::binary);
 
     if (!m_genesisMap.is_open()) {
         throw std::runtime_error("Can't open file");
     }
 
-    writeFileHeader(gMap);
+    writeFileHeader(gMap, entDefs);
 
     for (const auto& ent : gMap.entities()) {
         writeEntity(ent);
     }
 
-    writeTypeDefs();
+    if (entDefs.empty()) {
+        writeFixedEntDefs();
+    } else {
+        for (const auto& entDef : entDefs) {
+            writeEntDef(entDef, entDefs);
+        }
+    }
 }
 
-bool GBSPWriter::writeFileHeader(const GenesisMap& gMap) {
+bool GBSPWriter::writeFileHeader(const GenesisMap& gMap,
+                                 const std::vector<EntDef>& entDefs) {
     // Sum of worldspawn entity + point entities + entities definitions;
-    int num = gMap.getNumEntities() + 2;
+    int num = gMap.getNumEntities() + entDefs.size();
 
     FileHeader f = {
         1,                     // version
-        {'N', 'C', 'B', 'F'},  // tag
+        {'N', 'C', 'B', 'F'},  // tag (Non-coding binary file)
         num                    // num of entities
     };
 
@@ -111,7 +121,22 @@ bool GBSPWriter::writeBrush(const GenesisBrush& brush) {
     return true;
 }
 
-void GBSPWriter::writeTypeDefs() {
+/**
+ * @brief Writes the fixed entity definitions to the Genesis map file.
+ *
+ * Fixed entity definitions are special entities that are always
+ * present in a map, and have no brushes attached to them. They
+ * are used to define the default values for certain keyvalues
+ * that are used by other entities in the map.
+ *
+ * This function writes two fixed entity definitions to the
+ * map file: "DeathMatchStart" and "light". The "DeathMatchStart"
+ * entity has no special properties, while the "light" entity
+ * has properties for light color, style, and origin.
+ *
+ * This is useful for maps that don't provide any entity definitions.
+ */
+void GBSPWriter::writeFixedEntDefs() {
     // No brushes attached to this entity
     int numBrushes = 0;
     int entFlags = 0;   // no motion for this entity
@@ -147,6 +172,84 @@ void GBSPWriter::writeTypeDefs() {
     writeKeyValue("%defaultvalue%", "");
     writeKeyValue("Origin", "point");
     writeKeyValue("%defaultvalue%", "");
+}
+
+std::string removeTrailingAsterisk(std::string str) {
+    if (!str.empty() && str.back() == '*') {
+        str.erase(str.size() - 1);
+    }
+    return str;
+}
+
+bool hasTrailingAsterisk(const std::string& str) {
+    return !str.empty() && str.back() == '*';
+}
+
+/**
+ * @brief Converts a type extracted from a C header (user entity
+ *        definition) to what Genesis3D understands in binary map files.
+ *
+ * @param[in] type Type string extracted from a C header.
+ * @return Type string that Genesis3D understands in its binary map files.
+ */
+std::string convertTypeToGBSP(const std::string& type,
+                              bool isPublished,
+                              const std::vector<EntDef>& entDefs) {
+    // Convert types extracted from C header with user entity definition
+    // to what genesis3d understands in binary map files
+
+    if (type == "int" || type == "geBoolean") {
+        return "int";
+    } else if (type == "GE_RGBA") {
+        return "color";
+    } else if (type == "geFloat" || type == "float") {
+        return "float";
+    } else if (type == "geWorld_Model*") {
+        return "model";
+    } else if (type == "geVec3d") {
+        return "point";
+    } else if (type == "char*") {
+        return "string";
+    } else if (!isPublished) {
+        if (hasTrailingAsterisk(type)) {
+            auto strippedType = removeTrailingAsterisk(type);
+            auto it = std::find_if(entDefs.begin(), entDefs.end(),
+                                   [&](const EntDef property) {
+                                       return property.name == strippedType;
+                                   });
+
+            if (it != entDefs.end()) {
+                return strippedType;
+            }
+        }
+        return "ptr";
+
+    } else {
+        return removeTrailingAsterisk(type);
+    }
+}
+
+void GBSPWriter::writeEntDef(const EntDef& entDef,
+                             const std::vector<EntDef>& entDefs) {
+    int numBrushes = 0;  // No brushes attached to this entity
+    int entFlags = 0;    // No motion for this entity
+
+    // Adjust for default value pairs and classname and %typename% fields
+    int numFields = (entDef.properties.size() * 2) + 2;
+
+    writeInt(numBrushes);
+    writeInt(entFlags);
+    writeInt(numFields);
+
+    // Keyvalues
+    writeKeyValue("classname", "%typedef%");
+    writeKeyValue("%typename%", entDef.name);
+
+    for (const auto& prop : entDef.properties) {
+        writeKeyValue(prop.name,
+                      convertTypeToGBSP(prop.type, prop.isPublished, entDefs));
+        writeKeyValue("%defaultvalue%", "");  // I don't get why is empty...
+    }
 }
 
 void GBSPWriter::writeInt(int value) {
