@@ -4,6 +4,7 @@
 
 #include <filesystem>
 #include "converter/QuakeToGenesis.h"
+#include "fgd/FgdGenerator.h"
 #include "parser/QuakeParser.h"
 #include "typeparser/EntDefParser.h"
 #include "writer/GBSPWriter.h"
@@ -79,8 +80,19 @@ int main(int argc, char* argv[]) {
 
     // Process the headers and store them
     auto entDefs = std::vector<EntDef>();
+
+    auto fixedEntDefsPath = program.get<std::string>("--fixed-entdef");
+    if (!fixedEntDefsPath.empty()) {
+        EntDefParser::parse(fixedEntDefsPath, entDefs);
+    }
+
     for (const auto& path : headersPaths) {
         processHeader(path, entDefs);
+    }
+
+    auto fgdOutputPath = program.get<std::string>("--generate-fgd");
+    if (!fgdOutputPath.empty()) {
+        FgdGenerator::generate(fgdOutputPath, entDefs);
     }
 
     // Step 3: Finally write the serialized Genesis map file
@@ -141,8 +153,18 @@ void InitCommandLineArgs(argparse::ArgumentParser& program) {
         .default_value(false)
         .implicit_value(true);
 
+    program.add_argument("-fe", "--fixed-entdef")
+        .help("file path to fixed entity definition header.")
+        .required()
+        .default_value(std::string(""));
+
     program.add_argument("-hd", "--headers")
         .help("folders path to get headers, delimited with ;.")
+        .required()
+        .default_value(std::string(""));
+
+    program.add_argument("-gf", "--generate-fgd")
+        .help("generate fgd from loaded entdefs.")
         .required()
         .default_value(std::string(""));
 }
