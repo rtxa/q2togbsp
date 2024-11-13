@@ -21,8 +21,10 @@ void GBSPWriter::writeGBSPFile(const std::string& filename,
     if (entDefs.empty()) {
         writeFixedEntDefs();
     } else {
-        for (const auto& entDef : entDefs) {
-            writeEntDef(entDef, entDefs);
+        // Write entity definitions starting from the end to match what Genesis
+        // EntTypeDef writer does
+        for (auto it = entDefs.rbegin(); it != entDefs.rend(); ++it) {
+            writeEntDef(*it, entDefs);
         }
     }
 }

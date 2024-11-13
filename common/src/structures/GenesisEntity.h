@@ -28,5 +28,7 @@ class GenesisEntity {
     std::map<std::string, std::string> m_keyvalues;
 
     int m_flags{0};
+
+   public:
     static constexpr int EntityModelMotion = (1 << 0);  // entity flag
 };
