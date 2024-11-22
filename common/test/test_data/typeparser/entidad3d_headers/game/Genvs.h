@@ -4,9 +4,9 @@
 //
 /****************************************************************************************/
 /*  File: Genvs.h                                                                       */
-/*  DescripciÛn:                                                                        */
+/*  Descripci√≥n:                                                                        */
 /*                                                                                      */
-/*  DefiniciÛn de clases de entidades.                                                  */
+/*  Definici√≥n de clases de entidades.                                                  */
 /*  Este fichero .h lo utiliza World Editor para crear las entidades que usa el         */
 /*  programa Entidad 3D.                                                                */
 /*                                                                                      */
@@ -15,9 +15,9 @@
 /*                                                                                      */
 /*  Modificaciones para Entidad 3D:                                                     */
 /*                                                                                      */
-/*  Autor: Jordi PÈrez                                                                  */
+/*  Autor: Jordi P√©rez                                                                  */
 /*                                                                                      */
-/*  Copyright (C) 2004 - 2016 Jordi PÈrez; All rights reserved.                         */
+/*  Copyright (C) 2004 - 2016 Jordi P√©rez; All rights reserved.                         */
 /*                                                                                      */
 /****************************************************************************************/
 
@@ -50,7 +50,7 @@ extern "C" {
 
 
 // ============================================
-// EnumeraciÛn de contenidos de bloques 'brush'
+// Enumeraci√≥n de contenidos de bloques 'brush'
 // ============================================
 #pragma GE_BrushContents
 typedef enum
@@ -104,47 +104,47 @@ typedef struct DeathMatchStart
 {
 #pragma GE_Published
     geVec3d     Origin;
-	#pragma GE_Documentation(Origin, "PosiciÛn (X Y Z)")
+	#pragma GE_Documentation(Origin, "Posici√≥n (X Y Z)")
 
 	char *Anim_agachado_Idle;
 	#pragma GE_DefaultValue(Anim_agachado_Idle, "")
-	#pragma GE_Documentation(Anim_agachado_Idle, "Nombre animaciÛn del personaje parado agachado. Normalmente 'Idle_agachado'")
+	#pragma GE_Documentation(Anim_agachado_Idle, "Nombre animaci√≥n del personaje parado agachado. Normalmente 'Idle_agachado'")
 
 	char *Anim_agachado_Walk;
 	#pragma GE_DefaultValue(Anim_agachado_Walk, "")
-	#pragma GE_Documentation(Anim_agachado_Walk, "Nombre animaciÛn del personaje caminando agachado. Normalmente 'Walk_agachado'")
+	#pragma GE_Documentation(Anim_agachado_Walk, "Nombre animaci√≥n del personaje caminando agachado. Normalmente 'Walk_agachado'")
 
 	char *Anim_salto;
 	#pragma GE_DefaultValue(Anim_salto, "")
-	#pragma GE_Documentation(Anim_salto, "Nombre de animaciÛn para el salto del personaje. Normalmente 'JumpLand'")
+	#pragma GE_Documentation(Anim_salto, "Nombre de animaci√≥n para el salto del personaje. Normalmente 'JumpLand'")
 
 	char *Anim_escalar;
 	#pragma GE_DefaultValue(Anim_escalar, "")
-	#pragma GE_Documentation(Anim_escalar, "Nombre de animaciÛn del personaje escalando. Normalmente 'Escalar'")
+	#pragma GE_Documentation(Anim_escalar, "Nombre de animaci√≥n del personaje escalando. Normalmente 'Escalar'")
 
 	char *Anim_nadar;
 	#pragma GE_DefaultValue(Anim_nadar, "")
-	#pragma GE_Documentation(Anim_nadar, "Nombre de animaciÛn del personaje nadando. Normalmente 'Swim'")
+	#pragma GE_Documentation(Anim_nadar, "Nombre de animaci√≥n del personaje nadando. Normalmente 'Swim'")
 
 	geBoolean   Avance_direccion;
 	#pragma GE_DefaultValue(Avance_direccion, "False")
-	#pragma GE_Documentation(Avance_direccion, "Avance del jugador seg˙n las teclas de direcciÛn. False=No True=Si")
+	#pragma GE_Documentation(Avance_direccion, "Avance del jugador seg√∫n las teclas de direcci√≥n. False=No True=Si")
 
 	int	Vidas;
 	#pragma GE_DefaultValue(Vidas, "4")
-	#pragma GE_Documentation(Vidas, "N˙mero de vidas iniciales del jugador")
+	#pragma GE_Documentation(Vidas, "N√∫mero de vidas iniciales del jugador")
 
 	geBoolean   Jugador_masculino;
 	#pragma GE_DefaultValue(Jugador_masculino, "True")
-	#pragma GE_Documentation(Jugador_masculino, "GÈnero del personaje del jugador. True=Masculino False=Femenino")
+	#pragma GE_Documentation(Jugador_masculino, "G√©nero del personaje del jugador. True=Masculino False=Femenino")
 
 	int	Salto_jugador;
 	#pragma GE_DefaultValue(Salto_jugador, "510")
-	#pragma GE_Documentation(Salto_jugador, "Altura a la que saltar· el jugador. Entre 0 y 5000. 0 no salta")
+	#pragma GE_Documentation(Salto_jugador, "Altura a la que saltar√° el jugador. Entre 0 y 5000. 0 no salta")
 
 	int	Brillo_jugador;
 	#pragma GE_DefaultValue(Brillo_jugador, "200")
-	#pragma GE_Documentation(Brillo_jugador, "Nivel de brillo que se aplicar· al jugador. Entre 0 y 255")
+	#pragma GE_Documentation(Brillo_jugador, "Nivel de brillo que se aplicar√° al jugador. Entre 0 y 255")
 
 	geBoolean   Movimiento_lateral;
 	#pragma GE_DefaultValue(Movimiento_lateral, "True")
@@ -152,23 +152,23 @@ typedef struct DeathMatchStart
 
 	geVec3d		Colision_player1p;
 	#pragma GE_DefaultValue(Colision_player1p, "0 0 0")
-	#pragma GE_Documentation(Colision_player1p, "CorrecciÛn de colisiÛn jugador (+). De 0 a 2000.")
+	#pragma GE_Documentation(Colision_player1p, "Correcci√≥n de colisi√≥n jugador (+). De 0 a 2000.")
 
 	geVec3d		Colision_player1n;
 	#pragma GE_DefaultValue(Colision_player1n, "0 0 0")
-	#pragma GE_Documentation(Colision_player1n, "CorrecciÛn de colisiÛn jugador (-). De 0 a -2000.")
+	#pragma GE_Documentation(Colision_player1n, "Correcci√≥n de colisi√≥n jugador (-). De 0 a -2000.")
 
 	geVec3d		Colision_player2p;
 	#pragma GE_DefaultValue(Colision_player2p, "0 0 0")
-	#pragma GE_Documentation(Colision_player2p, "CorrecciÛn de colisiÛn jugador (+). De 0 a 2000.")
+	#pragma GE_Documentation(Colision_player2p, "Correcci√≥n de colisi√≥n jugador (+). De 0 a 2000.")
 
 	geVec3d		Colision_player2n;
 	#pragma GE_DefaultValue(Colision_player2n, "0 0 0")
-	#pragma GE_Documentation(Colision_player2n, "CorrecciÛn de colisiÛn jugador (-). De 0 a -2000.")
+	#pragma GE_Documentation(Colision_player2n, "Correcci√≥n de colisi√≥n jugador (-). De 0 a -2000.")
 
 	geBoolean   Sonido_pasos;
 	#pragma GE_DefaultValue(Sonido_pasos, "True")
-	#pragma GE_Documentation(Sonido_pasos, "ø Sonido de pasos al correr el jugador ?. False=No True=Si")
+	#pragma GE_Documentation(Sonido_pasos, "¬ø Sonido de pasos al correr el jugador ?. False=No True=Si")
 
 	geBoolean   Pierde_armas;
 	#pragma GE_DefaultValue(Pierde_armas, "False")
@@ -176,11 +176,11 @@ typedef struct DeathMatchStart
 
 	geBoolean   Ver_arma;
 	#pragma GE_DefaultValue(Ver_arma, "False")
-	#pragma GE_Documentation(Ver_arma, "ø Ver arma en primera persona ?. False=No True=Si")
+	#pragma GE_Documentation(Ver_arma, "¬ø Ver arma en primera persona ?. False=No True=Si")
 
 	geBoolean   Usar_Blaster;
 	#pragma GE_DefaultValue(Usar_Blaster, "True")
-	#pragma GE_Documentation(Usar_Blaster, "ø Permitir usar el arma Blaster ?. False=No True=Si")
+	#pragma GE_Documentation(Usar_Blaster, "¬ø Permitir usar el arma Blaster ?. False=No True=Si")
 
 	geBoolean   Sangre_charco;
 	#pragma GE_DefaultValue(Sangre_charco, "True")
@@ -204,7 +204,7 @@ typedef struct DeathMatchStart
 
 	int	Sombra;
 	#pragma GE_DefaultValue(Sombra, "1")
-	#pragma GE_Documentation(Sombra, "Tipo de sombra del jugador. (0=Sin sombra, 1=CÌrculo, 2=Din·mica)")
+	#pragma GE_Documentation(Sombra, "Tipo de sombra del jugador. (0=Sin sombra, 1=C√≠rculo, 2=Din√°mica)")
 
 	geBoolean Sangre;
 	#pragma GE_DefaultValue(Sangre, "True")
@@ -212,7 +212,7 @@ typedef struct DeathMatchStart
 
 	geBoolean Bloqueo_ver;
 	#pragma GE_DefaultValue(Bloqueo_ver, "False")
-	#pragma GE_Documentation(Bloqueo_ver, "ø Ver zona de bloqueo del jugador ?. True=Si False=No")
+	#pragma GE_Documentation(Bloqueo_ver, "¬ø Ver zona de bloqueo del jugador ?. True=Si False=No")
 
 	geBoolean Tiene_arma_2;
 	#pragma GE_DefaultValue(Tiene_arma_2, "False")
@@ -244,7 +244,7 @@ typedef struct DeathMatchStart
 
 	geBoolean Recuperar_salud;
 	#pragma GE_DefaultValue(Recuperar_salud, "False")
-	#pragma GE_Documentation(Recuperar_salud, "El jugador recupera autom·ticamente algo de salud. True=Si False=No")
+	#pragma GE_Documentation(Recuperar_salud, "El jugador recupera autom√°ticamente algo de salud. True=Si False=No")
 
 #pragma GE_Origin(Origin)
 }   DeathMatchStart;
@@ -292,24 +292,24 @@ typedef struct	PhysicsObject
 	geBoolean					Enemigos_lo_mueven;
 	geBoolean					GravedadPorImpacto;
 
-#pragma GE_Documentation(Model, "'Model' al que le afectar·n todos estos par·metros")
+#pragma GE_Documentation(Model, "'Model' al que le afectar√°n todos estos par√°metros")
 
-#pragma GE_Documentation(Origin, "PosiciÛn de esta entidad. Colocar en el interior del objeto")
+#pragma GE_Documentation(Origin, "Posici√≥n de esta entidad. Colocar en el interior del objeto")
 
 #pragma GE_DefaultValue(mass, "10.0")
 #pragma GE_Documentation(mass, "Peso del objeto")
 
 #pragma GE_DefaultValue(isAffectedByGravity, "1")
-#pragma GE_Documentation(isAffectedByGravity, "ø Le afecta la gravedad ? 0=No, 1=Si")
+#pragma GE_Documentation(isAffectedByGravity, "¬ø Le afecta la gravedad ? 0=No, 1=Si")
 
 #pragma GE_DefaultValue(respondsToForces, "1")
-#pragma GE_Documentation(respondsToForces, "ø Responde a fuerzas externas ? 0=No, 1=Si")
+#pragma GE_Documentation(respondsToForces, "¬ø Responde a fuerzas externas ? 0=No, 1=Si")
 
 #pragma GE_DefaultValue(linearDamping, "0.0005")
 #pragma GE_Documentation(linearDamping, "Velocidad de avance o caida (5 no se mueve)")
 
 #pragma GE_DefaultValue(angularDamping, "5")
-#pragma GE_Documentation(angularDamping, "Velocidad de rotaciÛn (0.0005 rota)")
+#pragma GE_Documentation(angularDamping, "Velocidad de rotaci√≥n (0.0005 rota)")
 
 #pragma GE_DefaultValue(physicsScale, "0.01")
 #pragma GE_Documentation(physicsScale, "Escala de las fuerzas < no se usa >")
@@ -323,36 +323,36 @@ typedef struct	PhysicsObject
 #pragma GE_Documentation(tiempoRetroceso, "Tiempo sin tener en cuenta la gravedad al tirar del objeto")
 
 #pragma GE_DefaultValue(levantarObjeto, "True")
-#pragma GE_Documentation(levantarObjeto, "ø El jugador puede levantar el objeto ? True=Si False=No")
+#pragma GE_Documentation(levantarObjeto, "¬ø El jugador puede levantar el objeto ? True=Si False=No")
 
 #pragma GE_DefaultValue(ascensorObjeto, "False")
-#pragma GE_Documentation(ascensorObjeto, "ø Objeto ascensor controlado por el jugador ? True=Si False=No")
+#pragma GE_Documentation(ascensorObjeto, "¬ø Objeto ascensor controlado por el jugador ? True=Si False=No")
 
 #pragma GE_DefaultValue(Bloqueo_ver, "False")
-#pragma GE_Documentation(Bloqueo_ver, "ø Ver zona de bloqueo del 'model' ? True=Si False=No")
+#pragma GE_Documentation(Bloqueo_ver, "¬ø Ver zona de bloqueo del 'model' ? True=Si False=No")
 
 #pragma GE_DefaultValue(Bloqueo_escala, "0")
-#pragma GE_Documentation(Bloqueo_escala, "Permite ajustar el tamaÒo de la zona de bloqueo (0.5 Mitad  2.0 Doble")
+#pragma GE_Documentation(Bloqueo_escala, "Permite ajustar el tama√±o de la zona de bloqueo (0.5 Mitad  2.0 Doble")
 
 #pragma GE_DefaultValue(Colision_MAX_objeto, "0 0 0")
-#pragma GE_Documentation(Colision_MAX_objeto, "CorrecciÛn de colisiÛn objeto (+). De 0 a 2000.")
+#pragma GE_Documentation(Colision_MAX_objeto, "Correcci√≥n de colisi√≥n objeto (+). De 0 a 2000.")
 
 #pragma GE_DefaultValue(Colision_MIN_objeto, "0 0 0")
-#pragma GE_Documentation(Colision_MIN_objeto, "CorrecciÛn de colisiÛn objeto (-). De 0 a 2000.")
+#pragma GE_Documentation(Colision_MIN_objeto, "Correcci√≥n de colisi√≥n objeto (-). De 0 a 2000.")
 
-#pragma GE_Documentation(ColisionModel, "'Model' de colisiÛn para lanzar comandos de 'ColisionCommandsFile'")
+#pragma GE_Documentation(ColisionModel, "'Model' de colisi√≥n para lanzar comandos de 'ColisionCommandsFile'")
 
 #pragma GE_DefaultValue(ColisionCommandsFile, "")
-#pragma GE_Documentation(ColisionCommandsFile, "Fichero de comandos para colisiÛn con 'ColisionModel' (sin extensiÛn .INI)")
+#pragma GE_Documentation(ColisionCommandsFile, "Fichero de comandos para colisi√≥n con 'ColisionModel' (sin extensi√≥n .INI)")
 
 #pragma GE_DefaultValue(Flota, "False")
-#pragma GE_Documentation(Flota, "ø Flota en lÌquidos ? True=Si False=No")
+#pragma GE_Documentation(Flota, "¬ø Flota en l√≠quidos ? True=Si False=No")
 
 #pragma GE_DefaultValue(Enemigos_lo_mueven, "True")
-#pragma GE_Documentation(Enemigos_lo_mueven, "ø Lo pueden mover los Bots o sus disparos ? True=Si False=No")
+#pragma GE_Documentation(Enemigos_lo_mueven, "¬ø Lo pueden mover los Bots o sus disparos ? True=Si False=No")
 
 #pragma GE_DefaultValue(GravedadPorImpacto, "False")
-#pragma GE_Documentation(GravedadPorImpacto, "ø Aplicar gravedad si recibe un disparo del jugador ? True=Si False=No")
+#pragma GE_Documentation(GravedadPorImpacto, "¬ø Aplicar gravedad si recibe un disparo del jugador ? True=Si False=No")
 
 #pragma GE_Private
 	gePhysicsObject *			stateInfo;
@@ -460,22 +460,22 @@ typedef struct  Door
 
 	geBoolean   Boton_accion;
 	#pragma GE_DefaultValue(Boton_accion, "False")
-	#pragma GE_Documentation(Boton_accion, "ø ActivaciÛn si botÛn acciÛn pulsado ? True=Si False=No")
+	#pragma GE_Documentation(Boton_accion, "¬ø Activaci√≥n si bot√≥n acci√≥n pulsado ? True=Si False=No")
 
     geVec3d			Origin;
-	#pragma GE_Documentation(Origin, "PosiciÛn (X Y Z)")
+	#pragma GE_Documentation(Origin, "Posici√≥n (X Y Z)")
 
 	char *CommandsFile;
 	#pragma GE_DefaultValue(CommandsFile, "")
-	#pragma GE_Documentation(CommandsFile, "Fichero de comandos para contacto (sin extensiÛn .INI)")
+	#pragma GE_Documentation(CommandsFile, "Fichero de comandos para contacto (sin extensi√≥n .INI)")
 
 	char *CommandsFile2;
 	#pragma GE_DefaultValue(CommandsFile2, "")
-	#pragma GE_Documentation(CommandsFile2, "Fichero de comandos para impacto (sin extensiÛn .INI)")
+	#pragma GE_Documentation(CommandsFile2, "Fichero de comandos para impacto (sin extensi√≥n .INI)")
 
 	char *CommandsFileE;
 	#pragma GE_DefaultValue(CommandsFileE, "")
-	#pragma GE_Documentation(CommandsFileE, "Fichero de comandos para Bots (sin extensiÛn .INI)")
+	#pragma GE_Documentation(CommandsFileE, "Fichero de comandos para Bots (sin extensi√≥n .INI)")
 
 	geBoolean   AbrirPorImpacto;
 	#pragma GE_DefaultValue(AbrirPorImpacto, "False")
@@ -487,7 +487,7 @@ typedef struct  Door
 
 	geBoolean   En_movimiento;
 	#pragma GE_DefaultValue(En_movimiento, "False")
-	#pragma GE_Documentation(En_movimiento, "ø En movimiento desde el comienzo del nivel ? True=Si False=No")
+	#pragma GE_Documentation(En_movimiento, "¬ø En movimiento desde el comienzo del nivel ? True=Si False=No")
 
 	geBoolean   JugadorAbre;
 	#pragma GE_DefaultValue(JugadorAbre, "True")
@@ -495,7 +495,7 @@ typedef struct  Door
 
 	geBoolean   Evento_con_movimiento;
 	#pragma GE_DefaultValue(Evento_con_movimiento, "False")
-	#pragma GE_Documentation(Evento_con_movimiento, "Procesar eventos aunque la puerta estÈ en movimiento. True=Si False=No")
+	#pragma GE_Documentation(Evento_con_movimiento, "Procesar eventos aunque la puerta est√© en movimiento. True=Si False=No")
 
 	geBoolean   Sonidos_puerta;
 	#pragma GE_DefaultValue(Sonidos_puerta, "True")
@@ -503,7 +503,7 @@ typedef struct  Door
 
 	geBoolean Boton_Accion_indicador;
 	#pragma GE_DefaultValue(Boton_Accion_indicador, "True")
-	#pragma GE_Documentation(Boton_Accion_indicador, "Mostrar indicador de tecla 'AcciÛn'.'Boton_accion' debe estar a 'True'")
+	#pragma GE_Documentation(Boton_Accion_indicador, "Mostrar indicador de tecla 'Acci√≥n'.'Boton_accion' debe estar a 'True'")
 
 	geBoolean Repetir_comandos_zona;
 	#pragma GE_DefaultValue(Repetir_comandos_zona, "True")
@@ -536,7 +536,7 @@ typedef struct TextPrompt
 
 
 // ==========================
-// Entidad 'ExplosiÛn'
+// Entidad 'Explosi√≥n'
 // ==========================
 #pragma GE_Type("Model.ico")
 typedef struct Explosion
@@ -546,17 +546,17 @@ typedef struct Explosion
 
 	int Num_explosion;	
 	#pragma GE_DefaultValue(Num_explosion, "1")
-	#pragma GE_Documentation(Num_explosion, "N˙mero de explosiÛn (entre 1 y 255)")
+	#pragma GE_Documentation(Num_explosion, "N√∫mero de explosi√≥n (entre 1 y 255)")
 		
 	float Dimension;
 	#pragma GE_DefaultValue(Dimension, "20")
-	#pragma GE_Documentation(Dimension, "TamaÒo de la explosiÛn")
+	#pragma GE_Documentation(Dimension, "Tama√±o de la explosi√≥n")
 
 	float Velocidad;
 	#pragma GE_DefaultValue(Velocidad, "10")
-	#pragma GE_Documentation(Velocidad, "A menos valor, explosiÛn m·s lenta")
+	#pragma GE_Documentation(Velocidad, "A menos valor, explosi√≥n m√°s lenta")
 
-	#pragma GE_Documentation(Origin, "PosiciÛn (X Y Z)")
+	#pragma GE_Documentation(Origin, "Posici√≥n (X Y Z)")
 
 #pragma GE_Origin(Origin)
 } Explosion;
@@ -575,11 +575,11 @@ typedef struct Animacion
 
 	geBoolean   Ciclica;
 	#pragma GE_DefaultValue(Ciclica, "True")
-	#pragma GE_Documentation(Ciclica, "ø La animaciÛn se repite continuamente ? True=Si False=No")
+	#pragma GE_Documentation(Ciclica, "¬ø La animaci√≥n se repite continuamente ? True=Si False=No")
 
 	char *Sonido;
 	#pragma GE_DefaultValue(Sonido, "animacion")
-	#pragma GE_Documentation(Sonido, "Nombre de fichero .WAV a interpretar (sin indicar extensiÛn .WAV)")
+	#pragma GE_Documentation(Sonido, "Nombre de fichero .WAV a interpretar (sin indicar extensi√≥n .WAV)")
 
 	float   Transparencia;
 	#pragma GE_DefaultValue(Transparencia, "255")
@@ -587,33 +587,33 @@ typedef struct Animacion
 
 	geBoolean   Activa;
 	#pragma GE_DefaultValue(Activa, "False")
-	#pragma GE_Documentation(Activa, "ø AnimaciÛn activa al iniciar el nivel ? True=Si False=No")
+	#pragma GE_Documentation(Activa, "¬ø Animaci√≥n activa al iniciar el nivel ? True=Si False=No")
 
 	char *Nombre;
 	#pragma GE_DefaultValue(Nombre, "chica")
-	#pragma GE_Documentation(Nombre, "Nombre de la secuencia de .BMPs de la animaciÛn.")
+	#pragma GE_Documentation(Nombre, "Nombre de la secuencia de .BMPs de la animaci√≥n.")
 
 	int Cuadro_inicial;	
 	#pragma GE_DefaultValue(Cuadro_inicial, "1")
-	#pragma GE_Documentation(Cuadro_inicial, "Fotograma inicial de la animaciÛn.")
+	#pragma GE_Documentation(Cuadro_inicial, "Fotograma inicial de la animaci√≥n.")
 
 	int Cuadro_final;	
 	#pragma GE_DefaultValue(Cuadro_final, "8")
-	#pragma GE_Documentation(Cuadro_final, "Fotograma final de la animaciÛn.")
+	#pragma GE_Documentation(Cuadro_final, "Fotograma final de la animaci√≥n.")
 
 	int Num_animacion;	
 	#pragma GE_DefaultValue(Num_animacion, "1")
-	#pragma GE_Documentation(Num_animacion, "N˙mero de animaciÛn (entre 1 y 255)")
+	#pragma GE_Documentation(Num_animacion, "N√∫mero de animaci√≥n (entre 1 y 255)")
 		
 	float Dimension;
 	#pragma GE_DefaultValue(Dimension, "3")
-	#pragma GE_Documentation(Dimension, "TamaÒo de la animaciÛn")
+	#pragma GE_Documentation(Dimension, "Tama√±o de la animaci√≥n")
 
 	float Velocidad;
 	#pragma GE_DefaultValue(Velocidad, "8")
-	#pragma GE_Documentation(Velocidad, "A menos valor, animaciÛn m·s lenta")
+	#pragma GE_Documentation(Velocidad, "A menos valor, animaci√≥n m√°s lenta")
 
-	#pragma GE_Documentation(Origin, "PosiciÛn (X Y Z)")
+	#pragma GE_Documentation(Origin, "Posici√≥n (X Y Z)")
 
 #pragma GE_Origin(Origin)
 } Animacion;
@@ -635,15 +635,15 @@ typedef struct Command
 
 	char *CommandsFile;
 	#pragma GE_DefaultValue(CommandsFile, "")
-	#pragma GE_Documentation(CommandsFile, "Fichero de comandos (sin extensiÛn .INI)")
+	#pragma GE_Documentation(CommandsFile, "Fichero de comandos (sin extensi√≥n .INI)")
 
 	geBoolean   Boton_accion;
 	#pragma GE_DefaultValue(Boton_accion, "False")
-	#pragma GE_Documentation(Boton_accion, "ø ActivaciÛn si botÛn acciÛn pulsado ? True=Si False=No")
+	#pragma GE_Documentation(Boton_accion, "¬ø Activaci√≥n si bot√≥n acci√≥n pulsado ? True=Si False=No")
 	
 	geBoolean   Visible;
 	#pragma GE_DefaultValue(Visible, "False")
-	#pragma GE_Documentation(Visible, "Mostrar una esfera como referencia de la posiciÛn. True=Si False=No")
+	#pragma GE_Documentation(Visible, "Mostrar una esfera como referencia de la posici√≥n. True=Si False=No")
 	
 	geVec3d Zona_influencia;
 	#pragma GE_DefaultValue(Zona_influencia, "20 20 20")
@@ -651,11 +651,11 @@ typedef struct Command
 
 	geBoolean	Activa;
 	#pragma GE_DefaultValue(Activa, "True")
-	#pragma GE_Documentation(Activa, "ø Entidad activa al iniciar el juego ? True=Si False=No")
+	#pragma GE_Documentation(Activa, "¬ø Entidad activa al iniciar el juego ? True=Si False=No")
 
 	geBoolean	Reaparece;
 	#pragma GE_DefaultValue(Reaparece, "True")
-	#pragma GE_Documentation(Reaparece, "ø Reaparece ? True=Si False=No")
+	#pragma GE_Documentation(Reaparece, "¬ø Reaparece ? True=Si False=No")
 
 	float Tiempo_reaparicion;
 	#pragma GE_DefaultValue(Tiempo_reaparicion, "3")
@@ -663,21 +663,21 @@ typedef struct Command
 
 	int Ver_en_radar;
 	#pragma GE_DefaultValue(Ver_en_radar, "0")
-	#pragma GE_Documentation(Ver_en_radar, "La posiciÛn se muestra en el radar. 0=No, 1=Si en rango, 2=Si en borde")
+	#pragma GE_Documentation(Ver_en_radar, "La posici√≥n se muestra en el radar. 0=No, 1=Si en rango, 2=Si en borde")
 
 	int Icono_en_radar;
 	#pragma GE_DefaultValue(Icono_en_radar, "1")
-	#pragma GE_Documentation(Icono_en_radar, "Tipo de sÌmbolo que se muestra en el radar (1 a 4)")
+	#pragma GE_Documentation(Icono_en_radar, "Tipo de s√≠mbolo que se muestra en el radar (1 a 4)")
 
 	geBoolean Boton_Accion_indicador;
 	#pragma GE_DefaultValue(Boton_Accion_indicador, "True")
-	#pragma GE_Documentation(Boton_Accion_indicador, "Mostrar indicador de tecla 'AcciÛn'.'Boton_accion' debe estar a 'True'")
+	#pragma GE_Documentation(Boton_Accion_indicador, "Mostrar indicador de tecla 'Acci√≥n'.'Boton_accion' debe estar a 'True'")
 
 	geBoolean Repetir_comandos_zona;
 	#pragma GE_DefaultValue(Repetir_comandos_zona, "True")
 	#pragma GE_Documentation(Repetir_comandos_zona, "Procesar 'CommandsFile' mientras el jugador siga en la zona de influencia")
 
-	#pragma GE_Documentation(Origin, "PosiciÛn (X Y Z)")
+	#pragma GE_Documentation(Origin, "Posici√≥n (X Y Z)")
 
 #pragma GE_Origin(Origin)
 } Command;
@@ -696,27 +696,27 @@ typedef struct CommandModel
 	
 	geBoolean   Boton_accion;
 	#pragma GE_DefaultValue(Boton_accion, "False")
-	#pragma GE_Documentation(Boton_accion, "ø ActivaciÛn si botÛn acciÛn pulsado ? True=Si False=No")
+	#pragma GE_Documentation(Boton_accion, "¬ø Activaci√≥n si bot√≥n acci√≥n pulsado ? True=Si False=No")
 	
 	geVec3d Origin;
 	
 	char *CommandsFile;
 	#pragma GE_DefaultValue(CommandsFile, "")
-	#pragma GE_Documentation(CommandsFile, "Fichero de comandos (sin extensiÛn .INI) para contacto")
+	#pragma GE_Documentation(CommandsFile, "Fichero de comandos (sin extensi√≥n .INI) para contacto")
 	
 	char *CommandsFile2;
 	#pragma GE_DefaultValue(CommandsFile2, "")
-	#pragma GE_Documentation(CommandsFile2, "Fichero de comandos (sin extensiÛn .INI) para impacto")
+	#pragma GE_Documentation(CommandsFile2, "Fichero de comandos (sin extensi√≥n .INI) para impacto")
 
 	geBoolean Boton_Accion_indicador;
 	#pragma GE_DefaultValue(Boton_Accion_indicador, "True")
-	#pragma GE_Documentation(Boton_Accion_indicador, "Mostrar indicador de tecla 'AcciÛn'.'Boton_accion' debe estar a 'True'")
+	#pragma GE_Documentation(Boton_Accion_indicador, "Mostrar indicador de tecla 'Acci√≥n'.'Boton_accion' debe estar a 'True'")
 
 	geBoolean Repetir_comandos_zona;
 	#pragma GE_DefaultValue(Repetir_comandos_zona, "True")
 	#pragma GE_Documentation(Repetir_comandos_zona, "Procesar 'CommandsFile' mientras el jugador siga en la zona de influencia")
 
-	#pragma GE_Documentation(Origin, "PosiciÛn (X Y Z)")
+	#pragma GE_Documentation(Origin, "Posici√≥n (X Y Z)")
 #pragma GE_Origin(Origin)
 } CommandModel;
 
@@ -737,7 +737,7 @@ typedef struct  ItemObject
 	char *ObjectName;
 	char *ObjectGroup;
 	float	Scale; // Vector de escalado
-	geVec3d	Orientation; // Vector para orientaciÛn
+	geVec3d	Orientation; // Vector para orientaci√≥n
     geVec3d	Origin;
 	geBoolean   Respawn;
 	geBoolean   Rotate;
@@ -771,10 +771,10 @@ typedef struct  ItemObject
 	geBoolean Repetir_comandos_zona;
 
 	#pragma GE_DefaultValue(Boton_accion, "False")
-	#pragma GE_Documentation(Boton_accion, "ø ActivaciÛn si botÛn AcciÛn pulsado ? True=Si False=No")
+	#pragma GE_Documentation(Boton_accion, "¬ø Activaci√≥n si bot√≥n Acci√≥n pulsado ? True=Si False=No")
 
 	#pragma GE_DefaultValue(PanelObjeto, "True")
-	#pragma GE_Documentation(PanelObjeto, "ø Presenta datos del objeto al tocarlo ? True=Si False=No")
+	#pragma GE_Documentation(PanelObjeto, "¬ø Presenta datos del objeto al tocarlo ? True=Si False=No")
 
 	#pragma GE_DefaultValue(Precio_venta, "0")
 	#pragma GE_Documentation(Precio_venta, "Precio al venderlo el jugador (0 gratuito)")
@@ -783,43 +783,43 @@ typedef struct  ItemObject
 	#pragma GE_Documentation(Precio_compra, "Precio al comprarlo el jugador (0 gratuito)")
 
 	#pragma GE_DefaultValue(Descrip1, "")
-	#pragma GE_Documentation(Descrip1, "DescripciÛn del objeto, lÌnea 1 (28 carac.)")
+	#pragma GE_Documentation(Descrip1, "Descripci√≥n del objeto, l√≠nea 1 (28 carac.)")
 
 	#pragma GE_DefaultValue(Descrip2, "")
-	#pragma GE_Documentation(Descrip2, "DescripciÛn del objeto, lÌnea 2 (28 carac.)")
+	#pragma GE_Documentation(Descrip2, "Descripci√≥n del objeto, l√≠nea 2 (28 carac.)")
 
 	#pragma GE_DefaultValue(Descrip3, "")
-	#pragma GE_Documentation(Descrip3, "DescripciÛn del objeto, lÌnea 3 (28 carac.)")
+	#pragma GE_Documentation(Descrip3, "Descripci√≥n del objeto, l√≠nea 3 (28 carac.)")
 
 	#pragma GE_DefaultValue(Descrip4, "")
-	#pragma GE_Documentation(Descrip4, "DescripciÛn del objeto, lÌnea 4 (28 carac.)")
+	#pragma GE_Documentation(Descrip4, "Descripci√≥n del objeto, l√≠nea 4 (28 carac.)")
 
 	#pragma GE_DefaultValue(Descrip5_inv, "")
-	#pragma GE_Documentation(Descrip5_inv, "DescripciÛn del objeto en inventario, lÌnea 5 (28 carac.)")
+	#pragma GE_Documentation(Descrip5_inv, "Descripci√≥n del objeto en inventario, l√≠nea 5 (28 carac.)")
 
 	#pragma GE_DefaultValue(Descrip6_inv, "")
-	#pragma GE_Documentation(Descrip6_inv, "DescripciÛn del objeto en inventario, lÌnea 6 (28 carac.)")
+	#pragma GE_Documentation(Descrip6_inv, "Descripci√≥n del objeto en inventario, l√≠nea 6 (28 carac.)")
 
 	#pragma GE_DefaultValue(Descrip7_inv, "")
-	#pragma GE_Documentation(Descrip7_inv, "DescripciÛn del objeto en inventario, lÌnea 7 (28 carac.)")
+	#pragma GE_Documentation(Descrip7_inv, "Descripci√≥n del objeto en inventario, l√≠nea 7 (28 carac.)")
 
 	#pragma GE_DefaultValue(Descrip8_inv, "")
-	#pragma GE_Documentation(Descrip8_inv, "DescripciÛn del objeto en inventario, lÌnea 8 (28 carac.)")
+	#pragma GE_Documentation(Descrip8_inv, "Descripci√≥n del objeto en inventario, l√≠nea 8 (28 carac.)")
 
 	#pragma GE_DefaultValue(Usos, "1")
-	#pragma GE_Documentation(Usos, "N˙mero inicial de usos. (de 1 a 99)")
+	#pragma GE_Documentation(Usos, "N√∫mero inicial de usos. (de 1 a 99)")
 
 	#pragma GE_DefaultValue(Brillo, "190")
 	#pragma GE_Documentation(Brillo, "Nivel de brillo. (de 0 a 255)")
 
 	#pragma GE_DefaultValue(Catch, "True")
-	#pragma GE_Documentation(Catch, "ø Objeto recogible por el jugador ? True=Si False=No")
+	#pragma GE_Documentation(Catch, "¬ø Objeto recogible por el jugador ? True=Si False=No")
 
 	#pragma GE_DefaultValue(Rotate, "True")
-	#pragma GE_Documentation(Rotate, "ø Objeto girando ? True=Si False=No")
+	#pragma GE_Documentation(Rotate, "¬ø Objeto girando ? True=Si False=No")
 
 	#pragma GE_DefaultValue(Respawn, "False")
-	#pragma GE_Documentation(Respawn, "ø Objeto reaparece despuÈs de ser recogido ? True=Si False=No")
+	#pragma GE_Documentation(Respawn, "¬ø Objeto reaparece despu√©s de ser recogido ? True=Si False=No")
 
 	#pragma GE_DefaultValue(ActorFile, "caja.act")
 	#pragma GE_Documentation(ActorFile, "Nombre del fichero .ACT del objeto")
@@ -831,46 +831,46 @@ typedef struct  ItemObject
 	#pragma GE_Documentation(ObjectGroup, "Grupo al que pertenece el objeto ('Luz' si produce luz)")
 
 	#pragma GE_DefaultValue(Scale, "1")
-	#pragma GE_Documentation(Scale, "TamaÒo (1=Sin variar  2=El doble  0.5=La mitad)")
+	#pragma GE_Documentation(Scale, "Tama√±o (1=Sin variar  2=El doble  0.5=La mitad)")
 
 	#pragma GE_DefaultValue(Orientation, "0 0 0")
-	#pragma GE_Documentation(Orientation, "OrientaciÛn")
+	#pragma GE_Documentation(Orientation, "Orientaci√≥n")
 
 	#pragma GE_DefaultValue(CommandsFile, "")
-	#pragma GE_Documentation(CommandsFile, "Fichero de comandos (sin extensiÛn .INI)")
+	#pragma GE_Documentation(CommandsFile, "Fichero de comandos (sin extensi√≥n .INI)")
 
 	#pragma GE_DefaultValue(Inventario_objeto, "True")
-	#pragma GE_Documentation(Inventario_objeto, "ø Al recogerlo se aÒade al inventario de objetos ? True=Si False=No")
+	#pragma GE_Documentation(Inventario_objeto, "¬ø Al recogerlo se a√±ade al inventario de objetos ? True=Si False=No")
 
 	#pragma GE_DefaultValue(Tiempo_reaparicion, "60")
-	#pragma GE_Documentation(Tiempo_reaparicion, "Tiempo en reaparecer despuÈs de recogido (en segundos)")
+	#pragma GE_Documentation(Tiempo_reaparicion, "Tiempo en reaparecer despu√©s de recogido (en segundos)")
 
 	#pragma GE_DefaultValue(Transparencia, "255")
 	#pragma GE_Documentation(Transparencia, "Nivel de transparencia (de 0 a 255). 255 sin transparencia")
 
 	#pragma GE_DefaultValue(Sombra, "1")
-	#pragma GE_Documentation(Sombra, "Tipo de sombra. (0=Sin sombra, 1=CÌrculo, 2=Din·mica)")
+	#pragma GE_Documentation(Sombra, "Tipo de sombra. (0=Sin sombra, 1=C√≠rculo, 2=Din√°mica)")
 
 	#pragma GE_DefaultValue(Zona_influencia, "20 20 20")
 	#pragma GE_Documentation(Zona_influencia, "Caja que define la zona de influencia de este objeto")
 
 	#pragma GE_DefaultValue(Fisica_objeto, "False")
-	#pragma GE_Documentation(Fisica_objeto, "Aplicar fÌsica a este objeto. True=Si False=No")
+	#pragma GE_Documentation(Fisica_objeto, "Aplicar f√≠sica a este objeto. True=Si False=No")
 
 	#pragma GE_DefaultValue(Ver_en_radar, "1")
 	#pragma GE_Documentation(Ver_en_radar, "Objeto se muestra en el radar. 0=No, 1=Si en rango, 2=Si en borde")
 
 	#pragma GE_DefaultValue(Render_distancia_max, "0")
-	#pragma GE_Documentation(Render_distancia_max, "Distancia m·xima para calcular 'render' (0 sin distancia)")
+	#pragma GE_Documentation(Render_distancia_max, "Distancia m√°xima para calcular 'render' (0 sin distancia)")
 
 	#pragma GE_DefaultValue(Numero_objeto, "1")
-	#pragma GE_Documentation(Numero_objeto, "N˙mero de objeto (de 1 a 50)")
+	#pragma GE_Documentation(Numero_objeto, "N√∫mero de objeto (de 1 a 50)")
 
 	#pragma GE_DefaultValue(Respawn_Origin, "False")
-	#pragma GE_Documentation(Respawn_Origin, "ø Objeto reaparece en posiciÛn Origin ? True=Si False=No")
+	#pragma GE_Documentation(Respawn_Origin, "¬ø Objeto reaparece en posici√≥n Origin ? True=Si False=No")
 
 	#pragma GE_DefaultValue(Boton_Accion_indicador, "True")
-	#pragma GE_Documentation(Boton_Accion_indicador, "Mostrar indicador de tecla 'AcciÛn'.'Boton_accion' debe estar a 'True'")
+	#pragma GE_Documentation(Boton_Accion_indicador, "Mostrar indicador de tecla 'Acci√≥n'.'Boton_accion' debe estar a 'True'")
 
 	#pragma GE_DefaultValue(Repetir_comandos_zona, "True")
 	#pragma GE_Documentation(Repetir_comandos_zona, "Procesar 'CommandsFile' mientras el jugador siga en la zona de influencia")
@@ -894,21 +894,21 @@ typedef struct  MovingPlat
 
 	geBoolean   Boton_accion;
 	#pragma GE_DefaultValue(Boton_accion, "False")
-	#pragma GE_Documentation(Boton_accion, "ø ActivaciÛn si botÛn acciÛn pulsado ? True=Si False=No")
+	#pragma GE_Documentation(Boton_accion, "¬ø Activaci√≥n si bot√≥n acci√≥n pulsado ? True=Si False=No")
 
     geVec3d			Origin;
 
 	char *CommandsFile;
 	#pragma GE_DefaultValue(CommandsFile, "")
-	#pragma GE_Documentation(CommandsFile, "Fichero de comandos para contacto (sin extensiÛn .INI)")
+	#pragma GE_Documentation(CommandsFile, "Fichero de comandos para contacto (sin extensi√≥n .INI)")
 
 	char *CommandsFile2;
 	#pragma GE_DefaultValue(CommandsFile2, "")
-	#pragma GE_Documentation(CommandsFile2, "Fichero de comandos para impacto (sin extensiÛn .INI)")
+	#pragma GE_Documentation(CommandsFile2, "Fichero de comandos para impacto (sin extensi√≥n .INI)")
 
 	char *CommandsFileE;
 	#pragma GE_DefaultValue(CommandsFileE, "")
-	#pragma GE_Documentation(CommandsFileE, "Fichero de comandos para Bots (sin extensiÛn .INI)")
+	#pragma GE_Documentation(CommandsFileE, "Fichero de comandos para Bots (sin extensi√≥n .INI)")
 
 	geBoolean   MoverPorImpacto;
 	#pragma GE_DefaultValue(MoverPorImpacto, "False")
@@ -920,7 +920,7 @@ typedef struct  MovingPlat
 
 	geBoolean   En_movimiento;
 	#pragma GE_DefaultValue(En_movimiento, "False")
-	#pragma GE_Documentation(En_movimiento, "ø En movimiento desde el comienzo del nivel ? True=Si False=No")
+	#pragma GE_Documentation(En_movimiento, "¬ø En movimiento desde el comienzo del nivel ? True=Si False=No")
 
 	geBoolean   JugadorMueve;
 	#pragma GE_DefaultValue(JugadorMueve, "True")
@@ -928,7 +928,7 @@ typedef struct  MovingPlat
 
 	geBoolean   Evento_con_movimiento;
 	#pragma GE_DefaultValue(Evento_con_movimiento, "False")
-	#pragma GE_Documentation(Evento_con_movimiento, "Procesar eventos aunque la plataforma estÈ en movimiento. True=Si False=No")
+	#pragma GE_Documentation(Evento_con_movimiento, "Procesar eventos aunque la plataforma est√© en movimiento. True=Si False=No")
 
 	geBoolean   Sonidos_plataforma;
 	#pragma GE_DefaultValue(Sonidos_plataforma, "True")
@@ -936,7 +936,7 @@ typedef struct  MovingPlat
 
 	geBoolean Boton_Accion_indicador;
 	#pragma GE_DefaultValue(Boton_Accion_indicador, "True")
-	#pragma GE_Documentation(Boton_Accion_indicador, "Mostrar indicador de tecla 'AcciÛn'.'Boton_accion' debe estar a 'True'")
+	#pragma GE_Documentation(Boton_Accion_indicador, "Mostrar indicador de tecla 'Acci√≥n'.'Boton_accion' debe estar a 'True'")
 
 	geBoolean Repetir_comandos_zona;
 	#pragma GE_DefaultValue(Repetir_comandos_zona, "True")
@@ -966,9 +966,9 @@ typedef struct ChangeLevel
 
 	#pragma GE_Documentation(Model, "Nombre del 'model' que activa cargar el nuevo nivel")
 	#pragma GE_DefaultValue(LevelName, "")	
-	#pragma GE_Documentation(LevelName, "Nombre del nuevo nivel a cargar (sin extensiÛn .BSP)")
+	#pragma GE_Documentation(LevelName, "Nombre del nuevo nivel a cargar (sin extensi√≥n .BSP)")
 	#pragma GE_DefaultValue(CommandsFile, "")
-	#pragma GE_Documentation(CommandsFile, "Fichero de comandos al iniciar el nivel (sin extensiÛn .INI)")
+	#pragma GE_Documentation(CommandsFile, "Fichero de comandos al iniciar el nivel (sin extensi√≥n .INI)")
 #pragma GE_Origin(Origin)
 } ChangeLevel;
 
@@ -992,7 +992,7 @@ typedef struct  ItemHealth
 	float Tiempo_reaparicion;
 
 	#pragma GE_DefaultValue(Reaparece, "True")
-	#pragma GE_Documentation(Reaparece, "ø Reaparece despuÈs de ser recogido ? True=Si False=No")
+	#pragma GE_Documentation(Reaparece, "¬ø Reaparece despu√©s de ser recogido ? True=Si False=No")
 
 	#pragma GE_DefaultValue(Incremento, "25")
 	#pragma GE_Documentation(Incremento, "Incremento de salud al recoger el objeto (de 1 a 100)")
@@ -1001,7 +1001,7 @@ typedef struct  ItemHealth
 	#pragma GE_Documentation(Num_ACT, "Determina el modelo 3D que representa la salud (de 1 a 3)")
 
 	#pragma GE_DefaultValue(Scale, "1")
-	#pragma GE_Documentation(Scale, "TamaÒo (1=Sin variar  2=El doble  0.5=La mitad)")
+	#pragma GE_Documentation(Scale, "Tama√±o (1=Sin variar  2=El doble  0.5=La mitad)")
 
 	#pragma GE_DefaultValue(Transparencia, "255")
 	#pragma GE_Documentation(Transparencia, "Nivel de transparencia (de 0 a 255, 255=Opaco 128=Semitransparente)")
@@ -1010,10 +1010,10 @@ typedef struct  ItemHealth
 	#pragma GE_Documentation(Brillo, "Nivel de brillo (de 0 a 255)")
 
 	#pragma GE_DefaultValue(Sombra, "1")
-	#pragma GE_Documentation(Sombra, "Tipo de sombra. (0=Sin sombra, 1=CÌrculo, 2=Din·mica)")
+	#pragma GE_Documentation(Sombra, "Tipo de sombra. (0=Sin sombra, 1=C√≠rculo, 2=Din√°mica)")
 
 	#pragma GE_DefaultValue(Tiempo_reaparicion, "60")
-	#pragma GE_Documentation(Tiempo_reaparicion, "Tiempo en reaparecer despuÈs de recogido (en segundos)")
+	#pragma GE_Documentation(Tiempo_reaparicion, "Tiempo en reaparecer despu√©s de recogido (en segundos)")
 
 #pragma GE_Origin(Origin)
 }   ItemHealth;
@@ -1037,13 +1037,13 @@ typedef struct ItemArmor
 	float Tiempo_reaparicion;
 
 	#pragma GE_DefaultValue(Reaparece, "True")
-	#pragma GE_Documentation(Reaparece, "ø ReapariciÛn transcurridos unos segundos ? True=Si False=No")
+	#pragma GE_Documentation(Reaparece, "¬ø Reaparici√≥n transcurridos unos segundos ? True=Si False=No")
 
 	#pragma GE_DefaultValue(Incremento, "100")
 	#pragma GE_Documentation(Incremento, "Incremento de escudo al recoger el objeto (de 1 a 100)")
 
 	#pragma GE_DefaultValue(Scale, "1")
-	#pragma GE_Documentation(Scale, "TamaÒo (1=Sin variar  2=El doble  0.5=La mitad)")
+	#pragma GE_Documentation(Scale, "Tama√±o (1=Sin variar  2=El doble  0.5=La mitad)")
 
 	#pragma GE_DefaultValue(Transparencia, "255")
 	#pragma GE_Documentation(Transparencia, "Nivel de transparencia (de 0 a 255, 255=Opaco 128=Semitransparente)")
@@ -1052,10 +1052,10 @@ typedef struct ItemArmor
 	#pragma GE_Documentation(Brillo, "Nivel de brillo (de 0 a 255)")
 
 	#pragma GE_DefaultValue(Sombra, "1")
-	#pragma GE_Documentation(Sombra, "Tipo de sombra. (0=Sin sombra, 1=CÌrculo, 2=Din·mica)")
+	#pragma GE_Documentation(Sombra, "Tipo de sombra. (0=Sin sombra, 1=C√≠rculo, 2=Din√°mica)")
 
 	#pragma GE_DefaultValue(Tiempo_reaparicion, "60")
-	#pragma GE_Documentation(Tiempo_reaparicion, "Tiempo en reaparecer despuÈs de recogido (en segundos)")
+	#pragma GE_Documentation(Tiempo_reaparicion, "Tiempo en reaparecer despu√©s de recogido (en segundos)")
 
 #pragma GE_Origin(Origin)
 } ItemArmor;
@@ -1072,8 +1072,8 @@ typedef struct  ItemRocket
     geVec3d			Origin;
 	geBoolean   Reaparece;
 	#pragma GE_DefaultValue(Reaparece, "True")
-	#pragma GE_Documentation(Reaparece, "ø ReapariciÛn transcurridos unos segundos ? True=Si False=No")
-	#pragma GE_Documentation(Origin, "PosiciÛn (X Y Z)")
+	#pragma GE_Documentation(Reaparece, "¬ø Reaparici√≥n transcurridos unos segundos ? True=Si False=No")
+	#pragma GE_Documentation(Origin, "Posici√≥n (X Y Z)")
 #pragma GE_Origin(Origin)
 } ItemRocket;
 
@@ -1089,13 +1089,13 @@ typedef struct  ItemRocketAmmo
     geVec3d			Origin;
 	geBoolean   Reaparece;
 	#pragma GE_DefaultValue(Reaparece, "True")
-	#pragma GE_Documentation(Reaparece, "ø ReapariciÛn transcurridos unos segundos ? True=Si False=No")
+	#pragma GE_Documentation(Reaparece, "¬ø Reaparici√≥n transcurridos unos segundos ? True=Si False=No")
 
 	float Tiempo_reaparicion;
 	#pragma GE_DefaultValue(Tiempo_reaparicion, "60")
-	#pragma GE_Documentation(Tiempo_reaparicion, "Tiempo en reaparecer despuÈs de recogido (en segundos)")
+	#pragma GE_Documentation(Tiempo_reaparicion, "Tiempo en reaparecer despu√©s de recogido (en segundos)")
 
-	#pragma GE_Documentation(Origin, "PosiciÛn (X Y Z)")
+	#pragma GE_Documentation(Origin, "Posici√≥n (X Y Z)")
 
 #pragma GE_Origin(Origin)
 } ItemRocketAmmo;
@@ -1112,8 +1112,8 @@ typedef struct  ItemGrenade
     geVec3d			Origin;
 	geBoolean   Reaparece;
 	#pragma GE_DefaultValue(Reaparece, "True")
-	#pragma GE_Documentation(Reaparece, "ø ReapariciÛn transcurridos unos segundos ? True=Si False=No")
-	#pragma GE_Documentation(Origin, "PosiciÛn (X Y Z)")
+	#pragma GE_Documentation(Reaparece, "¬ø Reaparici√≥n transcurridos unos segundos ? True=Si False=No")
+	#pragma GE_Documentation(Origin, "Posici√≥n (X Y Z)")
 #pragma GE_Origin(Origin)
 }   ItemGrenade;
 
@@ -1129,13 +1129,13 @@ typedef struct  ItemGrenadeAmmo
     geVec3d			Origin;
 	geBoolean   Reaparece;
 	#pragma GE_DefaultValue(Reaparece, "True")
-	#pragma GE_Documentation(Reaparece, "ø ReapariciÛn transcurridos unos segundos ? True=Si False=No")
+	#pragma GE_Documentation(Reaparece, "¬ø Reaparici√≥n transcurridos unos segundos ? True=Si False=No")
 
 	float Tiempo_reaparicion;
 	#pragma GE_DefaultValue(Tiempo_reaparicion, "60")
-	#pragma GE_Documentation(Tiempo_reaparicion, "Tiempo en reaparecer despuÈs de recogido (en segundos)")
+	#pragma GE_Documentation(Tiempo_reaparicion, "Tiempo en reaparecer despu√©s de recogido (en segundos)")
 
-	#pragma GE_Documentation(Origin, "PosiciÛn (X Y Z)")
+	#pragma GE_Documentation(Origin, "Posici√≥n (X Y Z)")
 #pragma GE_Origin(Origin)
 }   ItemGrenadeAmmo;
 
@@ -1151,13 +1151,13 @@ typedef struct  ItemBlasterAmmo
     geVec3d			Origin;
 	geBoolean   Reaparece;
 	#pragma GE_DefaultValue(Reaparece, "True")
-	#pragma GE_Documentation(Reaparece, "ø ReapariciÛn transcurridos unos segundos ? True=Si False=No")
+	#pragma GE_Documentation(Reaparece, "¬ø Reaparici√≥n transcurridos unos segundos ? True=Si False=No")
 
 	float Tiempo_reaparicion;
 	#pragma GE_DefaultValue(Tiempo_reaparicion, "60")
-	#pragma GE_Documentation(Tiempo_reaparicion, "Tiempo en reaparecer despuÈs de recogido (en segundos)")
+	#pragma GE_Documentation(Tiempo_reaparicion, "Tiempo en reaparecer despu√©s de recogido (en segundos)")
 
-	#pragma GE_Documentation(Origin, "PosiciÛn (X Y Z)")
+	#pragma GE_Documentation(Origin, "Posici√≥n (X Y Z)")
 #pragma GE_Origin(Origin)
 }   ItemBlasterAmmo;
 
@@ -1173,8 +1173,8 @@ typedef struct  ItemShredder
     geVec3d			Origin;
 	geBoolean   Reaparece;
 	#pragma GE_DefaultValue(Reaparece, "True")
-	#pragma GE_Documentation(Reaparece, "ø ReapariciÛn transcurridos unos segundos ? True=Si False=No")
-	#pragma GE_Documentation(Origin, "PosiciÛn (X Y Z)")
+	#pragma GE_Documentation(Reaparece, "¬ø Reaparici√≥n transcurridos unos segundos ? True=Si False=No")
+	#pragma GE_Documentation(Origin, "Posici√≥n (X Y Z)")
 #pragma GE_Origin(Origin)
 }   ItemShredder;
 
@@ -1190,13 +1190,13 @@ typedef struct  ItemShredderAmmo
     geVec3d			Origin;
 	geBoolean   Reaparece;
 	#pragma GE_DefaultValue(Reaparece, "True")
-	#pragma GE_Documentation(Reaparece, "ø ReapariciÛn transcurridos unos segundos ? True=Si False=No")
+	#pragma GE_Documentation(Reaparece, "¬ø Reaparici√≥n transcurridos unos segundos ? True=Si False=No")
 
 	float Tiempo_reaparicion;
 	#pragma GE_DefaultValue(Tiempo_reaparicion, "60")
-	#pragma GE_Documentation(Tiempo_reaparicion, "Tiempo en reaparecer despuÈs de recogido (en segundos)")
+	#pragma GE_Documentation(Tiempo_reaparicion, "Tiempo en reaparecer despu√©s de recogido (en segundos)")
 
-	#pragma GE_Documentation(Origin, "PosiciÛn (X Y Z)")
+	#pragma GE_Documentation(Origin, "Posici√≥n (X Y Z)")
 #pragma GE_Origin(Origin)
 }   ItemShredderAmmo;
 
@@ -1234,7 +1234,7 @@ typedef struct  ItemVida
 	geBoolean   Reaparece;
 
 	#pragma GE_DefaultValue(Scale, "1")
-	#pragma GE_Documentation(Scale, "TamaÒo (1=Sin variar  2=El doble  0.5=La mitad)")
+	#pragma GE_Documentation(Scale, "Tama√±o (1=Sin variar  2=El doble  0.5=La mitad)")
 
 	#pragma GE_DefaultValue(Transparencia, "255")
 	#pragma GE_Documentation(Transparencia, "Nivel de transparencia (de 0 a 255, 255=Opaco 128=Semitransparente)")
@@ -1243,15 +1243,15 @@ typedef struct  ItemVida
 	#pragma GE_Documentation(Brillo, "Nivel de brillo (de 0 a 255)")
 
 	#pragma GE_DefaultValue(Sombra, "1")
-	#pragma GE_Documentation(Sombra, "Tipo de sombra. (0=Sin sombra, 1=CÌrculo, 2=Din·mica)")
+	#pragma GE_Documentation(Sombra, "Tipo de sombra. (0=Sin sombra, 1=C√≠rculo, 2=Din√°mica)")
 
 	#pragma GE_DefaultValue(Tiempo_reaparicion, "300")
-	#pragma GE_Documentation(Tiempo_reaparicion, "Tiempo en reaparecer despuÈs de recogido (en segundos)")
+	#pragma GE_Documentation(Tiempo_reaparicion, "Tiempo en reaparecer despu√©s de recogido (en segundos)")
 
 	#pragma GE_DefaultValue(Reaparece, "False")
-	#pragma GE_Documentation(Reaparece, "ø Reaparece despuÈs de ser recogido ? True=Si False=No")
+	#pragma GE_Documentation(Reaparece, "¬ø Reaparece despu√©s de ser recogido ? True=Si False=No")
 
-	#pragma GE_Documentation(Origin, "PosiciÛn (X Y Z)")
+	#pragma GE_Documentation(Origin, "Posici√≥n (X Y Z)")
 
 #pragma GE_Origin(Origin)
 }   ItemVida;
@@ -1269,30 +1269,30 @@ typedef struct CamaraFija
 
 	geBoolean   Activa;
 	#pragma GE_DefaultValue(Activa, "False")
-	#pragma GE_Documentation(Activa, "ø C·mara activa al iniciar el juego ? True=Si False=No")
+	#pragma GE_Documentation(Activa, "¬ø C√°mara activa al iniciar el juego ? True=Si False=No")
 
 	int Num_camara;
 	#pragma GE_DefaultValue(Num_camara, "1")
-	#pragma GE_Documentation(Num_camara, "N˙mero de c·mara (entre 1 y 64)")
+	#pragma GE_Documentation(Num_camara, "N√∫mero de c√°mara (entre 1 y 64)")
 		
 	float Tiempo;
 	#pragma GE_DefaultValue(Tiempo, "0")
-	#pragma GE_Documentation(Tiempo, "Tiempo, en segundos, que estar· activa (0 indefinido)")
+	#pragma GE_Documentation(Tiempo, "Tiempo, en segundos, que estar√° activa (0 indefinido)")
 
 	geVec3d Angulo;
 	#pragma GE_DefaultValue(Angulo, "0 0 0")
-	#pragma GE_Documentation(Angulo, "¡ngulo de inclinaciÛn")
+	#pragma GE_Documentation(Angulo, "√Ångulo de inclinaci√≥n")
 
 	geBoolean   Apunta_al_jugador;
 	#pragma GE_DefaultValue(Apunta_al_jugador, "False")
-	#pragma GE_Documentation(Apunta_al_jugador, "ø Apunta al jugador ? True=Si False=No")
+	#pragma GE_Documentation(Apunta_al_jugador, "¬ø Apunta al jugador ? True=Si False=No")
 
 	geWorld_Model *	Model;
-	#pragma GE_Documentation(Model, "Modelo asociado a la c·mara. (Opcional)")
+	#pragma GE_Documentation(Model, "Modelo asociado a la c√°mara. (Opcional)")
 
 	Posicion *	Apuntar;
-	#pragma GE_Documentation(Apuntar, "PosiciÛn hacia donde apunta la c·mara. (Opcional)")
-	#pragma GE_Documentation(Origin, "PosiciÛn (X Y Z)")
+	#pragma GE_Documentation(Apuntar, "Posici√≥n hacia donde apunta la c√°mara. (Opcional)")
+	#pragma GE_Documentation(Origin, "Posici√≥n (X Y Z)")
 
 #pragma GE_Origin(Origin)
 } CamaraFija;
@@ -1309,8 +1309,8 @@ typedef struct  Objetivo
     geVec3d			Origin;
 #pragma GE_Published
 	char *Descripcion;
-	#pragma GE_DefaultValue(Descripcion, "DescripciÛn de un objetivo de la misiÛn")
-	#pragma GE_Documentation(Descripcion, "DescripciÛn de un objetivo de la misiÛn (50 carac. max.)")
+	#pragma GE_DefaultValue(Descripcion, "Descripci√≥n de un objetivo de la misi√≥n")
+	#pragma GE_Documentation(Descripcion, "Descripci√≥n de un objetivo de la misi√≥n (50 carac. max.)")
 
 	geBoolean En_panel;
 	#pragma GE_DefaultValue(En_panel, "True")
@@ -1318,9 +1318,9 @@ typedef struct  Objetivo
 
 	int Num_objetivo;	
 	#pragma GE_DefaultValue(Num_objetivo, "1")
-	#pragma GE_Documentation(Num_objetivo, "N˙mero de objetivo (de 1 a 10)")
+	#pragma GE_Documentation(Num_objetivo, "N√∫mero de objetivo (de 1 a 10)")
 
-	#pragma GE_Documentation(Origin, "PosiciÛn (X Y Z)")
+	#pragma GE_Documentation(Origin, "Posici√≥n (X Y Z)")
 
 #pragma GE_Origin(Origin)
 }   Objetivo;
@@ -1352,12 +1352,12 @@ typedef struct tagSunLight
 
 #pragma GE_Angles(angles)
 #pragma GE_DefaultValue(angles, "0 0 -45")
-#pragma GE_Documentation(angles, "¡ngulo de incidencia de la luz del Sol")
+#pragma GE_Documentation(angles, "√Ångulo de incidencia de la luz del Sol")
 
 #pragma GE_DefaultValue(style, "0")
 #pragma GE_Documentation(style, "Parpadeo de la luz (0, 1, 2 o 3)")
 
-#pragma GE_Documentation(origin, "PosiciÛn (X Y Z)")
+#pragma GE_Documentation(origin, "Posici√≥n (X Y Z)")
 
 } SunLight ;
 
@@ -1378,17 +1378,17 @@ typedef struct  TeclaComandos
 
 	geBoolean Activa;
 	#pragma GE_DefaultValue(Activa, "True")
-	#pragma GE_Documentation(Activa, "ø Tecla activa al dar comienzo el juego ?. False=No True=Si")
+	#pragma GE_Documentation(Activa, "¬ø Tecla activa al dar comienzo el juego ?. False=No True=Si")
 
 	char *Tecla;
 	#pragma GE_DefaultValue(Tecla, "U")
-	#pragma GE_Documentation(Tecla, "Tecla que lanzar· el fichero de comandos.")
+	#pragma GE_Documentation(Tecla, "Tecla que lanzar√° el fichero de comandos.")
 
 	float Retardo;
 	#pragma GE_DefaultValue(Retardo, "0.5")
 	#pragma GE_Documentation(Retardo, "Tiempo, en segundos, en permitir volver a usar la tecla.")
 
-	#pragma GE_Documentation(Origin, "PosiciÛn (X Y Z)")
+	#pragma GE_Documentation(Origin, "Posici√≥n (X Y Z)")
 
 #pragma GE_Origin(Origin)
 }   TeclaComandos;
@@ -1407,19 +1407,19 @@ typedef struct  Fx_ArmaEnergia
 
 	geBoolean Activa;
 	#pragma GE_DefaultValue(Activa, "True")
-	#pragma GE_Documentation(Activa, "ø Arma activa ?. False=No True=Si")
+	#pragma GE_Documentation(Activa, "¬ø Arma activa ?. False=No True=Si")
 
 	int Num_ArmaEnergia;
 	#pragma GE_DefaultValue(Num_ArmaEnergia, "1")
-	#pragma GE_Documentation(Num_ArmaEnergia, "N˙mero de arma de energÌa (de 1 a 20).")
+	#pragma GE_Documentation(Num_ArmaEnergia, "N√∫mero de arma de energ√≠a (de 1 a 20).")
 
 	char *NombreBMP;
 	#pragma GE_DefaultValue(NombreBMP, "espiral")
-	#pragma GE_Documentation(NombreBMP, "Nombre de la secuencia .BMPs de la animaciÛn (sin extension .BMP)")
+	#pragma GE_Documentation(NombreBMP, "Nombre de la secuencia .BMPs de la animaci√≥n (sin extension .BMP)")
 
 	char *NombreBMPa;
 	#pragma GE_DefaultValue(NombreBMPa, "espiral")
-	#pragma GE_Documentation(NombreBMPa, "Nombre de la secuencia .BMPs (canal Alpha) de la animaciÛn (sin extension .BMP)")
+	#pragma GE_Documentation(NombreBMPa, "Nombre de la secuencia .BMPs (canal Alpha) de la animaci√≥n (sin extension .BMP)")
 
 	char *NombreWAV;
 	#pragma GE_DefaultValue(NombreWAV, "arma_energia.wav")
@@ -1431,7 +1431,7 @@ typedef struct  Fx_ArmaEnergia
 
 	float Escala;
 	#pragma GE_DefaultValue(Escala, "5")
-	#pragma GE_Documentation(Escala, "TamaÒo del efecto.")
+	#pragma GE_Documentation(Escala, "Tama√±o del efecto.")
 
 	int Quita_salud;
 	#pragma GE_DefaultValue(Quita_salud, "50")
@@ -1449,7 +1449,7 @@ typedef struct  Fx_ArmaEnergia
 	#pragma GE_DefaultValue(Color, "255.0 255.0 255.0")
 	#pragma GE_Documentation(Color, "Color del efecto")
 
-	#pragma GE_Documentation(Origin, "PosiciÛn (X Y Z)")
+	#pragma GE_Documentation(Origin, "Posici√≥n (X Y Z)")
 
 #pragma GE_Origin(Origin)
 }   Fx_ArmaEnergia;
@@ -1467,41 +1467,41 @@ typedef struct  VolarJugador
 #pragma GE_Published
 	geBoolean   Descuenta_energia;
 	#pragma GE_DefaultValue(Descuenta_energia, "True")
-	#pragma GE_Documentation(Descuenta_energia, "ø Descuenta energÌa al volar ?. True=Si False=No")
+	#pragma GE_Documentation(Descuenta_energia, "¬ø Descuenta energ√≠a al volar ?. True=Si False=No")
 
 	geBoolean   Inicio_volando;
 	#pragma GE_DefaultValue(Inicio_volando, "False")
-	#pragma GE_Documentation(Inicio_volando, "ø Iniciar el nivel volando ?. True=Si False=No")
+	#pragma GE_Documentation(Inicio_volando, "¬ø Iniciar el nivel volando ?. True=Si False=No")
 
 	geBoolean   Pemitir_OnOff;
 	#pragma GE_DefaultValue(Pemitir_OnOff, "True")
-	#pragma GE_Documentation(Pemitir_OnOff, "ø Permitir al jugador activar/desactivar volar ?. True=Si False=No")
+	#pragma GE_Documentation(Pemitir_OnOff, "¬ø Permitir al jugador activar/desactivar volar ?. True=Si False=No")
 
 	geBoolean   Sonido_volar;
 	#pragma GE_DefaultValue(Sonido_volar, "True")
-	#pragma GE_Documentation(Sonido_volar, "ø Sonido de propulsiÛn al volar el jugador ?. False=No True=Si")
+	#pragma GE_Documentation(Sonido_volar, "¬ø Sonido de propulsi√≥n al volar el jugador ?. False=No True=Si")
 
 	geBoolean   Sonido_volando;
 	#pragma GE_DefaultValue(Sonido_volando, "True")
-	#pragma GE_Documentation(Sonido_volando, "ø Sonido mientras vuela el jugador ?. False=No True=Si")
+	#pragma GE_Documentation(Sonido_volando, "¬ø Sonido mientras vuela el jugador ?. False=No True=Si")
 
 	geVec3d	Posicion_XY;
 	#pragma GE_DefaultValue(Posicion_XY, "15 -220 1")
-	#pragma GE_Documentation(Posicion_XY, "PosiciÛn de la barra de energÌa en pantalla. (SÛlo X Y)")
+	#pragma GE_Documentation(Posicion_XY, "Posici√≥n de la barra de energ√≠a en pantalla. (S√≥lo X Y)")
 
 	float	Retardo;
 	#pragma GE_DefaultValue(Retardo, "0.5")
-	#pragma GE_Documentation(Retardo, "Velocidad de vaciado de la energÌa. (En segundos)")
+	#pragma GE_Documentation(Retardo, "Velocidad de vaciado de la energ√≠a. (En segundos)")
 
 	int	Energia;
 	#pragma GE_DefaultValue(Energia, "100")
-	#pragma GE_Documentation(Energia, "Energia inicial de la barra de energÌa (de 0 a 100 )")
+	#pragma GE_Documentation(Energia, "Energia inicial de la barra de energ√≠a (de 0 a 100 )")
 
 	char *Comandos_Vacia;
 	#pragma GE_DefaultValue(Comandos_Vacia, "")
-	#pragma GE_Documentation(Comandos_Vacia, "Nombre del fichero de comandos a lanzar cuando se acabe la energÌa")
+	#pragma GE_Documentation(Comandos_Vacia, "Nombre del fichero de comandos a lanzar cuando se acabe la energ√≠a")
 
-	#pragma GE_Documentation(Origin, "PosiciÛn (X Y Z)")
+	#pragma GE_Documentation(Origin, "Posici√≥n (X Y Z)")
 
 #pragma GE_Origin(Origin)
 }   VolarJugador;
@@ -1523,19 +1523,19 @@ typedef struct Teletransporte
 
 	char *CommandsFile;
 	#pragma GE_DefaultValue(CommandsFile, "")
-	#pragma GE_Documentation(CommandsFile, "Fichero de comandos de Jugador (sin extensiÛn .INI)")
+	#pragma GE_Documentation(CommandsFile, "Fichero de comandos de Jugador (sin extensi√≥n .INI)")
 
 	char *CommandsFileBot;
 	#pragma GE_DefaultValue(CommandsFileBot, "")
-	#pragma GE_Documentation(CommandsFileBot, "Fichero de comandos de Bot (sin extensiÛn .INI)")
+	#pragma GE_Documentation(CommandsFileBot, "Fichero de comandos de Bot (sin extensi√≥n .INI)")
 
 	geBoolean   Boton_accion;
 	#pragma GE_DefaultValue(Boton_accion, "False")
-	#pragma GE_Documentation(Boton_accion, "ø ActivaciÛn si botÛn/tecla acciÛn pulsada ? True=Si False=No")
+	#pragma GE_Documentation(Boton_accion, "¬ø Activaci√≥n si bot√≥n/tecla acci√≥n pulsada ? True=Si False=No")
 	
 	geBoolean   Visible;
 	#pragma GE_DefaultValue(Visible, "True")
-	#pragma GE_Documentation(Visible, "Mostrar una plataforma como referencia de la posiciÛn. True=Si False=No")
+	#pragma GE_Documentation(Visible, "Mostrar una plataforma como referencia de la posici√≥n. True=Si False=No")
 	
 	geVec3d Zona_influencia;
 	#pragma GE_DefaultValue(Zona_influencia, "40 20 40")
@@ -1543,11 +1543,11 @@ typedef struct Teletransporte
 
 	geBoolean	Activa;
 	#pragma GE_DefaultValue(Activa, "True")
-	#pragma GE_Documentation(Activa, "ø Entidad activa al iniciar el juego ? True=Si False=No")
+	#pragma GE_Documentation(Activa, "¬ø Entidad activa al iniciar el juego ? True=Si False=No")
 
 	geBoolean	Reaparece;
 	#pragma GE_DefaultValue(Reaparece, "True")
-	#pragma GE_Documentation(Reaparece, "ø Reaparece ? True=Si False=No")
+	#pragma GE_Documentation(Reaparece, "¬ø Reaparece ? True=Si False=No")
 
 	float Tiempo_reaparicion;
 	#pragma GE_DefaultValue(Tiempo_reaparicion, "0.2")
@@ -1555,11 +1555,11 @@ typedef struct Teletransporte
 
 	geVec3d Posicion_destino;
 	#pragma GE_DefaultValue(Posicion_destino, "0 0 0")
-	#pragma GE_Documentation(Posicion_destino, "PosiciÛn destino del Jugador o Bot (X Y Z)")
+	#pragma GE_Documentation(Posicion_destino, "Posici√≥n destino del Jugador o Bot (X Y Z)")
 
 	geBoolean Destino_absoluto;
 	#pragma GE_DefaultValue(Destino_absoluto, "True")
-	#pragma GE_Documentation(Destino_absoluto, "PosiciÛn destino absoluta o relativa a la posiciÛn actual del juegador. True=Absoluta False=Relativa")
+	#pragma GE_Documentation(Destino_absoluto, "Posici√≥n destino absoluta o relativa a la posici√≥n actual del juegador. True=Absoluta False=Relativa")
 
 	geBoolean VisualFx;
 	#pragma GE_DefaultValue(VisualFx, "True")
@@ -1579,13 +1579,13 @@ typedef struct Teletransporte
 
 	geBoolean Boton_Accion_indicador;
 	#pragma GE_DefaultValue(Boton_Accion_indicador, "True")
-	#pragma GE_Documentation(Boton_Accion_indicador, "Mostrar indicador de tecla 'AcciÛn'.'Boton_accion' debe estar a 'True'")
+	#pragma GE_Documentation(Boton_Accion_indicador, "Mostrar indicador de tecla 'Acci√≥n'.'Boton_accion' debe estar a 'True'")
 
 	geBoolean Repetir_comandos_zona;
 	#pragma GE_DefaultValue(Repetir_comandos_zona, "True")
 	#pragma GE_Documentation(Repetir_comandos_zona, "Procesar 'CommandsFile' mientras el jugador siga en la zona de influencia")
 
-	#pragma GE_Documentation(Origin, "PosiciÛn entidad (X Y Z)")
+	#pragma GE_Documentation(Origin, "Posici√≥n entidad (X Y Z)")
 
 #pragma GE_Origin(Origin)
 } Teletransporte;
@@ -1609,7 +1609,7 @@ typedef struct  ItemColision
 	geBoolean   Reaparece;
 
 	#pragma GE_DefaultValue(Scale, "1")
-	#pragma GE_Documentation(Scale, "TamaÒo (1=Sin variar  2=El doble  0.5=La mitad)")
+	#pragma GE_Documentation(Scale, "Tama√±o (1=Sin variar  2=El doble  0.5=La mitad)")
 
 	#pragma GE_DefaultValue(Transparencia, "255")
 	#pragma GE_Documentation(Transparencia, "Nivel de transparencia (de 0 a 255, 255=Opaco 128=Semitransparente)")
@@ -1618,15 +1618,15 @@ typedef struct  ItemColision
 	#pragma GE_Documentation(Brillo, "Nivel de brillo (de 0 a 255)")
 
 	#pragma GE_DefaultValue(Sombra, "1")
-	#pragma GE_Documentation(Sombra, "Tipo de sombra. (0=Sin sombra, 1=CÌrculo, 2=Din·mica)")
+	#pragma GE_Documentation(Sombra, "Tipo de sombra. (0=Sin sombra, 1=C√≠rculo, 2=Din√°mica)")
 
 	#pragma GE_DefaultValue(Tiempo_reaparicion, "300")
-	#pragma GE_Documentation(Tiempo_reaparicion, "Tiempo en reaparecer despuÈs de recogido (en segundos)")
+	#pragma GE_Documentation(Tiempo_reaparicion, "Tiempo en reaparecer despu√©s de recogido (en segundos)")
 
 	#pragma GE_DefaultValue(Reaparece, "False")
-	#pragma GE_Documentation(Reaparece, "ø Reaparece despuÈs de ser recogido ? True=Si False=No")
+	#pragma GE_Documentation(Reaparece, "¬ø Reaparece despu√©s de ser recogido ? True=Si False=No")
 
-	#pragma GE_Documentation(Origin, "PosiciÛn (X Y Z)")
+	#pragma GE_Documentation(Origin, "Posici√≥n (X Y Z)")
 
 #pragma GE_Origin(Origin)
 }   ItemColision;

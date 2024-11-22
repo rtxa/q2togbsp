@@ -1,9 +1,9 @@
 /****************************************************************************************/
 /*  File: LuzJugador.h                                                                  */
 /*                                                                                      */
-/*  Descripción:                                                                        */
+/*  DescripciÃ³n:                                                                        */
 /*                                                                                      */
-/*  Definición de clases de entidades.                                                  */
+/*  DefiniciÃ³n de clases de entidades.                                                  */
 /*  Este fichero .h lo utiliza World Editor para crear las entidades que usa el         */
 /*  programa Entidad 3D.                                                                */
 /*                                                                                      */
@@ -12,9 +12,9 @@
 /*                                                                                      */
 /*  Modificaciones para Entidad 3D:                                                     */
 /*                                                                                      */
-/*  Autor: Jordi Pérez                                                                  */
+/*  Autor: Jordi PÃ©rez                                                                  */
 /*                                                                                      */
-/*  Copyright (C) 2004 - 2017 Jordi Pérez; All rights reserved.                         */
+/*  Copyright (C) 2004 - 2017 Jordi PÃ©rez; All rights reserved.                         */
 /*                                                                                      */
 /****************************************************************************************/
 
@@ -58,12 +58,12 @@ typedef struct	LuzJugador
 #pragma GE_DefaultValue(InterpolateValues, "1")
 #pragma GE_DefaultValue(AllowRotation, "1")
 
-#pragma GE_Documentation(MinRadius, "Alcance mínimo de la luz")
-#pragma GE_Documentation(MaxRadius, "Alcance máximo de la luz")
-#pragma GE_Documentation(InterpolateValues, "Tipo de variación de la luz. Valores 0, 1, 2, 3 o 4")
-#pragma GE_Documentation(AllowRotation, "¿ Rotación de la luz según la rotación del modelo asociado ?. 0=No 1=Si")
-#pragma GE_Documentation(RadiusFunction, "Secuencia de letras de la 'a' a la 'z' para fijar intensidad variable de la luz. a=Mínimo z=Máximo")
-#pragma GE_Documentation(RadiusSpeed, "Velocidad de variación de los valores de 'RadiusFunction'. En segundos")
+#pragma GE_Documentation(MinRadius, "Alcance mÃ­nimo de la luz")
+#pragma GE_Documentation(MaxRadius, "Alcance mÃ¡ximo de la luz")
+#pragma GE_Documentation(InterpolateValues, "Tipo de variaciÃ³n de la luz. Valores 0, 1, 2, 3 o 4")
+#pragma GE_Documentation(AllowRotation, "Â¿ RotaciÃ³n de la luz segÃºn la rotaciÃ³n del modelo asociado ?. 0=No 1=Si")
+#pragma GE_Documentation(RadiusFunction, "Secuencia de letras de la 'a' a la 'z' para fijar intensidad variable de la luz. a=MÃ­nimo z=MÃ¡ximo")
+#pragma GE_Documentation(RadiusSpeed, "Velocidad de variaciÃ³n de los valores de 'RadiusFunction'. En segundos")
 #pragma GE_Documentation(Color, "Color de la luz")
 
 #pragma GE_Arc(Arc)

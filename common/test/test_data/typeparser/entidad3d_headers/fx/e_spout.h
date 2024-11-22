@@ -17,7 +17,7 @@
 
 /******************************************************************************/
 /*                                                                            */
-/*  TraducciÛn y adaptaciÛn para Entidad 3D: Jordi PÈrez                      */
+/*  Traducci√≥n y adaptaci√≥n para Entidad 3D: Jordi P√©rez                      */
 /*                                                                            */
 /*  Copyright (c) 2005; All rights reserved.                                  */
 /*                                                                            */
@@ -98,33 +98,33 @@ typedef struct Fx_Surtidor
 #pragma GE_DefaultValue( ShowAlways, "False" )
 #pragma GE_DefaultValue( Transparencia, "255.0" )
 
-#pragma GE_Documentation( Entity, "<sin funciÛn> Entidad 'StaticEntityProxy' asociada" )
-#pragma GE_Documentation( Position, "PosiciÛn del efecto" )
-#pragma GE_Documentation( Angles, "DirecciÛn de emisiÛn de las partÌculas" )
-#pragma GE_Documentation( ParticleCreateRate, "Cada cuantos segundos se genera una nueva partÌcula" )
-#pragma GE_Documentation( MinScale, "TamaÒo mÌnimo de las partÌculas" )
-#pragma GE_Documentation( MaxScale, "TamaÒo m·ximo de las partÌculas" )
-#pragma GE_Documentation( MinSpeed, "Velocidad mÌnima de las partÌculas" )
-#pragma GE_Documentation( MaxSpeed, "Velocidad m·xima de las partÌculas" )
-#pragma GE_Documentation( MinUnitLife, "Vida mÌnima de cada partÌcula" )
-#pragma GE_Documentation( MaxUnitLife, "Vida m·xima de cada partÌcula" )
-#pragma GE_Documentation( SourceVariance, "Nivel de variaciÛn de la fuente de emisiÛn de partÌculas" )
-#pragma GE_Documentation( DestVariance, "Nivel de variaciÛn del destino de las partÌculas" )
-#pragma GE_Documentation( ColorMin, "MÌnimo valor de color RGB para cada partÌcula" )
-#pragma GE_Documentation( ColorMax, "M·ximo valor de color RGB para cada partÌcula" )
-#pragma GE_Documentation( Gravity, "Vector de gravedad para aplicar a cada partÌcula" )
-#pragma GE_Documentation( BmpName, "Nombre de imagen .BMP que representa la partÌcula" )
-#pragma GE_Documentation( AlphaName, "Nombre de imagen .BMP (Alpha) que representa la partÌcula" )
+#pragma GE_Documentation( Entity, "<sin funci√≥n> Entidad 'StaticEntityProxy' asociada" )
+#pragma GE_Documentation( Position, "Posici√≥n del efecto" )
+#pragma GE_Documentation( Angles, "Direcci√≥n de emisi√≥n de las part√≠culas" )
+#pragma GE_Documentation( ParticleCreateRate, "Cada cuantos segundos se genera una nueva part√≠cula" )
+#pragma GE_Documentation( MinScale, "Tama√±o m√≠nimo de las part√≠culas" )
+#pragma GE_Documentation( MaxScale, "Tama√±o m√°ximo de las part√≠culas" )
+#pragma GE_Documentation( MinSpeed, "Velocidad m√≠nima de las part√≠culas" )
+#pragma GE_Documentation( MaxSpeed, "Velocidad m√°xima de las part√≠culas" )
+#pragma GE_Documentation( MinUnitLife, "Vida m√≠nima de cada part√≠cula" )
+#pragma GE_Documentation( MaxUnitLife, "Vida m√°xima de cada part√≠cula" )
+#pragma GE_Documentation( SourceVariance, "Nivel de variaci√≥n de la fuente de emisi√≥n de part√≠culas" )
+#pragma GE_Documentation( DestVariance, "Nivel de variaci√≥n del destino de las part√≠culas" )
+#pragma GE_Documentation( ColorMin, "M√≠nimo valor de color RGB para cada part√≠cula" )
+#pragma GE_Documentation( ColorMax, "M√°ximo valor de color RGB para cada part√≠cula" )
+#pragma GE_Documentation( Gravity, "Vector de gravedad para aplicar a cada part√≠cula" )
+#pragma GE_Documentation( BmpName, "Nombre de imagen .BMP que representa la part√≠cula" )
+#pragma GE_Documentation( AlphaName, "Nombre de imagen .BMP (Alpha) que representa la part√≠cula" )
 #pragma GE_Documentation( TotalLife, "Tiempo que dura el efecto. 0=indefinido" )
-#pragma GE_Documentation( TriggerName, "<sin funciÛn> Fichero de comandos .INI" )
-#pragma GE_Documentation( MinPauseTime, "<sin funciÛn> Tiempo mÌnimo para pausas aleatorias del efecto (segundos)" )
-#pragma GE_Documentation( MaxPauseTime, "<sin funciÛn> Tiempo m·ximo para pausas aleatorias del efecto (segundos)" )
-#pragma GE_Documentation( BoneName, "<sin funciÛn> Hueso del esqueleto del 'actor' al que enganchar efecto" )
-#pragma GE_Documentation( ShowAlways, "Mostrar aunque el origen no estÈ a la vista. True=Si False=No" )
+#pragma GE_Documentation( TriggerName, "<sin funci√≥n> Fichero de comandos .INI" )
+#pragma GE_Documentation( MinPauseTime, "<sin funci√≥n> Tiempo m√≠nimo para pausas aleatorias del efecto (segundos)" )
+#pragma GE_Documentation( MaxPauseTime, "<sin funci√≥n> Tiempo m√°ximo para pausas aleatorias del efecto (segundos)" )
+#pragma GE_Documentation( BoneName, "<sin funci√≥n> Hueso del esqueleto del 'actor' al que enganchar efecto" )
+#pragma GE_Documentation( ShowAlways, "Mostrar aunque el origen no est√© a la vista. True=Si False=No" )
 #pragma GE_Documentation( Transparencia, "Nivel de transparencia. De 0 a 255" )
 
 #pragma GE_DefaultValue( Activo, "True" )
-#pragma GE_Documentation( Activo, "ø Efecto activo ?. True=Si False=No" )
+#pragma GE_Documentation( Activo, "¬ø Efecto activo ?. True=Si False=No" )
 
 #pragma GE_Documentation(Model, "Modelo asociado al efecto. (Opcional)")
 

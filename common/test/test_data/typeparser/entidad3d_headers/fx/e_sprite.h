@@ -17,7 +17,7 @@
 
 /******************************************************************************/
 /*                                                                            */
-/*  Traducción y adaptación para Entidad 3D: Jordi Pérez                      */
+/*  TraducciÃ³n y adaptaciÃ³n para Entidad 3D: Jordi PÃ©rez                      */
 /*                                                                            */
 /*  Copyright (c) 2005; All rights reserved.                                  */
 /*                                                                            */
@@ -92,45 +92,45 @@ typedef struct Fx_Sprite
 #pragma GE_DefaultValue( BmpName, "trans.bmp" )
 #pragma GE_DefaultValue( AlphaName, "a_trans.bmp" )
 	
-#pragma GE_Documentation( Entity, "<sin función> Entidad 'StaticEntityProxy' asociada" )
-#pragma GE_Documentation( Position, "Posición del efecto" )
-#pragma GE_Documentation( Color, "Color de la partícula" )
-#pragma GE_Documentation( Scale, "Tamaño de la partícula" )
-#pragma GE_Documentation( ParticleCount, "Partículas a usar" )
-#pragma GE_Documentation( Radius, "Radio horizontal de colocación de las partículas" )
-#pragma GE_Documentation( Height, "<sin función> Altura de la partícula" )
-#pragma GE_Documentation( XSlant, "<sin función> Inclinación ascendente en eje X" )
-#pragma GE_Documentation( ZSlant, "<sin función> Inclinación ascendente en eje Z" )
-#pragma GE_Documentation( MinSpeed, "Mínima velocidad de cada partícula" )
-#pragma GE_Documentation( MaxSpeed, "Máxima velocidad de cada partícula" )
-#pragma GE_Documentation( BmpName, "Nombre de imagen .BMP que representa la partícula" )
-#pragma GE_Documentation( AlphaName, "Nombre de imagen .BMP (Alpha) que representa la partícula" )
-#pragma GE_Documentation( TriggerName, "<sin función> Fichero de comandos .INI" )
-#pragma GE_Documentation( BoneName, "<sin función> Hueso del esqueleto del 'actor' al que enganchar efecto" )
+#pragma GE_Documentation( Entity, "<sin funciÃ³n> Entidad 'StaticEntityProxy' asociada" )
+#pragma GE_Documentation( Position, "PosiciÃ³n del efecto" )
+#pragma GE_Documentation( Color, "Color de la partÃ­cula" )
+#pragma GE_Documentation( Scale, "TamaÃ±o de la partÃ­cula" )
+#pragma GE_Documentation( ParticleCount, "PartÃ­culas a usar" )
+#pragma GE_Documentation( Radius, "Radio horizontal de colocaciÃ³n de las partÃ­culas" )
+#pragma GE_Documentation( Height, "<sin funciÃ³n> Altura de la partÃ­cula" )
+#pragma GE_Documentation( XSlant, "<sin funciÃ³n> InclinaciÃ³n ascendente en eje X" )
+#pragma GE_Documentation( ZSlant, "<sin funciÃ³n> InclinaciÃ³n ascendente en eje Z" )
+#pragma GE_Documentation( MinSpeed, "MÃ­nima velocidad de cada partÃ­cula" )
+#pragma GE_Documentation( MaxSpeed, "MÃ¡xima velocidad de cada partÃ­cula" )
+#pragma GE_Documentation( BmpName, "Nombre de imagen .BMP que representa la partÃ­cula" )
+#pragma GE_Documentation( AlphaName, "Nombre de imagen .BMP (Alpha) que representa la partÃ­cula" )
+#pragma GE_Documentation( TriggerName, "<sin funciÃ³n> Fichero de comandos .INI" )
+#pragma GE_Documentation( BoneName, "<sin funciÃ³n> Hueso del esqueleto del 'actor' al que enganchar efecto" )
 	
 #pragma GE_DefaultValue( Rotation, "0.0" )
-#pragma GE_Documentation( Rotation, "Velocidad de rotación (entre -3.14 y 3.14)" )
+#pragma GE_Documentation( Rotation, "Velocidad de rotaciÃ³n (entre -3.14 y 3.14)" )
 
 #pragma GE_DefaultValue( ScaleRate, "0.0" )
-#pragma GE_Documentation( ScaleRate, "Velocidad de reducción de las partículas (entre 0 y Scale)" )
+#pragma GE_Documentation( ScaleRate, "Velocidad de reducciÃ³n de las partÃ­culas (entre 0 y Scale)" )
 
 #pragma GE_DefaultValue( AlphaRate, "0.0" )
-#pragma GE_Documentation( AlphaRate, "Velocidad de difuminación de las partículas (entre 0 y 255)" )
+#pragma GE_Documentation( AlphaRate, "Velocidad de difuminaciÃ³n de las partÃ­culas (entre 0 y 255)" )
 
 #pragma GE_DefaultValue( RadiusY, "0.0" )
-#pragma GE_Documentation( RadiusY, "Radio vertical de colocación de las partículas" )
+#pragma GE_Documentation( RadiusY, "Radio vertical de colocaciÃ³n de las partÃ­culas" )
 
 #pragma GE_DefaultValue( Transparencia, "255.0" )
 #pragma GE_Documentation( Transparencia, "Nivel de transparencia. De 0 a 255" )
 
 #pragma GE_DefaultValue( ShowAlways, "False" )
-#pragma GE_Documentation( ShowAlways, "Mostrar aunque el origen no esté a la vista. True=Si False=No" )
+#pragma GE_Documentation( ShowAlways, "Mostrar aunque el origen no estÃ© a la vista. True=Si False=No" )
 
 #pragma GE_DefaultValue( RadioMov, "100.0" )
-#pragma GE_Documentation( RadioMov, "Radio de acción de las partículas" )
+#pragma GE_Documentation( RadioMov, "Radio de acciÃ³n de las partÃ­culas" )
 
 #pragma GE_DefaultValue( Activo, "True" )
-#pragma GE_Documentation( Activo, "¿ Efecto activo ?. True=Si False=No" )
+#pragma GE_Documentation( Activo, "Â¿ Efecto activo ?. True=Si False=No" )
 
 //#pragma GE_Documentation(Model, "Modelo asociado al efecto. (Opcional)")
 

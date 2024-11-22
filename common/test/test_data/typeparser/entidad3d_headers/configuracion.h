@@ -1,18 +1,18 @@
 /****************************************************************************************/
 /*  File: configuracion.h                                                               */
 /*                                                                                      */
-/*  DescripciÛn:                                                                        */
+/*  Descripci√≥n:                                                                        */
 /*                                                                                      */
-/*  DefiniciÛn de clases de entidades.                                                  */
+/*  Definici√≥n de clases de entidades.                                                  */
 /*  Este fichero .h lo utiliza World Editor para crear las entidades que usa el         */
 /*  programa Entidad 3D.                                                                */
 /*                                                                                      */
 /*  No modificar el contenido de este fichero .h para un correcto funcionamiento        */
 /*  de Entidad 3D y World Editor.                                                       */
 /*                                                                                      */
-/*  Autor: Jordi PÈrez                                                                  */
+/*  Autor: Jordi P√©rez                                                                  */
 /*                                                                                      */
-/*  Copyright (c) 2004 - 2016 Jordi PÈrez; All rights reserved.                         */
+/*  Copyright (c) 2004 - 2016 Jordi P√©rez; All rights reserved.                         */
 /*                                                                                      */
 /****************************************************************************************/
 
@@ -27,7 +27,7 @@ extern "C" {
 // ==========================
 // Entidad 'Configuracion'
 // ==========================
-// Entidad para datos generales de configuraciÛn
+// Entidad para datos generales de configuraci√≥n
 #pragma GE_Type("Item.ico")
 typedef struct  Configuracion
 {
@@ -37,55 +37,55 @@ typedef struct  Configuracion
 
 	//geBoolean   Ver_puntuacion;
 	//#pragma GE_DefaultValue(Ver_puntuacion, "False")
-	//#pragma GE_Documentation(Ver_puntuacion, "Ver en pantalla puntuaciÛn y record. True=Si False=No")
+	//#pragma GE_Documentation(Ver_puntuacion, "Ver en pantalla puntuaci√≥n y record. True=Si False=No")
 
 	int	VolumenMusicaFondo;
 	#pragma GE_DefaultValue(VolumenMusicaFondo, "90")
-	#pragma GE_Documentation(VolumenMusicaFondo, "Volumen de la m˙sica de fondo. Entre 0 y 100")
+	#pragma GE_Documentation(VolumenMusicaFondo, "Volumen de la m√∫sica de fondo. Entre 0 y 100")
 
 	geBoolean   Utilizar_joystick;
 	#pragma GE_DefaultValue(Utilizar_joystick, "False")
-	#pragma GE_Documentation(Utilizar_joystick, "ø UtilizaciÛn del Joystick o Gamepad durante el juego ?. True=Si False=No")
+	#pragma GE_Documentation(Utilizar_joystick, "¬ø Utilizaci√≥n del Joystick o Gamepad durante el juego ?. True=Si False=No")
 
 	geBoolean   Camara_inicial_1;
 	#pragma GE_DefaultValue(Camara_inicial_1, "True")
-	#pragma GE_Documentation(Camara_inicial_1, "C·mara inicial en primera persona. False=No True=Si")
+	#pragma GE_Documentation(Camara_inicial_1, "C√°mara inicial en primera persona. False=No True=Si")
 
 	geBoolean   Camara_inicial_3;
 	#pragma GE_DefaultValue(Camara_inicial_3, "False")
-	#pragma GE_Documentation(Camara_inicial_3, "C·mara inicial en tercera persona. False=No True=Si")
+	#pragma GE_Documentation(Camara_inicial_3, "C√°mara inicial en tercera persona. False=No True=Si")
 
 	geBoolean   Camara_inicial_RPG;
 	#pragma GE_DefaultValue(Camara_inicial_RPG, "False")
-	#pragma GE_Documentation(Camara_inicial_RPG, "C·mara inicial tipo RPG. False=No True=Si")
+	#pragma GE_Documentation(Camara_inicial_RPG, "C√°mara inicial tipo RPG. False=No True=Si")
 
 	geBoolean   Permite_camara_1;
 	#pragma GE_DefaultValue(Permite_camara_1, "True")
-	#pragma GE_Documentation(Permite_camara_1, "Permite cambio a c·mara en primera persona. False=No True=Si")
+	#pragma GE_Documentation(Permite_camara_1, "Permite cambio a c√°mara en primera persona. False=No True=Si")
 
 	geBoolean   Permite_camara_3;
 	#pragma GE_DefaultValue(Permite_camara_3, "True")
-	#pragma GE_Documentation(Permite_camara_3, "Permite cambio a c·mara en tercera persona. False=No True=Si")
+	#pragma GE_Documentation(Permite_camara_3, "Permite cambio a c√°mara en tercera persona. False=No True=Si")
 
 	geBoolean   Permite_camara_RPG;
 	#pragma GE_DefaultValue(Permite_camara_RPG, "True")
-	#pragma GE_Documentation(Permite_camara_RPG, "Permite cambio a c·mara tipo RPG. False=No True=Si")
+	#pragma GE_Documentation(Permite_camara_RPG, "Permite cambio a c√°mara tipo RPG. False=No True=Si")
 
 	geBoolean   Permite_camara_PLAT;
 	#pragma GE_DefaultValue(Permite_camara_PLAT, "True")
-	#pragma GE_Documentation(Permite_camara_PLAT, "Permite cambio a c·mara tipo Plataformas. False=No True=Si")
+	#pragma GE_Documentation(Permite_camara_PLAT, "Permite cambio a c√°mara tipo Plataformas. False=No True=Si")
 
 	geBoolean   Camara_inicial_PLAT;
 	#pragma GE_DefaultValue(Camara_inicial_PLAT, "False")
-	#pragma GE_Documentation(Camara_inicial_PLAT, "C·mara inicial tipo Plataformas. False=No True=Si")
+	#pragma GE_Documentation(Camara_inicial_PLAT, "C√°mara inicial tipo Plataformas. False=No True=Si")
 
 	int	Camara_PLAT_alt;
 	#pragma GE_DefaultValue(Camara_PLAT_alt, "250")
-	#pragma GE_Documentation(Camara_PLAT_alt, "Altura de la c·mara tipo Plataformas. Entre 10 y 1000")
+	#pragma GE_Documentation(Camara_PLAT_alt, "Altura de la c√°mara tipo Plataformas. Entre 10 y 1000")
 
 	int	Camara_PLAT_dist;
 	#pragma GE_DefaultValue(Camara_PLAT_dist, "400")
-	#pragma GE_Documentation(Camara_PLAT_dist, "Distancia de la c·mara tipo Plataformas. Entre 10 y 1000")
+	#pragma GE_Documentation(Camara_PLAT_dist, "Distancia de la c√°mara tipo Plataformas. Entre 10 y 1000")
 
 	geBoolean   Ver_Sombras;
 	#pragma GE_DefaultValue(Ver_Sombras, "True")
@@ -93,27 +93,27 @@ typedef struct  Configuracion
 
 	int	Camara_RPG_alt;
 	#pragma GE_DefaultValue(Camara_RPG_alt, "300")
-	#pragma GE_Documentation(Camara_RPG_alt, "Altura de la c·mara tipo RPG. Entre 10 y 1000")
+	#pragma GE_Documentation(Camara_RPG_alt, "Altura de la c√°mara tipo RPG. Entre 10 y 1000")
 
 	int	Camara_RPG_dist;
 	#pragma GE_DefaultValue(Camara_RPG_dist, "300")
-	#pragma GE_Documentation(Camara_RPG_dist, "Distancia de la c·mara tipo RPG. Entre 10 y 1000")
+	#pragma GE_Documentation(Camara_RPG_dist, "Distancia de la c√°mara tipo RPG. Entre 10 y 1000")
 
 	float	Camara_RPG_angulo;
 	#pragma GE_DefaultValue(Camara_RPG_angulo, "45")
-	#pragma GE_Documentation(Camara_RPG_angulo, "¡ngulo de inclinaciÛn de la c·mara tipo RPG. Entre 0 y 90 grados")
+	#pragma GE_Documentation(Camara_RPG_angulo, "√Ångulo de inclinaci√≥n de la c√°mara tipo RPG. Entre 0 y 90 grados")
 
 	int	Camara_3PER_alt;
 	#pragma GE_DefaultValue(Camara_3PER_alt, "55")
-	#pragma GE_Documentation(Camara_3PER_alt, "Altura de la c·mara en tercera persona. Entre 1 y 1000")
+	#pragma GE_Documentation(Camara_3PER_alt, "Altura de la c√°mara en tercera persona. Entre 1 y 1000")
 
 	int	Camara_3PER_dist;
 	#pragma GE_DefaultValue(Camara_3PER_dist, "300")
-	#pragma GE_Documentation(Camara_3PER_dist, "Distancia de la c·mara en tercera persona. Entre 10 y 1000")
+	#pragma GE_Documentation(Camara_3PER_dist, "Distancia de la c√°mara en tercera persona. Entre 10 y 1000")
 
 	float	Camara_3PER_angulo;
 	#pragma GE_DefaultValue(Camara_3PER_angulo, "180")
-	#pragma GE_Documentation(Camara_3PER_angulo, "¡ngulo de acercamiento de la c·mara en tercera persona. Entre 10 y 360 grados")
+	#pragma GE_Documentation(Camara_3PER_angulo, "√Ångulo de acercamiento de la c√°mara en tercera persona. Entre 10 y 360 grados")
 
 	int	Lava_salud;
 	#pragma GE_DefaultValue(Lava_salud, "20")
@@ -137,7 +137,7 @@ typedef struct  Configuracion
 
 	char *FicheroComandosSalud;
 	#pragma GE_DefaultValue(FicheroComandosSalud, "")
-	#pragma GE_Documentation(FicheroComandosSalud, "Fichero de comandos a procesar al sufrir daÒo el jugador.")
+	#pragma GE_Documentation(FicheroComandosSalud, "Fichero de comandos a procesar al sufrir da√±o el jugador.")
 
 	char *FicheroComandosRespawn;
 	#pragma GE_DefaultValue(FicheroComandosRespawn, "")
@@ -145,23 +145,23 @@ typedef struct  Configuracion
 
 	char *FicheroComandosRatonIzq;
 	#pragma GE_DefaultValue(FicheroComandosRatonIzq, "")
-	#pragma GE_Documentation(FicheroComandosRatonIzq, "Fichero de comandos a procesar al pulsar el botÛn izquierdo del ratÛn.")
+	#pragma GE_Documentation(FicheroComandosRatonIzq, "Fichero de comandos a procesar al pulsar el bot√≥n izquierdo del rat√≥n.")
 
 	geBoolean   UsarFicherosEnc;
 	#pragma GE_DefaultValue(UsarFicherosEnc, "False")
-	#pragma GE_Documentation(UsarFicherosEnc, "ø Usar ficheros encriptados '.enc' ?. True=Si False=No")
+	#pragma GE_Documentation(UsarFicherosEnc, "¬ø Usar ficheros encriptados '.enc' ?. True=Si False=No")
 
 	int	SombrasDinMax;
 	#pragma GE_DefaultValue(SombrasDinMax, "1")
-	#pragma GE_Documentation(SombrasDinMax, "N˙mero m·ximo de sombras din·micas por objeto o personaje. (0 a 3)")
+	#pragma GE_Documentation(SombrasDinMax, "N√∫mero m√°ximo de sombras din√°micas por objeto o personaje. (0 a 3)")
 
 	geBoolean   Ver_zona_ItemObjects;
 	#pragma GE_DefaultValue(Ver_zona_ItemObjects, "False")
-	#pragma GE_Documentation(Ver_zona_ItemObjects, "ø Ver zona influencia de ItemObjects ? True=Si False=No")
+	#pragma GE_Documentation(Ver_zona_ItemObjects, "¬ø Ver zona influencia de ItemObjects ? True=Si False=No")
 
 	geBoolean	Fx_Bobbing_camara_1;
 	#pragma GE_DefaultValue(Fx_Bobbing_camara_1, "False")
-	#pragma GE_Documentation(Fx_Bobbing_camara_1, "Efecto 'Bobbing' en c·mara primera persona. True=Si False=No")
+	#pragma GE_Documentation(Fx_Bobbing_camara_1, "Efecto 'Bobbing' en c√°mara primera persona. True=Si False=No")
 
 	geBoolean	Ocultar_ACTs;
 	#pragma GE_DefaultValue(Ocultar_ACTs, "False")
@@ -169,15 +169,15 @@ typedef struct  Configuracion
 
 	geBoolean	Camara_colisiona_winclip;
 	#pragma GE_DefaultValue(Camara_colisiona_winclip, "True")
-	#pragma GE_Documentation(Camara_colisiona_winclip, "La c·mara colisiona con bloques 'Window' y 'Clip'. True=Si False=No")
+	#pragma GE_Documentation(Camara_colisiona_winclip, "La c√°mara colisiona con bloques 'Window' y 'Clip'. True=Si False=No")
 
 	char *Personajes_validos;
 	#pragma GE_DefaultValue(Personajes_validos, "")
-	#pragma GE_Documentation(Personajes_validos, "Personajes v·lidos para juego online. 1 a 15 y separar por comas ,")
+	#pragma GE_Documentation(Personajes_validos, "Personajes v√°lidos para juego online. 1 a 15 y separar por comas ,")
 
 	geBoolean	Ajustar_armas_juego;
 	#pragma GE_DefaultValue(Ajustar_armas_juego, "False")
-	#pragma GE_Documentation(Ajustar_armas_juego, "Permite ajustar par·metros de armas din·micamente en tiempo de juego")
+	#pragma GE_Documentation(Ajustar_armas_juego, "Permite ajustar par√°metros de armas din√°micamente en tiempo de juego")
 
 	geBoolean	Camara_3PER_alt_SI_salto;
 	#pragma GE_DefaultValue(Camara_3PER_alt_SI_salto, "True")
@@ -205,11 +205,11 @@ typedef struct  ConfigSonidosEne
 
 	int Num_enemigo;
 	#pragma GE_DefaultValue(Num_enemigo, "1")
-	#pragma GE_Documentation(Num_enemigo, "N˙mero de enemigo a configurar. De 1 a 8.")
+	#pragma GE_Documentation(Num_enemigo, "N√∫mero de enemigo a configurar. De 1 a 8.")
 
 	geBoolean   Config_activa;
 	#pragma GE_DefaultValue(Config_activa, "True")
-	#pragma GE_Documentation(Config_activa, "ø Activar esta configuraciÛn para este enemigo ? True=Si False=No")
+	#pragma GE_Documentation(Config_activa, "¬ø Activar esta configuraci√≥n para este enemigo ? True=Si False=No")
 
 	char *EnemigoMuere_a;
 	#pragma GE_DefaultValue(EnemigoMuere_a, "muerto1a.wav")
@@ -236,28 +236,28 @@ typedef struct  ConfigSonidosEne
 	#pragma GE_Documentation(EnemigaMuere_c, "Nombre de un fichero .WAV para muerte de la enemiga.")
 
 	char *EnemigoDolor_a;
-	#pragma GE_DefaultValue(EnemigoDolor_a, "daÒo1a.wav")
-	#pragma GE_Documentation(EnemigoDolor_a, "Nombre de un fichero .WAV para daÒo del enemigo.")
+	#pragma GE_DefaultValue(EnemigoDolor_a, "da√±o1a.wav")
+	#pragma GE_Documentation(EnemigoDolor_a, "Nombre de un fichero .WAV para da√±o del enemigo.")
 
 	char *EnemigoDolor_b;
-	#pragma GE_DefaultValue(EnemigoDolor_b, "daÒo1b.wav")
-	#pragma GE_Documentation(EnemigoDolor_b, "Nombre de un fichero .WAV para daÒo del enemigo.")
+	#pragma GE_DefaultValue(EnemigoDolor_b, "da√±o1b.wav")
+	#pragma GE_Documentation(EnemigoDolor_b, "Nombre de un fichero .WAV para da√±o del enemigo.")
 
 	char *EnemigoDolor_c;
-	#pragma GE_DefaultValue(EnemigoDolor_c, "daÒo1c.wav")
-	#pragma GE_Documentation(EnemigoDolor_c, "Nombre de un fichero .WAV para daÒo del enemigo.")
+	#pragma GE_DefaultValue(EnemigoDolor_c, "da√±o1c.wav")
+	#pragma GE_Documentation(EnemigoDolor_c, "Nombre de un fichero .WAV para da√±o del enemigo.")
 
 	char *EnemigaDolor_a;
-	#pragma GE_DefaultValue(EnemigaDolor_a, "daÒo1a_f.wav")
-	#pragma GE_Documentation(EnemigaDolor_a, "Nombre de un fichero .WAV para daÒo de la enemiga.")
+	#pragma GE_DefaultValue(EnemigaDolor_a, "da√±o1a_f.wav")
+	#pragma GE_Documentation(EnemigaDolor_a, "Nombre de un fichero .WAV para da√±o de la enemiga.")
 
 	char *EnemigaDolor_b;
-	#pragma GE_DefaultValue(EnemigaDolor_b, "daÒo1b_f.wav")
-	#pragma GE_Documentation(EnemigaDolor_b, "Nombre de un fichero .WAV para daÒo de la enemiga.")
+	#pragma GE_DefaultValue(EnemigaDolor_b, "da√±o1b_f.wav")
+	#pragma GE_Documentation(EnemigaDolor_b, "Nombre de un fichero .WAV para da√±o de la enemiga.")
 
 	char *EnemigaDolor_c;
-	#pragma GE_DefaultValue(EnemigaDolor_c, "daÒo1c_f.wav")
-	#pragma GE_Documentation(EnemigaDolor_c, "Nombre de un fichero .WAV para daÒo de la enemiga.")
+	#pragma GE_DefaultValue(EnemigaDolor_c, "da√±o1c_f.wav")
+	#pragma GE_Documentation(EnemigaDolor_c, "Nombre de un fichero .WAV para da√±o de la enemiga.")
 
 	char *EnemigoEmite_a;
 	#pragma GE_DefaultValue(EnemigoEmite_a, "emite_ene1a.wav")
@@ -293,43 +293,43 @@ typedef struct  ConfigSonidosJug
 
 	char *SonidoDolor1;
 	#pragma GE_DefaultValue(SonidoDolor1, "dolor1.wav")
-	#pragma GE_Documentation(SonidoDolor1, "Fichero de sonido .WAV para daÒo del jugador")
+	#pragma GE_Documentation(SonidoDolor1, "Fichero de sonido .WAV para da√±o del jugador")
 
 	char *SonidoDolor2;
 	#pragma GE_DefaultValue(SonidoDolor2, "dolor2.wav")
-	#pragma GE_Documentation(SonidoDolor2, "Fichero de sonido .WAV para daÒo del jugador")
+	#pragma GE_Documentation(SonidoDolor2, "Fichero de sonido .WAV para da√±o del jugador")
 
 	char *SonidoDolor3;
 	#pragma GE_DefaultValue(SonidoDolor3, "dolor3.wav")
-	#pragma GE_Documentation(SonidoDolor3, "Fichero de sonido .WAV para daÒo del jugador")
+	#pragma GE_Documentation(SonidoDolor3, "Fichero de sonido .WAV para da√±o del jugador")
 
 	char *SonidoDolor4;
 	#pragma GE_DefaultValue(SonidoDolor4, "dolor4.wav")
-	#pragma GE_Documentation(SonidoDolor4, "Fichero de sonido .WAV para daÒo del jugador")
+	#pragma GE_Documentation(SonidoDolor4, "Fichero de sonido .WAV para da√±o del jugador")
 
 	char *SonidoDolor5;
 	#pragma GE_DefaultValue(SonidoDolor5, "dolor5.wav")
-	#pragma GE_Documentation(SonidoDolor5, "Fichero de sonido .WAV para daÒo del jugador")
+	#pragma GE_Documentation(SonidoDolor5, "Fichero de sonido .WAV para da√±o del jugador")
 
 	char *SonidoDolor1_F;
 	#pragma GE_DefaultValue(SonidoDolor1_F, "dolor1_f.wav")
-	#pragma GE_Documentation(SonidoDolor1_F, "Fichero de sonido .WAV para daÒo de la jugadora")
+	#pragma GE_Documentation(SonidoDolor1_F, "Fichero de sonido .WAV para da√±o de la jugadora")
 
 	char *SonidoDolor2_F;
 	#pragma GE_DefaultValue(SonidoDolor2_F, "dolor2_f.wav")
-	#pragma GE_Documentation(SonidoDolor2_F, "Fichero de sonido .WAV para daÒo de la jugadora")
+	#pragma GE_Documentation(SonidoDolor2_F, "Fichero de sonido .WAV para da√±o de la jugadora")
 
 	char *SonidoDolor3_F;
 	#pragma GE_DefaultValue(SonidoDolor3_F, "dolor3_f.wav")
-	#pragma GE_Documentation(SonidoDolor3_F, "Fichero de sonido .WAV para daÒo de la jugadora")
+	#pragma GE_Documentation(SonidoDolor3_F, "Fichero de sonido .WAV para da√±o de la jugadora")
 
 	char *SonidoDolor4_F;
 	#pragma GE_DefaultValue(SonidoDolor4_F, "dolor4_f.wav")
-	#pragma GE_Documentation(SonidoDolor4_F, "Fichero de sonido .WAV para daÒo de la jugadora")
+	#pragma GE_Documentation(SonidoDolor4_F, "Fichero de sonido .WAV para da√±o de la jugadora")
 
 	char *SonidoDolor5_F;
 	#pragma GE_DefaultValue(SonidoDolor5_F, "dolor5_f.wav")
-	#pragma GE_Documentation(SonidoDolor5_F, "Fichero de sonido .WAV para daÒo de la jugadora")
+	#pragma GE_Documentation(SonidoDolor5_F, "Fichero de sonido .WAV para da√±o de la jugadora")
 
 	char *SonidoMuerte1;
 	#pragma GE_DefaultValue(SonidoMuerte1, "muerte1.wav")
@@ -397,7 +397,7 @@ typedef struct  Fx_Niebla
 
 	geBoolean   Activa;
 	#pragma GE_DefaultValue(Activa, "True")
-	#pragma GE_Documentation(Activa, "ø Niebla activa ?. True=Si False=No")
+	#pragma GE_Documentation(Activa, "¬ø Niebla activa ?. True=Si False=No")
 
 	float	DistIncioNiebla;
 	#pragma GE_DefaultValue(DistIncioNiebla, "200.0")
@@ -413,7 +413,7 @@ typedef struct  Fx_Niebla
 
 	geBoolean   RenderTrasNiebla;
 	#pragma GE_DefaultValue(RenderTrasNiebla, "False")
-	#pragma GE_Documentation(RenderTrasNiebla, "ø Calcular geometrÌa detr·s de la niebla ?. True=Si False=No")
+	#pragma GE_Documentation(RenderTrasNiebla, "¬ø Calcular geometr√≠a detr√°s de la niebla ?. True=Si False=No")
 
 #pragma GE_Origin(Origin)
 }   Fx_Niebla;
@@ -528,67 +528,67 @@ typedef struct  ConfigEnemigos
 
 	int Sombra_1;
 	#pragma GE_DefaultValue(Sombra_1, "1")
-	#pragma GE_Documentation(Sombra_1, "Tipo de sombra para enemigo 1. (0=Sin sombra, 1=CÌrculo, 2=Din·mica)")
+	#pragma GE_Documentation(Sombra_1, "Tipo de sombra para enemigo 1. (0=Sin sombra, 1=C√≠rculo, 2=Din√°mica)")
 
 	int Sombra_2;
 	#pragma GE_DefaultValue(Sombra_2, "1")
-	#pragma GE_Documentation(Sombra_2, "Tipo de sombra para enemigo 2. (0=Sin sombra, 1=CÌrculo, 2=Din·mica)")
+	#pragma GE_Documentation(Sombra_2, "Tipo de sombra para enemigo 2. (0=Sin sombra, 1=C√≠rculo, 2=Din√°mica)")
 
 	int Sombra_3;
 	#pragma GE_DefaultValue(Sombra_3, "1")
-	#pragma GE_Documentation(Sombra_3, "Tipo de sombra para enemigo 3. (0=Sin sombra, 1=CÌrculo, 2=Din·mica)")
+	#pragma GE_Documentation(Sombra_3, "Tipo de sombra para enemigo 3. (0=Sin sombra, 1=C√≠rculo, 2=Din√°mica)")
 
 	int Sombra_4;
 	#pragma GE_DefaultValue(Sombra_4, "1")
-	#pragma GE_Documentation(Sombra_4, "Tipo de sombra para enemigo 4. (0=Sin sombra, 1=CÌrculo, 2=Din·mica)")
+	#pragma GE_Documentation(Sombra_4, "Tipo de sombra para enemigo 4. (0=Sin sombra, 1=C√≠rculo, 2=Din√°mica)")
 
 	int Sombra_5;
 	#pragma GE_DefaultValue(Sombra_5, "1")
-	#pragma GE_Documentation(Sombra_5, "Tipo de sombra para enemigo 5. (0=Sin sombra, 1=CÌrculo, 2=Din·mica)")
+	#pragma GE_Documentation(Sombra_5, "Tipo de sombra para enemigo 5. (0=Sin sombra, 1=C√≠rculo, 2=Din√°mica)")
 
 	int Sombra_6;
 	#pragma GE_DefaultValue(Sombra_6, "1")
-	#pragma GE_Documentation(Sombra_6, "Tipo de sombra para enemigo 6. (0=Sin sombra, 1=CÌrculo, 2=Din·mica)")
+	#pragma GE_Documentation(Sombra_6, "Tipo de sombra para enemigo 6. (0=Sin sombra, 1=C√≠rculo, 2=Din√°mica)")
 
 	int Sombra_7;
 	#pragma GE_DefaultValue(Sombra_7, "1")
-	#pragma GE_Documentation(Sombra_7, "Tipo de sombra para enemigo 7. (0=Sin sombra, 1=CÌrculo, 2=Din·mica)")
+	#pragma GE_Documentation(Sombra_7, "Tipo de sombra para enemigo 7. (0=Sin sombra, 1=C√≠rculo, 2=Din√°mica)")
 
 	int Sombra_8;
 	#pragma GE_DefaultValue(Sombra_8, "1")
-	#pragma GE_Documentation(Sombra_8, "Tipo de sombra para enemigo 8. (0=Sin sombra, 1=CÌrculo, 2=Din·mica)")
+	#pragma GE_Documentation(Sombra_8, "Tipo de sombra para enemigo 8. (0=Sin sombra, 1=C√≠rculo, 2=Din√°mica)")
 
 	int	Render_distancia_max_1;
 	#pragma GE_DefaultValue(Render_distancia_max_1, "0")
-	#pragma GE_Documentation(Render_distancia_max_1, "Distancia m·xima para calcular 'render' de enemigo 1 (0 sin distancia)")
+	#pragma GE_Documentation(Render_distancia_max_1, "Distancia m√°xima para calcular 'render' de enemigo 1 (0 sin distancia)")
 
 	int	Render_distancia_max_2;
 	#pragma GE_DefaultValue(Render_distancia_max_2, "0")
-	#pragma GE_Documentation(Render_distancia_max_2, "Distancia m·xima para calcular 'render' de enemigo 2 (0 sin distancia)")
+	#pragma GE_Documentation(Render_distancia_max_2, "Distancia m√°xima para calcular 'render' de enemigo 2 (0 sin distancia)")
 
 	int	Render_distancia_max_3;
 	#pragma GE_DefaultValue(Render_distancia_max_3, "0")
-	#pragma GE_Documentation(Render_distancia_max_3, "Distancia m·xima para calcular 'render' de enemigo 3 (0 sin distancia)")
+	#pragma GE_Documentation(Render_distancia_max_3, "Distancia m√°xima para calcular 'render' de enemigo 3 (0 sin distancia)")
 
 	int	Render_distancia_max_4;
 	#pragma GE_DefaultValue(Render_distancia_max_4, "0")
-	#pragma GE_Documentation(Render_distancia_max_4, "Distancia m·xima para calcular 'render' de enemigo 4 (0 sin distancia)")
+	#pragma GE_Documentation(Render_distancia_max_4, "Distancia m√°xima para calcular 'render' de enemigo 4 (0 sin distancia)")
 
 	int	Render_distancia_max_5;
 	#pragma GE_DefaultValue(Render_distancia_max_5, "0")
-	#pragma GE_Documentation(Render_distancia_max_5, "Distancia m·xima para calcular 'render' de enemigo 5 (0 sin distancia)")
+	#pragma GE_Documentation(Render_distancia_max_5, "Distancia m√°xima para calcular 'render' de enemigo 5 (0 sin distancia)")
 
 	int	Render_distancia_max_6;
 	#pragma GE_DefaultValue(Render_distancia_max_6, "0")
-	#pragma GE_Documentation(Render_distancia_max_6, "Distancia m·xima para calcular 'render' de enemigo 6 (0 sin distancia)")
+	#pragma GE_Documentation(Render_distancia_max_6, "Distancia m√°xima para calcular 'render' de enemigo 6 (0 sin distancia)")
 
 	int	Render_distancia_max_7;
 	#pragma GE_DefaultValue(Render_distancia_max_7, "0")
-	#pragma GE_Documentation(Render_distancia_max_7, "Distancia m·xima para calcular 'render' de enemigo 7 (0 sin distancia)")
+	#pragma GE_Documentation(Render_distancia_max_7, "Distancia m√°xima para calcular 'render' de enemigo 7 (0 sin distancia)")
 
 	int	Render_distancia_max_8;
 	#pragma GE_DefaultValue(Render_distancia_max_8, "0")
-	#pragma GE_Documentation(Render_distancia_max_8, "Distancia m·xima para calcular 'render' de enemigo 8 (0 sin distancia)")
+	#pragma GE_Documentation(Render_distancia_max_8, "Distancia m√°xima para calcular 'render' de enemigo 8 (0 sin distancia)")
 
 #pragma GE_Origin(Origin)
 }   ConfigEnemigos;
@@ -610,63 +610,63 @@ typedef struct  Marcador
 
 	geBoolean   Activa;
 	#pragma GE_DefaultValue(Activa, "True")
-	#pragma GE_Documentation(Activa, "ø ConfiguraciÛn activa ?. True=Si False=No")
+	#pragma GE_Documentation(Activa, "¬ø Configuraci√≥n activa ?. True=Si False=No")
 
 	geVec3d		Vidas_XY;
 	#pragma GE_DefaultValue(Vidas_XY, "10 -65 1")
-	#pragma GE_Documentation(Vidas_XY, "PosiciÛn indicador de las vidas del jugador")
+	#pragma GE_Documentation(Vidas_XY, "Posici√≥n indicador de las vidas del jugador")
 
 	geVec3d		Salud_XY;
 	#pragma GE_DefaultValue(Salud_XY, "10 -36 1")
-	#pragma GE_Documentation(Salud_XY, "PosiciÛn indicador de salud del jugador")
+	#pragma GE_Documentation(Salud_XY, "Posici√≥n indicador de salud del jugador")
 
 	geVec3d		Armadura_XY;
 	#pragma GE_DefaultValue(Armadura_XY, "200 -36 1")
-	#pragma GE_Documentation(Armadura_XY, "PosiciÛn indicador de la armadura del jugador")
+	#pragma GE_Documentation(Armadura_XY, "Posici√≥n indicador de la armadura del jugador")
 
 	geVec3d		Armas_XY;
 	#pragma GE_DefaultValue(Armas_XY, "390 -54 1")
-	#pragma GE_Documentation(Armas_XY, "PosiciÛn indicador de armas del jugador")
+	#pragma GE_Documentation(Armas_XY, "Posici√≥n indicador de armas del jugador")
 
 	geVec3d		Puntuacion_XY;
 	#pragma GE_DefaultValue(Puntuacion_XY, "-460 4 0")
-	#pragma GE_Documentation(Puntuacion_XY, "PosiciÛn indicador de puntuacion del jugador")
+	#pragma GE_Documentation(Puntuacion_XY, "Posici√≥n indicador de puntuacion del jugador")
 
 	geVec3d		Record_XY;
 	#pragma GE_DefaultValue(Record_XY, "10 4 0")
-	#pragma GE_Documentation(Record_XY, "PosiciÛn indicador de rÈcord del jugador")
+	#pragma GE_Documentation(Record_XY, "Posici√≥n indicador de r√©cord del jugador")
 
 	geVec3d		Inventario_XY;
 	#pragma GE_DefaultValue(Inventario_XY, "-223 -235 1")
-	#pragma GE_Documentation(Inventario_XY, "PosiciÛn indicador del inventario del jugador")
+	#pragma GE_Documentation(Inventario_XY, "Posici√≥n indicador del inventario del jugador")
 
 	geVec3d		Acciones_XY;
 	#pragma GE_DefaultValue(Acciones_XY, "-397 -245 0")
-	#pragma GE_Documentation(Acciones_XY, "PosiciÛn de la lista de acciones")
+	#pragma GE_Documentation(Acciones_XY, "Posici√≥n de la lista de acciones")
 
 	geVec3d		Dinero_XY;
 	#pragma GE_DefaultValue(Dinero_XY, "10 40 0")
-	#pragma GE_Documentation(Dinero_XY, "PosiciÛn del indicador de dinero del jugador")
+	#pragma GE_Documentation(Dinero_XY, "Posici√≥n del indicador de dinero del jugador")
 
 	geVec3d		InventarioDesc_XY;
 	#pragma GE_DefaultValue(InventarioDesc_XY, "-300 -440 1")
-	#pragma GE_Documentation(InventarioDesc_XY, "PosiciÛn indicador descripciÛn de objetos del inventario")
+	#pragma GE_Documentation(InventarioDesc_XY, "Posici√≥n indicador descripci√≥n de objetos del inventario")
 
 	geVec3d		PanelObjeto_XY;
 	#pragma GE_DefaultValue(PanelObjeto_XY, "10 -320 0")
-	#pragma GE_Documentation(PanelObjeto_XY, "PosiciÛn del panel de objeto 'ItemObject'")
+	#pragma GE_Documentation(PanelObjeto_XY, "Posici√≥n del panel de objeto 'ItemObject'")
 
 	geVec3d		VidasNum_XY;
 	#pragma GE_DefaultValue(VidasNum_XY, "10 75 0")
-	#pragma GE_Documentation(VidasNum_XY, "PosiciÛn del contador numÈrico de vidas del jugador")
+	#pragma GE_Documentation(VidasNum_XY, "Posici√≥n del contador num√©rico de vidas del jugador")
 
 	geVec3d		BanderaLleva_XY;
 	#pragma GE_DefaultValue(BanderaLleva_XY, "-128 100 0")
-	#pragma GE_Documentation(BanderaLleva_XY, "PosiciÛn del indicador de llevar la bandera")
+	#pragma GE_Documentation(BanderaLleva_XY, "Posici√≥n del indicador de llevar la bandera")
 
 	geVec3d		PanelFrags_XY;
 	#pragma GE_DefaultValue(PanelFrags_XY, "10 -352 0")
-	#pragma GE_Documentation(PanelFrags_XY, "PosiciÛn del panel indicador de Frags de los jugadores")
+	#pragma GE_Documentation(PanelFrags_XY, "Posici√≥n del panel indicador de Frags de los jugadores")
 
 	geBoolean	Sangre_salud;
 	#pragma GE_DefaultValue(Sangre_salud, "False")
@@ -674,27 +674,27 @@ typedef struct  Marcador
 
 	geVec3d		PanelChat_XY;
 	#pragma GE_DefaultValue(PanelChat_XY, "320 -180 0")
-	#pragma GE_Documentation(PanelChat_XY, "PosiciÛn de la ventana de chat en juegos online")
+	#pragma GE_Documentation(PanelChat_XY, "Posici√≥n de la ventana de chat en juegos online")
 
 	geVec3d		Radar_XY;
 	#pragma GE_DefaultValue(Radar_XY, "-220 20 0")
-	#pragma GE_Documentation(Radar_XY, "PosiciÛn del radar del jugador")
+	#pragma GE_Documentation(Radar_XY, "Posici√≥n del radar del jugador")
 
 	geVec3d		ConsolaSup_XY;
 	#pragma GE_DefaultValue(ConsolaSup_XY, "120 16 1")
-	#pragma GE_Documentation(ConsolaSup_XY, "PosiciÛn de la consola superior")
+	#pragma GE_Documentation(ConsolaSup_XY, "Posici√≥n de la consola superior")
 
 	geVec3d		Tecla_Accion_XY;
 	#pragma GE_DefaultValue(Tecla_Accion_XY, "-470 -140 1")
-	#pragma GE_Documentation(Tecla_Accion_XY, "PosiciÛn indicador de tecla 'AcciÛn'")
+	#pragma GE_Documentation(Tecla_Accion_XY, "Posici√≥n indicador de tecla 'Acci√≥n'")
 
 	geVec3d		Barra_Salud_XY;
 	#pragma GE_DefaultValue(Barra_Salud_XY, "90 -132 0")
-	#pragma GE_Documentation(Barra_Salud_XY, "PosiciÛn de la barra de salud del jugador")
+	#pragma GE_Documentation(Barra_Salud_XY, "Posici√≥n de la barra de salud del jugador")
 	
 	geVec3d		Barra_Escudo_XY;
 	#pragma GE_DefaultValue(Barra_Escudo_XY, "90 -90 0")
-	#pragma GE_Documentation(Barra_Escudo_XY, "PosiciÛn de la barra de escudo del jugador")
+	#pragma GE_Documentation(Barra_Escudo_XY, "Posici√≥n de la barra de escudo del jugador")
 
 #pragma GE_Origin(Origin)
 }   Marcador;
@@ -714,15 +714,15 @@ typedef struct  AccionMenu
 
 	geBoolean   Activa;
 	#pragma GE_DefaultValue(Activa, "True")
-	#pragma GE_Documentation(Activa, "ø Entidad activa ? True=Si False=No")
+	#pragma GE_Documentation(Activa, "¬ø Entidad activa ? True=Si False=No")
 
 	int	Num_accion;
 	#pragma GE_DefaultValue( Num_accion, "1" )
-	#pragma GE_Documentation( Num_accion, "N˙mero de acciÛn (entre 1 y 8)" )
+	#pragma GE_Documentation( Num_accion, "N√∫mero de acci√≥n (entre 1 y 8)" )
 
 	char *Verbo;
 	#pragma GE_DefaultValue(Verbo, "Leer")
-	#pragma GE_Documentation(Verbo, "Texto que define la acciÛn")
+	#pragma GE_Documentation(Verbo, "Texto que define la acci√≥n")
 
 #pragma GE_Origin(Origin)
 }   AccionMenu;
@@ -742,11 +742,11 @@ typedef struct  MarcadorBarra
 
 	geBoolean   Activada;
 	#pragma GE_DefaultValue(Activada, "True")
-	#pragma GE_Documentation(Activada, "ø Activada al dar comienzo el nivel ?. True=Si False=No")
+	#pragma GE_Documentation(Activada, "¬ø Activada al dar comienzo el nivel ?. True=Si False=No")
 
 	geBoolean   Visible;
 	#pragma GE_DefaultValue(Visible, "True")
-	#pragma GE_Documentation(Visible, "ø Barra visible al dar comienzo el nivel ?. True=Si False=No")
+	#pragma GE_Documentation(Visible, "¬ø Barra visible al dar comienzo el nivel ?. True=Si False=No")
 
 	geBoolean   Tipo_barra;
 	#pragma GE_DefaultValue(Tipo_barra, "True")
@@ -754,11 +754,11 @@ typedef struct  MarcadorBarra
 
 	int	Num_barra;
 	#pragma GE_DefaultValue( Num_barra, "1" )
-	#pragma GE_Documentation( Num_barra, "N˙mero de barra (entre 1 y 10)" )
+	#pragma GE_Documentation( Num_barra, "N√∫mero de barra (entre 1 y 10)" )
 
 	geVec3d	Posicion_XY;
 	#pragma GE_DefaultValue(Posicion_XY, "10 80 1")
-	#pragma GE_Documentation(Posicion_XY, "PosiciÛn de la barra en pantalla. (SÛlo X Y)")
+	#pragma GE_Documentation(Posicion_XY, "Posici√≥n de la barra en pantalla. (S√≥lo X Y)")
 
 	int		X_llena;
 	#pragma GE_DefaultValue(X_llena, "163")
@@ -766,7 +766,7 @@ typedef struct  MarcadorBarra
 	
 	int		X_vacia;
 	#pragma GE_DefaultValue(X_vacia, "4")
-	#pragma GE_Documentation(X_vacia, "Coordenada X de la barra horizontal vacÌa.")
+	#pragma GE_Documentation(X_vacia, "Coordenada X de la barra horizontal vac√≠a.")
 
 	int		Y_llena;
 	#pragma GE_DefaultValue(Y_llena, "4")
@@ -774,19 +774,19 @@ typedef struct  MarcadorBarra
 	
 	int		Y_vacia;
 	#pragma GE_DefaultValue(Y_vacia, "163")
-	#pragma GE_Documentation(Y_vacia, "Coordenada Y de la barra vertical vacÌa.")
+	#pragma GE_Documentation(Y_vacia, "Coordenada Y de la barra vertical vac√≠a.")
 
 	int		Valor;
 	#pragma GE_DefaultValue(Valor, "1")
-	#pragma GE_Documentation(Valor, "Valor inicial de la barra. (mÌnimo 1)")
+	#pragma GE_Documentation(Valor, "Valor inicial de la barra. (m√≠nimo 1)")
 
 	geBoolean  Llenar_Vaciar;
 	#pragma GE_DefaultValue(Llenar_Vaciar, "True")
-	#pragma GE_Documentation(Llenar_Vaciar, "ø Llenar o vaciar con el paso del tiempo ?. True=Llenar False=Vaciar")
+	#pragma GE_Documentation(Llenar_Vaciar, "¬ø Llenar o vaciar con el paso del tiempo ?. True=Llenar False=Vaciar")
 
 	geBoolean  Tiempo;
 	#pragma GE_DefaultValue(Tiempo, "True")
-	#pragma GE_Documentation(Tiempo, "ø Llenar/vaciar con el paso del tiempo ?. True=Si False=No")
+	#pragma GE_Documentation(Tiempo, "¬ø Llenar/vaciar con el paso del tiempo ?. True=Si False=No")
 
 	float	Retardo;
 	#pragma GE_DefaultValue(Retardo, "0.5")
@@ -808,17 +808,17 @@ typedef struct  MarcadorBarra
 // ==========================
 // Entidad 'EquipoOnline'
 // ==========================
-// Entidad para definir posiciÛn de inicio de jugadores online de un mismo equipo, entre otros par·metros
+// Entidad para definir posici√≥n de inicio de jugadores online de un mismo equipo, entre otros par√°metros
 #pragma GE_Type("Item.ico")
 typedef struct  EquipoOnline
 {
 #pragma GE_Published
     geVec3d	Origin;
-	#pragma GE_Documentation(Origin, "PosiciÛn X Y Z")
+	#pragma GE_Documentation(Origin, "Posici√≥n X Y Z")
 
 	geBoolean Activa;
 	#pragma GE_DefaultValue(Activa, "True")
-	#pragma GE_Documentation(Activa, "ø Entidad activa ? True=Si False=No")
+	#pragma GE_Documentation(Activa, "¬ø Entidad activa ? True=Si False=No")
 
 	char *Equipo;
 	#pragma GE_DefaultValue(Equipo, "A" )
@@ -826,15 +826,15 @@ typedef struct  EquipoOnline
 
 	geVec3d	Reaparicion_Pos_2;
 	#pragma GE_DefaultValue(Reaparicion_Pos_2, "0 0 0")
-	#pragma GE_Documentation(Reaparicion_Pos_2, "PosiciÛn 2 de reapariciÛn de jugadores")
+	#pragma GE_Documentation(Reaparicion_Pos_2, "Posici√≥n 2 de reaparici√≥n de jugadores")
 
 	geVec3d	Reaparicion_Pos_3;
 	#pragma GE_DefaultValue(Reaparicion_Pos_3, "0 0 0")
-	#pragma GE_Documentation(Reaparicion_Pos_3, "PosiciÛn 3 de reapariciÛn de jugadores")
+	#pragma GE_Documentation(Reaparicion_Pos_3, "Posici√≥n 3 de reaparici√≥n de jugadores")
 
 	geBoolean Reaparicion_azar;
 	#pragma GE_DefaultValue(Reaparicion_azar, "False")
-	#pragma GE_Documentation(Reaparicion_azar, "PosiciÛn al azar de reapariciÛn de jugadores. True=Si False=No")
+	#pragma GE_Documentation(Reaparicion_azar, "Posici√≥n al azar de reaparici√≥n de jugadores. True=Si False=No")
 
 #pragma GE_Origin(Origin)
 }   EquipoOnline;
@@ -853,7 +853,7 @@ typedef struct  ConfigPersonaje
 
 	geBoolean   Activa;
 	#pragma GE_DefaultValue(Activa, "True")
-	#pragma GE_Documentation(Activa, "ø Entidad activa ? True=Si False=No")
+	#pragma GE_Documentation(Activa, "¬ø Entidad activa ? True=Si False=No")
 
 	geBoolean   PersonajeOnline;
 	#pragma GE_DefaultValue(PersonajeOnline, "False")
@@ -861,7 +861,7 @@ typedef struct  ConfigPersonaje
 
 	int		Num_personaje;
 	#pragma GE_DefaultValue(Num_personaje, "1")
-	#pragma GE_Documentation(Num_personaje, "N˙mero de personaje a configurar")
+	#pragma GE_Documentation(Num_personaje, "N√∫mero de personaje a configurar")
 
 	geBoolean   Masculino;
 	#pragma GE_DefaultValue(Masculino, "True")
@@ -885,7 +885,7 @@ typedef struct  ConfigPersonaje
 
 	int	Brillo;
 	#pragma GE_DefaultValue(Brillo, "200")
-	#pragma GE_Documentation(Brillo, "Nivel de brillo que se aplicar· a este personaje. Entre 0 y 255")
+	#pragma GE_Documentation(Brillo, "Nivel de brillo que se aplicar√° a este personaje. Entre 0 y 255")
 
 	float Orientacion;
 	#pragma GE_DefaultValue(Orientacion, "0")
@@ -897,7 +897,7 @@ typedef struct  ConfigPersonaje
 
 	int Sombra;
 	#pragma GE_DefaultValue(Sombra, "1")
-	#pragma GE_Documentation(Sombra, "Tipo de sombra para este personaje (0=Sin sombra, 1=CÌrculo, 2=Din·mica)")
+	#pragma GE_Documentation(Sombra, "Tipo de sombra para este personaje (0=Sin sombra, 1=C√≠rculo, 2=Din√°mica)")
 
 #pragma GE_Origin(Origin)
 }   ConfigPersonaje;
@@ -917,15 +917,15 @@ typedef struct  ConfigRadar
 
 	geBoolean   Activa;
 	#pragma GE_DefaultValue(Activa, "True")
-	#pragma GE_Documentation(Activa, "ø Entidad activa ? True=Si False=No")
+	#pragma GE_Documentation(Activa, "¬ø Entidad activa ? True=Si False=No")
 
 	int		Ancho;
 	#pragma GE_DefaultValue(Ancho, "200")
-	#pragma GE_Documentation(Ancho, "TamaÒo del radar (en pixeles)")
+	#pragma GE_Documentation(Ancho, "Tama√±o del radar (en pixeles)")
 
 	float Alcance;
 	#pragma GE_DefaultValue(Alcance, "3000")
-	#pragma GE_Documentation(Alcance, "Alcance del radar (en centÌmetros)")
+	#pragma GE_Documentation(Alcance, "Alcance del radar (en cent√≠metros)")
 
     GE_RGBA	Color;
 	#pragma GE_DefaultValue(Color, "255 255 255")
@@ -941,19 +941,19 @@ typedef struct  ConfigRadar
 
 	geBoolean   Elem_bot_reduc;
 	#pragma GE_DefaultValue(Elem_bot_reduc, "True")
-	#pragma GE_Documentation(Elem_bot_reduc, "TamaÒo reducido para elementos Bots. True=Si False=No")
+	#pragma GE_Documentation(Elem_bot_reduc, "Tama√±o reducido para elementos Bots. True=Si False=No")
 
 	geBoolean   Elem_jug_reduc;
 	#pragma GE_DefaultValue(Elem_jug_reduc, "True")
-	#pragma GE_Documentation(Elem_jug_reduc, "TamaÒo reducido para elementos Jugadores. True=Si False=No")
+	#pragma GE_Documentation(Elem_jug_reduc, "Tama√±o reducido para elementos Jugadores. True=Si False=No")
 
 	geBoolean   Elem_com_reduc;
 	#pragma GE_DefaultValue(Elem_com_reduc, "True")
-	#pragma GE_Documentation(Elem_com_reduc, "TamaÒo reducido para elementos Command. True=Si False=No")
+	#pragma GE_Documentation(Elem_com_reduc, "Tama√±o reducido para elementos Command. True=Si False=No")
 
 	geBoolean   Elem_obj_reduc;
 	#pragma GE_DefaultValue(Elem_obj_reduc, "True")
-	#pragma GE_Documentation(Elem_obj_reduc, "TamaÒo reducido para elementos ItemObject. True=Si False=No")
+	#pragma GE_Documentation(Elem_obj_reduc, "Tama√±o reducido para elementos ItemObject. True=Si False=No")
 
 #pragma GE_Origin(Origin)
 }   ConfigRadar;
@@ -961,7 +961,7 @@ typedef struct  ConfigRadar
 
 
 // ==========================
-// DeclaraciÛn de funciones
+// Declaraci√≥n de funciones
 // ==========================
 geBoolean Recoge_Configuracion(geWorld *World);
 geBoolean Recoge_DeathMatchStart(geWorld *World);

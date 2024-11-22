@@ -1,9 +1,9 @@
 /****************************************************************************************/
 /*  File: confarmas.h                                                                   */
 /*                                                                                      */
-/*  DescripciÛn:                                                                        */
+/*  Descripci√≥n:                                                                        */
 /*                                                                                      */
-/*  DefiniciÛn de clases de entidades.                                                  */
+/*  Definici√≥n de clases de entidades.                                                  */
 /*  Este fichero .h lo utiliza World Editor para crear las entidades que usa el         */
 /*  programa Entidad 3D.                                                                */
 /*                                                                                      */
@@ -12,9 +12,9 @@
 /*                                                                                      */
 /*  Modificaciones para Entidad 3D:                                                     */
 /*                                                                                      */
-/*  Autor: Jordi PÈrez                                                                  */
+/*  Autor: Jordi P√©rez                                                                  */
 /*                                                                                      */
-/*  Copyright (C) 2004 - 2016 Jordi PÈrez; All rights reserved.                         */
+/*  Copyright (C) 2004 - 2016 Jordi P√©rez; All rights reserved.                         */
 /*                                                                                      */
 /****************************************************************************************/
 
@@ -33,7 +33,7 @@ extern "C" {
 // ==========================
 // Entidad 'ConfigArmaUno'
 // ==========================
-// ConfiguraciÛn del arma n˙mero 1 (Blaster)
+// Configuraci√≥n del arma n√∫mero 1 (Blaster)
 #pragma GE_Type("Item.ico")
 typedef struct  ConfigArmaUno
 {
@@ -60,39 +60,39 @@ typedef struct  ConfigArmaUno
 
 	geVec3d	Orientacion_1;
 	#pragma GE_DefaultValue(Orientacion_1, "180 -90 -180")
-	#pragma GE_Documentation(Orientacion_1, "OrientaciÛn del arma en primera persona.")
+	#pragma GE_Documentation(Orientacion_1, "Orientaci√≥n del arma en primera persona.")
 
 	geVec3d	Orientacion_3;
 	#pragma GE_DefaultValue(Orientacion_3, "90 -15 5")
-	#pragma GE_Documentation(Orientacion_3, "OrientaciÛn del arma en tercera persona.")
+	#pragma GE_Documentation(Orientacion_3, "Orientaci√≥n del arma en tercera persona.")
 
 	float	Orient_Punto_Mira;
 	#pragma GE_DefaultValue(Orient_Punto_Mira, "5")
-	#pragma GE_Documentation(Orient_Punto_Mira, "OrientaciÛn hacia el punto de mira en primera persona")
+	#pragma GE_Documentation(Orient_Punto_Mira, "Orientaci√≥n hacia el punto de mira en primera persona")
 
 	geVec3d	Posicion_arma_1;
 	#pragma GE_DefaultValue(Posicion_arma_1, "0 0 0")
-	#pragma GE_Documentation(Posicion_arma_1, "PosiciÛn del arma en primera persona.")
+	#pragma GE_Documentation(Posicion_arma_1, "Posici√≥n del arma en primera persona.")
 
 	geVec3d	Posicion_arma_3;
 	#pragma GE_DefaultValue(Posicion_arma_3, "0 -10 -33")
-	#pragma GE_Documentation(Posicion_arma_3, "PosiciÛn del arma en tercera persona.")
+	#pragma GE_Documentation(Posicion_arma_3, "Posici√≥n del arma en tercera persona.")
 
 	geVec3d	Posicion_disparo_1;
 	#pragma GE_DefaultValue(Posicion_disparo_1, "40 -10 -8")
-	#pragma GE_Documentation(Posicion_disparo_1, "PosiciÛn salida del disparo en primera persona.")
+	#pragma GE_Documentation(Posicion_disparo_1, "Posici√≥n salida del disparo en primera persona.")
 
 	geVec3d	Posicion_disparo_3;
 	#pragma GE_DefaultValue(Posicion_disparo_3, "100 10 -20")
-	#pragma GE_Documentation(Posicion_disparo_3, "PosiciÛn salida del disparo en tercera persona.")
+	#pragma GE_Documentation(Posicion_disparo_3, "Posici√≥n salida del disparo en tercera persona.")
 
 	geVec3d	Posicion_fogonazo_1;
 	#pragma GE_DefaultValue(Posicion_fogonazo_1, "40 -10 -8")
-	#pragma GE_Documentation(Posicion_fogonazo_1, "PosiciÛn del fogonazo del disparo en primera persona.")
+	#pragma GE_Documentation(Posicion_fogonazo_1, "Posici√≥n del fogonazo del disparo en primera persona.")
 
 	geVec3d	Posicion_fogonazo_3;
 	#pragma GE_DefaultValue(Posicion_fogonazo_3, "100 10 -20")
-	#pragma GE_Documentation(Posicion_fogonazo_3, "PosiciÛn del fogonazo del disparo en tercera persona.")
+	#pragma GE_Documentation(Posicion_fogonazo_3, "Posici√≥n del fogonazo del disparo en tercera persona.")
 
 	float	Escala_1;
 	#pragma GE_DefaultValue(Escala_1, "15")
@@ -104,11 +104,11 @@ typedef struct  ConfigArmaUno
 
 	float	Escala_fogonazo_1;
 	#pragma GE_DefaultValue(Escala_fogonazo_1, "0")
-	#pragma GE_Documentation(Escala_fogonazo_1, "TamaÒo del fogonazo en primera persona.")
+	#pragma GE_Documentation(Escala_fogonazo_1, "Tama√±o del fogonazo en primera persona.")
 
 	float	Escala_fogonazo_3;
 	#pragma GE_DefaultValue(Escala_fogonazo_3, "0")
-	#pragma GE_Documentation(Escala_fogonazo_3, "TamaÒo del fogonazo en tercera persona.")
+	#pragma GE_Documentation(Escala_fogonazo_3, "Tama√±o del fogonazo en tercera persona.")
 
 	char *Fogonazo_BMP;
 	#pragma GE_DefaultValue(Fogonazo_BMP, "fogonazo01.bmp")
@@ -120,23 +120,23 @@ typedef struct  ConfigArmaUno
 
 	GE_RGBA	Luz_color;
 	#pragma GE_DefaultValue(Luz_color, "255 55 15")
-	#pragma GE_Documentation(Luz_color, "Color de la luz que acompaÒa al proyectil.")
+	#pragma GE_Documentation(Luz_color, "Color de la luz que acompa√±a al proyectil.")
 
 	float	Luz_escala;
 	#pragma GE_DefaultValue(Luz_escala, "320")
-	#pragma GE_Documentation(Luz_escala, "TamaÒo de la luz que acompaÒa al proyectil.")
+	#pragma GE_Documentation(Luz_escala, "Tama√±o de la luz que acompa√±a al proyectil.")
 
 	geBoolean	Particulas;
 	#pragma GE_DefaultValue(Particulas, "True")
-	#pragma GE_Documentation(Particulas, "PartÌculas acompaÒan al proyectil. False=No True=Si")
+	#pragma GE_Documentation(Particulas, "Part√≠culas acompa√±an al proyectil. False=No True=Si")
 
 	geBoolean	Humo;
 	#pragma GE_DefaultValue(Humo, "False")
-	#pragma GE_Documentation(Humo, "Humo acompaÒa al proyectil. False=No True=Si")
+	#pragma GE_Documentation(Humo, "Humo acompa√±a al proyectil. False=No True=Si")
 
 	float	Escala_proyectil;
 	#pragma GE_DefaultValue(Escala_proyectil, "2.5")
-	#pragma GE_Documentation(Escala_proyectil, "TamaÒo del proyectil.")
+	#pragma GE_Documentation(Escala_proyectil, "Tama√±o del proyectil.")
 
 	char *Proyectil_BMP;
 	#pragma GE_DefaultValue(Proyectil_BMP, "Spot_red.bmp")
@@ -148,15 +148,15 @@ typedef struct  ConfigArmaUno
 
 	char *Particulas_BMP;
 	#pragma GE_DefaultValue(Particulas_BMP, "Parti")
-	#pragma GE_Documentation(Particulas_BMP, "Nombre de la secuencia de ficheros .BMP que representan las partÌculas.")
+	#pragma GE_Documentation(Particulas_BMP, "Nombre de la secuencia de ficheros .BMP que representan las part√≠culas.")
 
 	geBoolean	Config_activa;
 	#pragma GE_DefaultValue(Config_activa, "True")
-	#pragma GE_Documentation(Config_activa, "Activar esta configuraciÛn para esta arma. False=No True=Si")
+	#pragma GE_Documentation(Config_activa, "Activar esta configuraci√≥n para esta arma. False=No True=Si")
 
 	float	Cadencia;
 	#pragma GE_DefaultValue(Cadencia, "5")
-	#pragma GE_Documentation(Cadencia, "Disparos por segundo (del 1 al 10). A m·s valor, m·s disparos.")
+	#pragma GE_Documentation(Cadencia, "Disparos por segundo (del 1 al 10). A m√°s valor, m√°s disparos.")
 
 	float	Salud_resta;
 	#pragma GE_DefaultValue(Salud_resta, "15")
@@ -164,39 +164,39 @@ typedef struct  ConfigArmaUno
 
 	float	Salud_resta_critica;
 	#pragma GE_DefaultValue(Salud_resta_critica, "255")
-	#pragma GE_Documentation(Salud_resta_critica, "Salud que resta al enemigo por impacto en zona crÌtica (de 0 a 255)")
+	#pragma GE_Documentation(Salud_resta_critica, "Salud que resta al enemigo por impacto en zona cr√≠tica (de 0 a 255)")
 
 	geBoolean	Primera_persona;
 	#pragma GE_DefaultValue(Primera_persona, "False")
-	#pragma GE_Documentation(Primera_persona, "ø Arma sÛlo para vista en primera persona ?. False=No True=Si")
+	#pragma GE_Documentation(Primera_persona, "¬ø Arma s√≥lo para vista en primera persona ?. False=No True=Si")
 
 	char *AnimDisparo;
 	#pragma GE_DefaultValue(AnimDisparo, "sin_animacion")
-	#pragma GE_Documentation(AnimDisparo, "Nombre de la animaciÛn del disparo o ataque en primera persona ('Shoot')")
+	#pragma GE_Documentation(AnimDisparo, "Nombre de la animaci√≥n del disparo o ataque en primera persona ('Shoot')")
 
 	float AnimDispVel;
 	#pragma GE_DefaultValue(AnimDispVel, "1")
-	#pragma GE_Documentation(AnimDispVel, "Velocidad de la animaciÛn del disparo. 0.5=lenta 1=normal 2=r·pida, etc.")
+	#pragma GE_Documentation(AnimDispVel, "Velocidad de la animaci√≥n del disparo. 0.5=lenta 1=normal 2=r√°pida, etc.")
 
 	char *AnimNDisparo;
 	#pragma GE_DefaultValue(AnimNDisparo, "sin_animacion")
-	#pragma GE_Documentation(AnimNDisparo, "Nombre de la animaciÛn sin disparar en primera persona ('Idle'")
+	#pragma GE_Documentation(AnimNDisparo, "Nombre de la animaci√≥n sin disparar en primera persona ('Idle'")
 
 	float AnimNDispVel;
 	#pragma GE_DefaultValue(AnimNDispVel, "1")
-	#pragma GE_Documentation(AnimNDispVel, "Velocidad de la animaciÛn sin disparar. 0.5=lenta 1=normal 2=r·pida, etc.")
+	#pragma GE_Documentation(AnimNDispVel, "Velocidad de la animaci√≥n sin disparar. 0.5=lenta 1=normal 2=r√°pida, etc.")
 
 	float	Municion_resta;
 	#pragma GE_DefaultValue(Municion_resta, "1")
-	#pragma GE_Documentation(Municion_resta, "Cantidad de municiÛn a restar en cada disparo.")
+	#pragma GE_Documentation(Municion_resta, "Cantidad de munici√≥n a restar en cada disparo.")
 
 	float	Municion_cargador;
 	#pragma GE_DefaultValue(Municion_cargador, "20")
-	#pragma GE_Documentation(Municion_cargador, "Cantidad de municiÛn en cada cargador.")
+	#pragma GE_Documentation(Municion_cargador, "Cantidad de munici√≥n en cada cargador.")
 
 	float	Municion_inicial;
 	#pragma GE_DefaultValue(Municion_inicial, "40")
-	#pragma GE_Documentation(Municion_inicial, "Cantidad de municiÛn inicial en el arma.")
+	#pragma GE_Documentation(Municion_inicial, "Cantidad de munici√≥n inicial en el arma.")
 
 	GE_RGBA	Luz_fogonazo;
 	#pragma GE_DefaultValue(Luz_fogonazo, "213 219 38")
@@ -204,7 +204,7 @@ typedef struct  ConfigArmaUno
 
 	float	Bot_punteria_movil;
 	#pragma GE_DefaultValue(Bot_punteria_movil, "1.6")
-	#pragma GE_Documentation(Bot_punteria_movil, "PunterÌa de Bot sobre objetivo mÛvil (de -20.0 a 20.0)")
+	#pragma GE_Documentation(Bot_punteria_movil, "Punter√≠a de Bot sobre objetivo m√≥vil (de -20.0 a 20.0)")
 
 	float	Posicion_disparo_1_alt_online;
 	#pragma GE_DefaultValue(Posicion_disparo_1_alt_online, "65")
@@ -216,7 +216,7 @@ typedef struct  ConfigArmaUno
 
 	float	Posicion_mira_3_ang;
 	#pragma GE_DefaultValue(Posicion_mira_3_ang, "20")
-	#pragma GE_Documentation(Posicion_mira_3_ang, "Ajuste 'Posicion_mira_3_alt' seg˙n ·ngulo de la c·mara (Online Cli)")
+	#pragma GE_Documentation(Posicion_mira_3_ang, "Ajuste 'Posicion_mira_3_alt' seg√∫n √°ngulo de la c√°mara (Online Cli)")
 
 #pragma GE_Origin(Origin)
 }   ConfigArmaUno;
@@ -226,7 +226,7 @@ typedef struct  ConfigArmaUno
 // ==========================
 // Entidad 'ConfigArmaDos'
 // ==========================
-// ConfiguraciÛn del arma n˙mero 2 (Lanza-granadas)
+// Configuraci√≥n del arma n√∫mero 2 (Lanza-granadas)
 #pragma GE_Type("Item.ico")
 typedef struct  ConfigArmaDos
 {
@@ -257,31 +257,31 @@ typedef struct  ConfigArmaDos
 
 	geVec3d	Orientacion_1;
 	#pragma GE_DefaultValue(Orientacion_1, "0 0 0")
-	#pragma GE_Documentation(Orientacion_1, "OrientaciÛn del arma en primera persona.")
+	#pragma GE_Documentation(Orientacion_1, "Orientaci√≥n del arma en primera persona.")
 
 	geVec3d	Orientacion_3;
 	#pragma GE_DefaultValue(Orientacion_3, "90 -15 -85")
-	#pragma GE_Documentation(Orientacion_3, "OrientaciÛn del arma en tercera persona.")
+	#pragma GE_Documentation(Orientacion_3, "Orientaci√≥n del arma en tercera persona.")
 
 	float	Orient_Punto_Mira;
 	#pragma GE_DefaultValue(Orient_Punto_Mira, "5")
-	#pragma GE_Documentation(Orient_Punto_Mira, "OrientaciÛn hacia el punto de mira en primera persona")
+	#pragma GE_Documentation(Orient_Punto_Mira, "Orientaci√≥n hacia el punto de mira en primera persona")
 
 	geVec3d	Posicion_arma_1;
 	#pragma GE_DefaultValue(Posicion_arma_1, "0 0 0")
-	#pragma GE_Documentation(Posicion_arma_1, "PosiciÛn del arma en primera persona.")
+	#pragma GE_Documentation(Posicion_arma_1, "Posici√≥n del arma en primera persona.")
 
 	geVec3d	Posicion_arma_3;
 	#pragma GE_DefaultValue(Posicion_arma_3, "30 -10 0")
-	#pragma GE_Documentation(Posicion_arma_3, "PosiciÛn del arma en tercera persona.")
+	#pragma GE_Documentation(Posicion_arma_3, "Posici√≥n del arma en tercera persona.")
 
 	geVec3d	Posicion_disparo_1;
 	#pragma GE_DefaultValue(Posicion_disparo_1, "32 -15 -10")
-	#pragma GE_Documentation(Posicion_disparo_1, "PosiciÛn salida del disparo en primera persona.")
+	#pragma GE_Documentation(Posicion_disparo_1, "Posici√≥n salida del disparo en primera persona.")
 
 	geVec3d	Posicion_disparo_3;
 	#pragma GE_DefaultValue(Posicion_disparo_3, "80 10 -22")
-	#pragma GE_Documentation(Posicion_disparo_3, "PosiciÛn salida del disparo en tercera persona.")
+	#pragma GE_Documentation(Posicion_disparo_3, "Posici√≥n salida del disparo en tercera persona.")
 
 	float	Escala_1;
 	#pragma GE_DefaultValue(Escala_1, "15")
@@ -293,35 +293,35 @@ typedef struct  ConfigArmaDos
 
 	GE_RGBA	Luz_color;
 	#pragma GE_DefaultValue(Luz_color, "255 55 15")
-	#pragma GE_Documentation(Luz_color, "Color de la luz que acompaÒa al proyectil.")
+	#pragma GE_Documentation(Luz_color, "Color de la luz que acompa√±a al proyectil.")
 
 	float	Luz_escala;
 	#pragma GE_DefaultValue(Luz_escala, "320")
-	#pragma GE_Documentation(Luz_escala, "TamaÒo de la luz que acompaÒa al proyectil.")
+	#pragma GE_Documentation(Luz_escala, "Tama√±o de la luz que acompa√±a al proyectil.")
 
 	geBoolean	Particulas;
 	#pragma GE_DefaultValue(Particulas, "False")
-	#pragma GE_Documentation(Particulas, "PartÌculas acompaÒan al proyectil. False=No True=Si")
+	#pragma GE_Documentation(Particulas, "Part√≠culas acompa√±an al proyectil. False=No True=Si")
 
 	geBoolean	Humo;
 	#pragma GE_DefaultValue(Humo, "True")
-	#pragma GE_Documentation(Humo, "Humo acompaÒa al proyectil. False=No True=Si")
+	#pragma GE_Documentation(Humo, "Humo acompa√±a al proyectil. False=No True=Si")
 
 	float	Escala_proyectil;
 	#pragma GE_DefaultValue(Escala_proyectil, "2.5")
-	#pragma GE_Documentation(Escala_proyectil, "TamaÒo del proyectil.")
+	#pragma GE_Documentation(Escala_proyectil, "Tama√±o del proyectil.")
 
 	char *Particulas_BMP;
 	#pragma GE_DefaultValue(Particulas_BMP, "Parti")
-	#pragma GE_Documentation(Particulas_BMP, "Nombre de la secuencia de ficheros .BMP que representan las partÌculas.")
+	#pragma GE_Documentation(Particulas_BMP, "Nombre de la secuencia de ficheros .BMP que representan las part√≠culas.")
 
 	geBoolean	Config_activa;
 	#pragma GE_DefaultValue(Config_activa, "True")
-	#pragma GE_Documentation(Config_activa, "Activar esta configuraciÛn para esta arma. False=No True=Si")
+	#pragma GE_Documentation(Config_activa, "Activar esta configuraci√≥n para esta arma. False=No True=Si")
 
 	float	Cadencia;
 	#pragma GE_DefaultValue(Cadencia, "5")
-	#pragma GE_Documentation(Cadencia, "Disparos por segundo (del 1 al 10). A m·s valor, m·s disparos.")
+	#pragma GE_Documentation(Cadencia, "Disparos por segundo (del 1 al 10). A m√°s valor, m√°s disparos.")
 
 	float	Salud_resta;
 	#pragma GE_DefaultValue(Salud_resta, "15")
@@ -329,43 +329,43 @@ typedef struct  ConfigArmaDos
 
 	float	Salud_resta_critica;
 	#pragma GE_DefaultValue(Salud_resta_critica, "255")
-	#pragma GE_Documentation(Salud_resta_critica, "Salud que resta al enemigo por impacto en zona crÌtica (de 0 a 255)")
+	#pragma GE_Documentation(Salud_resta_critica, "Salud que resta al enemigo por impacto en zona cr√≠tica (de 0 a 255)")
 
 	geBoolean	Primera_persona;
 	#pragma GE_DefaultValue(Primera_persona, "False")
-	#pragma GE_Documentation(Primera_persona, "ø Arma sÛlo para vista en primera persona ?. False=No True=Si")
+	#pragma GE_Documentation(Primera_persona, "¬ø Arma s√≥lo para vista en primera persona ?. False=No True=Si")
 
 	float	Temporizador;
 	#pragma GE_DefaultValue(Temporizador, "3.5")
-	#pragma GE_Documentation(Temporizador, "Tiempo en segundos para la explosiÛn de la granada.")
+	#pragma GE_Documentation(Temporizador, "Tiempo en segundos para la explosi√≥n de la granada.")
 
 	char *AnimDisparo;
 	#pragma GE_DefaultValue(AnimDisparo, "sin_animacion")
-	#pragma GE_Documentation(AnimDisparo, "Nombre de la animaciÛn del disparo o ataque en primera persona ('Shoot')")
+	#pragma GE_Documentation(AnimDisparo, "Nombre de la animaci√≥n del disparo o ataque en primera persona ('Shoot')")
 
 	float AnimDispVel;
 	#pragma GE_DefaultValue(AnimDispVel, "1")
-	#pragma GE_Documentation(AnimDispVel, "Velocidad de la animaciÛn del disparo. 0.5=lenta 1=normal 2=r·pida, etc.")
+	#pragma GE_Documentation(AnimDispVel, "Velocidad de la animaci√≥n del disparo. 0.5=lenta 1=normal 2=r√°pida, etc.")
 
 	char *AnimNDisparo;
 	#pragma GE_DefaultValue(AnimNDisparo, "sin_animacion")
-	#pragma GE_Documentation(AnimNDisparo, "Nombre de la animaciÛn sin disparar en primera persona ('Idle'")
+	#pragma GE_Documentation(AnimNDisparo, "Nombre de la animaci√≥n sin disparar en primera persona ('Idle'")
 
 	float AnimNDispVel;
 	#pragma GE_DefaultValue(AnimNDispVel, "1")
-	#pragma GE_Documentation(AnimNDispVel, "Velocidad de la animaciÛn sin disparar. 0.5=lenta 1=normal 2=r·pida, etc.")
+	#pragma GE_Documentation(AnimNDispVel, "Velocidad de la animaci√≥n sin disparar. 0.5=lenta 1=normal 2=r√°pida, etc.")
 
 	float	Municion_resta;
 	#pragma GE_DefaultValue(Municion_resta, "1")
-	#pragma GE_Documentation(Municion_resta, "Cantidad de municiÛn a restar en cada disparo.")
+	#pragma GE_Documentation(Municion_resta, "Cantidad de munici√≥n a restar en cada disparo.")
 
 	float	Municion_cargador;
 	#pragma GE_DefaultValue(Municion_cargador, "10")
-	#pragma GE_Documentation(Municion_cargador, "Cantidad de municiÛn en cada cargador.")
+	#pragma GE_Documentation(Municion_cargador, "Cantidad de munici√≥n en cada cargador.")
 
 	float	Municion_inicial;
 	#pragma GE_DefaultValue(Municion_inicial, "10")
-	#pragma GE_Documentation(Municion_inicial, "Cantidad de municiÛn inicial en el arma.")
+	#pragma GE_Documentation(Municion_inicial, "Cantidad de munici√≥n inicial en el arma.")
 
 	float	Posicion_disparo_1_alt_online;
 	#pragma GE_DefaultValue(Posicion_disparo_1_alt_online, "75")
@@ -377,7 +377,7 @@ typedef struct  ConfigArmaDos
 
 	float	Posicion_mira_3_ang;
 	#pragma GE_DefaultValue(Posicion_mira_3_ang, "20")
-	#pragma GE_Documentation(Posicion_mira_3_ang, "Ajuste 'Posicion_mira_3_alt' seg˙n ·ngulo de la c·mara (Online Cli)")
+	#pragma GE_Documentation(Posicion_mira_3_ang, "Ajuste 'Posicion_mira_3_alt' seg√∫n √°ngulo de la c√°mara (Online Cli)")
 
 #pragma GE_Origin(Origin)
 }   ConfigArmaDos;
@@ -387,7 +387,7 @@ typedef struct  ConfigArmaDos
 // ==========================
 // Entidad 'ConfigArmaTres'
 // ==========================
-// ConfiguraciÛn del arma n˙mero 3 (Lanza-cohetes)
+// Configuraci√≥n del arma n√∫mero 3 (Lanza-cohetes)
 #pragma GE_Type("Item.ico")
 typedef struct  ConfigArmaTres
 {
@@ -418,31 +418,31 @@ typedef struct  ConfigArmaTres
 
 	geVec3d	Orientacion_1;
 	#pragma GE_DefaultValue(Orientacion_1, "0 90 0")
-	#pragma GE_Documentation(Orientacion_1, "OrientaciÛn del arma en primera persona.")
+	#pragma GE_Documentation(Orientacion_1, "Orientaci√≥n del arma en primera persona.")
 
 	geVec3d	Orientacion_3;
 	#pragma GE_DefaultValue(Orientacion_3, "90 -15 5")
-	#pragma GE_Documentation(Orientacion_3, "OrientaciÛn del arma en tercera persona.")
+	#pragma GE_Documentation(Orientacion_3, "Orientaci√≥n del arma en tercera persona.")
 
 	float	Orient_Punto_Mira;
 	#pragma GE_DefaultValue(Orient_Punto_Mira, "5")
-	#pragma GE_Documentation(Orient_Punto_Mira, "OrientaciÛn hacia el punto de mira en primera persona")
+	#pragma GE_Documentation(Orient_Punto_Mira, "Orientaci√≥n hacia el punto de mira en primera persona")
 
 	geVec3d	Posicion_arma_1;
 	#pragma GE_DefaultValue(Posicion_arma_1, "0 0 0")
-	#pragma GE_Documentation(Posicion_arma_1, "PosiciÛn del arma en primera persona.")
+	#pragma GE_Documentation(Posicion_arma_1, "Posici√≥n del arma en primera persona.")
 
 	geVec3d	Posicion_arma_3;
 	#pragma GE_DefaultValue(Posicion_arma_3, "-5 -5 5")
-	#pragma GE_Documentation(Posicion_arma_3, "PosiciÛn del arma en tercera persona.")
+	#pragma GE_Documentation(Posicion_arma_3, "Posici√≥n del arma en tercera persona.")
 
 	geVec3d	Posicion_disparo_1;
 	#pragma GE_DefaultValue(Posicion_disparo_1, "110 -10 -10")
-	#pragma GE_Documentation(Posicion_disparo_1, "PosiciÛn salida del disparo en primera persona.")
+	#pragma GE_Documentation(Posicion_disparo_1, "Posici√≥n salida del disparo en primera persona.")
 
 	geVec3d	Posicion_disparo_3;
 	#pragma GE_DefaultValue(Posicion_disparo_3, "90 15 -25")
-	#pragma GE_Documentation(Posicion_disparo_3, "PosiciÛn salida del disparo en tercera persona.")
+	#pragma GE_Documentation(Posicion_disparo_3, "Posici√≥n salida del disparo en tercera persona.")
 
 	float	Escala_1;
 	#pragma GE_DefaultValue(Escala_1, "15")
@@ -454,35 +454,35 @@ typedef struct  ConfigArmaTres
 
 	GE_RGBA	Luz_color;
 	#pragma GE_DefaultValue(Luz_color, "255 55 15")
-	#pragma GE_Documentation(Luz_color, "Color de la luz que acompaÒa al proyectil.")
+	#pragma GE_Documentation(Luz_color, "Color de la luz que acompa√±a al proyectil.")
 
 	float	Luz_escala;
 	#pragma GE_DefaultValue(Luz_escala, "320")
-	#pragma GE_Documentation(Luz_escala, "TamaÒo de la luz que acompaÒa al proyectil.")
+	#pragma GE_Documentation(Luz_escala, "Tama√±o de la luz que acompa√±a al proyectil.")
 
 	geBoolean	Particulas;
 	#pragma GE_DefaultValue(Particulas, "False")
-	#pragma GE_Documentation(Particulas, "PartÌculas acompaÒan al proyectil. False=No True=Si")
+	#pragma GE_Documentation(Particulas, "Part√≠culas acompa√±an al proyectil. False=No True=Si")
 
 	geBoolean	Humo;
 	#pragma GE_DefaultValue(Humo, "True")
-	#pragma GE_Documentation(Humo, "Humo acompaÒa al proyectil. False=No True=Si")
+	#pragma GE_Documentation(Humo, "Humo acompa√±a al proyectil. False=No True=Si")
 
 	float	Escala_proyectil;
 	#pragma GE_DefaultValue(Escala_proyectil, "1")
-	#pragma GE_Documentation(Escala_proyectil, "TamaÒo del proyectil.")
+	#pragma GE_Documentation(Escala_proyectil, "Tama√±o del proyectil.")
 
 	char *Particulas_BMP;
 	#pragma GE_DefaultValue(Particulas_BMP, "Parti")
-	#pragma GE_Documentation(Particulas_BMP, "Nombre de la secuencia de ficheros .BMP que representan las partÌculas.")
+	#pragma GE_Documentation(Particulas_BMP, "Nombre de la secuencia de ficheros .BMP que representan las part√≠culas.")
 
 	geBoolean	Config_activa;
 	#pragma GE_DefaultValue(Config_activa, "True")
-	#pragma GE_Documentation(Config_activa, "Activar esta configuraciÛn para esta arma. False=No True=Si")
+	#pragma GE_Documentation(Config_activa, "Activar esta configuraci√≥n para esta arma. False=No True=Si")
 
 	float	Cadencia;
 	#pragma GE_DefaultValue(Cadencia, "2")
-	#pragma GE_Documentation(Cadencia, "Disparos por segundo (del 1 al 10). A m·s valor, m·s disparos.")
+	#pragma GE_Documentation(Cadencia, "Disparos por segundo (del 1 al 10). A m√°s valor, m√°s disparos.")
 
 	float	Salud_resta;
 	#pragma GE_DefaultValue(Salud_resta, "35")
@@ -490,43 +490,43 @@ typedef struct  ConfigArmaTres
 
 	float	Salud_resta_critica;
 	#pragma GE_DefaultValue(Salud_resta_critica, "255")
-	#pragma GE_Documentation(Salud_resta_critica, "Salud que resta al enemigo por impacto en zona crÌtica (de 0 a 255)")
+	#pragma GE_Documentation(Salud_resta_critica, "Salud que resta al enemigo por impacto en zona cr√≠tica (de 0 a 255)")
 
 	geBoolean	Primera_persona;
 	#pragma GE_DefaultValue(Primera_persona, "False")
-	#pragma GE_Documentation(Primera_persona, "ø Arma sÛlo para vista en primera persona ?. False=No True=Si")
+	#pragma GE_Documentation(Primera_persona, "¬ø Arma s√≥lo para vista en primera persona ?. False=No True=Si")
 
 	char *AnimDisparo;
 	#pragma GE_DefaultValue(AnimDisparo, "sin_animacion")
-	#pragma GE_Documentation(AnimDisparo, "Nombre de la animaciÛn del disparo o ataque en primera persona ('Shoot')")
+	#pragma GE_Documentation(AnimDisparo, "Nombre de la animaci√≥n del disparo o ataque en primera persona ('Shoot')")
 
 	float AnimDispVel;
 	#pragma GE_DefaultValue(AnimDispVel, "1")
-	#pragma GE_Documentation(AnimDispVel, "Velocidad de la animaciÛn del disparo. 0.5=lenta 1=normal 2=r·pida, etc.")
+	#pragma GE_Documentation(AnimDispVel, "Velocidad de la animaci√≥n del disparo. 0.5=lenta 1=normal 2=r√°pida, etc.")
 
 	char *AnimNDisparo;
 	#pragma GE_DefaultValue(AnimNDisparo, "sin_animacion")
-	#pragma GE_Documentation(AnimNDisparo, "Nombre de la animaciÛn sin disparar en primera persona ('Idle'")
+	#pragma GE_Documentation(AnimNDisparo, "Nombre de la animaci√≥n sin disparar en primera persona ('Idle'")
 
 	float AnimNDispVel;
 	#pragma GE_DefaultValue(AnimNDispVel, "1")
-	#pragma GE_Documentation(AnimNDispVel, "Velocidad de la animaciÛn sin disparar. 0.5=lenta 1=normal 2=r·pida, etc.")
+	#pragma GE_Documentation(AnimNDispVel, "Velocidad de la animaci√≥n sin disparar. 0.5=lenta 1=normal 2=r√°pida, etc.")
 
 	float	Municion_resta;
 	#pragma GE_DefaultValue(Municion_resta, "1")
-	#pragma GE_Documentation(Municion_resta, "Cantidad de municiÛn a restar en cada disparo.")
+	#pragma GE_Documentation(Municion_resta, "Cantidad de munici√≥n a restar en cada disparo.")
 
 	float	Municion_cargador;
 	#pragma GE_DefaultValue(Municion_cargador, "10")
-	#pragma GE_Documentation(Municion_cargador, "Cantidad de municiÛn en cada cargador.")
+	#pragma GE_Documentation(Municion_cargador, "Cantidad de munici√≥n en cada cargador.")
 
 	float	Municion_inicial;
 	#pragma GE_DefaultValue(Municion_inicial, "10")
-	#pragma GE_Documentation(Municion_inicial, "Cantidad de municiÛn inicial en el arma.")
+	#pragma GE_Documentation(Municion_inicial, "Cantidad de munici√≥n inicial en el arma.")
 
 	float	Bot_punteria_movil;
 	#pragma GE_DefaultValue(Bot_punteria_movil, "1.2")
-	#pragma GE_Documentation(Bot_punteria_movil, "PunterÌa de Bot sobre objetivo mÛvil (de -20.0 a 20.0)")
+	#pragma GE_Documentation(Bot_punteria_movil, "Punter√≠a de Bot sobre objetivo m√≥vil (de -20.0 a 20.0)")
 
 	float	Posicion_disparo_1_alt_online;
 	#pragma GE_DefaultValue(Posicion_disparo_1_alt_online, "75")
@@ -538,7 +538,7 @@ typedef struct  ConfigArmaTres
 
 	float	Posicion_mira_3_ang;
 	#pragma GE_DefaultValue(Posicion_mira_3_ang, "20")
-	#pragma GE_Documentation(Posicion_mira_3_ang, "Ajuste 'Posicion_mira_3_alt' seg˙n ·ngulo de la c·mara (Online Cli)")
+	#pragma GE_Documentation(Posicion_mira_3_ang, "Ajuste 'Posicion_mira_3_alt' seg√∫n √°ngulo de la c√°mara (Online Cli)")
 
 #pragma GE_Origin(Origin)
 }   ConfigArmaTres;
@@ -548,7 +548,7 @@ typedef struct  ConfigArmaTres
 // ==========================
 // Entidad 'ConfigArmaCuatro'
 // ==========================
-// ConfiguraciÛn del arma n˙mero 4 (Fusil)
+// Configuraci√≥n del arma n√∫mero 4 (Fusil)
 #pragma GE_Type("Item.ico")
 typedef struct  ConfigArmaCuatro
 {
@@ -567,39 +567,39 @@ typedef struct  ConfigArmaCuatro
 
 	geVec3d	Orientacion_1;
 	#pragma GE_DefaultValue(Orientacion_1, "0 0 0")
-	#pragma GE_Documentation(Orientacion_1, "OrientaciÛn del arma en primera persona.")
+	#pragma GE_Documentation(Orientacion_1, "Orientaci√≥n del arma en primera persona.")
 
 	geVec3d	Orientacion_3;
 	#pragma GE_DefaultValue(Orientacion_3, "-10 -110 -90")
-	#pragma GE_Documentation(Orientacion_3, "OrientaciÛn del arma en tercera persona.")
+	#pragma GE_Documentation(Orientacion_3, "Orientaci√≥n del arma en tercera persona.")
 
 	float	Orient_Punto_Mira;
 	#pragma GE_DefaultValue(Orient_Punto_Mira, "5")
-	#pragma GE_Documentation(Orient_Punto_Mira, "OrientaciÛn hacia el punto de mira en primera persona")
+	#pragma GE_Documentation(Orient_Punto_Mira, "Orientaci√≥n hacia el punto de mira en primera persona")
 
 	geVec3d	Posicion_arma_1;
 	#pragma GE_DefaultValue(Posicion_arma_1, "0 3 0")
-	#pragma GE_Documentation(Posicion_arma_1, "PosiciÛn del arma en primera persona.")
+	#pragma GE_Documentation(Posicion_arma_1, "Posici√≥n del arma en primera persona.")
 
 	geVec3d	Posicion_arma_3;
 	#pragma GE_DefaultValue(Posicion_arma_3, "35 5 0")
-	#pragma GE_Documentation(Posicion_arma_3, "PosiciÛn del arma en tercera persona.")
+	#pragma GE_Documentation(Posicion_arma_3, "Posici√≥n del arma en tercera persona.")
 
 	geVec3d	Posicion_disparo_1;
 	#pragma GE_DefaultValue(Posicion_disparo_1, "16 0 1.5")
-	#pragma GE_Documentation(Posicion_disparo_1, "PosiciÛn salida del disparo en primera persona.")
+	#pragma GE_Documentation(Posicion_disparo_1, "Posici√≥n salida del disparo en primera persona.")
 
 	geVec3d	Posicion_disparo_3;
 	#pragma GE_DefaultValue(Posicion_disparo_3, "40 55 -20")
-	#pragma GE_Documentation(Posicion_disparo_3, "PosiciÛn salida del disparo en tercera persona.")
+	#pragma GE_Documentation(Posicion_disparo_3, "Posici√≥n salida del disparo en tercera persona.")
 
 	geVec3d	Posicion_fogonazo_1;
 	#pragma GE_DefaultValue(Posicion_fogonazo_1, "16 0 1.5")
-	#pragma GE_Documentation(Posicion_fogonazo_1, "PosiciÛn del fogonazo del disparo en primera persona.")
+	#pragma GE_Documentation(Posicion_fogonazo_1, "Posici√≥n del fogonazo del disparo en primera persona.")
 
 	geVec3d	Posicion_fogonazo_3;
 	#pragma GE_DefaultValue(Posicion_fogonazo_3, "40 55 -20")
-	#pragma GE_Documentation(Posicion_fogonazo_3, "PosiciÛn del fogonazo del disparo en tercera persona.")
+	#pragma GE_Documentation(Posicion_fogonazo_3, "Posici√≥n del fogonazo del disparo en tercera persona.")
 
 	float	Escala_1;
 	#pragma GE_DefaultValue(Escala_1, "15")
@@ -611,11 +611,11 @@ typedef struct  ConfigArmaCuatro
 
 	float	Escala_fogonazo_1;
 	#pragma GE_DefaultValue(Escala_fogonazo_1, "0.4")
-	#pragma GE_Documentation(Escala_fogonazo_1, "TamaÒo del fogonazo en primera persona.")
+	#pragma GE_Documentation(Escala_fogonazo_1, "Tama√±o del fogonazo en primera persona.")
 
 	float	Escala_fogonazo_3;
 	#pragma GE_DefaultValue(Escala_fogonazo_3, "0.8")
-	#pragma GE_Documentation(Escala_fogonazo_3, "TamaÒo del fogonazo en tercera persona.")
+	#pragma GE_Documentation(Escala_fogonazo_3, "Tama√±o del fogonazo en tercera persona.")
 
 	char *Fogonazo_BMP;
 	#pragma GE_DefaultValue(Fogonazo_BMP, "explode3_01.bmp")
@@ -627,11 +627,11 @@ typedef struct  ConfigArmaCuatro
 
 	geBoolean	Config_activa;
 	#pragma GE_DefaultValue(Config_activa, "True")
-	#pragma GE_Documentation(Config_activa, "Activar esta configuraciÛn para esta arma. False=No True=Si")
+	#pragma GE_Documentation(Config_activa, "Activar esta configuraci√≥n para esta arma. False=No True=Si")
 
 	float	Cadencia;
 	#pragma GE_DefaultValue(Cadencia, "10")
-	#pragma GE_Documentation(Cadencia, "Disparos por segundo (del 1 al 10). A m·s valor, m·s disparos.")
+	#pragma GE_Documentation(Cadencia, "Disparos por segundo (del 1 al 10). A m√°s valor, m√°s disparos.")
 
 	float	Salud_resta;
 	#pragma GE_DefaultValue(Salud_resta, "25")
@@ -639,11 +639,11 @@ typedef struct  ConfigArmaCuatro
 
 	float	Salud_resta_critica;
 	#pragma GE_DefaultValue(Salud_resta_critica, "255")
-	#pragma GE_Documentation(Salud_resta_critica, "Salud que resta al enemigo por impacto en zona crÌtica (de 0 a 255)")
+	#pragma GE_Documentation(Salud_resta_critica, "Salud que resta al enemigo por impacto en zona cr√≠tica (de 0 a 255)")
 
 	geBoolean	Primera_persona;
 	#pragma GE_DefaultValue(Primera_persona, "False")
-	#pragma GE_Documentation(Primera_persona, "ø Arma sÛlo para vista en primera persona ?. False=No True=Si")
+	#pragma GE_Documentation(Primera_persona, "¬ø Arma s√≥lo para vista en primera persona ?. False=No True=Si")
 
 	float	Alcance;
 	#pragma GE_DefaultValue(Alcance, "10000")
@@ -651,35 +651,35 @@ typedef struct  ConfigArmaCuatro
 
 	char *AnimDisparo;
 	#pragma GE_DefaultValue(AnimDisparo, "sin_animacion")
-	#pragma GE_Documentation(AnimDisparo, "Nombre de la animaciÛn del disparo o ataque en primera persona ('Shoot')")
+	#pragma GE_Documentation(AnimDisparo, "Nombre de la animaci√≥n del disparo o ataque en primera persona ('Shoot')")
 
 	float AnimDispVel;
 	#pragma GE_DefaultValue(AnimDispVel, "1")
-	#pragma GE_Documentation(AnimDispVel, "Velocidad de la animaciÛn del disparo. 0.5=lenta 1=normal 2=r·pida, etc.")
+	#pragma GE_Documentation(AnimDispVel, "Velocidad de la animaci√≥n del disparo. 0.5=lenta 1=normal 2=r√°pida, etc.")
 
 	char *AnimNDisparo;
 	#pragma GE_DefaultValue(AnimNDisparo, "sin_animacion")
-	#pragma GE_Documentation(AnimNDisparo, "Nombre de la animaciÛn sin disparar en primera persona ('Idle'")
+	#pragma GE_Documentation(AnimNDisparo, "Nombre de la animaci√≥n sin disparar en primera persona ('Idle'")
 
 	float AnimNDispVel;
 	#pragma GE_DefaultValue(AnimNDispVel, "1")
-	#pragma GE_Documentation(AnimNDispVel, "Velocidad de la animaciÛn sin disparar. 0.5=lenta 1=normal 2=r·pida, etc.")
+	#pragma GE_Documentation(AnimNDispVel, "Velocidad de la animaci√≥n sin disparar. 0.5=lenta 1=normal 2=r√°pida, etc.")
 
 	geBoolean ArmaDeMano;
 	#pragma GE_DefaultValue(ArmaDeMano, "False")
-	#pragma GE_Documentation(ArmaDeMano, "ø Es una arma cuerpo a cuerpo tipo palo, cuchillo, espada, ..? False=No True=Si")
+	#pragma GE_Documentation(ArmaDeMano, "¬ø Es una arma cuerpo a cuerpo tipo palo, cuchillo, espada, ..? False=No True=Si")
 
 	float	Municion_resta;
 	#pragma GE_DefaultValue(Municion_resta, "1")
-	#pragma GE_Documentation(Municion_resta, "Cantidad de municiÛn a restar en cada disparo.")
+	#pragma GE_Documentation(Municion_resta, "Cantidad de munici√≥n a restar en cada disparo.")
 
 	float	Municion_cargador;
 	#pragma GE_DefaultValue(Municion_cargador, "50")
-	#pragma GE_Documentation(Municion_cargador, "Cantidad de municiÛn en cada cargador.")
+	#pragma GE_Documentation(Municion_cargador, "Cantidad de munici√≥n en cada cargador.")
 
 	float	Municion_inicial;
 	#pragma GE_DefaultValue(Municion_inicial, "50")
-	#pragma GE_Documentation(Municion_inicial, "Cantidad de municiÛn inicial en el arma.")
+	#pragma GE_Documentation(Municion_inicial, "Cantidad de munici√≥n inicial en el arma.")
 
 	GE_RGBA	Luz_fogonazo;
 	#pragma GE_DefaultValue(Luz_fogonazo, "213 219 38")
@@ -691,7 +691,7 @@ typedef struct  ConfigArmaCuatro
 
 	float	Posicion_mira_3_ang;
 	#pragma GE_DefaultValue(Posicion_mira_3_ang, "20")
-	#pragma GE_Documentation(Posicion_mira_3_ang, "Ajuste 'Posicion_mira_3_alt' seg˙n ·ngulo de la c·mara.")
+	#pragma GE_Documentation(Posicion_mira_3_ang, "Ajuste 'Posicion_mira_3_alt' seg√∫n √°ngulo de la c√°mara.")
 
 #pragma GE_Origin(Origin)
 }   ConfigArmaCuatro;

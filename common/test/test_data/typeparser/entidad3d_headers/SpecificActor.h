@@ -1,9 +1,9 @@
 /****************************************************************************************/
 /*  File: SpecificActor.h                                                               */
 /*                                                                                      */
-/*  Descripción:                                                                        */
+/*  DescripciÃ³n:                                                                        */
 /*                                                                                      */
-/*  Definición de clases de entidades.                                                  */
+/*  DefiniciÃ³n de clases de entidades.                                                  */
 /*  Este fichero .h lo utiliza World Editor para crear las entidades que usa el         */
 /*  programa Entidad 3D.                                                                */
 /*                                                                                      */
@@ -12,9 +12,9 @@
 /*                                                                                      */
 /*  Modificaciones para Entidad 3D:                                                     */
 /*                                                                                      */
-/*  Autor: Jordi Pérez                                                                  */
+/*  Autor: Jordi PÃ©rez                                                                  */
 /*                                                                                      */
-/*  Copyright (C) 2004 - 2016 Jordi Pérez; All rights reserved.                         */
+/*  Copyright (C) 2004 - 2016 Jordi PÃ©rez; All rights reserved.                         */
 /*                                                                                      */
 /****************************************************************************************/
 
@@ -37,13 +37,13 @@ extern "C" {
 typedef struct SpecificActor
 {
 #pragma GE_Private
-	geFloat	lastTime;	// Temporización animación
+	geFloat	lastTime;	// TemporizaciÃ³n animaciÃ³n
 	geActor	*pActor; // Puntero 'Actor'
 	geActor_Def *pActorDef; // 'ActorDef'
-	geFloat startTime;	// Temporización animación
-	geVec3d	Rotation; // Rotación
-	char *MotionUna; // Nombre de animación (una sola animación no cíclica)
-	char *MotionCic; // Nombre de animación (una animación cíclica)
+	geFloat startTime;	// TemporizaciÃ³n animaciÃ³n
+	geVec3d	Rotation; // RotaciÃ³n
+	char *MotionUna; // Nombre de animaciÃ³n (una sola animaciÃ³n no cÃ­clica)
+	char *MotionCic; // Nombre de animaciÃ³n (una animaciÃ³n cÃ­clica)
 	#pragma GE_DefaultValue(MotionUna, "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
 	#pragma GE_DefaultValue(MotionCic, "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
 	geFloat TiempoVisible;
@@ -63,27 +63,27 @@ typedef struct SpecificActor
 
 	geBoolean   Boton_accion;
 	#pragma GE_DefaultValue(Boton_accion, "False")
-	#pragma GE_Documentation(Boton_accion, "¿ Activación si botón acción pulsado ? True=Si False=No")
+	#pragma GE_Documentation(Boton_accion, "Â¿ ActivaciÃ³n si botÃ³n acciÃ³n pulsado ? True=Si False=No")
 
-	geVec3d	Origin; // Posición
+	geVec3d	Origin; // PosiciÃ³n
 	geVec3d	scale; // Escala
-	geVec3d	Orientation; // Orientación
+	geVec3d	Orientation; // OrientaciÃ³n
 	char	*ActorFile; // Ruta y fichero del .ACT
-	char	*Motion; // Nombre de la animación
-	float	ASpeed; // Velocidad de la animación
-	float	RSpeed; // Velocidad de la rotación
-	geBoolean	RotateX; // Rotación en eje X
-	geBoolean	RotateY; // Rotación en eje Y
-	geBoolean	RotateZ; // Rotación en eje Z
+	char	*Motion; // Nombre de la animaciÃ³n
+	float	ASpeed; // Velocidad de la animaciÃ³n
+	float	RSpeed; // Velocidad de la rotaciÃ³n
+	geBoolean	RotateX; // RotaciÃ³n en eje X
+	geBoolean	RotateY; // RotaciÃ³n en eje Y
+	geBoolean	RotateZ; // RotaciÃ³n en eje Z
 	geBoolean	Visible; // 'Actor' visible actor
 	geBoolean	Bloqueo_ver; // Ver bloqueo azul del actor (True/False)
-	float Bloqueo_X; // Variación X de la zona de bloqueo
-	float Bloqueo_Y; // Variación Y de la zona de bloqueo
-	float Bloqueo_Z; // Variación Z de la zona de bloqueo
+	float Bloqueo_X; // VariaciÃ³n X de la zona de bloqueo
+	float Bloqueo_Y; // VariaciÃ³n Y de la zona de bloqueo
+	float Bloqueo_Z; // VariaciÃ³n Z de la zona de bloqueo
 	int	Brillo;
-	geBoolean	Bloqueo; // Colisión del jugador con este SpecificActor (True/False)
-	geBoolean	Bloqueo_Bots; // Colisión de los Bots con este SpecificActor (True/False)
-	geBoolean	Bloqueo_Proyectiles; // Colisión de proyectiles de las armas con este SpecificActor (True/False)
+	geBoolean	Bloqueo; // ColisiÃ³n del jugador con este SpecificActor (True/False)
+	geBoolean	Bloqueo_Bots; // ColisiÃ³n de los Bots con este SpecificActor (True/False)
+	geBoolean	Bloqueo_Proyectiles; // ColisiÃ³n de proyectiles de las armas con este SpecificActor (True/False)
 	int Transparencia;
 	geBoolean	RenderSiNoVisible;
 	int	Sombra;
@@ -139,47 +139,47 @@ typedef struct SpecificActor
 	#pragma GE_DefaultValue(AllowRotation, "True")
 	#pragma GE_DefaultValue(AllowOrbiting, "True")
 
-	#pragma GE_Documentation(CommandsFile, "Fichero de comandos si colisiona jugador (sin extensión .INI)")
+	#pragma GE_Documentation(CommandsFile, "Fichero de comandos si colisiona jugador (sin extensiÃ³n .INI)")
 	#pragma GE_Documentation(CommandsFile2, "Fichero de comandos si impacta proyectil")
-	#pragma GE_Documentation(Origin, "Posición (X Y Z)")
+	#pragma GE_Documentation(Origin, "PosiciÃ³n (X Y Z)")
 	#pragma GE_Documentation(scale, "Escala")
-	#pragma GE_Documentation(Orientation, "Orientación")
+	#pragma GE_Documentation(Orientation, "OrientaciÃ³n")
 	#pragma GE_Documentation(ActorFile, "Nombre del fichero .ACT del modelo 3D a visualizar.")
-	#pragma GE_Documentation(Motion, "Nombre de animación. Dejar en blanco para ninguna.")
-	#pragma GE_Documentation(ASpeed, "Velocidad de la animación. 0.5 = lenta, 1 = normal, 2 = rápida, etc.")
-	#pragma GE_Documentation(RSpeed, "Velocidad de la rotación. 0.5 = lenta, 1 = normal, 2 = rápida, etc.")
-	#pragma GE_Documentation(RotateX, "¿ Rotación de X del modelo 3D ? True=Si False=No")
-	#pragma GE_Documentation(RotateY, "¿ Rotación de Y del modelo 3D ? True=Si False=No")
-	#pragma GE_Documentation(RotateZ, "¿ Rotación de Z del modelo 3D ? True=Si False=No")
-	#pragma GE_Documentation(Visible, "¿ Visible ?. True=Si False=No")
-	#pragma GE_Documentation(Bloqueo_ver, "¿ Ver zona de bloqueo del modelo 3D ? True=Si False=No")
-	#pragma GE_Documentation(Bloqueo_X, "Variación en X del bloqueo del modelo 3D (0 sin variación)")
-	#pragma GE_Documentation(Bloqueo_Y, "Variación en Y del bloqueo del modelo 3D (0 sin variación)")
-	#pragma GE_Documentation(Bloqueo_Z, "Variación en Z del bloqueo del modelo 3D (0 sin variación)")
+	#pragma GE_Documentation(Motion, "Nombre de animaciÃ³n. Dejar en blanco para ninguna.")
+	#pragma GE_Documentation(ASpeed, "Velocidad de la animaciÃ³n. 0.5 = lenta, 1 = normal, 2 = rÃ¡pida, etc.")
+	#pragma GE_Documentation(RSpeed, "Velocidad de la rotaciÃ³n. 0.5 = lenta, 1 = normal, 2 = rÃ¡pida, etc.")
+	#pragma GE_Documentation(RotateX, "Â¿ RotaciÃ³n de X del modelo 3D ? True=Si False=No")
+	#pragma GE_Documentation(RotateY, "Â¿ RotaciÃ³n de Y del modelo 3D ? True=Si False=No")
+	#pragma GE_Documentation(RotateZ, "Â¿ RotaciÃ³n de Z del modelo 3D ? True=Si False=No")
+	#pragma GE_Documentation(Visible, "Â¿ Visible ?. True=Si False=No")
+	#pragma GE_Documentation(Bloqueo_ver, "Â¿ Ver zona de bloqueo del modelo 3D ? True=Si False=No")
+	#pragma GE_Documentation(Bloqueo_X, "VariaciÃ³n en X del bloqueo del modelo 3D (0 sin variaciÃ³n)")
+	#pragma GE_Documentation(Bloqueo_Y, "VariaciÃ³n en Y del bloqueo del modelo 3D (0 sin variaciÃ³n)")
+	#pragma GE_Documentation(Bloqueo_Z, "VariaciÃ³n en Z del bloqueo del modelo 3D (0 sin variaciÃ³n)")
 	#pragma GE_Documentation(Brillo, "Nivel de brillo. (de 0 a 255)")
-	#pragma GE_Documentation(Bloqueo, "¿ Detectar colisión con jugador ? True=Si False=No")
-	#pragma GE_Documentation(Bloqueo_Bots, "¿ Detectar colisión con Bots ? True=Si False=No")
-	#pragma GE_Documentation(Bloqueo_Proyectiles, "¿ Detectar colisión con proyectiles de armas ? True=Si False=No")
+	#pragma GE_Documentation(Bloqueo, "Â¿ Detectar colisiÃ³n con jugador ? True=Si False=No")
+	#pragma GE_Documentation(Bloqueo_Bots, "Â¿ Detectar colisiÃ³n con Bots ? True=Si False=No")
+	#pragma GE_Documentation(Bloqueo_Proyectiles, "Â¿ Detectar colisiÃ³n con proyectiles de armas ? True=Si False=No")
 	#pragma GE_Documentation(Transparencia, "Nivel de transparencia (de 0 a 255, 255=Opaco 128=Semitransparente)")
-	#pragma GE_Documentation(RenderSiNoVisible, "¿ Calcular 'render' si está detrás del jugador ? True=Si False=No")
-	#pragma GE_Documentation(Sombra, "Tipo de sombra. (0=Sin sombra, 1=Círculo, 2=Dinámica)")
-	#pragma GE_Documentation(Resaltar, "Resaltar con variación de brillo. True=Si False=No")
+	#pragma GE_Documentation(RenderSiNoVisible, "Â¿ Calcular 'render' si estÃ¡ detrÃ¡s del jugador ? True=Si False=No")
+	#pragma GE_Documentation(Sombra, "Tipo de sombra. (0=Sin sombra, 1=CÃ­rculo, 2=DinÃ¡mica)")
+	#pragma GE_Documentation(Resaltar, "Resaltar con variaciÃ³n de brillo. True=Si False=No")
 	#pragma GE_Documentation(Zona_influencia, "Zona de influencia de esta entidad (Y es en vertical)")
-	#pragma GE_Documentation(Render_tras_solido, "¿ Calcular 'render' si está detrás de bloque sólido ? True=Si False=No")
-	#pragma GE_Documentation(Render_distancia_max, "Distancia máxima para calcular 'render' (0 sin distancia)")
-	#pragma GE_Documentation(Luces_Dina_Max, "Luces dinámicas que afectan al modelo 3D. (de 0 a 9)")
-	#pragma GE_Documentation(Luces_Stat_Max, "Luces estáticas que afectan al modelo 3D. (de 0 a 9)")
+	#pragma GE_Documentation(Render_tras_solido, "Â¿ Calcular 'render' si estÃ¡ detrÃ¡s de bloque sÃ³lido ? True=Si False=No")
+	#pragma GE_Documentation(Render_distancia_max, "Distancia mÃ¡xima para calcular 'render' (0 sin distancia)")
+	#pragma GE_Documentation(Luces_Dina_Max, "Luces dinÃ¡micas que afectan al modelo 3D. (de 0 a 9)")
+	#pragma GE_Documentation(Luces_Stat_Max, "Luces estÃ¡ticas que afectan al modelo 3D. (de 0 a 9)")
 	#pragma GE_Documentation(Colorear, "Usar el valor de 'Color' para colorear el modelo 3D. True=Si False=No")
 	#pragma GE_Documentation(Color, "Color del modelo 3D.'Colorear' debe estar a 'True'")
-	#pragma GE_Documentation(Boton_Accion_indicador, "Mostrar indicador de tecla 'Acción'.'Boton_accion' debe estar a 'True'")
+	#pragma GE_Documentation(Boton_Accion_indicador, "Mostrar indicador de tecla 'AcciÃ³n'.'Boton_accion' debe estar a 'True'")
 	#pragma GE_Documentation(Repetir_comandos_zona, "Procesar 'CommandsFile' mientras el jugador siga en la zona de influencia")
-	#pragma GE_Documentation(AllowRotation, "¿ Rotación del .ACT según la rotación del modelo asociado ? True=Si False=No")
-	#pragma GE_Documentation(AllowOrbiting, "¿ Orbitación del .ACT según la rotación del modelo asociado ? True=Si False=No")
+	#pragma GE_Documentation(AllowRotation, "Â¿ RotaciÃ³n del .ACT segÃºn la rotaciÃ³n del modelo asociado ? True=Si False=No")
+	#pragma GE_Documentation(AllowOrbiting, "Â¿ OrbitaciÃ³n del .ACT segÃºn la rotaciÃ³n del modelo asociado ? True=Si False=No")
 	#pragma GE_Documentation(Model, "Modelo asociado al .ACT (Opcional)")
 
 } SpecificActor;
 
-// Declaración de funciones
+// DeclaraciÃ³n de funciones
 geBoolean SpecificActor_Spawn(geWorld *World, geBitmap *Bitmap);
 geBoolean SpecificActor_Render(geWorld *World, GenVSI *VSI, int ancho_resolucion, int alto_resolucion, float Time);
 geBoolean Free_SpecificActor(geWorld *World);

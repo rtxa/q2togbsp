@@ -17,7 +17,7 @@
 
 /******************************************************************************/
 /*                                                                            */
-/*  Traducci髇 y adaptaci髇 para Entidad 3D: Jordi P閞ez                      */
+/*  Traducci贸n y adaptaci贸n para Entidad 3D: Jordi P茅rez                      */
 /*                                                                            */
 /*  Copyright (c) 2005 - 2015; All rights reserved.                           */
 /*                                                                            */
@@ -81,18 +81,18 @@ typedef struct _StaticEntityProxy
 #pragma GE_DefaultValue(ScaleFactor, "1.0")
 #pragma GE_DefaultValue(FaceDestination, "False")
 #pragma GE_DefaultValue(ActorRotation, "-89.55 3.14159268359 0.0")
-#pragma GE_Documentation(szSoundFile, "Sonido para colisi髇 y activaci髇")
+#pragma GE_Documentation(szSoundFile, "Sonido para colisi贸n y activaci贸n")
 #pragma GE_Documentation(fRadius, "Rango audible del sonido")
 #pragma GE_Documentation(szActorFile, "Fichero .ACT a cargar para este 'proxy'")
 #pragma GE_Documentation(szEntityName, "Entidad asociada")
-#pragma GE_Documentation(szDefaultAction, "Animaci髇 por defecto")
-#pragma GE_Documentation(szImpactAction, "Animaci髇 al colisionar")
+#pragma GE_Documentation(szDefaultAction, "Animaci贸n por defecto")
+#pragma GE_Documentation(szImpactAction, "Animaci贸n al colisionar")
 #pragma GE_Documentation(bCanPush, "True si el jugador puede empujar el 'actor'")
 #pragma GE_Documentation(InitialAlpha,"Transparencia del 'actor', de 0 a 255")
 #pragma GE_Documentation(SubjectToGravity, "True si al 'actor' le afecta la gravedad")
-#pragma GE_Documentation(ScaleFactor, "Tama駉 del 'actor'")
+#pragma GE_Documentation(ScaleFactor, "Tama帽o del 'actor'")
 #pragma GE_Documentation(FaceDestination, "True si el 'actor' gira para encarar")
-#pragma GE_Documentation(ActorRotation, "Rotaci髇 necesaria para la correcta orientaci髇")
+#pragma GE_Documentation(ActorRotation, "Rotaci贸n necesaria para la correcta orientaci贸n")
 } StaticEntityProxy;
 
 
@@ -129,14 +129,14 @@ typedef struct _ParticleSystemProxy
 #pragma GE_DefaultValue(MaxParticleCount, "10")
 #pragma GE_DefaultValue(ParticleLifespan, "2000")
 #pragma GE_DefaultValue(szEntityName, "")
-#pragma GE_Documentation(nStyle, "Estilo del sistema de part韈ulas")
+#pragma GE_Documentation(nStyle, "Estilo del sistema de part铆culas")
 #pragma GE_Documentation(szSoundFile, "Sonido en bucle")
 #pragma GE_Documentation(fRadius, "Rango audible del sonido")
-#pragma GE_Documentation(szTexture, "Textura a usar para las part韈ulas")
-#pragma GE_Documentation(clrColor, "Color de las part韈ulas")
-#pragma GE_Documentation(BirthRate, "Frecuencia de creaci髇 de las part韈ulas")
-#pragma GE_Documentation(MaxParticleCount, "N鷐ero m醲imo de part韈ulas")
-#pragma GE_Documentation(ParticleLifespan, "Ciclo de vida de las part韈ulas")
+#pragma GE_Documentation(szTexture, "Textura a usar para las part铆culas")
+#pragma GE_Documentation(clrColor, "Color de las part铆culas")
+#pragma GE_Documentation(BirthRate, "Frecuencia de creaci贸n de las part铆culas")
+#pragma GE_Documentation(MaxParticleCount, "N煤mero m谩ximo de part铆culas")
+#pragma GE_Documentation(ParticleLifespan, "Ciclo de vida de las part铆culas")
 #pragma GE_Documentation(szEntityName, "Entidad asociada")
 } ParticleSystemProxy;
 

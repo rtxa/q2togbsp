@@ -17,7 +17,7 @@
 
 /******************************************************************************/
 /*                                                                            */
-/*  Traducción y adaptación para Entidad 3D: Jordi Pérez                      */
+/*  TraducciÃ³n y adaptaciÃ³n para Entidad 3D: Jordi PÃ©rez                      */
 /*                                                                            */
 /*  Copyright (C) 2005 - 2016; All rights reserved.                           */
 /*                                                                            */
@@ -66,7 +66,7 @@ typedef struct Fx_Lluvia
 	float		MaxScale;
 	geBoolean 	Activo;
 
-	#pragma GE_Documentation( Entity, "<sin función> Entidad 'StaticEntityProxy' asociada" )
+	#pragma GE_Documentation( Entity, "<sin funciÃ³n> Entidad 'StaticEntityProxy' asociada" )
 	#pragma GE_Origin( Position )
 	#pragma GE_DefaultValue( Gravity, "0.0 -60.0 0.0" )
 	#pragma GE_DefaultValue( Radius, "200.0" )
@@ -78,29 +78,29 @@ typedef struct Fx_Lluvia
 	#pragma GE_DefaultValue( BmpName, "rain.bmp" )
 	#pragma GE_DefaultValue( AlphaName, "a_rain.bmp" )
 
-	#pragma GE_Documentation( Position, "Posición del efecto" )
+	#pragma GE_Documentation( Position, "PosiciÃ³n del efecto" )
 	#pragma GE_Documentation( Gravity, "Vector de gravedad para aplicar a cada gota" )
-	#pragma GE_Documentation( Radius, "Radio de acción de la lluvia" )
+	#pragma GE_Documentation( Radius, "Radio de acciÃ³n de la lluvia" )
 	#pragma GE_Documentation( Severity, "Intensidad de la lluvia, 0.0 poca, 1.0 mucha" )
 	#pragma GE_Documentation( DropLife, "Vida de cada gota (segundos)" )
-	#pragma GE_Documentation( ColorMin, "Mínimo valor de color RGB para cada gota" )
-	#pragma GE_Documentation( ColorMax, "Máximo valor de color RGB para cada gota" )
+	#pragma GE_Documentation( ColorMin, "MÃ­nimo valor de color RGB para cada gota" )
+	#pragma GE_Documentation( ColorMax, "MÃ¡ximo valor de color RGB para cada gota" )
 	#pragma GE_Documentation( BmpName, "Nombre de imagen .BMP que representa la gota" )
 	#pragma GE_Documentation( AlphaName, "Nombre de imagen .BMP (Alpha) que representa la gota" )
-	#pragma GE_Documentation( BoneName, "<sin función> Hueso del esqueleto del 'actor' al que enganchar efecto" )
-	#pragma GE_Documentation( TriggerName, "<sin función> Fichero de comandos .INI" )
+	#pragma GE_Documentation( BoneName, "<sin funciÃ³n> Hueso del esqueleto del 'actor' al que enganchar efecto" )
+	#pragma GE_Documentation( TriggerName, "<sin funciÃ³n> Fichero de comandos .INI" )
 
 	#pragma GE_DefaultValue( Transparencia, "255.0" )
 	#pragma GE_Documentation( Transparencia, "Nivel de transparencia. De 0 a 255" )
 
 	#pragma GE_DefaultValue( MinScale, "0.5" )
-	#pragma GE_Documentation( MinScale, "Tamaño mínimo de las gotas" )
+	#pragma GE_Documentation( MinScale, "TamaÃ±o mÃ­nimo de las gotas" )
 
 	#pragma GE_DefaultValue( MaxScale, "1.5" )
-	#pragma GE_Documentation( MaxScale, "Tamaño máximo de las gotas" )
+	#pragma GE_Documentation( MaxScale, "TamaÃ±o mÃ¡ximo de las gotas" )
 
 	#pragma GE_DefaultValue( Activo, "True" )
-	#pragma GE_Documentation( Activo, "¿ Efecto activo ?. True=Si False=No" )
+	#pragma GE_Documentation( Activo, "Â¿ Efecto activo ?. True=Si False=No" )
 
 } Fx_Lluvia;
 

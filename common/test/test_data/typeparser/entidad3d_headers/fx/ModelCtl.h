@@ -4,9 +4,9 @@
 //
 
 /****************************************************************************************/
-/*  Descripción:                                                                        */
+/*  DescripciÃ³n:                                                                        */
 /*                                                                                      */
-/*  Definición de clases de entidades.                                                  */
+/*  DefiniciÃ³n de clases de entidades.                                                  */
 /*  Este fichero .h lo utiliza World Editor para crear las entidades que usa el         */
 /*  programa Entidad 3D.                                                                */
 /*                                                                                      */
@@ -15,9 +15,9 @@
 /*                                                                                      */
 /*  Modificaciones para Entidad 3D:                                                     */
 /*                                                                                      */
-/*  Autor: Jordi Pérez                                                                  */
+/*  Autor: Jordi PÃ©rez                                                                  */
 /*                                                                                      */
-/*  Copyright (c) 2004 - 2017 Jordi Pérez; All rights reserved.                         */
+/*  Copyright (c) 2004 - 2017 Jordi PÃ©rez; All rights reserved.                         */
 /*                                                                                      */
 /****************************************************************************************/
 
@@ -39,15 +39,15 @@ typedef struct	ModelController
 	
 #pragma GE_Published
 	geWorld_Model *	Model;
-	#pragma GE_Documentation(Model, "Selecciona un 'model' con animación que será el bloque a mover")
+	#pragma GE_Documentation(Model, "Selecciona un 'model' con animaciÃ³n que serÃ¡ el bloque a mover")
 
 	geBoolean   En_movimiento;
 	#pragma GE_DefaultValue(En_movimiento, "True")
-	#pragma GE_Documentation(En_movimiento, "¿ Bloque en movimiento al dar comienzo el nivel ? True=Si False=No")
+	#pragma GE_Documentation(En_movimiento, "Â¿ Bloque en movimiento al dar comienzo el nivel ? True=Si False=No")
 
 	int Num_bloque;	
 	#pragma GE_DefaultValue(Num_bloque, "1")
-	#pragma GE_Documentation(Num_bloque, "Número de bloque (entre 1 y 255)")
+	#pragma GE_Documentation(Num_bloque, "NÃºmero de bloque (entre 1 y 255)")
 
 	geVec3d Origin;
 	#pragma GE_Origin(Origin)

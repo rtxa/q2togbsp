@@ -3,9 +3,9 @@
 // Copyright  1999, WildTangent, Inc.
 //
 /****************************************************************************************/
-/*  Descripción:                                                                        */
+/*  DescripciÃ³n:                                                                        */
 /*                                                                                      */
-/*  Definición de clases de entidades.                                                  */
+/*  DefiniciÃ³n de clases de entidades.                                                  */
 /*  Este fichero .h lo utiliza World Editor para crear las entidades que usa el         */
 /*  programa Entidad 3D.                                                                */
 /*                                                                                      */
@@ -14,9 +14,9 @@
 /*                                                                                      */
 /*  Modificaciones para Entidad 3D:                                                     */
 /*                                                                                      */
-/*  Autor: Jordi Pérez                                                                  */
+/*  Autor: Jordi PÃ©rez                                                                  */
 /*                                                                                      */
-/*  Copyright (c) 2004 - 2016 Jordi Pérez; All rights reserved.                         */
+/*  Copyright (c) 2004 - 2016 Jordi PÃ©rez; All rights reserved.                         */
 /*                                                                                      */
 /****************************************************************************************/
 
@@ -68,22 +68,22 @@ typedef struct	DynamicLight
 #pragma GE_DefaultValue(Num_luz, "1")
 #pragma GE_DefaultValue(SombraNivel, "True")
 
-#pragma GE_Documentation(origin, "Posición (X Y Z)")
-#pragma GE_Documentation(MinRadius, "Alcance mínimo de la luz")
-#pragma GE_Documentation(MaxRadius, "Alcance máximo de la luz")
-#pragma GE_Documentation(InterpolateValues, "Tipo de variación de la luz. Valores 0, 1, 2, 3 o 4")
-#pragma GE_Documentation(AllowRotation, "¿ Rotación de la luz según la rotación del modelo asociado ?. 0=No  1=Si")
-#pragma GE_Documentation(RadiusFunction, "Secuencia de letras de la 'a' a la 'z' para fijar intensidad variable de la luz. (a = Mínimo  z = Máximo)")
-#pragma GE_Documentation(RadiusSpeed, "Velocidad de variación de los valores de 'RadiusFunction'. (En segundos)")
+#pragma GE_Documentation(origin, "PosiciÃ³n (X Y Z)")
+#pragma GE_Documentation(MinRadius, "Alcance mÃ­nimo de la luz")
+#pragma GE_Documentation(MaxRadius, "Alcance mÃ¡ximo de la luz")
+#pragma GE_Documentation(InterpolateValues, "Tipo de variaciÃ³n de la luz. Valores 0, 1, 2, 3 o 4")
+#pragma GE_Documentation(AllowRotation, "Â¿ RotaciÃ³n de la luz segÃºn la rotaciÃ³n del modelo asociado ?. 0=No  1=Si")
+#pragma GE_Documentation(RadiusFunction, "Secuencia de letras de la 'a' a la 'z' para fijar intensidad variable de la luz. (a = MÃ­nimo  z = MÃ¡ximo)")
+#pragma GE_Documentation(RadiusSpeed, "Velocidad de variaciÃ³n de los valores de 'RadiusFunction'. (En segundos)")
 #pragma GE_Documentation(Model, "Modelo asociado a la luz. (Opcional)")
 #pragma GE_Documentation(Color, "Color de la luz")
-#pragma GE_Documentation(Visible, "¿ Luz visible ? True=Si False=No")
-#pragma GE_Documentation(Num_luz, "Número de luz. (de 1 a 255)")
+#pragma GE_Documentation(Visible, "Â¿ Luz visible ? True=Si False=No")
+#pragma GE_Documentation(Num_luz, "NÃºmero de luz. (de 1 a 255)")
 #pragma GE_Documentation(SombraNivel, "Produce sombras por la arquitectura del nivel. True=Si False=No")
 
 #pragma GE_Angles(Orientacion)
 #pragma GE_DefaultValue(Orientacion, "0 0 0")
-#pragma GE_Documentation(Orientacion, "Orientación de la luz de foco")
+#pragma GE_Documentation(Orientacion, "OrientaciÃ³n de la luz de foco")
 
 #pragma GE_Arc(Arc)
 #pragma GE_DefaultValue(Arc, "0")
@@ -92,7 +92,7 @@ typedef struct	DynamicLight
 } DynamicLight;
 
 
-// Declaración de funciones
+// DeclaraciÃ³n de funciones
 geBoolean	DynLight_Init(geEngine *Engine, geWorld *World, geVFile *Context);
 geBoolean	DynLight_Frame(geWorld *World, const geXForm3d *ViewPoint, geFloat Time);
 

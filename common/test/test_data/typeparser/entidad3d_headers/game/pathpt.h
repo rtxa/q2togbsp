@@ -4,9 +4,9 @@
 //
 
 /****************************************************************************************/
-/*  DescripciÛn:                                                                        */
+/*  Descripci√≥n:                                                                        */
 /*                                                                                      */
-/*  DefiniciÛn de clases de entidades.                                                  */
+/*  Definici√≥n de clases de entidades.                                                  */
 /*  Este fichero .h lo utiliza World Editor para crear las entidades que usa el         */
 /*  programa Entidad 3D.                                                                */
 /*                                                                                      */
@@ -15,9 +15,9 @@
 /*                                                                                      */
 /*  Modificaciones para Entidad 3D:                                                     */
 /*                                                                                      */
-/*  Autor: Jordi PÈrez                                                                  */
+/*  Autor: Jordi P√©rez                                                                  */
 /*                                                                                      */
-/*  Copyright (c) 2004 - 2015 Jordi PÈrez; All rights reserved.                         */
+/*  Copyright (c) 2004 - 2015 Jordi P√©rez; All rights reserved.                         */
 /*                                                                                      */
 /****************************************************************************************/
 
@@ -62,12 +62,12 @@ typedef struct PathPoint {
 
 	#pragma GE_Documentation(Next, "Enlace al siguiente punto")
 	#pragma GE_Documentation(PathType, "Tipo de ruta")
-	#pragma GE_Documentation(ActionType, "Tipo de acciÛn")
-	#pragma GE_Documentation(Time, "Modificador del tipo de acciÛn. SÛlo aplicable a ciertas acciones. 0 por defecto.")
-	#pragma GE_Documentation(Dist, "Modificador del tipo de acciÛn. SÛlo aplicable a ciertas acciones. 0 por defecto.")
-	#pragma GE_Documentation(VelocityScale, "Modificador del tipo de acciÛn. SÛlo aplicable a ciertas acciones. 0 por defecto.")
-	#pragma GE_Documentation(MoveWithModel,"Enlace a un 'model'. La entidad se mover· con este 'model'.")
-	#pragma GE_Documentation(Direction, "DirecciÛn de la acciÛn: 1=Adelante, -1=Inversa, 0=Ambas")
+	#pragma GE_Documentation(ActionType, "Tipo de acci√≥n")
+	#pragma GE_Documentation(Time, "Modificador del tipo de acci√≥n. S√≥lo aplicable a ciertas acciones. 0 por defecto.")
+	#pragma GE_Documentation(Dist, "Modificador del tipo de acci√≥n. S√≥lo aplicable a ciertas acciones. 0 por defecto.")
+	#pragma GE_Documentation(VelocityScale, "Modificador del tipo de acci√≥n. S√≥lo aplicable a ciertas acciones. 0 por defecto.")
+	#pragma GE_Documentation(MoveWithModel,"Enlace a un 'model'. La entidad se mover√° con este 'model'.")
+	#pragma GE_Documentation(Direction, "Direcci√≥n de la acci√≥n: 1=Adelante, -1=Inversa, 0=Ambas")
 } PathPoint;
 
 #pragma warning( default : 4068 )

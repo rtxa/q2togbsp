@@ -3,9 +3,9 @@
 // Copyright  1999, WildTangent, Inc.
 //
 /****************************************************************************************/
-/*  Descripción:                                                                        */
+/*  DescripciÃ³n:                                                                        */
 /*                                                                                      */
-/*  Definición de clases de entidades.                                                  */
+/*  DefiniciÃ³n de clases de entidades.                                                  */
 /*  Este fichero .h lo utiliza World Editor para crear las entidades que usa el         */
 /*  programa Entidad 3D.                                                                */
 /*                                                                                      */
@@ -14,9 +14,9 @@
 /*                                                                                      */
 /*  Modificaciones para Entidad 3D:                                                     */
 /*                                                                                      */
-/*  Autor: Jordi Pérez                                                                  */
+/*  Autor: Jordi PÃ©rez                                                                  */
 /*                                                                                      */
-/*  Copyright (c) 2004 - 2016 Jordi Pérez; All rights reserved.                         */
+/*  Copyright (c) 2004 - 2016 Jordi PÃ©rez; All rights reserved.                         */
 /*                                                                                      */
 /****************************************************************************************/
 
@@ -78,17 +78,17 @@ typedef struct	Corona
 
 		#pragma GE_Documentation(FadeOut, "Nivel de desvanecimiento. (Valores 0 o 1)")
 		#pragma GE_Documentation(FadeTime, "Tiempo en segundos para desvanecerse")
-		#pragma GE_Documentation(MinRadius, "Mínimo radio de la corona")
-		#pragma GE_Documentation(MaxRadius, "Máximo radio de la corona")
-		#pragma GE_Documentation(MaxVisibleDistance, "Distancia máxima a la que es visible la corona")
-		#pragma GE_Documentation(MaxRadiusDistance, "Por encima de esta distancia, la corona se verá al tamaño 'MaxRadius'")
-		#pragma GE_Documentation(MinRadiusDistance, "Por debajo de esta distancia, la corona se verá al tamaño 'MinRadius'")
-		#pragma GE_Documentation(AllowRotation, "¿ Rotación de la corona según la rotación del modelo asociado ?. (0=No  1=Si)")
+		#pragma GE_Documentation(MinRadius, "MÃ­nimo radio de la corona")
+		#pragma GE_Documentation(MaxRadius, "MÃ¡ximo radio de la corona")
+		#pragma GE_Documentation(MaxVisibleDistance, "Distancia mÃ¡xima a la que es visible la corona")
+		#pragma GE_Documentation(MaxRadiusDistance, "Por encima de esta distancia, la corona se verÃ¡ al tamaÃ±o 'MaxRadius'")
+		#pragma GE_Documentation(MinRadiusDistance, "Por debajo de esta distancia, la corona se verÃ¡ al tamaÃ±o 'MinRadius'")
+		#pragma GE_Documentation(AllowRotation, "Â¿ RotaciÃ³n de la corona segÃºn la rotaciÃ³n del modelo asociado ?. (0=No  1=Si)")
 		#pragma GE_Documentation(Model, "Modelo asociado a la corona. (Opcional)")
 		#pragma GE_Documentation(Color, "Color de la corona")
-		#pragma GE_Documentation(Visible, "¿ Corona visible ?. True=Si False=No")
-		#pragma GE_Documentation(origin, "Posición (X Y Z)")
-		#pragma GE_Documentation(Num_corona, "Número de corona. (de 1 a 255)")
+		#pragma GE_Documentation(Visible, "Â¿ Corona visible ?. True=Si False=No")
+		#pragma GE_Documentation(origin, "PosiciÃ³n (X Y Z)")
+		#pragma GE_Documentation(Num_corona, "NÃºmero de corona. (de 1 a 255)")
 		#pragma GE_Documentation(Transparencia, "Nivel de transparencia (de 0 a 255). 255 sin transparencia")
 		#pragma GE_Documentation(Tipo_corona, "Tipo de corona. (de 1 a 10)")
 

@@ -1,18 +1,18 @@
 /****************************************************************************************/
 /*  File: verarma.h                                                                     */
 /*                                                                                      */
-/*  Descripci髇:                                                                        */
+/*  Descripci贸n:                                                                        */
 /*                                                                                      */
-/*  Definici髇 de clases de entidades.                                                  */
+/*  Definici贸n de clases de entidades.                                                  */
 /*  Este fichero .h lo utiliza World Editor para crear las entidades que usa el         */
 /*  programa Entidad 3D.                                                                */
 /*                                                                                      */
 /*  No modificar el contenido de este fichero .h para un correcto funcionamiento        */
 /*  de Entidad 3D y World Editor.                                                       */
 /*                                                                                      */
-/*  Autor: Jordi P閞ez                                                                  */
+/*  Autor: Jordi P茅rez                                                                  */
 /*                                                                                      */
-/*  Copyright (C) 2005 - 2017 Jordi P閞ez; All rights reserved.                         */
+/*  Copyright (C) 2005 - 2017 Jordi P茅rez; All rights reserved.                         */
 /*                                                                                      */
 /****************************************************************************************/
 
@@ -32,7 +32,7 @@ extern "C" {
 #pragma GE_Type("Item.ico")
 typedef struct VerArma {
 #pragma GE_Private
-	geFloat lastTime; // Control 鷏tima animaci髇
+	geFloat lastTime; // Control 煤ltima animaci贸n
 	geActor *Weapon1; // Puntero al 'Actor' del arma 1
 	geActor *Weapon2; // Puntero al 'Actor' del arma 2
 	geActor *Weapon3; // Puntero al 'Actor' del arma 3
@@ -41,12 +41,12 @@ typedef struct VerArma {
 	geActor_Def *pActorDef2; // 'Actor' Definition arma 2
 	geActor_Def *pActorDef3; // 'Actor' Definition arma 3
 	geActor_Def *pActorDef4; // 'Actor' Definition arma 4
-	//geFloat startTime; // Control primera animaci髇 (no utilizado)
-	//geVec3d Rotation; // Vector de rotaci髇 (no utilizado)
+	//geFloat startTime; // Control primera animaci贸n (no utilizado)
+	//geVec3d Rotation; // Vector de rotaci贸n (no utilizado)
 #pragma GE_Published
-	geVec3d Origin; // Posici髇 de la entidad
+	geVec3d Origin; // Posici贸n de la entidad
 	geVec3d scale; // Escala
-	geVec3d Orientation; // Vector de orientaci髇
+	geVec3d Orientation; // Vector de orientaci贸n
 	//geBoolean RenderEnEspejos; // Reflejo en espejos (no utilizado)
 	geBoolean Ocultar_sombra_1P;
 
@@ -64,7 +64,7 @@ typedef struct VerArma {
 
 } VerArma;
 
-// Declaraci髇 de funciones
+// Declaraci贸n de funciones
 geBoolean VWeap_Spawn(geWorld *World, geVFile *MainFS);
 geBoolean VWeap_Render(geWorld *World, geBoolean Show, uint16 Weapon, float Time);
 

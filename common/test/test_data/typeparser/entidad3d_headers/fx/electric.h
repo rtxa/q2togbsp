@@ -3,9 +3,9 @@
 // Copyright  1999, WildTangent, Inc.
 //
 /****************************************************************************************/
-/*  Descripción:                                                                        */
+/*  DescripciÃ³n:                                                                        */
 /*                                                                                      */
-/*  Definición de clases de entidades.                                                  */
+/*  DefiniciÃ³n de clases de entidades.                                                  */
 /*  Este fichero .h lo utiliza World Editor para crear las entidades que usa el         */
 /*  programa Entidad 3D.                                                                */
 /*                                                                                      */
@@ -14,9 +14,9 @@
 /*                                                                                      */
 /*  Modificaciones para Entidad 3D:                                                     */
 /*                                                                                      */
-/*  Autor: Jordi Pérez                                                                  */
+/*  Autor: Jordi PÃ©rez                                                                  */
 /*                                                                                      */
-/*  Copyright (c) 2004 - 2016 Jordi Pérez; All rights reserved.                         */
+/*  Copyright (c) 2004 - 2016 Jordi PÃ©rez; All rights reserved.                         */
 /*                                                                                      */
 /****************************************************************************************/
 
@@ -61,15 +61,15 @@ typedef struct	ElectricBolt
 #pragma GE_Published
 	int Num_sonido3d;	
 	#pragma GE_DefaultValue(Num_sonido3d, "0")
-	#pragma GE_Documentation(Num_sonido3d, "Número de sonido 3D (entre 1 y 255). (Poner 0 si no es sonido 3D)")
+	#pragma GE_Documentation(Num_sonido3d, "NÃºmero de sonido 3D (entre 1 y 255). (Poner 0 si no es sonido 3D)")
 
 	geBoolean   Activado;
 	#pragma GE_DefaultValue(Activado, "True")
-	#pragma GE_Documentation(Activado, "¿ Sonido 3D activado al dar comienzo el nivel ? True=Si False=No")
+	#pragma GE_Documentation(Activado, "Â¿ Sonido 3D activado al dar comienzo el nivel ? True=Si False=No")
 
 	geBoolean   Ciclico;
 	#pragma GE_DefaultValue(Ciclico, "True")
-	#pragma GE_Documentation(Ciclico, "¿ Sonido 3D se interpreta cíclicamente ? True=Si False=No")
+	#pragma GE_Documentation(Ciclico, "Â¿ Sonido 3D se interpreta cÃ­clicamente ? True=Si False=No")
 
     geVec3d					origin;
     int						Width;
@@ -98,8 +98,8 @@ typedef struct	ElectricBolt
 	#pragma GE_Documentation(Width, "Ancho del rayo. (0 para sonido 3D)")
 	#pragma GE_Documentation(NumPoints, "Puntos de control del rayo (32, 64, 128")
 	#pragma GE_Documentation(Intermittent, "Rayo intermitente. 0=No o 1=Si.(0 para sonido 3D)")
-	#pragma GE_Documentation(MinFrequency, "Tiempo mínimo entre descargas del rayo")
-	#pragma GE_Documentation(MaxFrequency, "Tiempo máximo entre descargas del rayo")
+	#pragma GE_Documentation(MinFrequency, "Tiempo mÃ­nimo entre descargas del rayo")
+	#pragma GE_Documentation(MaxFrequency, "Tiempo mÃ¡ximo entre descargas del rayo")
 	#pragma GE_Documentation(Wildness, "Grado de intensidad del rayo. 0 a 1.(0 para sonido 3D)")
 	#pragma GE_Documentation(Terminus, "Seleccionar el otro extremo del rayo")
 	#pragma GE_Documentation(DominantColor, "Color dominante del rayo. 0=Rojo, 1=Verde, 2=Azul")
