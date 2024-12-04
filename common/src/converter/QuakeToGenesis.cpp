@@ -2,22 +2,19 @@
 
 #include "utils/StringTokenizer.h"
 
+#include <fmt/format.h>
 #include <iostream>
+#include <optional>
 
 GenesisMap QuakeToGenesis::convert(const QuakeMap& qMap) {
-    GenesisEntity gEnt;
-    GenesisBrush gBrush;
-    GenesisFace gFace;
-    QuakeBrush qBrush;
-
     GenesisMap gMap;
 
     for (const auto& ent : qMap.entities()) {
+        GenesisEntity gEnt;
         convertEnt(ent, gEnt);
         if (gEnt.getNumKeys() != 0) {
             gMap.insertEntity(gEnt);
         }
-        gEnt = GenesisEntity();
     }
 
     return gMap;
@@ -149,45 +146,40 @@ void QuakeToGenesis::alignTextureToFace(const QuakeFace& qFace,
 }
 
 bool QuakeToGenesis::convertEnt(const QuakeEntity& qEnt, GenesisEntity& gEnt) {
-    // insert brushes to genesis entity
+    // Insert brushes to Genesis entity
     for (const auto& brush : qEnt.brushes()) {
-        // TODO create function brushToGenesis
         GenesisBrush gBrush;
-        int contentFlags = 0;
+        std::optional<int> contentFlags;
         for (const auto& face : brush.faces()) {
             GenesisFace gFace;
             convertFace(face, gFace);
             gBrush.insertFace(gFace);
-            //  only use the one from the first face
-            contentFlags = face.getContentFlags();
+            // Set content flags from the first face
+            if (!contentFlags.has_value()) {
+                contentFlags = face.getContentFlags();
+            }
         }
-        if (contentFlags == 0) {
-            contentFlags = GenesisBrush::BrushContentFlags::Solid;
-        }
-        gBrush.setFlags(contentFlags);
-
+        // Default content flags if none were set
+        gBrush.setFlags(
+            contentFlags.value_or(GenesisBrush::BrushContentFlags::Solid));
         gEnt.insertBrush(gBrush);
     }
 
-    // insert keyvalues to genesis entity
-    // TODO compare insensitive case using c.str() and stricmp
-    for (const auto& property : qEnt.properties()) {
-        // Every entity has a name assigned (light1, light2, etc...)
-        // Generate those names automatically
-        if (property.first == "classname" && property.second != "worldspawn") {
-            gEnt.insertKeyValue("%name%", getNameForEntity(property.second));
-        } else if (property.first == "origin") {
+    // Insert keyvalues to Genesis entity
+    for (const auto& [key, value] : qEnt.properties()) {
+        if (key == "classname" && value != "worldspawn") {
+            gEnt.insertKeyValue("%name%", getNameForEntity(value));
+        } else if (key == "origin") {
             Vector3f origin;
-            if (convertCoords(property.second, origin)) {
-                gEnt.insertKeyValue(property.first,
-                                    std::to_string(origin.x) + ' ' +
-                                        std::to_string(origin.y) + ' ' +
-                                        std::to_string(origin.z));
+            if (convertCoords(value, origin)) {
+                gEnt.insertKeyValue(
+                    key, fmt::format("{} {} {}", origin.x, origin.y, origin.z));
                 continue;
             }
-            std::cout << "Error converting origin to Genesis\n";
+            std::cerr << "Error converting origin to Genesis\n";
+        } else {
+            gEnt.insertKeyValue(key, value);
         }
-        gEnt.insertKeyValue(property.first, property.second);
     }
 
     return false;
@@ -211,11 +203,11 @@ bool QuakeToGenesis::convertCoords(const std::string& origin,
     if (st.countTokens() < 3) {
         return false;
     }
-
-    vector.x = st.nextTokenFloat();
-    vector.z = st.nextTokenFloat();
-    vector.y = st.nextTokenFloat();
-    vector.z = -vector.z;
+    Vector3f temp = {st.nextTokenFloat(), st.nextTokenFloat(),
+                     st.nextTokenFloat()};
+    vector.x = temp.x;
+    vector.y = temp.z;
+    vector.z = -temp.y;
 
     return true;
 }
