@@ -21,4 +21,6 @@ target_include_directories(common PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
 target_link_libraries(common PUBLIC fmt::fmt)
 
+target_compile_features(common PUBLIC cxx_std_17)
+
 add_subdirectory(test)
