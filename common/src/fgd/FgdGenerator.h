@@ -36,7 +36,8 @@ class FgdGenerator {
                 for (const auto& prop : entDef.properties) {
                     if (prop.isPublished) {
                         writeProperty(fgdFile, prop.name, prop.type,
-                                      prop.defaultValue, prop.documentation);
+                                      prop.defaultValue, prop.documentation,
+                                      prop.isOrigin);
                     }
                 }
                 fgdFile << "]" << "\n\n";
@@ -48,12 +49,22 @@ class FgdGenerator {
                               const std::string& name,
                               const std::string& type,
                               const std::string& defaultValue,
-                              const std::string& documentation) {
+                              const std::string& documentation,
+                              bool isOrigin) {
         static constexpr auto indent = "    ";
+
+        if (isOrigin) {
+            // FGD already has an origin property implicitly
+            // We don't want to add it twice
+            return;
+        }
+
         if (type == "int") {
             fgdFile << indent
                     << fmt::format("{}(integer) : \"{}\" : {} : \"{}\" \n",
-                                   name, name, defaultValue, documentation);
+                                   name, name,
+                                   defaultValue.empty() ? "0" : defaultValue,
+                                   documentation);
         } else if (type == "geBoolean") {
             fgdFile << indent
                     << fmt::format("{}(choices) : \"{}\" : \"{}\" : \"{}\" =\n",
@@ -67,12 +78,17 @@ class FgdGenerator {
 
         } else if (type == "GE_RGBA") {
             fgdFile << indent
-                    << fmt::format("{}(color255) : \"{}\" : \"{}\" : \"{}\" \n",
-                                   name, name, defaultValue, documentation);
+                    << fmt::format(
+                           "{}(color255) : \"{}\" : \"{}\" : \"{}\" \n", name,
+                           name,
+                           defaultValue.empty() ? "255 255 255" : defaultValue,
+                           documentation);
         } else if (type == "geFloat" || type == "float") {
             fgdFile << indent
                     << fmt::format("{}(float) : \"{}\" : \"{}\" : \"{}\" \n",
-                                   name, name, defaultValue, documentation);
+                                   name, name,
+                                   defaultValue.empty() ? "0.0" : defaultValue,
+                                   documentation);
         } else if (type == "geWorld_Model*") {
             fgdFile << indent
                     << fmt::format(
@@ -83,7 +99,9 @@ class FgdGenerator {
             fgdFile << indent
                     << fmt::format(
                            "{}(string) : \"{} (Vector)\" : \"{}\" : \"{}\" \n",
-                           name, name, defaultValue, documentation);
+                           name, name,
+                           defaultValue.empty() ? "0 0 0" : defaultValue,
+                           documentation);
         } else if (type == "char*") {
             fgdFile << indent
                     << fmt::format(
