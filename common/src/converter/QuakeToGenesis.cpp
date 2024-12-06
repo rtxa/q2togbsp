@@ -3,15 +3,18 @@
 #include "utils/StringTokenizer.h"
 
 #include <fmt/format.h>
+#include <algorithm>
+#include <cctype>
 #include <iostream>
 #include <optional>
 
-GenesisMap QuakeToGenesis::convert(const QuakeMap& qMap) {
+GenesisMap QuakeToGenesis::convert(const QuakeMap& qMap,
+                                   std::vector<EntDef>& entDefs) {
     GenesisMap gMap;
 
     for (const auto& ent : qMap.entities()) {
         GenesisEntity gEnt;
-        convertEnt(ent, gEnt);
+        convertEnt(ent, gEnt, entDefs);
         if (gEnt.getNumKeys() != 0) {
             gMap.insertEntity(gEnt);
         }
@@ -145,7 +148,48 @@ void QuakeToGenesis::alignTextureToFace(const QuakeFace& qFace,
     vVec.z = -qFace.getVecV().y;
 }
 
-bool QuakeToGenesis::convertEnt(const QuakeEntity& qEnt, GenesisEntity& gEnt) {
+// Provides default value for entity type in case is missing in header file
+std::string getDefaultValueForType(const EntDefProp& prop) {
+    if (prop.type == EntDefType::Color) {
+        return "255 255 255";
+    } else if (prop.type == EntDefType::Integer) {
+        return "0";
+    } else if (prop.type == EntDefType::Boolean) {
+        return "0";
+    } else if (prop.type == EntDefType::Float ||
+               prop.type == EntDefType::GeFloat) {
+        return "0.0";
+    } else if (prop.type == EntDefType::Point) {
+        return "0 0 0";
+    } else if (prop.type == EntDefType::String) {
+        return "";
+    }
+
+    return "";
+}
+
+// Currently, world models and user-defined structs can't be exported to the map
+// if not set, doesn't matter if it's empty, it will crash the engine.
+bool isPropertyStruct(const EntDefProp& prop) {
+    if (prop.type == "int" || prop.type == "geBoolean") {
+        return false;
+    } else if (prop.type == "GE_RGBA") {
+        return false;
+    } else if (prop.type == "geFloat" || prop.type == "float") {
+        return false;
+    } else if (prop.type == "geWorld_Model*") {
+        return true;
+    } else if (prop.type == "geVec3d") {
+        return false;
+    } else if (prop.type == "char*") {
+        return false;
+    }
+    return true;
+}
+
+bool QuakeToGenesis::convertEnt(const QuakeEntity& qEnt,
+                                GenesisEntity& gEnt,
+                                const std::vector<EntDef>& entDefs) {
     // Insert brushes to Genesis entity
     for (const auto& brush : qEnt.brushes()) {
         GenesisBrush gBrush;
@@ -165,24 +209,84 @@ bool QuakeToGenesis::convertEnt(const QuakeEntity& qEnt, GenesisEntity& gEnt) {
         gEnt.insertBrush(gBrush);
     }
 
-    // Insert keyvalues to Genesis entity
-    for (const auto& [key, value] : qEnt.properties()) {
-        if (key == "classname" && value != "worldspawn") {
-            gEnt.insertKeyValue("%name%", getNameForEntity(value));
-        } else if (key == "origin") {
-            Vector3f origin;
-            if (convertCoords(value, origin)) {
-                gEnt.insertKeyValue(
-                    key, fmt::format("{} {} {}", origin.x, origin.y, origin.z));
-                continue;
-            }
-            std::cerr << "Error converting origin to Genesis\n";
-        } else {
+    if (qEnt.properties().count("classname") == 0) {
+        std::cerr << "Error: Entity has no classname\n";
+        return false;
+    }
+
+    // Add worldspawn entity
+    if (qEnt.properties().at("classname") == "worldspawn") {
+        for (const auto& [key, value] : qEnt.properties()) {
             gEnt.insertKeyValue(key, value);
+        }
+    } else {  // Add entity classname and derived name
+        gEnt.insertKeyValue("classname", qEnt.properties().at("classname"));
+        gEnt.insertKeyValue(
+            "%name%",
+            qEnt.properties().count("%name%") != 0
+                ? qEnt.properties().at("%name%")
+                : getNameForEntity(qEnt.properties().at("classname")));
+    }
+
+    // Iterate through entity definitions
+    for (const auto& entDef : entDefs) {
+        if (entDef.name == qEnt.properties().at("classname")) {
+            // Insert keyvalues from entity definition
+            updateEntFromDefinition(qEnt, gEnt, entDef);
         }
     }
 
-    return false;
+    return true;
+}
+
+void QuakeToGenesis::updateEntFromDefinition(const QuakeEntity& qEnt,
+                                             GenesisEntity& gEnt,
+                                             const EntDef& entDef) {
+    for (const auto& prop : entDef.properties) {
+        if (!prop.isPublished) {
+            continue;
+        }
+
+        auto lower = prop.name;
+        std::transform(lower.begin(), lower.end(), lower.begin(), ::tolower);
+
+        // Check if property exists (origin is a special case)
+        auto propertyExists =
+            qEnt.properties().count(lower) > 0 ||
+            qEnt.properties().count(prop.name) > 0 ||
+            (prop.isOrigin && qEnt.properties().count("origin") > 0);
+
+        // Add missing properties
+        if (!propertyExists) {
+            if (isPropertyStruct(prop)) {
+                continue;  // Skip missing world models or structs
+            }
+            // Insert default value if none is provided in entity definition
+            auto value = prop.defaultValue.empty()
+                             ? getDefaultValueForType(prop)
+                             : prop.defaultValue;
+            gEnt.insertKeyValue(prop.name, value);
+            continue;
+        }
+
+        // Handle existing properties
+        if (isPropertyStruct(prop) && qEnt.properties().at(prop.name).empty()) {
+            continue;  // Skip empty world models or structs
+        }
+
+        // Do conversions
+        if (prop.isOrigin) {
+            Vector3f origin;
+            if (convertCoords(qEnt.properties().at("origin"), origin)) {
+                gEnt.insertKeyValue(prop.name, fmt::format("{} {} {}", origin.x,
+                                                           origin.y, origin.z));
+            }
+            continue;
+        }
+
+        // Add property
+        gEnt.insertKeyValue(prop.name, qEnt.properties().at(prop.name));
+    }
 }
 
 std::string QuakeToGenesis::getNameForEntity(const std::string& classname) {

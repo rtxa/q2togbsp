@@ -27,3 +27,14 @@ struct EntDef {
     std::string name;      // Entity classname
     std::vector<EntDefProp> properties;
 };
+
+namespace EntDefType {
+constexpr auto WorldModel = "geWorld_Model*";
+constexpr auto Color = "GE_RGBA";
+constexpr auto Boolean = "geBoolean";
+constexpr auto Integer = "int";
+constexpr auto Float = "float";
+constexpr auto GeFloat = "geFloat";
+constexpr auto Point = "geVec3d";
+constexpr auto String = "char*";
+}  // namespace EntDefType

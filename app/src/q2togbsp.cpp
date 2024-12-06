@@ -15,8 +15,10 @@
 
 namespace fs = std::filesystem;
 
-void processHeader(const fs::path& folderPath, std::vector<EntDef>& entDefs);
 void InitCommandLineArgs(argparse::ArgumentParser& program);
+void processHeader(const fs::path& folderPath, std::vector<EntDef>& entDefs);
+std::vector<EntDef> processHeaders(const std::string& headersArg,
+                                   const std::string& fixedEntDefsPath);
 
 int main(int argc, char* argv[]) {
     argparse::ArgumentParser program{"q2togbsp", "0.1"};
@@ -50,9 +52,19 @@ int main(int argc, char* argv[]) {
         std::cout << qMap.dump();
     }
 
+    auto headersArg = program.get<std::string>("--headers");
+    auto fixedEntDefsPath = program.get<std::string>("--fixed-entdef");
+    auto entDefs = processHeaders(headersArg, fixedEntDefsPath);
+
+    // Optional: Generate FGD from entity definitions
+    auto fgdOutputPath = program.get<std::string>("--generate-fgd");
+    if (!fgdOutputPath.empty()) {
+        FgdGenerator::generate(fgdOutputPath, entDefs);
+    }
+
     // Step 2: Convert Quake map data to Genesis map data
     try {
-        gMap = QuakeToGenesis().convert(qMap);
+        gMap = QuakeToGenesis().convert(qMap, entDefs);
     } catch (...) {  // No exception thrown implemented yet
         std::cout << "Failed converting Quake map to Genesis!\n";
         return 1;
@@ -61,38 +73,6 @@ int main(int argc, char* argv[]) {
     if (program["--debug-genesis"] == true) {
         std::cout << "Printing Genesis Map" << '\n';
         std::cout << gMap.dump();
-    }
-
-    auto headersArg = program.get<std::string>("--headers");
-    std::vector<std::string> headersPaths;
-
-    // Using a string stream to split the string
-    std::istringstream ss(headersArg);
-    std::string item;
-
-    // Split the string using the semicolon delimiter
-    while (std::getline(ss, item, ';')) {
-        headersPaths.emplace_back(item);  // Move item into the vector
-    }
-
-    // Specify the path to the folder
-    fs::path folderPath(headersArg);
-
-    // Process the headers and store them
-    auto entDefs = std::vector<EntDef>();
-
-    auto fixedEntDefsPath = program.get<std::string>("--fixed-entdef");
-    if (!fixedEntDefsPath.empty()) {
-        EntDefParser::parse(fixedEntDefsPath, entDefs);
-    }
-
-    for (const auto& path : headersPaths) {
-        processHeader(path, entDefs);
-    }
-
-    auto fgdOutputPath = program.get<std::string>("--generate-fgd");
-    if (!fgdOutputPath.empty()) {
-        FgdGenerator::generate(fgdOutputPath, entDefs);
     }
 
     // Step 3: Finally write the serialized Genesis map file
@@ -132,6 +112,28 @@ void processHeader(const fs::path& folderPath, std::vector<EntDef>& entDefs) {
     } catch (const std::exception& e) {
         std::cerr << "Error: " << e.what() << std::endl;
     }
+}
+
+std::vector<EntDef> processHeaders(const std::string& headersArg,
+                                   const std::string& fixedEntDefsPath) {
+    std::vector<std::string> headersPaths;
+    std::istringstream ss(headersArg);
+    std::string item;
+
+    while (std::getline(ss, item, ';')) {
+        headersPaths.emplace_back(item);
+    }
+
+    std::vector<EntDef> entDefs;
+    if (!fixedEntDefsPath.empty()) {
+        EntDefParser::parse(fixedEntDefsPath, entDefs);
+    }
+
+    for (const auto& path : headersPaths) {
+        processHeader(path, entDefs);
+    }
+
+    return entDefs;
 }
 
 void InitCommandLineArgs(argparse::ArgumentParser& program) {

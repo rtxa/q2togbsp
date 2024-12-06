@@ -2,13 +2,14 @@
 
 #include "structures/GenesisMap.h"
 #include "structures/QuakeMap.h"
+#include "typeparser/EntDef.h"
 
 class QuakeToGenesis {
    public:
     /*
      * Converts a QuakeMap to GenesisMap.
      */
-    GenesisMap convert(const QuakeMap& qMap);
+    GenesisMap convert(const QuakeMap& qMap, std::vector<EntDef>& entDefs);
 
    private:
     /*
@@ -38,7 +39,13 @@ class QuakeToGenesis {
                                    Vector3f& uVec,
                                    Vector3f& vVec);
 
-    bool convertEnt(const QuakeEntity& qEnt, GenesisEntity& gEnt);
+    bool convertEnt(const QuakeEntity& qEnt,
+                    GenesisEntity& gEnt,
+                    const std::vector<EntDef>& entDefs);
+
+    void updateEntFromDefinition(const QuakeEntity& qEnt,
+                                 GenesisEntity& gEnt,
+                                 const EntDef& entDef);
 
     /*
      * Generates an unique name for the entity classname:
