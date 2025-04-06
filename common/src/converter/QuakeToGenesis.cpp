@@ -5,6 +5,7 @@
 #include <fmt/format.h>
 #include <algorithm>
 #include <cctype>
+#include <cmath>
 #include <iostream>
 #include <optional>
 
@@ -187,6 +188,17 @@ bool isPropertyStruct(const EntDefProp& prop) {
     return true;
 }
 
+bool parseVector(const std::string& input, Vector3f& vector) {
+    auto st = StringTokenizer(input);
+    if (st.countTokens() < 3) {
+        return false;
+    }
+    vector.x = st.nextTokenFloat();
+    vector.y = st.nextTokenFloat();
+    vector.z = st.nextTokenFloat();
+    return true;
+}
+
 bool QuakeToGenesis::convertEnt(const QuakeEntity& qEnt,
                                 GenesisEntity& gEnt,
                                 const std::vector<EntDef>& entDefs) {
@@ -238,6 +250,78 @@ bool QuakeToGenesis::convertEnt(const QuakeEntity& qEnt,
 
     return true;
 }
+// clang-format off
+struct Matrix3x3 {
+    float m[3][3];
+
+    // Constructor to initialize the rotation matrix for Z-up to Y-up
+    Matrix3x3() {
+        // This matrix rotates around the X-axis (pitch)
+        m[0][0] = 1.0f;     m[0][1] = 0.0f;      m[0][2] = 0.0f;
+        m[1][0] = 0.0f;     m[1][1] = 0.0f;      m[1][2] = -1.0f; // Swap Y and Z
+        m[2][0] = 0.0f;     m[2][1] = 1.0f;      m[2][2] = 0.0f;
+    }
+    
+    // Multiply a vector by the matrix
+    Vector3f operator*(const Vector3f& v) const {
+        Vector3f result;
+        result.x = m[0][0] * v.x + m[0][1] * v.y + m[0][2] * v.z;
+        result.y = m[1][0] * v.x + m[1][1] * v.y + m[1][2] * v.z;
+        result.z = m[2][0] * v.x + m[2][1] * v.y + m[2][2] * v.z;
+        return result;
+    }
+};
+// clang-format on
+
+// Vector3f convertZUpToYUp(const Vector3f& zUpAngles) {
+//     float zPitch = zUpAngles.y;  // Pitch around Y
+//     float zYaw = zUpAngles.x;    // Yaw around Z
+//     float zRoll = zUpAngles.z;   // Roll around X
+
+//     // Convert to Y-up angles
+//     float yUpPitch = -zYaw;  // Pitch becomes -Yaw
+//     float yUpYaw = zPitch;   // Yaw becomes Pitch
+//     float yUpRoll = zRoll;   // Roll remains the same
+
+//     return Vector3f(yUpYaw, yUpPitch, yUpRoll);
+// }
+
+Vector3f multiplyMatrix(const float matrix[3][3], const Vector3f& vector) {
+    Vector3f result;
+    result.x = matrix[0][0] * vector.x + matrix[0][1] * vector.y +
+               matrix[0][2] * vector.z;
+    result.y = matrix[1][0] * vector.x + matrix[1][1] * vector.y +
+               matrix[1][2] * vector.z;
+    result.z = matrix[2][0] * vector.x + matrix[2][1] * vector.y +
+               matrix[2][2] * vector.z;
+    return result;
+}
+
+// Function to convert Z-UP to Y-UP
+Vector3f convertZUpToYUp(const Vector3f& angles) {
+    // Convert degrees to radians
+    float pitchRad = Vector3f::toRadians(angles.x);
+    float yawRad = Vector3f::toRadians(angles.y);
+    float rollRad = Vector3f::toRadians(angles.z);
+
+    // Rotation matrix for converting Z-UP to Y-UP (Z, Y, -X)
+    float rotationMatrix[3][3] = {
+        {0, 0, 1},   // New pitch
+        {0, 1, 0},   // Roll inverted
+        {-1, 0, 0},  // Yaw remains the same
+    };
+
+    // Original rotation vector
+    Vector3f original(pitchRad, yawRad, rollRad);
+
+    // Apply the rotation
+    Vector3f rotated = multiplyMatrix(rotationMatrix, original);
+
+    // Convert back to degrees
+    return Vector3f(Vector3f::toDegrees(rotated.x),
+                    Vector3f::toDegrees(rotated.y),
+                    Vector3f::toDegrees(rotated.z));
+}
 
 void QuakeToGenesis::updateEntFromDefinition(const QuakeEntity& qEnt,
                                              GenesisEntity& gEnt,
@@ -278,14 +362,29 @@ void QuakeToGenesis::updateEntFromDefinition(const QuakeEntity& qEnt,
         if (prop.isOrigin) {
             Vector3f origin;
             if (convertCoords(qEnt.properties().at("origin"), origin)) {
-                gEnt.insertKeyValue(prop.name, fmt::format("{} {} {}", origin.x,
-                                                           origin.y, origin.z));
+                gEnt.insertKeyValue(prop.name, origin.toString());
             }
             continue;
-        }
+        } else if (prop.name == "ActorRotation" || prop.name == "Orientation" ||
+                   prop.name == "Orientacion" || prop.name == "Orientacion_1" ||
+                   prop.name == "Orientacion_3" || prop.name == "angles" ||
+                   prop.name == "Angles" || prop.name == "Angle" ||
+                   prop.name == "Angulo") {
+            // Hardcoded conversion of rotation for now
+            if (prop.type == EntDefType::Point) {
+                Vector3f angles;
+                parseVector(qEnt.properties().at(prop.name), angles);
+                gEnt.insertKeyValue(prop.name,
+                                    convertZUpToYUp(angles).toString());
 
-        // Add property
-        gEnt.insertKeyValue(prop.name, qEnt.properties().at(prop.name));
+            } else if (prop.type == EntDefType::Float ||
+                       prop.type == EntDefType::GeFloat) {
+                // Float angle
+                gEnt.insertKeyValue(prop.name, qEnt.properties().at(prop.name));
+            }
+        } else {  // Normal property, no conversion need it
+            gEnt.insertKeyValue(prop.name, qEnt.properties().at(prop.name));
+        }
     }
 }
 
@@ -302,13 +401,8 @@ std::string QuakeToGenesis::getNameForEntity(const std::string& classname) {
 
 bool QuakeToGenesis::convertCoords(const std::string& origin,
                                    Vector3f& vector) {
-    StringTokenizer st = StringTokenizer(origin);
-
-    if (st.countTokens() < 3) {
-        return false;
-    }
-    Vector3f temp = {st.nextTokenFloat(), st.nextTokenFloat(),
-                     st.nextTokenFloat()};
+    Vector3f temp;
+    parseVector(origin, temp);
     vector.x = temp.x;
     vector.y = temp.z;
     vector.z = -temp.y;

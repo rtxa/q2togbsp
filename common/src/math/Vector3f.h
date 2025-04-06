@@ -36,4 +36,9 @@ class Vector3f {
     bool almostEqual(const Vector3f& other, float tolerance) const;
 
     std::string toString() const;
+    Vector3f operator*(const float matrix[3][3]) const;
+
+    static float toDegrees(float radians);
+    static float toRadians(float degrees);
 };
+

@@ -63,6 +63,23 @@ bool Vector3f::almostEqual(const Vector3f& other, float tolerance) const {
            std::fabs(z - other.z) < tolerance;
 }
 
+// Overloading the multiplication operator for matrix-vector multiplication
+Vector3f Vector3f::operator*(const float matrix[3][3]) const {
+    return Vector3f(matrix[0][0] * x + matrix[0][1] * y + matrix[0][2] * z,
+                    matrix[1][0] * x + matrix[1][1] * y + matrix[1][2] * z,
+                    matrix[2][0] * x + matrix[2][1] * y + matrix[2][2] * z);
+}
+
+// Function to convert radians to degrees
+float Vector3f::toDegrees(float radians) {
+    const float M_PI = 3.141592741f;
+    return radians * (180.0f / M_PI);
+}
+float Vector3f::toRadians(float degrees) {
+    const float M_PI = 3.141592741f;
+    return degrees * (M_PI / 180.0f);
+}
+
 std::string Vector3f::toString() const {
     return fmt::format("{} {} {}", x, y, z);
 }
